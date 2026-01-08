@@ -1079,6 +1079,120 @@
       background: var(--border-light);
     }
 
+    /* Multi-page badge on cards */
+    .multi-page-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--accent);
+      color: var(--bg-primary);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      z-index: 5;
+    }
+
+    /* Image page indicator in modal */
+    .image-page-indicator {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 8px 12px;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    .image-page-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .image-page-dot.active {
+      background: var(--accent);
+      transform: scale(1.3);
+    }
+
+    .image-page-dot:hover {
+      background: var(--text-secondary);
+    }
+
+    .image-page-dot.active:hover {
+      background: var(--accent);
+    }
+
+    .image-page-text {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+
+    /* Image nav buttons for multi-page */
+    .modal-image-nav-inner {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+
+    .modal-image-nav-inner:hover {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .modal-image-nav-inner.prev { left: 60px; }
+    .modal-image-nav-inner.next { right: 60px; }
+
+    .modal-image-nav-inner:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .modal-image-nav-inner:disabled:hover {
+      background: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    /* Merge info badge */
+    .merge-info-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--accent-glow);
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .validation-warning {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      color: var(--danger);
+    }
+
     /* Responsive */
     @media (max-width: 1200px) {
       .sidebar {
@@ -1436,6 +1550,7 @@
       amountMax: null
     };
     let currentModalIndex = 0;
+    let currentImageIndex = 0; // For multi-image invoices
 
     // ==================== CSV PARSING ====================
     function parseCSV(text) {
@@ -1522,7 +1637,8 @@
     }
 
     function processInvoice(row) {
-      const ocr = parseOCR(row.OCR);
+      // Prefer postProcessOCR if available, otherwise use OCR
+      const ocr = parseOCR(row.postProcessOCR) || parseOCR(row.OCR);
       const fileId = row['File ID'];
       // Prefer larger Google Drive image, fall back to Airtable thumbnail
       const thumbnailUrl = getGoogleDriveLargeImageUrl(fileId) || extractThumbnailUrl(row.Thumbnail);
@@ -1622,6 +1738,319 @@
         // Keep raw OCR for detail view
         rawOCR: ocr
       };
+    }
+
+    // ==================== POST-PROCESSING: MULTI-PAGE MERGE ====================
+
+    // Normalize vendor names for comparison (ESA variations should match)
+    function normalizeVendorName(name) {
+      if (!name) return '';
+      const normalized = name.toLowerCase().trim();
+      // Treat ESA variations as the same vendor
+      if (normalized.includes('extended stay') || normalized.includes('esa management') || normalized.includes('esa suites')) {
+        return 'esa';
+      }
+      return normalized;
+    }
+
+    // Check if two invoices might be from the same vendor
+    function isSameVendor(vendor1, vendor2) {
+      return normalizeVendorName(vendor1) === normalizeVendorName(vendor2);
+    }
+
+    // Deduplicate line items based on date + description + amount
+    function deduplicateLineItems(items) {
+      const seen = new Set();
+      return items.filter(item => {
+        const key = `${item.date || ''}|${item.description || ''}|${item.amount || 0}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
+    // Merge multiple pages into a single invoice
+    function mergePages(pages) {
+      if (pages.length === 0) return null;
+      if (pages.length === 1) {
+        const page = pages[0];
+        return {
+          ...page,
+          merge_info: {
+            page_count: 1,
+            source_pages: [page.rawOCR?.meta_source_page || 0],
+            was_merged: false,
+            merge_reasoning: 'Single-page invoice'
+          },
+          all_pages: [page],
+          all_thumbnails: [page.thumbnailUrl],
+          all_file_ids: [page.id],
+          all_drive_urls: [page.driveUrl]
+        };
+      }
+
+      // Find the page with grand total for invoice_total
+      const pageWithTotal = pages.find(p => p.rawOCR?.meta_has_grand_total && p.invoice_total > 0) || pages[0];
+
+      // Collect all line items and deduplicate
+      const allLineItems = [];
+      pages.forEach(p => {
+        if (p.line_items && p.line_items.length > 0) {
+          allLineItems.push(...p.line_items);
+        }
+      });
+      const mergedLineItems = deduplicateLineItems(allLineItems);
+
+      // Collect all confirmation numbers
+      const allConfirmations = new Set();
+      pages.forEach(p => {
+        if (p.confirmation_numbers) {
+          p.confirmation_numbers.forEach(c => allConfirmations.add(c));
+        }
+      });
+
+      // Collect all cost allocations
+      const allCostAllocations = new Set();
+      pages.forEach(p => {
+        if (p.cost_allocations) {
+          p.cost_allocations.forEach(c => allCostAllocations.add(typeof c === 'string' ? c : JSON.stringify(c)));
+        }
+      });
+
+      // Find first page with header info (vendor_id, bu_code, etc.)
+      const headerPage = pages.find(p => p.vendor_id || p.bu_code || p.processor_name) || pages[0];
+
+      // Source page numbers
+      const sourcePages = pages.map(p => p.rawOCR?.meta_source_page || 0).sort((a, b) => a - b);
+
+      // Merge reasoning
+      const reasonParts = [];
+      if (pages.some(p => p.rawOCR?.meta_is_continuation_page)) {
+        reasonParts.push('Contains continuation pages');
+      }
+      if (pages.some(p => p.rawOCR?.meta_has_grand_total)) {
+        const totalPage = pages.find(p => p.rawOCR?.meta_has_grand_total);
+        reasonParts.push(`Grand total on page ${totalPage?.rawOCR?.meta_source_page}`);
+      }
+      reasonParts.push(`Pages ${sourcePages.join(', ')}`);
+
+      return {
+        // Use header page for identification
+        id: headerPage.id,
+        name: headerPage.name,
+        filePath: headerPage.filePath,
+        driveUrl: headerPage.driveUrl,
+        thumbnailUrl: pages[0].thumbnailUrl, // First page thumbnail for preview
+        created: headerPage.created,
+        modified: headerPage.modified,
+        fileSize: pages.reduce((sum, p) => sum + (p.fileSize || 0), 0),
+
+        // OCR metadata
+        meta_confidence: Math.max(...pages.map(p => p.meta_confidence || 0)),
+        meta_invoice_type: headerPage.meta_invoice_type,
+        meta_notes: pages.flatMap(p => p.meta_notes || []),
+
+        // Invoice identifiers - from header page or page with grand total
+        invoice_number: headerPage.invoice_number !== 'N/A' ? headerPage.invoice_number : pageWithTotal.invoice_number,
+        invoice_date: headerPage.invoice_date || pageWithTotal.invoice_date,
+        due_date: headerPage.due_date || pageWithTotal.due_date,
+
+        // Vendor information
+        vendor_name: headerPage.vendor_name || pageWithTotal.vendor_name,
+        vendor_id: headerPage.vendor_id || pageWithTotal.vendor_id,
+        vendor_address: headerPage.vendor_address || pageWithTotal.vendor_address,
+        vendor_phone: headerPage.vendor_phone || pageWithTotal.vendor_phone,
+        vendor_email: headerPage.vendor_email || pageWithTotal.vendor_email,
+
+        // Payer information
+        payer_name: headerPage.payer_name || pageWithTotal.payer_name,
+        payer_address: headerPage.payer_address || pageWithTotal.payer_address,
+
+        // Accounting - from header page
+        bu_code: headerPage.bu_code || pageWithTotal.bu_code,
+        processor_name: headerPage.processor_name || pageWithTotal.processor_name,
+        processor_date: headerPage.processor_date || pageWithTotal.processor_date,
+
+        // Financial amounts - from page with grand total
+        invoice_total: pageWithTotal.invoice_total,
+        amount_paid: pageWithTotal.amount_paid,
+        amount_due: pageWithTotal.amount_due,
+        taxes: pageWithTotal.taxes,
+
+        // Service details
+        service_start: pages.map(p => p.service_start).filter(Boolean).sort()[0] || null,
+        service_end: pages.map(p => p.service_end).filter(Boolean).sort().pop() || null,
+        service_description: headerPage.service_description || pageWithTotal.service_description,
+
+        // Property
+        property_name: headerPage.property_name || pageWithTotal.property_name,
+        property_address: headerPage.property_address || pageWithTotal.property_address,
+        unit_count: Math.max(...pages.map(p => p.unit_count || 0)),
+
+        // Merged arrays
+        line_items: mergedLineItems,
+        cost_allocations: [...allCostAllocations].map(c => {
+          try { return JSON.parse(c); } catch { return c; }
+        }),
+        confirmation_numbers: [...allConfirmations],
+        employee_names: [...new Set(pages.flatMap(p => p.employee_names || []))],
+        reference_numbers: [...new Set(pages.flatMap(p => p.reference_numbers || []))],
+
+        // Keep raw OCR from first page
+        rawOCR: headerPage.rawOCR,
+
+        // Merge info
+        merge_info: {
+          page_count: pages.length,
+          source_pages: sourcePages,
+          was_merged: true,
+          merge_reasoning: reasonParts.join(', ')
+        },
+
+        // All pages data for multi-image viewing
+        all_pages: pages,
+        all_thumbnails: pages.map(p => p.thumbnailUrl).filter(Boolean),
+        all_file_ids: pages.map(p => p.id).filter(Boolean),
+        all_drive_urls: pages.map(p => p.driveUrl).filter(Boolean)
+      };
+    }
+
+    // Main post-processing function to merge multi-page invoices
+    function postProcessInvoices(rawInvoices) {
+      if (!rawInvoices || rawInvoices.length === 0) return [];
+
+      // Sort by source page number
+      const sorted = [...rawInvoices].sort((a, b) => {
+        const pageA = a.rawOCR?.meta_source_page || 0;
+        const pageB = b.rawOCR?.meta_source_page || 0;
+        return pageA - pageB;
+      });
+
+      const mergedInvoices = [];
+      let currentGroup = [];
+
+      for (let i = 0; i < sorted.length; i++) {
+        const current = sorted[i];
+        const currentPage = current.rawOCR?.meta_source_page || 0;
+        const isContinuation = current.rawOCR?.meta_is_continuation_page === true;
+        const isFullInvoice = current.rawOCR?.meta_is_full_invoice === true;
+        const hasGrandTotal = current.rawOCR?.meta_has_grand_total === true;
+        const invoiceTotal = current.invoice_total || 0;
+
+        if (currentGroup.length === 0) {
+          // Start new group
+          currentGroup.push(current);
+        } else {
+          const prev = currentGroup[currentGroup.length - 1];
+          const prevPage = prev.rawOCR?.meta_source_page || 0;
+          const isConsecutive = currentPage === prevPage + 1;
+
+          // Determine if we should merge with previous group
+          let shouldMerge = false;
+          let mergeReason = '';
+
+          // STRONG signals to MERGE
+          if (isContinuation && isConsecutive && isSameVendor(current.vendor_name, prev.vendor_name)) {
+            shouldMerge = true;
+            mergeReason = 'Continuation page, consecutive, same vendor';
+          } else if (isConsecutive && isSameVendor(current.vendor_name, prev.vendor_name) && !hasGrandTotal && invoiceTotal === 0) {
+            shouldMerge = true;
+            mergeReason = 'Consecutive, same vendor, no grand total';
+          } else if (current.invoice_number && current.invoice_number !== 'N/A' &&
+                     prev.invoice_number === current.invoice_number &&
+                     isSameVendor(current.vendor_name, prev.vendor_name)) {
+            shouldMerge = true;
+            mergeReason = 'Same invoice number and vendor';
+          } else if (isContinuation && !current.vendor_id && !current.bu_code && isConsecutive) {
+            // Continuation page missing header info, likely continues previous
+            const firstInGroup = currentGroup[0];
+            if (isSameVendor(current.vendor_name, firstInGroup.vendor_name)) {
+              shouldMerge = true;
+              mergeReason = 'Continuation missing header info';
+            }
+          }
+
+          // STRONG signals to NOT MERGE (override)
+          if (shouldMerge) {
+            // Different invoice numbers (both present and different)
+            if (current.invoice_number && current.invoice_number !== 'N/A' &&
+                prev.invoice_number && prev.invoice_number !== 'N/A' &&
+                current.invoice_number !== prev.invoice_number) {
+              // Check if first page of group has same invoice number
+              const firstInGroup = currentGroup[0];
+              if (firstInGroup.invoice_number !== current.invoice_number) {
+                shouldMerge = false;
+                mergeReason = 'Different invoice numbers';
+              }
+            }
+            // Both pages have grand total - separate invoices
+            if (hasGrandTotal && prev.rawOCR?.meta_has_grand_total && invoiceTotal > 0 && prev.invoice_total > 0) {
+              shouldMerge = false;
+              mergeReason = 'Both have grand totals';
+            }
+            // Full invoice starting
+            if (isFullInvoice && hasGrandTotal && !isContinuation) {
+              shouldMerge = false;
+              mergeReason = 'New full invoice';
+            }
+            // Not same vendor family
+            if (!isSameVendor(current.vendor_name, currentGroup[0].vendor_name)) {
+              shouldMerge = false;
+              mergeReason = 'Different vendor';
+            }
+            // Page gap > 1
+            if (!isConsecutive && currentPage > prevPage + 1) {
+              shouldMerge = false;
+              mergeReason = 'Non-consecutive pages';
+            }
+          }
+
+          if (shouldMerge) {
+            currentGroup.push(current);
+
+            // If this page has grand total, it's likely the last page of the invoice
+            if (hasGrandTotal && invoiceTotal > 0) {
+              // Complete this group
+              mergedInvoices.push(mergePages(currentGroup));
+              currentGroup = [];
+            }
+          } else {
+            // Complete previous group and start new one
+            if (currentGroup.length > 0) {
+              mergedInvoices.push(mergePages(currentGroup));
+            }
+            currentGroup = [current];
+          }
+        }
+      }
+
+      // Don't forget the last group
+      if (currentGroup.length > 0) {
+        mergedInvoices.push(mergePages(currentGroup));
+      }
+
+      // Validate merged invoices
+      return mergedInvoices.map(inv => {
+        const issues = [];
+
+        if (!inv.invoice_total || inv.invoice_total === 0) {
+          issues.push('MISSING_TOTAL');
+        }
+
+        if (inv.line_items && inv.line_items.length > 0 && inv.invoice_total > 0) {
+          const lineSum = inv.line_items.reduce((sum, item) => sum + (item.amount || 0), 0);
+          const diff = Math.abs(lineSum - inv.invoice_total);
+          if (diff > 5 && diff / inv.invoice_total > 0.01) { // More than $5 and 1% difference
+            issues.push('MATH_MISMATCH');
+          }
+        }
+
+        if (issues.length > 0) {
+          inv.merge_info.validation_issues = issues;
+        }
+
+        return inv;
+      });
     }
 
     // ==================== FILTERING ====================
@@ -1738,7 +2167,8 @@
       container.innerHTML = `<div class="invoice-grid">${filteredInvoices.map((inv, idx) => `
         <div class="invoice-card" data-index="${idx}">
           <div class="invoice-thumb">
-            ${inv.thumbnailUrl 
+            ${inv.merge_info?.page_count > 1 ? `<div class="multi-page-badge">${inv.merge_info.page_count} pages</div>` : ''}
+            ${inv.thumbnailUrl
               ? `<img src="${inv.thumbnailUrl}" alt="${inv.vendor_name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'invoice-thumb-placeholder\\'><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'2\\'><path d=\\'M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z\\'/><polyline points=\\'14,2 14,8 20,8\\'/></svg><span>No preview</span></div>'">`
               : `<div class="invoice-thumb-placeholder">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1780,7 +2210,8 @@
       container.innerHTML = `<div class="invoice-list">
         ${filteredInvoices.map((inv, idx) => `
           <div class="invoice-row" data-index="${idx}">
-            <div class="invoice-row-thumb">
+            <div class="invoice-row-thumb" style="position: relative;">
+              ${inv.merge_info?.page_count > 1 ? `<div class="multi-page-badge" style="top: 2px; right: 2px; font-size: 0.6rem; padding: 1px 4px;">${inv.merge_info.page_count}p</div>` : ''}
               ${inv.thumbnailUrl ? `<img src="${inv.thumbnailUrl}" alt="" loading="lazy">` : ''}
             </div>
             <div>
@@ -2023,13 +2454,95 @@
     }
 
     // ==================== MODAL ====================
+    function updateModalImage(inv, imageUrls, imageIndex) {
+      const imageSection = document.querySelector('.modal-image-section');
+      const modalImage = document.getElementById('modal-image');
+
+      // Update main image
+      if (imageUrls.length > 0 && imageUrls[imageIndex]) {
+        modalImage.src = imageUrls[imageIndex];
+        modalImage.style.display = 'block';
+      } else {
+        modalImage.src = '';
+        modalImage.style.display = 'none';
+      }
+
+      // Remove existing page indicator
+      const existingIndicator = imageSection.querySelector('.image-page-indicator');
+      if (existingIndicator) existingIndicator.remove();
+
+      // Remove existing inner nav buttons
+      const existingInnerPrev = imageSection.querySelector('.modal-image-nav-inner.prev');
+      const existingInnerNext = imageSection.querySelector('.modal-image-nav-inner.next');
+      if (existingInnerPrev) existingInnerPrev.remove();
+      if (existingInnerNext) existingInnerNext.remove();
+
+      // Add page indicator and inner navigation for multi-page invoices
+      if (imageUrls.length > 1) {
+        // Add page indicator dots
+        const indicator = document.createElement('div');
+        indicator.className = 'image-page-indicator';
+        indicator.innerHTML = `
+          <span class="image-page-text">${imageIndex + 1} / ${imageUrls.length}</span>
+          ${imageUrls.map((_, i) =>
+            `<div class="image-page-dot ${i === imageIndex ? 'active' : ''}" data-image-idx="${i}"></div>`
+          ).join('')}
+        `;
+        imageSection.appendChild(indicator);
+
+        // Add click handlers for dots
+        indicator.querySelectorAll('.image-page-dot').forEach(dot => {
+          dot.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const idx = parseInt(dot.dataset.imageIdx);
+            currentImageIndex = idx;
+            updateModalImage(inv, imageUrls, idx);
+          });
+        });
+
+        // Add inner navigation buttons for multi-page
+        const innerPrev = document.createElement('button');
+        innerPrev.className = 'modal-image-nav-inner prev';
+        innerPrev.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>';
+        innerPrev.disabled = imageIndex === 0;
+        innerPrev.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (currentImageIndex > 0) {
+            currentImageIndex--;
+            updateModalImage(inv, imageUrls, currentImageIndex);
+          }
+        });
+
+        const innerNext = document.createElement('button');
+        innerNext.className = 'modal-image-nav-inner next';
+        innerNext.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>';
+        innerNext.disabled = imageIndex === imageUrls.length - 1;
+        innerNext.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (currentImageIndex < imageUrls.length - 1) {
+            currentImageIndex++;
+            updateModalImage(inv, imageUrls, currentImageIndex);
+          }
+        });
+
+        imageSection.appendChild(innerPrev);
+        imageSection.appendChild(innerNext);
+      }
+    }
+
     function openModal(index) {
       currentModalIndex = index;
+      currentImageIndex = 0; // Reset to first image
       const inv = filteredInvoices[index];
-      
+
       document.getElementById('modal-title').textContent = inv.vendor_name;
-      document.getElementById('modal-image').src = inv.thumbnailUrl || '';
-      document.getElementById('modal-image').style.display = inv.thumbnailUrl ? 'block' : 'none';
+
+      // Get image URLs
+      const imageUrls = inv.all_thumbnails && inv.all_thumbnails.length > 0
+        ? inv.all_thumbnails
+        : [inv.thumbnailUrl].filter(Boolean);
+
+      updateModalImage(inv, imageUrls, 0);
       
       const details = document.getElementById('modal-details');
       details.innerHTML = `
@@ -2254,8 +2767,44 @@
           </div>
           ` : ''}
         </div>
+
+        ${inv.merge_info ? `
+        <div class="detail-section">
+          <div class="detail-section-title">Page Information</div>
+          <div class="detail-row">
+            <span class="detail-label">Pages</span>
+            <span class="detail-value">
+              ${inv.merge_info.was_merged
+                ? `<span class="merge-info-badge">${inv.merge_info.page_count} pages merged</span>`
+                : '<span class="merge-info-badge">Single page</span>'}
+            </span>
+          </div>
+          ${inv.merge_info.source_pages && inv.merge_info.source_pages.length > 0 ? `
+          <div class="detail-row">
+            <span class="detail-label">Source Pages</span>
+            <span class="detail-value mono">${inv.merge_info.source_pages.join(', ')}</span>
+          </div>
+          ` : ''}
+          ${inv.merge_info.was_merged && inv.merge_info.merge_reasoning ? `
+          <div class="detail-row">
+            <span class="detail-label">Merge Reason</span>
+            <span class="detail-value" style="font-size: 0.75rem">${inv.merge_info.merge_reasoning}</span>
+          </div>
+          ` : ''}
+          ${inv.merge_info.validation_issues && inv.merge_info.validation_issues.length > 0 ? `
+          <div class="detail-row">
+            <span class="detail-label">Warnings</span>
+            <span class="detail-value">
+              ${inv.merge_info.validation_issues.map(issue =>
+                `<span class="merge-info-badge validation-warning">${issue}</span>`
+              ).join(' ')}
+            </span>
+          </div>
+          ` : ''}
+        </div>
+        ` : ''}
       `;
-      
+
       document.getElementById('modal-overlay').classList.add('open');
     }
 
@@ -2522,8 +3071,72 @@
     // ==================== FILE LOADING ====================
     function loadCSV(text) {
       const rows = parseCSV(text);
-      // Process all rows and filter to only include records with valid OCR data
-      invoices = rows.map(processInvoice).filter(inv => inv.rawOCR !== null);
+
+      // Check if postProcessOCR column exists
+      const hasPostProcessOCR = rows.length > 0 && rows[0].postProcessOCR !== undefined;
+      console.log(`Data has postProcessOCR column: ${hasPostProcessOCR}`);
+
+      if (hasPostProcessOCR) {
+        // New workflow: use pre-processed data from CSV
+        // Group rows by their merged invoice to avoid duplicates
+        const invoiceMap = new Map();
+
+        rows.forEach(row => {
+          const postOcr = parseOCR(row.postProcessOCR);
+          if (!postOcr) return;
+
+          // Use the first source row as the key for the merged invoice
+          const firstSourceRow = postOcr.all_source_rows?.[0] || row.Number;
+          const invoiceKey = `${firstSourceRow}-${postOcr.invoice_number || 'N/A'}`;
+
+          if (!invoiceMap.has(invoiceKey)) {
+            // First time seeing this invoice, create the entry
+            const invoice = processInvoice(row);
+            if (invoice.rawOCR) {
+              // Add merge_info and all_* fields from postProcessOCR
+              invoice.merge_info = postOcr.merge_info || {
+                page_count: 1,
+                source_pages: [postOcr.meta_source_page || 0],
+                was_merged: false,
+                merge_reasoning: 'Single-page invoice'
+              };
+              invoice.all_source_file_ids = postOcr.all_source_file_ids || [row['File ID']];
+              invoice.all_source_rows = postOcr.all_source_rows || [row.Number];
+
+              // Build all_thumbnails from all source file IDs
+              invoice.all_thumbnails = invoice.all_source_file_ids.map(fid => getGoogleDriveLargeImageUrl(fid));
+              invoice.all_drive_urls = invoice.all_source_file_ids.map(fid =>
+                `https://drive.google.com/file/d/${fid}/view?usp=drivesdk`
+              );
+
+              invoiceMap.set(invoiceKey, invoice);
+            }
+          } else if (postOcr.merge_info?.was_merged) {
+            // This row is part of a merged invoice we already added
+            // Just add its thumbnail to the list
+            const existing = invoiceMap.get(invoiceKey);
+            if (existing && !existing.all_thumbnails.includes(getGoogleDriveLargeImageUrl(row['File ID']))) {
+              // The thumbnails should already be populated from all_source_file_ids
+            }
+          }
+        });
+
+        invoices = [...invoiceMap.values()];
+        console.log(`Loaded ${invoices.length} unique invoices from pre-processed data`);
+
+        const mergedCount = invoices.filter(inv => inv.merge_info?.was_merged).length;
+        console.log(`${mergedCount} invoices were merged from multiple pages`);
+
+      } else {
+        // Legacy workflow: use in-browser post-processing
+        const rawInvoices = rows.map(processInvoice).filter(inv => inv.rawOCR !== null);
+        invoices = postProcessInvoices(rawInvoices);
+        console.log(`Post-processing: ${rawInvoices.length} pages merged into ${invoices.length} invoices`);
+
+        const mergedCount = invoices.filter(inv => inv.merge_info?.was_merged).length;
+        console.log(`${mergedCount} invoices were merged from multiple pages`);
+      }
+
       filteredInvoices = [...invoices];
 
       updateStats();
