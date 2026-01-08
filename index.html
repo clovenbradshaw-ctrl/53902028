@@ -1691,6 +1691,16 @@
                 By Month
                 <span class="export-desc">Timeline</span>
               </div>
+              <div class="export-menu-divider"></div>
+              <div class="export-menu-item" data-export="drive-files">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  <line x1="12" y1="11" x2="12" y2="17"/>
+                  <polyline points="9,14 12,17 15,14"/>
+                </svg>
+                Download All Files
+                <span class="export-desc">Google Drive URLs</span>
+              </div>
             </div>
           </div>
         </div>
@@ -3723,6 +3733,52 @@
       downloadFile(jsonContent, getExportFilename('_by_month.json'), 'application/json');
     }
 
+    function exportDriveDownloadLinks() {
+      // Collect all unique file IDs from filtered invoices
+      const fileIdSet = new Set();
+      const fileInfo = [];
+
+      filteredInvoices.forEach(inv => {
+        // Get all source file IDs if this is a merged invoice
+        const fileIds = inv.all_source_file_ids || [inv.fileId];
+        fileIds.forEach(fid => {
+          if (fid && !fileIdSet.has(fid)) {
+            fileIdSet.add(fid);
+            fileInfo.push({
+              fileId: fid,
+              name: inv.name,
+              vendor: inv.vendor_name,
+              invoiceNumber: inv.invoice_number
+            });
+          }
+        });
+      });
+
+      // Generate download URLs in multiple formats
+      const lines = [
+        '# Google Drive Bulk Download Links',
+        `# Generated: ${new Date().toISOString()}`,
+        `# Total files: ${fileInfo.length}`,
+        '#',
+        '# Instructions:',
+        '# 1. Use a download manager that supports batch URL imports (e.g., Free Download Manager, JDownloader)',
+        '# 2. Import this file or copy the URLs below',
+        '# 3. Alternatively, paste URLs into browser one at a time',
+        '#',
+        '# ========== DIRECT DOWNLOAD LINKS ==========',
+        ''
+      ];
+
+      fileInfo.forEach(file => {
+        lines.push(`# ${file.vendor} - Invoice ${file.invoiceNumber}`);
+        lines.push(`https://drive.google.com/uc?export=download&id=${file.fileId}`);
+        lines.push('');
+      });
+
+      const content = lines.join('\n');
+      downloadFile(content, getExportFilename('_drive_downloads.txt'), 'text/plain');
+    }
+
     function handleExport(type) {
       switch (type) {
         case 'csv':
@@ -3739,6 +3795,9 @@
           break;
         case 'monthly-summary':
           exportMonthlySummary();
+          break;
+        case 'drive-files':
+          exportDriveDownloadLinks();
           break;
       }
       // Close dropdown after export
