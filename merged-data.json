@@ -8,7 +8,7 @@
       "LEDGER": "Authoritative data from Metro Nashville financial system - use for amounts, dates, vendor IDs",
       "OCR": "Supplementary data from scanned invoice PDFs - provides line items, confirmation numbers, service details"
     },
-    "last_corrected": "2026-01-08T21:21:19.487Z",
+    "last_corrected": "2026-01-08T21:36:20.586Z",
     "corrections_applied": [
       "Split duplicate invoice numbers (9700274853, 9700283386)",
       "Replaced placeholder invoice numbers",

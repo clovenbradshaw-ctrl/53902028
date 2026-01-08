@@ -6,7 +6,7 @@
     "total_journals": 128,
     "total_invoice_amount": "1487377.16",
     "total_payroll_amount": "206592.65",
-    "last_corrected": "2026-01-08T21:21:19.483Z",
+    "last_corrected": "2026-01-08T21:36:20.580Z",
     "corrections_applied": [
       "Consolidated vendor IDs",
       "Normalized vendor names",
