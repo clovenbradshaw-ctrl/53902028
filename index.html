@@ -3674,9 +3674,9 @@
         'BU Code', 'Processor', 'Processor Date', 'File Name', 'Drive URL'
       ];
 
-      // Calculate total from line items if total_amount is missing
+      // Calculate total from line items if invoice_total is missing
       const getTotal = (inv) => {
-        if (inv.total_amount) return parseFloat(inv.total_amount) || 0;
+        if (inv.invoice_total) return parseFloat(inv.invoice_total) || 0;
         if (Array.isArray(inv.line_items) && inv.line_items.length > 0) {
           return inv.line_items.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0);
         }
@@ -3727,7 +3727,6 @@
         invoice_number: inv.invoice_number,
         invoice_date: inv.invoice_date,
         due_date: inv.due_date,
-        po_number: inv.po_number,
         vendor: {
           name: inv.vendor_name,
           id: inv.vendor_id,
@@ -3735,19 +3734,21 @@
           phone: inv.vendor_phone,
           email: inv.vendor_email
         },
-        invoice_type: inv.invoice_type,
+        invoice_type: inv.meta_invoice_type,
         amounts: {
-          total: inv.total_amount,
-          subtotal: inv.subtotal
+          total: inv.invoice_total,
+          amount_paid: inv.amount_paid,
+          amount_due: inv.amount_due,
+          taxes: inv.taxes
         },
         accounting: {
           bu_code: inv.bu_code,
           processor_name: inv.processor_name,
           processor_date: inv.processor_date,
-          payer_entity: inv.payer_entity
+          payer_name: inv.payer_name
         },
         metadata: {
-          confidence: inv.confidence,
+          confidence: inv.meta_confidence,
           file_name: inv.name,
           drive_url: inv.driveUrl
         }
@@ -3758,13 +3759,13 @@
     }
 
     function exportSummary() {
-      const totalAmount = filteredInvoices.reduce((sum, inv) => sum + (inv.total_amount || 0), 0);
+      const totalAmount = filteredInvoices.reduce((sum, inv) => sum + (inv.invoice_total || 0), 0);
       const vendors = new Set(filteredInvoices.map(inv => inv.vendor_name));
       const types = {};
       const processors = {};
 
       filteredInvoices.forEach(inv => {
-        types[inv.invoice_type] = (types[inv.invoice_type] || 0) + 1;
+        types[inv.meta_invoice_type] = (types[inv.meta_invoice_type] || 0) + 1;
         if (inv.processor_name) {
           processors[inv.processor_name] = (processors[inv.processor_name] || 0) + 1;
         }
@@ -3790,14 +3791,14 @@
         by_invoice_type: Object.entries(types).map(([type, count]) => ({
           type,
           count,
-          total: filteredInvoices.filter(inv => inv.invoice_type === type)
-            .reduce((sum, inv) => sum + (inv.total_amount || 0), 0)
+          total: filteredInvoices.filter(inv => inv.meta_invoice_type === type)
+            .reduce((sum, inv) => sum + (inv.invoice_total || 0), 0)
         })).sort((a, b) => b.total - a.total),
         by_processor: Object.entries(processors).map(([name, count]) => ({
           processor: name,
           count,
           total: filteredInvoices.filter(inv => inv.processor_name === name)
-            .reduce((sum, inv) => sum + (inv.total_amount || 0), 0)
+            .reduce((sum, inv) => sum + (inv.invoice_total || 0), 0)
         })).sort((a, b) => b.total - a.total)
       };
 
@@ -3819,12 +3820,12 @@
           };
         }
         vendorData[inv.vendor_name].invoice_count++;
-        vendorData[inv.vendor_name].total_amount += (inv.total_amount || 0);
+        vendorData[inv.vendor_name].total_amount += (inv.invoice_total || 0);
         vendorData[inv.vendor_name].invoices.push({
           invoice_number: inv.invoice_number,
           date: inv.invoice_date,
-          amount: inv.total_amount,
-          type: inv.invoice_type
+          amount: inv.invoice_total,
+          type: inv.meta_invoice_type
         });
       });
 
@@ -3850,9 +3851,9 @@
           };
         }
         monthlyData[month].invoice_count++;
-        monthlyData[month].total_amount += (inv.total_amount || 0);
+        monthlyData[month].total_amount += (inv.invoice_total || 0);
         monthlyData[month].vendors.add(inv.vendor_name);
-        monthlyData[month].by_type[inv.invoice_type] = (monthlyData[month].by_type[inv.invoice_type] || 0) + 1;
+        monthlyData[month].by_type[inv.meta_invoice_type] = (monthlyData[month].by_type[inv.meta_invoice_type] || 0) + 1;
       });
 
       const sortedMonths = Object.values(monthlyData)
