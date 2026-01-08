@@ -117,6 +117,34 @@ function isSameVendor(vendor1, vendor2) {
   return normalizeVendorName(vendor1) === normalizeVendorName(vendor2);
 }
 
+function datesOverlap(startA, endA, startB, endB) {
+  if (!startA || !endA || !startB || !endB) return null;
+  const aStart = new Date(startA);
+  const aEnd = new Date(endA);
+  const bStart = new Date(startB);
+  const bEnd = new Date(endB);
+  if ([aStart, aEnd, bStart, bEnd].some(d => Number.isNaN(d.getTime()))) return null;
+  return aStart <= bEnd && bStart <= aEnd;
+}
+
+function shouldAllowContinuationAfterTotal(prevOcr, currentOcr) {
+  const prevHasTotal = prevOcr?.meta_has_grand_total && (prevOcr?.invoice_total || 0) > 0;
+  if (!prevHasTotal) return true;
+  const currentHasTotal = currentOcr?.meta_has_grand_total || (currentOcr?.invoice_total || 0) > 0;
+  if (!currentOcr?.meta_is_continuation_page || currentHasTotal) return false;
+  const currentInvoice = currentOcr?.invoice_number;
+  const prevInvoice = prevOcr?.invoice_number;
+  if (currentInvoice && prevInvoice && currentInvoice !== prevInvoice) return false;
+  const overlap = datesOverlap(
+    prevOcr?.service_start,
+    prevOcr?.service_end,
+    currentOcr?.service_start,
+    currentOcr?.service_end
+  );
+  if (overlap === false) return false;
+  return true;
+}
+
 // ==================== LINE ITEM DEDUPLICATION ====================
 function deduplicateLineItems(items) {
   const seen = new Set();
@@ -334,6 +362,10 @@ function processInvoices(rows) {
         }
         // Both have grand totals
         if (hasGrandTotal && prevOcr?.meta_has_grand_total && invoiceTotal > 0 && (prevOcr?.invoice_total || 0) > 0) {
+          shouldMerge = false;
+        }
+        // Avoid merging a continuation page after a completed invoice unless it clearly matches
+        if (!shouldAllowContinuationAfterTotal(prevOcr, currentOcr)) {
           shouldMerge = false;
         }
         // Full invoice starting
