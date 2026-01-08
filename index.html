@@ -1,1 +1,2129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metro Nashville Invoice Viewer | BU 53902028</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0b;
+      --bg-secondary: #111113;
+      --bg-tertiary: #1a1a1d;
+      --bg-card: #16161a;
+      --border: #2a2a2e;
+      --border-light: #3a3a3e;
+      --text-primary: #e8e8e8;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666;
+      --accent: #f59e0b;
+      --accent-dim: #b45309;
+      --accent-glow: rgba(245, 158, 11, 0.15);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+      --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--bg-primary);
+    }
+
+    .logo-text {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-sub {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+
+    .header-stats {
+      display: flex;
+      gap: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.65rem;
+    }
+
+    /* Main Layout */
+    .main-container {
+      display: flex;
+      max-width: 1800px;
+      margin: 0 auto;
+      min-height: calc(100vh - 70px);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 320px;
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border);
+      padding: 1.5rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 70px);
+      position: sticky;
+      top: 70px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Search */
+    .search-box {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Filter Groups */
+    .filter-group {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+
+    .filter-header {
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .filter-header:hover {
+      background: var(--bg-card);
+    }
+
+    .filter-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filter-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--text-secondary);
+    }
+
+    .filter-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .filter-count {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: var(--bg-primary);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .filter-chevron {
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+
+    .filter-group.open .filter-chevron {
+      transform: rotate(180deg);
+    }
+
+    .filter-content {
+      display: none;
+      padding: 0.5rem;
+      border-top: 1px solid var(--border);
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .filter-group.open .filter-content {
+      display: block;
+    }
+
+    .filter-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-size: 0.8rem;
+    }
+
+    .filter-option:hover {
+      background: var(--bg-card);
+    }
+
+    .filter-option.active {
+      background: var(--accent-glow);
+      color: var(--accent);
+    }
+
+    .filter-option-count {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .filter-checkbox {
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--border-light);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .filter-option.active .filter-checkbox {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .filter-option.active .filter-checkbox::after {
+      content: '✓';
+      font-size: 10px;
+      color: var(--bg-primary);
+    }
+
+    /* Date Range */
+    .date-range {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .date-input {
+      flex: 1;
+      padding: 0.5rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+    }
+
+    .date-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    /* Amount Range */
+    .amount-range {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .amount-input {
+      flex: 1;
+      padding: 0.5rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      width: 100%;
+    }
+
+    .amount-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    /* Active Filters */
+    .active-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .active-filter-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      background: var(--accent-glow);
+      border: 1px solid var(--accent-dim);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    .active-filter-tag button {
+      background: none;
+      border: none;
+      color: var(--accent);
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .clear-filters {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      width: 100%;
+      transition: all 0.2s;
+    }
+
+    .clear-filters:hover {
+      background: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    /* Content Area */
+    .content {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .results-count {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .results-count strong {
+      color: var(--text-primary);
+    }
+
+    .view-toggles {
+      display: flex;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .view-toggle {
+      padding: 0.5rem 0.75rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+
+    .view-toggle:hover {
+      color: var(--text-secondary);
+    }
+
+    .view-toggle.active {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .view-toggle svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Pivot/Group By */
+    .pivot-select {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pivot-select label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .pivot-dropdown {
+      padding: 0.5rem 1rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .pivot-dropdown:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    /* Sort */
+    .sort-select {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sort-select label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Grid View */
+    .invoice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .invoice-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .invoice-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .invoice-thumb {
+      width: 100%;
+      height: 180px;
+      background: var(--bg-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .invoice-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .invoice-thumb-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .invoice-thumb-placeholder svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .invoice-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.2s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .invoice-card:hover .invoice-thumb-overlay {
+      opacity: 1;
+    }
+
+    .invoice-thumb-overlay span {
+      color: white;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .invoice-info {
+      padding: 1rem;
+    }
+
+    .invoice-vendor {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .invoice-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .invoice-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      background: var(--bg-tertiary);
+      border-radius: 4px;
+      color: var(--text-secondary);
+    }
+
+    .invoice-tag.amount {
+      background: var(--accent-glow);
+      color: var(--accent);
+    }
+
+    .invoice-tag.type {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--info);
+    }
+
+    .invoice-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* List View */
+    .invoice-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .invoice-row {
+      display: grid;
+      grid-template-columns: 60px 1fr 150px 120px 100px 80px;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .invoice-row:hover {
+      border-color: var(--accent-dim);
+      background: var(--bg-tertiary);
+    }
+
+    .invoice-row-thumb {
+      width: 60px;
+      height: 40px;
+      background: var(--bg-tertiary);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .invoice-row-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .invoice-row-vendor {
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .invoice-row-id {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .invoice-row-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .invoice-row-amount {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .invoice-row-type {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--info);
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    /* Pivot Groups */
+    .pivot-group {
+      margin-bottom: 2rem;
+    }
+
+    .pivot-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+
+    .pivot-group-header:hover {
+      border-color: var(--border-light);
+    }
+
+    .pivot-group-title {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pivot-group-stats {
+      display: flex;
+      gap: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .pivot-group-stat {
+      color: var(--text-secondary);
+    }
+
+    .pivot-group-stat strong {
+      color: var(--accent);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      max-width: 1200px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .modal-image-section {
+      flex: 1;
+      background: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      min-height: 400px;
+    }
+
+    .modal-image {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+
+    .modal-image-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-image-nav:hover {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .modal-image-nav.prev { left: 1rem; }
+    .modal-image-nav.next { right: 1rem; }
+
+    .modal-details {
+      width: 400px;
+      border-left: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 1.5rem;
+    }
+
+    .detail-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-section-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .detail-label {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    .detail-value {
+      font-weight: 500;
+      font-size: 0.85rem;
+      text-align: right;
+      max-width: 60%;
+      word-break: break-word;
+    }
+
+    .detail-value.mono {
+      font-family: var(--font-mono);
+    }
+
+    .detail-value.amount {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .detail-link {
+      color: var(--info);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .detail-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Loading State */
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      color: var(--text-secondary);
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 4rem;
+      color: var(--text-secondary);
+    }
+
+    .empty-state svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* Upload */
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 3rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin: 2rem;
+    }
+
+    .upload-zone:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .upload-zone svg {
+      width: 48px;
+      height: 48px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .upload-zone h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .upload-zone p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--border-light);
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .sidebar {
+        width: 280px;
+      }
+      .modal-details {
+        width: 350px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .main-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        max-height: none;
+        position: relative;
+        top: 0;
+      }
+      .modal-body {
+        flex-direction: column;
+      }
+      .modal-details {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+      .invoice-row {
+        grid-template-columns: 50px 1fr 100px;
+      }
+      .invoice-row-id,
+      .invoice-row-type,
+      .invoice-row-date {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">INV</div>
+        <div>
+          <div class="logo-text">Metro Nashville Invoice Viewer</div>
+          <div class="logo-sub">BU 53902028 • Office of Homeless Services</div>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat">
+          <div class="stat-value" id="total-invoices">--</div>
+          <div class="stat-label">Invoices</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="total-vendors">--</div>
+          <div class="stat-label">Vendors</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="total-amount">--</div>
+          <div class="stat-label">Total Amount</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="date-range">--</div>
+          <div class="stat-label">Date Range</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input type="text" class="search-input" id="search-input" placeholder="Search invoices...">
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Active Filters</div>
+        <div class="active-filters" id="active-filters"></div>
+        <button class="clear-filters" id="clear-filters">Clear All Filters</button>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Filter By</div>
+        
+        <div class="filter-group" data-filter="invoice_type">
+          <div class="filter-header">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                <polyline points="14,2 14,8 20,8"/>
+              </svg>
+              <span class="filter-name">Invoice Type</span>
+            </div>
+            <span class="filter-count" id="filter-count-invoice_type">0</span>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" id="filter-options-invoice_type"></div>
+        </div>
+
+        <div class="filter-group" data-filter="vendor">
+          <div class="filter-header">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9,22 9,12 15,12 15,22"/>
+              </svg>
+              <span class="filter-name">Vendor</span>
+            </div>
+            <span class="filter-count" id="filter-count-vendor">0</span>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" id="filter-options-vendor"></div>
+        </div>
+
+        <div class="filter-group" data-filter="processor">
+          <div class="filter-header">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <span class="filter-name">Processor</span>
+            </div>
+            <span class="filter-count" id="filter-count-processor">0</span>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" id="filter-options-processor"></div>
+        </div>
+
+        <div class="filter-group" data-filter="bu_code">
+          <div class="filter-header">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="7" height="7" x="3" y="3" rx="1"/>
+                <rect width="7" height="7" x="14" y="3" rx="1"/>
+                <rect width="7" height="7" x="14" y="14" rx="1"/>
+                <rect width="7" height="7" x="3" y="14" rx="1"/>
+              </svg>
+              <span class="filter-name">BU Code</span>
+            </div>
+            <span class="filter-count" id="filter-count-bu_code">0</span>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" id="filter-options-bu_code"></div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Date Range</div>
+        <div class="date-range">
+          <input type="date" class="date-input" id="date-from" placeholder="From">
+          <input type="date" class="date-input" id="date-to" placeholder="To">
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Amount Range</div>
+        <div class="amount-range">
+          <input type="number" class="amount-input" id="amount-min" placeholder="Min $">
+          <span style="color: var(--text-muted)">–</span>
+          <input type="number" class="amount-input" id="amount-max" placeholder="Max $">
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="results-count">
+            Showing <strong id="results-shown">0</strong> of <strong id="results-total">0</strong> invoices
+          </div>
+        </div>
+        <div class="toolbar-right" style="display: flex; gap: 1rem; align-items: center;">
+          <div class="pivot-select">
+            <label>Group by:</label>
+            <select class="pivot-dropdown" id="pivot-by">
+              <option value="none">None</option>
+              <option value="vendor">Vendor</option>
+              <option value="invoice_type">Invoice Type</option>
+              <option value="processor">Processor</option>
+              <option value="month">Month</option>
+              <option value="bu_code">BU Code</option>
+            </select>
+          </div>
+          <div class="sort-select">
+            <label>Sort:</label>
+            <select class="pivot-dropdown" id="sort-by">
+              <option value="date-desc">Date (Newest)</option>
+              <option value="date-asc">Date (Oldest)</option>
+              <option value="amount-desc">Amount (High)</option>
+              <option value="amount-asc">Amount (Low)</option>
+              <option value="vendor-asc">Vendor (A-Z)</option>
+            </select>
+          </div>
+          <div class="view-toggles">
+            <button class="view-toggle active" data-view="grid">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="7" height="7" x="3" y="3" rx="1"/>
+                <rect width="7" height="7" x="14" y="3" rx="1"/>
+                <rect width="7" height="7" x="14" y="14" rx="1"/>
+                <rect width="7" height="7" x="3" y="14" rx="1"/>
+              </svg>
+              Grid
+            </button>
+            <button class="view-toggle" data-view="list">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" x2="21" y1="6" y2="6"/>
+                <line x1="8" x2="21" y1="12" y2="12"/>
+                <line x1="8" x2="21" y1="18" y2="18"/>
+                <line x1="3" x2="3.01" y1="6" y2="6"/>
+                <line x1="3" x2="3.01" y1="12" y2="12"/>
+                <line x1="3" x2="3.01" y1="18" y2="18"/>
+              </svg>
+              List
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="invoice-container">
+        <div class="upload-zone" id="upload-zone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17,8 12,3 7,8"/>
+            <line x1="12" x2="12" y1="3" y2="15"/>
+          </svg>
+          <h3>Drop CSV file here or click to upload</h3>
+          <p>Supports invoice data exports with OCR metadata</p>
+          <input type="file" id="file-input" accept=".csv" style="display: none;">
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title">Invoice Details</div>
+        <button class="modal-close" id="modal-close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" x2="6" y1="6" y2="18"/>
+            <line x1="6" x2="18" y1="6" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image-section">
+          <button class="modal-image-nav prev" id="modal-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+          </button>
+          <img class="modal-image" id="modal-image" src="" alt="Invoice">
+          <button class="modal-image-nav next" id="modal-next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-details" id="modal-details">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==================== STATE ====================
+    let invoices = [];
+    let filteredInvoices = [];
+    let currentView = 'grid';
+    let currentPivot = 'none';
+    let currentSort = 'date-desc';
+    let activeFilters = {
+      search: '',
+      invoice_type: [],
+      vendor: [],
+      processor: [],
+      bu_code: [],
+      dateFrom: null,
+      dateTo: null,
+      amountMin: null,
+      amountMax: null
+    };
+    let currentModalIndex = 0;
+
+    // ==================== CSV PARSING ====================
+    function parseCSV(text) {
+      const rows = [];
+      let currentRow = [];
+      let current = '';
+      let inQuotes = false;
+      
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (char === '"') {
+          if (inQuotes && text[i + 1] === '"') {
+            current += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (char === ',' && !inQuotes) {
+          currentRow.push(current);
+          current = '';
+        } else if ((char === '\n' || (char === '\r' && text[i + 1] !== '\n')) && !inQuotes) {
+          currentRow.push(current);
+          if (currentRow.some(c => c.trim())) rows.push(currentRow);
+          currentRow = [];
+          current = '';
+        } else if (char === '\r' && !inQuotes) {
+          // skip
+        } else {
+          current += char;
+        }
+      }
+      if (current || currentRow.length > 0) {
+        currentRow.push(current);
+        if (currentRow.some(c => c.trim())) rows.push(currentRow);
+      }
+      
+      if (rows.length === 0) return [];
+      
+      const headers = rows[0].map(h => h.trim().replace(/^\uFEFF/, ''));
+      return rows.slice(1).map(row => {
+        const obj = {};
+        headers.forEach((h, i) => {
+          obj[h] = row[i] || '';
+        });
+        return obj;
+      });
+    }
+
+    // ==================== DATA EXTRACTION ====================
+    function extractThumbnailUrl(field) {
+      if (!field) return null;
+      const match = field.match(/\(https:\/\/[^)]+\)/);
+      if (match) return match[0].slice(1, -1);
+      if (field.startsWith('http')) return field;
+      return null;
+    }
+
+    function parseOCR(ocrField) {
+      if (!ocrField) return null;
+      try {
+        let cleaned = ocrField.replace(/```json\n?/g, '').replace(/```/g, '').trim();
+        // Try to complete truncated JSON
+        if (!cleaned.endsWith('}')) {
+          // Find last complete object
+          const lastBrace = cleaned.lastIndexOf('}');
+          if (lastBrace > 0) {
+            cleaned = cleaned.substring(0, lastBrace + 1);
+            // Count braces and add missing ones
+            const openBraces = (cleaned.match(/{/g) || []).length;
+            const closeBraces = (cleaned.match(/}/g) || []).length;
+            cleaned += '}'.repeat(openBraces - closeBraces);
+          }
+        }
+        return JSON.parse(cleaned);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function processInvoice(row) {
+      const ocr = parseOCR(row.OCR);
+      const thumbnailUrl = extractThumbnailUrl(row.Thumbnail);
+      
+      return {
+        id: row['File ID'] || row.Name,
+        name: row.Name,
+        filePath: row['File Path'],
+        driveUrl: row.Link || row['Open in Google Drive'],
+        thumbnailUrl: thumbnailUrl,
+        created: row.Created,
+        modified: row['Last Modified'],
+        fileSize: parseInt(row['File Size (in bytes)']) || 0,
+        
+        // OCR extracted data
+        invoice_number: ocr?.invoice_identifiers?.invoice_number || 'N/A',
+        invoice_date: ocr?.invoice_identifiers?.invoice_date || null,
+        due_date: ocr?.invoice_identifiers?.due_date || null,
+        po_number: ocr?.invoice_identifiers?.po_number || null,
+        
+        vendor_name: ocr?.vendor?.name || 'Unknown Vendor',
+        vendor_address: ocr?.vendor?.address?.full_raw || '',
+        vendor_phone: ocr?.vendor?.phone || null,
+        vendor_email: ocr?.vendor?.email || null,
+        vendor_id: ocr?.accounting?.vendor_id || null,
+        
+        bu_code: ocr?.accounting?.bu_code || null,
+        processor_name: ocr?.accounting?.processor_name || null,
+        processor_date: ocr?.accounting?.processor_date || null,
+        
+        invoice_type: ocr?.extraction_metadata?.invoicetype || ocr?.extraction_metadata?.invoice_type || 'UNKNOWN',
+        confidence: ocr?.extraction_metadata?.confidence_score || null,
+        line_item_count: ocr?.extraction_metadata?.lineitemcount || 0,
+        
+        total_amount: ocr?.totals?.grand_total || ocr?.totals?.total_due || null,
+        subtotal: ocr?.totals?.subtotal || null,
+        
+        payer_entity: ocr?.payer?.entity_name || null,
+        
+        // Keep raw OCR for detail view
+        rawOCR: ocr
+      };
+    }
+
+    // ==================== FILTERING ====================
+    function applyFilters() {
+      filteredInvoices = invoices.filter(inv => {
+        // Search
+        if (activeFilters.search) {
+          const search = activeFilters.search.toLowerCase();
+          const searchable = [
+            inv.vendor_name,
+            inv.invoice_number,
+            inv.bu_code,
+            inv.processor_name,
+            inv.invoice_type,
+            inv.name
+          ].filter(Boolean).join(' ').toLowerCase();
+          if (!searchable.includes(search)) return false;
+        }
+        
+        // Invoice type
+        if (activeFilters.invoice_type.length > 0) {
+          if (!activeFilters.invoice_type.includes(inv.invoice_type)) return false;
+        }
+        
+        // Vendor
+        if (activeFilters.vendor.length > 0) {
+          if (!activeFilters.vendor.includes(inv.vendor_name)) return false;
+        }
+        
+        // Processor
+        if (activeFilters.processor.length > 0) {
+          if (!activeFilters.processor.includes(inv.processor_name)) return false;
+        }
+        
+        // BU Code
+        if (activeFilters.bu_code.length > 0) {
+          if (!activeFilters.bu_code.includes(inv.bu_code)) return false;
+        }
+        
+        // Date range
+        if (activeFilters.dateFrom && inv.invoice_date) {
+          if (inv.invoice_date < activeFilters.dateFrom) return false;
+        }
+        if (activeFilters.dateTo && inv.invoice_date) {
+          if (inv.invoice_date > activeFilters.dateTo) return false;
+        }
+        
+        // Amount range
+        if (activeFilters.amountMin !== null && inv.total_amount !== null) {
+          if (inv.total_amount < activeFilters.amountMin) return false;
+        }
+        if (activeFilters.amountMax !== null && inv.total_amount !== null) {
+          if (inv.total_amount > activeFilters.amountMax) return false;
+        }
+        
+        return true;
+      });
+      
+      // Apply sorting
+      sortInvoices();
+      
+      renderInvoices();
+      updateResultsCount();
+      renderActiveFilters();
+    }
+
+    function sortInvoices() {
+      filteredInvoices.sort((a, b) => {
+        switch (currentSort) {
+          case 'date-desc':
+            return (b.invoice_date || '').localeCompare(a.invoice_date || '');
+          case 'date-asc':
+            return (a.invoice_date || '').localeCompare(b.invoice_date || '');
+          case 'amount-desc':
+            return (b.total_amount || 0) - (a.total_amount || 0);
+          case 'amount-asc':
+            return (a.total_amount || 0) - (b.total_amount || 0);
+          case 'vendor-asc':
+            return (a.vendor_name || '').localeCompare(b.vendor_name || '');
+          default:
+            return 0;
+        }
+      });
+    }
+
+    // ==================== RENDERING ====================
+    function renderInvoices() {
+      const container = document.getElementById('invoice-container');
+      
+      if (filteredInvoices.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.3-4.3"/>
+            </svg>
+            <h3>No invoices found</h3>
+            <p>Try adjusting your filters or search query</p>
+          </div>
+        `;
+        return;
+      }
+      
+      if (currentPivot !== 'none') {
+        renderPivotView(container);
+      } else if (currentView === 'grid') {
+        renderGridView(container);
+      } else {
+        renderListView(container);
+      }
+    }
+
+    function renderGridView(container) {
+      container.innerHTML = `<div class="invoice-grid">${filteredInvoices.map((inv, idx) => `
+        <div class="invoice-card" data-index="${idx}">
+          <div class="invoice-thumb">
+            ${inv.thumbnailUrl 
+              ? `<img src="${inv.thumbnailUrl}" alt="${inv.vendor_name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'invoice-thumb-placeholder\\'><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'2\\'><path d=\\'M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z\\'/><polyline points=\\'14,2 14,8 20,8\\'/></svg><span>No preview</span></div>'">`
+              : `<div class="invoice-thumb-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                    <polyline points="14,2 14,8 20,8"/>
+                  </svg>
+                  <span>No preview</span>
+                </div>`
+            }
+            <div class="invoice-thumb-overlay">
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                View Details
+              </span>
+            </div>
+          </div>
+          <div class="invoice-info">
+            <div class="invoice-vendor">${escapeHtml(inv.vendor_name)}</div>
+            <div class="invoice-date">${inv.invoice_date || 'No date'} ${inv.invoice_number !== 'N/A' ? `• #${inv.invoice_number}` : ''}</div>
+            <div class="invoice-meta">
+              ${inv.total_amount ? `<span class="invoice-tag amount">$${formatNumber(inv.total_amount)}</span>` : ''}
+              <span class="invoice-tag type">${inv.invoice_type}</span>
+              ${inv.processor_name ? `<span class="invoice-tag">${inv.processor_name}</span>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join('')}</div>`;
+      
+      // Add click handlers
+      container.querySelectorAll('.invoice-card').forEach(card => {
+        card.addEventListener('click', () => openModal(parseInt(card.dataset.index)));
+      });
+    }
+
+    function renderListView(container) {
+      container.innerHTML = `<div class="invoice-list">
+        ${filteredInvoices.map((inv, idx) => `
+          <div class="invoice-row" data-index="${idx}">
+            <div class="invoice-row-thumb">
+              ${inv.thumbnailUrl ? `<img src="${inv.thumbnailUrl}" alt="" loading="lazy">` : ''}
+            </div>
+            <div>
+              <div class="invoice-row-vendor">${escapeHtml(inv.vendor_name)}</div>
+              <div class="invoice-row-id">#${inv.invoice_number}</div>
+            </div>
+            <div class="invoice-row-date">${inv.invoice_date || '—'}</div>
+            <div class="invoice-row-amount">${inv.total_amount ? '$' + formatNumber(inv.total_amount) : '—'}</div>
+            <div class="invoice-row-type">${inv.invoice_type}</div>
+          </div>
+        `).join('')}
+      </div>`;
+      
+      container.querySelectorAll('.invoice-row').forEach(row => {
+        row.addEventListener('click', () => openModal(parseInt(row.dataset.index)));
+      });
+    }
+
+    function renderPivotView(container) {
+      const groups = {};
+      
+      filteredInvoices.forEach((inv, idx) => {
+        let key;
+        switch (currentPivot) {
+          case 'vendor':
+            key = inv.vendor_name || 'Unknown';
+            break;
+          case 'invoice_type':
+            key = inv.invoice_type || 'Unknown';
+            break;
+          case 'processor':
+            key = inv.processor_name || 'Unknown';
+            break;
+          case 'month':
+            key = inv.invoice_date ? inv.invoice_date.substring(0, 7) : 'Unknown';
+            break;
+          case 'bu_code':
+            key = inv.bu_code || 'Unknown';
+            break;
+          default:
+            key = 'All';
+        }
+        if (!groups[key]) groups[key] = [];
+        groups[key].push({ ...inv, originalIndex: idx });
+      });
+      
+      const sortedKeys = Object.keys(groups).sort((a, b) => {
+        if (a === 'Unknown') return 1;
+        if (b === 'Unknown') return -1;
+        return a.localeCompare(b);
+      });
+      
+      container.innerHTML = sortedKeys.map(key => {
+        const items = groups[key];
+        const totalAmount = items.reduce((sum, inv) => sum + (inv.total_amount || 0), 0);
+        
+        return `
+          <div class="pivot-group">
+            <div class="pivot-group-header">
+              <div class="pivot-group-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+                ${escapeHtml(key)}
+              </div>
+              <div class="pivot-group-stats">
+                <span class="pivot-group-stat"><strong>${items.length}</strong> invoices</span>
+                <span class="pivot-group-stat">Total: <strong>$${formatNumber(totalAmount)}</strong></span>
+              </div>
+            </div>
+            <div class="invoice-grid">
+              ${items.map(inv => `
+                <div class="invoice-card" data-index="${inv.originalIndex}">
+                  <div class="invoice-thumb">
+                    ${inv.thumbnailUrl 
+                      ? `<img src="${inv.thumbnailUrl}" alt="${inv.vendor_name}" loading="lazy">`
+                      : `<div class="invoice-thumb-placeholder">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                          </svg>
+                        </div>`
+                    }
+                  </div>
+                  <div class="invoice-info">
+                    <div class="invoice-vendor">${escapeHtml(inv.vendor_name)}</div>
+                    <div class="invoice-date">${inv.invoice_date || 'No date'}</div>
+                    <div class="invoice-meta">
+                      ${inv.total_amount ? `<span class="invoice-tag amount">$${formatNumber(inv.total_amount)}</span>` : ''}
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      container.querySelectorAll('.invoice-card').forEach(card => {
+        card.addEventListener('click', () => openModal(parseInt(card.dataset.index)));
+      });
+    }
+
+    function renderFilterOptions() {
+      const filters = {
+        invoice_type: {},
+        vendor: {},
+        processor: {},
+        bu_code: {}
+      };
+      
+      invoices.forEach(inv => {
+        if (inv.invoice_type) {
+          filters.invoice_type[inv.invoice_type] = (filters.invoice_type[inv.invoice_type] || 0) + 1;
+        }
+        if (inv.vendor_name) {
+          filters.vendor[inv.vendor_name] = (filters.vendor[inv.vendor_name] || 0) + 1;
+        }
+        if (inv.processor_name) {
+          filters.processor[inv.processor_name] = (filters.processor[inv.processor_name] || 0) + 1;
+        }
+        if (inv.bu_code) {
+          filters.bu_code[inv.bu_code] = (filters.bu_code[inv.bu_code] || 0) + 1;
+        }
+      });
+      
+      Object.keys(filters).forEach(filterType => {
+        const container = document.getElementById(`filter-options-${filterType}`);
+        const countEl = document.getElementById(`filter-count-${filterType}`);
+        const options = filters[filterType];
+        const sortedKeys = Object.keys(options).sort((a, b) => options[b] - options[a]);
+        
+        countEl.textContent = sortedKeys.length;
+        
+        container.innerHTML = sortedKeys.map(key => `
+          <div class="filter-option ${activeFilters[filterType].includes(key) ? 'active' : ''}" data-value="${escapeHtml(key)}">
+            <div class="filter-checkbox"></div>
+            <span>${escapeHtml(key)}</span>
+            <span class="filter-option-count">${options[key]}</span>
+          </div>
+        `).join('');
+        
+        container.querySelectorAll('.filter-option').forEach(opt => {
+          opt.addEventListener('click', () => {
+            const value = opt.dataset.value;
+            const idx = activeFilters[filterType].indexOf(value);
+            if (idx > -1) {
+              activeFilters[filterType].splice(idx, 1);
+              opt.classList.remove('active');
+            } else {
+              activeFilters[filterType].push(value);
+              opt.classList.add('active');
+            }
+            applyFilters();
+          });
+        });
+      });
+    }
+
+    function renderActiveFilters() {
+      const container = document.getElementById('active-filters');
+      const tags = [];
+      
+      Object.keys(activeFilters).forEach(key => {
+        if (Array.isArray(activeFilters[key])) {
+          activeFilters[key].forEach(val => {
+            tags.push({ type: key, value: val });
+          });
+        } else if (key === 'search' && activeFilters[key]) {
+          tags.push({ type: 'search', value: `"${activeFilters[key]}"` });
+        } else if (key === 'dateFrom' && activeFilters[key]) {
+          tags.push({ type: 'dateFrom', value: `From: ${activeFilters[key]}` });
+        } else if (key === 'dateTo' && activeFilters[key]) {
+          tags.push({ type: 'dateTo', value: `To: ${activeFilters[key]}` });
+        } else if (key === 'amountMin' && activeFilters[key] !== null) {
+          tags.push({ type: 'amountMin', value: `Min: $${activeFilters[key]}` });
+        } else if (key === 'amountMax' && activeFilters[key] !== null) {
+          tags.push({ type: 'amountMax', value: `Max: $${activeFilters[key]}` });
+        }
+      });
+      
+      container.innerHTML = tags.map(tag => `
+        <span class="active-filter-tag">
+          ${escapeHtml(tag.value)}
+          <button data-type="${tag.type}" data-value="${escapeHtml(tag.value)}">×</button>
+        </span>
+      `).join('');
+      
+      container.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const type = btn.dataset.type;
+          const value = btn.dataset.value;
+          
+          if (Array.isArray(activeFilters[type])) {
+            const idx = activeFilters[type].indexOf(value);
+            if (idx > -1) activeFilters[type].splice(idx, 1);
+          } else if (type === 'search') {
+            activeFilters.search = '';
+            document.getElementById('search-input').value = '';
+          } else if (type === 'dateFrom') {
+            activeFilters.dateFrom = null;
+            document.getElementById('date-from').value = '';
+          } else if (type === 'dateTo') {
+            activeFilters.dateTo = null;
+            document.getElementById('date-to').value = '';
+          } else if (type === 'amountMin') {
+            activeFilters.amountMin = null;
+            document.getElementById('amount-min').value = '';
+          } else if (type === 'amountMax') {
+            activeFilters.amountMax = null;
+            document.getElementById('amount-max').value = '';
+          }
+          
+          applyFilters();
+          renderFilterOptions();
+        });
+      });
+    }
+
+    function updateResultsCount() {
+      document.getElementById('results-shown').textContent = filteredInvoices.length;
+      document.getElementById('results-total').textContent = invoices.length;
+    }
+
+    function updateStats() {
+      document.getElementById('total-invoices').textContent = invoices.length;
+      
+      const vendors = new Set(invoices.map(i => i.vendor_name));
+      document.getElementById('total-vendors').textContent = vendors.size;
+      
+      const totalAmount = invoices.reduce((sum, i) => sum + (i.total_amount || 0), 0);
+      document.getElementById('total-amount').textContent = '$' + formatNumber(totalAmount);
+      
+      const dates = invoices.map(i => i.invoice_date).filter(Boolean).sort();
+      if (dates.length > 0) {
+        const from = dates[0].substring(5, 7) + '/' + dates[0].substring(2, 4);
+        const to = dates[dates.length - 1].substring(5, 7) + '/' + dates[dates.length - 1].substring(2, 4);
+        document.getElementById('date-range').textContent = `${from} - ${to}`;
+      }
+    }
+
+    // ==================== MODAL ====================
+    function openModal(index) {
+      currentModalIndex = index;
+      const inv = filteredInvoices[index];
+      
+      document.getElementById('modal-title').textContent = inv.vendor_name;
+      document.getElementById('modal-image').src = inv.thumbnailUrl || '';
+      document.getElementById('modal-image').style.display = inv.thumbnailUrl ? 'block' : 'none';
+      
+      const details = document.getElementById('modal-details');
+      details.innerHTML = `
+        <div class="detail-section">
+          <div class="detail-section-title">Invoice Information</div>
+          <div class="detail-row">
+            <span class="detail-label">Invoice #</span>
+            <span class="detail-value mono">${inv.invoice_number}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Date</span>
+            <span class="detail-value">${inv.invoice_date || '—'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Due Date</span>
+            <span class="detail-value">${inv.due_date || '—'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">PO Number</span>
+            <span class="detail-value mono">${inv.po_number || '—'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Type</span>
+            <span class="detail-value">${inv.invoice_type}</span>
+          </div>
+          ${inv.total_amount ? `
+          <div class="detail-row">
+            <span class="detail-label">Amount</span>
+            <span class="detail-value amount">$${formatNumber(inv.total_amount)}</span>
+          </div>
+          ` : ''}
+        </div>
+        
+        <div class="detail-section">
+          <div class="detail-section-title">Vendor</div>
+          <div class="detail-row">
+            <span class="detail-label">Name</span>
+            <span class="detail-value">${inv.vendor_name}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">ID</span>
+            <span class="detail-value mono">${inv.vendor_id || '—'}</span>
+          </div>
+          ${inv.vendor_address ? `
+          <div class="detail-row">
+            <span class="detail-label">Address</span>
+            <span class="detail-value">${inv.vendor_address.replace(/\n/g, '<br>')}</span>
+          </div>
+          ` : ''}
+          ${inv.vendor_phone ? `
+          <div class="detail-row">
+            <span class="detail-label">Phone</span>
+            <span class="detail-value">${inv.vendor_phone}</span>
+          </div>
+          ` : ''}
+          ${inv.vendor_email ? `
+          <div class="detail-row">
+            <span class="detail-label">Email</span>
+            <span class="detail-value">${inv.vendor_email}</span>
+          </div>
+          ` : ''}
+        </div>
+        
+        <div class="detail-section">
+          <div class="detail-section-title">Accounting</div>
+          <div class="detail-row">
+            <span class="detail-label">BU Code</span>
+            <span class="detail-value mono">${inv.bu_code || '—'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Processor</span>
+            <span class="detail-value">${inv.processor_name || '—'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Processed Date</span>
+            <span class="detail-value">${inv.processor_date || '—'}</span>
+          </div>
+          ${inv.payer_entity ? `
+          <div class="detail-row">
+            <span class="detail-label">Payer</span>
+            <span class="detail-value">${inv.payer_entity}</span>
+          </div>
+          ` : ''}
+        </div>
+        
+        <div class="detail-section">
+          <div class="detail-section-title">File</div>
+          <div class="detail-row">
+            <span class="detail-label">Filename</span>
+            <span class="detail-value" style="font-size: 0.75rem">${inv.name}</span>
+          </div>
+          ${inv.driveUrl ? `
+          <div class="detail-row">
+            <span class="detail-label">Source</span>
+            <a class="detail-link" href="${inv.driveUrl}" target="_blank">
+              Open in Drive
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15,3 21,3 21,9"/>
+                <line x1="10" x2="21" y1="14" y2="3"/>
+              </svg>
+            </a>
+          </div>
+          ` : ''}
+          ${inv.confidence ? `
+          <div class="detail-row">
+            <span class="detail-label">OCR Confidence</span>
+            <span class="detail-value">${(inv.confidence * 100).toFixed(0)}%</span>
+          </div>
+          ` : ''}
+        </div>
+      `;
+      
+      document.getElementById('modal-overlay').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('open');
+    }
+
+    function navigateModal(delta) {
+      const newIndex = currentModalIndex + delta;
+      if (newIndex >= 0 && newIndex < filteredInvoices.length) {
+        openModal(newIndex);
+      }
+    }
+
+    // ==================== UTILITIES ====================
+    function escapeHtml(text) {
+      if (!text) return '';
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function formatNumber(num) {
+      if (num === null || num === undefined) return '0';
+      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function debounce(fn, delay) {
+      let timeout;
+      return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn(...args), delay);
+      };
+    }
+
+    // ==================== FILE LOADING ====================
+    function loadCSV(text) {
+      const rows = parseCSV(text);
+      invoices = rows.map(processInvoice);
+      filteredInvoices = [...invoices];
+      
+      updateStats();
+      renderFilterOptions();
+      applyFilters();
+      
+      // Hide upload zone
+      const uploadZone = document.getElementById('upload-zone');
+      if (uploadZone) uploadZone.style.display = 'none';
+    }
+
+    async function loadFromUrl(url) {
+      try {
+        const response = await fetch(url);
+        const text = await response.text();
+        loadCSV(text);
+      } catch (e) {
+        console.error('Failed to load CSV:', e);
+      }
+    }
+
+    // ==================== EVENT LISTENERS ====================
+    document.addEventListener('DOMContentLoaded', () => {
+      // File upload
+      const uploadZone = document.getElementById('upload-zone');
+      const fileInput = document.getElementById('file-input');
+      
+      uploadZone?.addEventListener('click', () => fileInput.click());
+      uploadZone?.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadZone.style.borderColor = 'var(--accent)';
+      });
+      uploadZone?.addEventListener('dragleave', () => {
+        uploadZone.style.borderColor = 'var(--border)';
+      });
+      uploadZone?.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadZone.style.borderColor = 'var(--border)';
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => loadCSV(e.target.result);
+          reader.readAsText(file);
+        }
+      });
+      
+      fileInput?.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => loadCSV(e.target.result);
+          reader.readAsText(file);
+        }
+      });
+      
+      // Search
+      document.getElementById('search-input').addEventListener('input', debounce((e) => {
+        activeFilters.search = e.target.value;
+        applyFilters();
+      }, 300));
+      
+      // Date filters
+      document.getElementById('date-from').addEventListener('change', (e) => {
+        activeFilters.dateFrom = e.target.value || null;
+        applyFilters();
+      });
+      document.getElementById('date-to').addEventListener('change', (e) => {
+        activeFilters.dateTo = e.target.value || null;
+        applyFilters();
+      });
+      
+      // Amount filters
+      document.getElementById('amount-min').addEventListener('change', (e) => {
+        activeFilters.amountMin = e.target.value ? parseFloat(e.target.value) : null;
+        applyFilters();
+      });
+      document.getElementById('amount-max').addEventListener('change', (e) => {
+        activeFilters.amountMax = e.target.value ? parseFloat(e.target.value) : null;
+        applyFilters();
+      });
+      
+      // Clear filters
+      document.getElementById('clear-filters').addEventListener('click', () => {
+        activeFilters = {
+          search: '',
+          invoice_type: [],
+          vendor: [],
+          processor: [],
+          bu_code: [],
+          dateFrom: null,
+          dateTo: null,
+          amountMin: null,
+          amountMax: null
+        };
+        document.getElementById('search-input').value = '';
+        document.getElementById('date-from').value = '';
+        document.getElementById('date-to').value = '';
+        document.getElementById('amount-min').value = '';
+        document.getElementById('amount-max').value = '';
+        renderFilterOptions();
+        applyFilters();
+      });
+      
+      // Filter group toggles
+      document.querySelectorAll('.filter-group .filter-header').forEach(header => {
+        header.addEventListener('click', () => {
+          header.parentElement.classList.toggle('open');
+        });
+      });
+      
+      // View toggles
+      document.querySelectorAll('.view-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.view-toggle').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentView = btn.dataset.view;
+          renderInvoices();
+        });
+      });
+      
+      // Pivot
+      document.getElementById('pivot-by').addEventListener('change', (e) => {
+        currentPivot = e.target.value;
+        renderInvoices();
+      });
+      
+      // Sort
+      document.getElementById('sort-by').addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        applyFilters();
+      });
+      
+      // Modal
+      document.getElementById('modal-close').addEventListener('click', closeModal);
+      document.getElementById('modal-overlay').addEventListener('click', (e) => {
+        if (e.target.id === 'modal-overlay') closeModal();
+      });
+      document.getElementById('modal-prev').addEventListener('click', () => navigateModal(-1));
+      document.getElementById('modal-next').addEventListener('click', () => navigateModal(1));
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (document.getElementById('modal-overlay').classList.contains('open')) {
+          if (e.key === 'Escape') closeModal();
+          if (e.key === 'ArrowLeft') navigateModal(-1);
+          if (e.key === 'ArrowRight') navigateModal(1);
+        }
+      });
+      
+      // Try to auto-load CSV from same directory (for GitHub Pages)
+      loadFromUrl('./data.csv').catch(() => {
+        // CSV not found, show upload zone
+      });
+    });
+  </script>
+</body>
+</html>
