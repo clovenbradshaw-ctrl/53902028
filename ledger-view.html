@@ -586,6 +586,36 @@
       color: var(--text-primary);
     }
 
+    .vendor-name.clickable {
+      cursor: pointer;
+      transition: color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .vendor-name.clickable::after {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87m-3-12a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+      transition: opacity 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .vendor-name.clickable:hover {
+      color: var(--accent);
+    }
+
+    .vendor-name.clickable:hover::after {
+      opacity: 1;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87m-3-12a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+    }
+
     .invoice-num {
       font-family: var(--font-mono);
       font-size: 0.8rem;
@@ -807,6 +837,14 @@
     .detail-value.amount {
       color: var(--accent);
       font-weight: 600;
+    }
+
+    .vendor-link:hover {
+      text-decoration: underline;
+    }
+
+    .vendor-link:hover svg {
+      opacity: 1 !important;
     }
 
     /* Summary Card */
@@ -1677,7 +1715,7 @@
               </div>
             </td>
             <td>
-              <div class="vendor-name">${escapeHtml(vendor)}${isRS974 ? '<span class="rs974-badge">RS2025-974</span>' : ''}</div>
+              <div class="vendor-name clickable" data-vendor="${escapeHtml(vendor)}">${escapeHtml(vendor)}${isRS974 ? '<span class="rs974-badge">RS2025-974</span>' : ''}</div>
             </td>
             <td>
               <span class="invoice-num">${escapeHtml(invoiceNum)}</span>
@@ -1702,6 +1740,14 @@
           openModal(filteredEntries[idx]);
         });
         row.style.cursor = 'pointer';
+      });
+
+      // Add vendor click handlers - navigate to vendor profile
+      tbody.querySelectorAll('.vendor-name.clickable').forEach(vendor => {
+        vendor.addEventListener('click', (e) => {
+          e.stopPropagation();
+          window.location.href = `vendor-profile.html?vendor=${encodeURIComponent(vendor.dataset.vendor)}`;
+        });
       });
     }
 
@@ -1755,7 +1801,13 @@
           </div>
           <div class="detail-row">
             <span class="detail-label">Vendor</span>
-            <span class="detail-value">${ledger.vendor_name || '-'}</span>
+            ${ledger.vendor_name
+              ? `<a href="vendor-profile.html?vendor=${encodeURIComponent(ledger.vendor_name)}" class="detail-value vendor-link" style="color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 500;">
+                  ${ledger.vendor_name}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.7;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </a>`
+              : `<span class="detail-value">-</span>`
+            }
           </div>
           <div class="detail-row">
             <span class="detail-label">Vendor ID</span>
