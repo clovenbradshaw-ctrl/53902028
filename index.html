@@ -1814,6 +1814,15 @@
                 Export as JSON
                 <span class="export-desc">Structured</span>
               </div>
+              <div class="export-menu-item" data-export="comprehensive" style="background: linear-gradient(90deg, var(--accent-glow) 0%, transparent 100%);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
+                Comprehensive Export
+                <span class="export-desc">All Data + Definitions</span>
+              </div>
               <div class="export-menu-divider"></div>
               <div class="export-menu-item" data-export="summary">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -3955,6 +3964,20 @@
       window.open('https://drive.google.com/file/d/119LFmkZT2-y5tSGcxJvrjjqHeEsDlWRz/view?usp=sharing', '_blank');
     }
 
+    async function exportComprehensive() {
+      // Fetch the pre-generated comprehensive export JSON
+      try {
+        const response = await fetch('comprehensive-export.json');
+        if (!response.ok) throw new Error('Comprehensive export not found');
+        const data = await response.json();
+        const jsonContent = JSON.stringify(data, null, 2);
+        downloadFile(jsonContent, 'BU53902028_comprehensive_export.json', 'application/json');
+      } catch (error) {
+        console.error('Error loading comprehensive export:', error);
+        alert('Comprehensive export file not found. Please run generate-comprehensive-export.js first.');
+      }
+    }
+
     function handleExport(type) {
       switch (type) {
         case 'csv':
@@ -3974,6 +3997,9 @@
           break;
         case 'drive-files':
           exportDriveDownloadLinks();
+          break;
+        case 'comprehensive':
+          exportComprehensive();
           break;
       }
       // Close dropdown after export
