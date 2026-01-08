@@ -5,13 +5,19 @@
     "total_invoices": 134,
     "total_journals": 128,
     "total_invoice_amount": "1487377.16",
-    "total_payroll_amount": "206592.65"
+    "total_payroll_amount": "206592.65",
+    "last_corrected": "2026-01-08T18:21:16.734Z",
+    "corrections_applied": [
+      "Consolidated vendor IDs",
+      "Normalized vendor names",
+      "Flagged zero-amount records for review"
+    ]
   },
   "invoices": [
     {
       "document_type": "Invoice",
       "document_number": "11506914",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35086148",
       "invoice_date": "9/1/2024",
@@ -35,7 +41,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11521415",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554937501",
       "invoice_date": "9/8/2024",
@@ -59,7 +65,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11511605",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35116200",
       "invoice_date": "9/8/2024",
@@ -83,7 +89,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11518767",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35146626",
       "invoice_date": "9/15/2024",
@@ -107,7 +113,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11524967",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35171816",
       "invoice_date": "9/22/2024",
@@ -131,7 +137,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11521413",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554944384",
       "invoice_date": "9/22/2024",
@@ -227,7 +233,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11532616",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35208954",
       "invoice_date": "9/29/2024",
@@ -251,7 +257,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11532618",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554947867",
       "invoice_date": "9/29/2024",
@@ -275,7 +281,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11540075",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35236161",
       "invoice_date": "10/6/2024",
@@ -299,7 +305,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11533117",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554951316",
       "invoice_date": "10/6/2024",
@@ -323,7 +329,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11546292",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35282572",
       "invoice_date": "10/13/2024",
@@ -347,7 +353,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11546295",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35282569",
       "invoice_date": "10/13/2024",
@@ -371,7 +377,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11546296",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35282568",
       "invoice_date": "10/13/2024",
@@ -395,7 +401,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11546298",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35263057",
       "invoice_date": "10/13/2024",
@@ -419,7 +425,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11546297",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35282567",
       "invoice_date": "10/13/2024",
@@ -443,7 +449,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11540078",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554956045",
       "invoice_date": "10/13/2024",
@@ -467,7 +473,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11546293",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35282571",
       "invoice_date": "10/13/2024",
@@ -491,7 +497,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11545201",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "HILLSIDE102024",
       "invoice_date": "10/15/2024",
@@ -515,7 +521,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11547817",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554960197",
       "invoice_date": "10/20/2024",
@@ -539,7 +545,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11550824",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35290291",
       "invoice_date": "10/20/2024",
@@ -563,7 +569,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11561110",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35318745",
       "invoice_date": "10/27/2024",
@@ -587,7 +593,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11584857",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554967301",
       "invoice_date": "11/3/2024",
@@ -611,7 +617,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11566935",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35351086",
       "invoice_date": "11/3/2024",
@@ -635,7 +641,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11584856",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554973391",
       "invoice_date": "11/10/2024",
@@ -659,7 +665,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11584858",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554976247",
       "invoice_date": "11/17/2024",
@@ -683,7 +689,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11586344",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554980262",
       "invoice_date": "11/24/2024",
@@ -707,7 +713,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11584570",
-      "vendor_name": "RJ Young Company LLC",
+      "vendor_name": "RJ Young",
       "vendor_id": "4777",
       "invoice_number": "INV7240439",
       "invoice_date": "11/25/2024",
@@ -731,7 +737,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11598333",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554985913",
       "invoice_date": "12/1/2024",
@@ -755,7 +761,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11598332",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554991065",
       "invoice_date": "12/8/2024",
@@ -779,7 +785,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11608449",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554997211",
       "invoice_date": "12/22/2024",
@@ -803,7 +809,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11613941",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555000084",
       "invoice_date": "12/29/2024",
@@ -827,7 +833,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11633441",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555005616",
       "invoice_date": "1/5/2025",
@@ -875,7 +881,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11633439",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555009695",
       "invoice_date": "1/12/2025",
@@ -899,7 +905,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11630314",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555014873",
       "invoice_date": "1/19/2025",
@@ -923,7 +929,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11630314",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555014873",
       "invoice_date": "1/19/2025",
@@ -947,7 +953,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11630314",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555014873",
       "invoice_date": "1/19/2025",
@@ -971,7 +977,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11633438",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555017472",
       "invoice_date": "1/26/2025",
@@ -995,7 +1001,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11725001",
-      "vendor_name": "RJ Young Company LLC",
+      "vendor_name": "RJ Young",
       "vendor_id": "4777",
       "invoice_number": "INV7331591",
       "invoice_date": "1/27/2025",
@@ -1019,7 +1025,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11639802",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555022605",
       "invoice_date": "2/2/2025",
@@ -1067,7 +1073,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11646787",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555024547",
       "invoice_date": "2/9/2025",
@@ -1115,7 +1121,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11652056",
-      "vendor_name": "\"Gordon Food Service, Inc.\"",
+      "vendor_name": "Gordon Food Service Inc.",
       "vendor_id": "12122",
       "invoice_number": "916174580",
       "invoice_date": "2/14/2025",
@@ -1139,7 +1145,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11654187",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555028242",
       "invoice_date": "2/16/2025",
@@ -1163,7 +1169,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11658266",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555032089",
       "invoice_date": "2/23/2025",
@@ -1235,7 +1241,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11724999",
-      "vendor_name": "RJ Young Company LLC",
+      "vendor_name": "RJ Young",
       "vendor_id": "4777",
       "invoice_number": "INV7478983",
       "invoice_date": "4/25/2025",
@@ -1283,7 +1289,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11762988",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555042548",
       "invoice_date": "5/20/2025",
@@ -1307,7 +1313,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11762987",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555038189",
       "invoice_date": "5/20/2025",
@@ -1331,7 +1337,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11762989",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555035706",
       "invoice_date": "5/20/2025",
@@ -1355,7 +1361,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11762990",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1555041153",
       "invoice_date": "5/20/2025",
@@ -1379,7 +1385,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11754075",
-      "vendor_name": "\"Gordon Food Service, Inc.\"",
+      "vendor_name": "Gordon Food Service Inc.",
       "vendor_id": "12122",
       "invoice_number": "916180418",
       "invoice_date": "5/22/2025",
@@ -1475,7 +1481,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11517610",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "TURNIPSEED20040901",
       "invoice_date": "9/1/2024",
@@ -1499,7 +1505,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11517612",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "JOHNSON20040901",
       "invoice_date": "9/1/2024",
@@ -1523,7 +1529,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11517611",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "MEADOWS20040901",
       "invoice_date": "9/1/2024",
@@ -1547,7 +1553,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11613945",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INV000003",
       "invoice_date": "1/2/2025",
@@ -1571,7 +1577,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11630300",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "PP112025",
       "invoice_date": "1/6/2025",
@@ -1595,7 +1601,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11630301",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "MH112025",
       "invoice_date": "1/6/2025",
@@ -1619,7 +1625,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11630302",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "EG112025",
       "invoice_date": "1/6/2025",
@@ -1643,7 +1649,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11646786",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INV000044",
       "invoice_date": "2/3/2025",
@@ -1691,7 +1697,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11660440",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "EG312025",
       "invoice_date": "2/21/2025",
@@ -1715,7 +1721,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11660439",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "MH312025",
       "invoice_date": "2/21/2025",
@@ -1739,7 +1745,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11660438",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "PP312025",
       "invoice_date": "2/21/2025",
@@ -1763,7 +1769,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11662244",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INV000050",
       "invoice_date": "2/26/2025",
@@ -1787,7 +1793,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11682845",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "PP412025",
       "invoice_date": "3/18/2025",
@@ -1811,7 +1817,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11682846",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "MH412025",
       "invoice_date": "3/18/2025",
@@ -1835,7 +1841,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11724995",
-      "vendor_name": "RJ Young Company LLC",
+      "vendor_name": "RJ Young",
       "vendor_id": "4777",
       "invoice_number": "INV7429310",
       "invoice_date": "3/26/2025",
@@ -1859,7 +1865,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11692149",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INV000073",
       "invoice_date": "3/31/2025",
@@ -1907,7 +1913,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11723725",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INV000089",
       "invoice_date": "4/28/2025",
@@ -1931,7 +1937,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11723724",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INV000092",
       "invoice_date": "4/28/2025",
@@ -1955,7 +1961,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11723723",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INV000094",
       "invoice_date": "4/28/2025",
@@ -1979,7 +1985,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11723726",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INV000088",
       "invoice_date": "4/28/2025",
@@ -2003,7 +2009,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11735214",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "MH512025",
       "invoice_date": "5/1/2025",
@@ -2027,7 +2033,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11729072",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "EG512025",
       "invoice_date": "5/1/2025",
@@ -2051,7 +2057,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11735215",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "PP512025",
       "invoice_date": "5/1/2025",
@@ -2099,7 +2105,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11761719",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INV000107",
       "invoice_date": "6/2/2025",
@@ -2147,7 +2153,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11775602",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "EG612025",
       "invoice_date": "6/6/2025",
@@ -2171,7 +2177,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11504599",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000029",
       "invoice_date": "8/30/2024",
@@ -2195,7 +2201,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11504595",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000033",
       "invoice_date": "8/30/2024",
@@ -2219,7 +2225,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11504596",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000032",
       "invoice_date": "8/30/2024",
@@ -2243,7 +2249,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11504597",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000031",
       "invoice_date": "8/30/2024",
@@ -2267,7 +2273,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11504598",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000030",
       "invoice_date": "8/30/2024",
@@ -2291,7 +2297,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11521414",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554942197",
       "invoice_date": "9/15/2024",
@@ -2315,7 +2321,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11540071",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000036",
       "invoice_date": "9/30/2024",
@@ -2339,7 +2345,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11540072",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000035",
       "invoice_date": "9/30/2024",
@@ -2363,7 +2369,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11540070",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000037",
       "invoice_date": "9/30/2024",
@@ -2387,7 +2393,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11546294",
-      "vendor_name": "Randstad North America Inc dba Randstad USA LLC",
+      "vendor_name": "Randstad",
       "vendor_id": "19083",
       "invoice_number": "R35282570",
       "invoice_date": "10/13/2024",
@@ -2411,7 +2417,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11588345",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000042",
       "invoice_date": "11/1/2024",
@@ -2435,7 +2441,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11588346",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000041",
       "invoice_date": "11/1/2024",
@@ -2459,7 +2465,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11561106",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000039",
       "invoice_date": "11/1/2024",
@@ -2483,7 +2489,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11561107",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000038",
       "invoice_date": "11/1/2024",
@@ -2507,7 +2513,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11561105",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000040",
       "invoice_date": "11/1/2024",
@@ -2531,7 +2537,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11588344",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "000043",
       "invoice_date": "11/1/2024",
@@ -2555,7 +2561,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11570706",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INVHILLSIDE112024",
       "invoice_date": "11/12/2024",
@@ -2579,7 +2585,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11570706",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INVHILLSIDE112024",
       "invoice_date": "11/12/2024",
@@ -2603,7 +2609,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11576312",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "HILLSIDE112024",
       "invoice_date": "11/12/2024",
@@ -2627,7 +2633,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11570706",
-      "vendor_name": "HILLSIDE CROSSING LLC",
+      "vendor_name": "Hillside Crossing Hotel",
       "vendor_id": "1021245",
       "invoice_number": "INVHILLSIDE112024",
       "invoice_date": "11/12/2024",
@@ -2675,7 +2681,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11600964",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554993980",
       "invoice_date": "12/15/2024",
@@ -2699,7 +2705,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11600964",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554993980",
       "invoice_date": "12/15/2024",
@@ -2723,7 +2729,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11600964",
-      "vendor_name": "ESA MANAGEMENT LLC",
+      "vendor_name": "Extended Stay America",
       "vendor_id": "1020857",
       "invoice_number": "1554993980",
       "invoice_date": "12/15/2024",
@@ -2747,7 +2753,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11633578",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "PP212025",
       "invoice_date": "1/23/2025",
@@ -2771,7 +2777,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11633569",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "EG212025",
       "invoice_date": "1/23/2025",
@@ -2795,7 +2801,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11633568",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "MH212025",
       "invoice_date": "1/23/2025",
@@ -2819,7 +2825,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11660438",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "PP312025",
       "invoice_date": "2/21/2025",
@@ -2843,7 +2849,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11660438",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "PP312025",
       "invoice_date": "2/21/2025",
@@ -2891,7 +2897,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11682847",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "EG412025",
       "invoice_date": "4/1/2025",
@@ -3059,7 +3065,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11775602",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "EG612025",
       "invoice_date": "6/6/2025",
@@ -3083,7 +3089,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11775602",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "EG612025",
       "invoice_date": "6/6/2025",
@@ -3107,7 +3113,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11775602",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "EG612025",
       "invoice_date": "6/6/2025",
@@ -3131,7 +3137,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11775602",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "EG612025",
       "invoice_date": "6/6/2025",
@@ -3155,7 +3161,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11775691",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "PP612025",
       "invoice_date": "6/6/2025",
@@ -3179,7 +3185,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11775691",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "PP612025",
       "invoice_date": "6/6/2025",
@@ -3203,7 +3209,7 @@
     {
       "document_type": "Invoice",
       "document_number": "11775691",
-      "vendor_name": "THE AVE NASHVILLE LLC",
+      "vendor_name": "The Ave (Castello Equity Partners)",
       "vendor_id": "1018405",
       "invoice_number": "PP612025",
       "invoice_date": "6/6/2025",
