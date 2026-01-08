@@ -98,8 +98,19 @@ let changeLog = {
   placeholdersFilled: 0,
   missingInvoicesFilled: 0,
   zeroRecordsRemoved: 0,
-  contractsUnlinked: 0
+  contractsUnlinked: 0,
+  invoiceTypeCorrections: 0
 };
+
+// Vendor IDs that are lodging/hotel vendors (should use HOTEL type, not RENTAL)
+const LODGING_VENDOR_IDS = [
+  '1021245',  // Hillside Crossing Hotel
+  '1020857',  // Extended Stay America / ESA Management
+  '1018405',  // The Ave Nashville
+  '1018278',  // 97 Wallace Studios
+  '1024315',  // Greenview Studios
+  '1023472'   // Highland East Apartments
+];
 
 /**
  * Process OCR invoices
@@ -230,6 +241,17 @@ function processOcrInvoices(data) {
         inv.property_name = 'ESA Suites Nashville Airport Music City';
       }
     }
+
+    // 8. Correct invoice types for lodging vendors (RENTAL -> HOTEL)
+    // Lodging vendors should use HOTEL type, not RENTAL, unless it's a CONTRACT
+    if (inv.meta_invoice_type === 'RENTAL' && LODGING_VENDOR_IDS.includes(inv.vendor_id)) {
+      inv.meta_invoice_type = 'HOTEL';
+      inv.meta_notes = inv.meta_notes || [];
+      if (!inv.meta_notes.includes('Type corrected: RENTAL → HOTEL (lodging vendor)')) {
+        inv.meta_notes.push('Type corrected: RENTAL → HOTEL (lodging vendor)');
+      }
+      changeLog.invoiceTypeCorrections++;
+    }
   });
 
   // Remove marked records (in reverse order to preserve indices)
@@ -248,7 +270,8 @@ function processOcrInvoices(data) {
     'Normalized vendor and property names',
     'Filled missing invoice numbers',
     'Removed zero-amount records',
-    'Unlinked contract references from invoices'
+    'Unlinked contract references from invoices',
+    'Corrected invoice types for lodging vendors (RENTAL → HOTEL)'
   ];
 
   return data;
@@ -397,6 +420,16 @@ function processOcrRecord(inv, idx, prefix) {
     if (inv.property_name === 'ESA Suites - Nashville - Airport - Music City') {
       inv.property_name = 'ESA Suites Nashville Airport Music City';
     }
+  }
+
+  // Correct invoice types for lodging vendors (RENTAL -> HOTEL)
+  if (inv.meta_invoice_type === 'RENTAL' && LODGING_VENDOR_IDS.includes(inv.vendor_id)) {
+    inv.meta_invoice_type = 'HOTEL';
+    inv.meta_notes = inv.meta_notes || [];
+    if (!inv.meta_notes.includes('Type corrected: RENTAL → HOTEL (lodging vendor)')) {
+      inv.meta_notes.push('Type corrected: RENTAL → HOTEL (lodging vendor)');
+    }
+    changeLog.invoiceTypeCorrections++;
   }
 }
 
@@ -608,6 +641,7 @@ function main() {
   console.log(`Missing invoices filled:   ${changeLog.missingInvoicesFilled}`);
   console.log(`Zero records removed:      ${changeLog.zeroRecordsRemoved}`);
   console.log(`Contracts unlinked:        ${changeLog.contractsUnlinked}`);
+  console.log(`Invoice type corrections:  ${changeLog.invoiceTypeCorrections}`);
   console.log('='.repeat(60));
   console.log('\nData corrections complete!');
 }

@@ -4,7 +4,7 @@
     "source": "OCR extracted data from scanned invoices",
     "total_invoices": 211,
     "total_amount": "3096691.30",
-    "last_corrected": "2026-01-08T18:21:16.732Z",
+    "last_corrected": "2026-01-08T21:21:19.481Z",
     "corrections_applied": [
       "Split duplicate invoice numbers (9700274853, 9700283386)",
       "Replaced placeholder invoice numbers",
@@ -12,7 +12,8 @@
       "Normalized vendor and property names",
       "Filled missing invoice numbers",
       "Removed zero-amount records",
-      "Unlinked contract references from invoices"
+      "Unlinked contract references from invoices",
+      "Corrected invoice types for lodging vendors (RENTAL → HOTEL)"
     ]
   },
   "invoices": [
@@ -3295,10 +3296,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 39,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "Hillside102024",
       "invoice_date": "2024-10-15",
       "due_date": null,
@@ -11192,10 +11195,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 233,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "15639",
       "invoice_date": "2025-06-05",
       "due_date": null,
@@ -11520,10 +11525,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 36,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "redacted",
       "invoice_date": "2024-09-01",
       "due_date": null,
@@ -11580,10 +11587,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 37,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-34",
       "invoice_date": "2024-09-01",
       "due_date": null,
@@ -11640,10 +11649,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 38,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "redacted",
       "invoice_date": "2024-09-01",
       "due_date": null,
@@ -11700,10 +11711,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 207,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000003",
       "invoice_date": "2025-01-02",
       "due_date": "2025-01-02",
@@ -11792,11 +11805,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 1,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250101-65",
       "invoice_date": "2025-01-06",
@@ -11854,10 +11868,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 2,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-4",
       "invoice_date": "2025-01-06",
       "due_date": null,
@@ -11914,11 +11930,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 15,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250101-67",
       "invoice_date": "2025-01-06",
@@ -11976,10 +11993,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 208,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000044",
       "invoice_date": "2025-02-03",
       "due_date": "2025-02-03",
@@ -12160,10 +12179,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 7,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV [REDACTED]",
       "invoice_date": "2025-02-21",
       "due_date": null,
@@ -12220,11 +12241,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 8,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250301-71",
       "invoice_date": "2025-02-21",
@@ -12282,11 +12304,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 9,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250301-72",
       "invoice_date": "2025-02-21",
@@ -12344,10 +12367,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 209,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000050",
       "invoice_date": "2025-02-26",
       "due_date": "2025-02-26",
@@ -12436,11 +12461,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 10,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250401-74",
       "invoice_date": "2025-03-18",
@@ -12498,10 +12524,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 11,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INVY",
       "invoice_date": "2025-03-18",
       "due_date": null,
@@ -12637,10 +12665,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 210,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000073",
       "invoice_date": "2025-03-31",
       "due_date": "2025-03-31",
@@ -12842,10 +12872,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 211,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000088",
       "invoice_date": "2025-04-28",
       "due_date": "2025-04-28",
@@ -12902,10 +12934,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 212,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000089",
       "invoice_date": "2025-04-28",
       "due_date": "2025-04-28",
@@ -12968,10 +13002,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 214,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000092",
       "invoice_date": "2025-04-28",
       "due_date": "2025-04-28",
@@ -13028,10 +13064,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 215,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000094",
       "invoice_date": "2025-04-28",
       "due_date": "2025-04-28",
@@ -13088,11 +13126,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 13,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250501-83",
       "invoice_date": "2025-05-01",
@@ -13150,11 +13189,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 16,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250501-84",
       "invoice_date": "2025-05-01",
@@ -13212,11 +13252,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 19,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250411-85",
       "invoice_date": "2025-05-01",
@@ -13386,10 +13427,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 213,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000107",
       "invoice_date": "2025-06-02",
       "due_date": "2025-06-02",
@@ -13566,10 +13609,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 170,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "REDACTED",
       "invoice_date": "2025-06-06",
       "due_date": null,
@@ -13634,10 +13679,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 3,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INVXXXXXXXX",
       "invoice_date": "2025-01-26",
       "due_date": null,
@@ -13702,10 +13749,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 4,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV ███████",
       "invoice_date": "2025-01-26",
       "due_date": null,
@@ -13770,11 +13819,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 5,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250101-92",
       "invoice_date": "2025-01-23",
@@ -13840,10 +13890,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 6,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV████████",
       "invoice_date": "2025-06-27",
       "due_date": null,
@@ -13916,10 +13968,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 12,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "222895",
       "invoice_date": "2025-03-18",
       "due_date": null,
@@ -13976,11 +14030,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 14,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250901-95",
       "invoice_date": "2025-09-03",
@@ -14038,10 +14093,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 17,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "i[REDACTED]",
       "invoice_date": "2025-06-27",
       "due_date": null,
@@ -14114,11 +14171,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 18,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250601-97",
       "invoice_date": "2025-07-01",
@@ -14192,11 +14250,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 20,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250601-98",
       "invoice_date": "2025-06-06",
@@ -14262,10 +14321,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 21,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000029",
       "invoice_date": "2024-08-30",
       "due_date": "2024-09-01",
@@ -14322,10 +14383,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 22,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000030",
       "invoice_date": "2024-08-30",
       "due_date": "2024-09-01",
@@ -14382,10 +14445,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 23,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000031",
       "invoice_date": "2024-08-30",
       "due_date": "2024-09-01",
@@ -14442,10 +14507,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 24,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000038",
       "invoice_date": "2024-11-01",
       "due_date": "2024-11-01",
@@ -14502,10 +14569,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 25,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000039",
       "invoice_date": "2024-11-01",
       "due_date": "2024-11-01",
@@ -14562,10 +14631,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 26,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000040",
       "invoice_date": "2024-11-01",
       "due_date": "2024-11-01",
@@ -14622,10 +14693,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 27,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000041",
       "invoice_date": "2024-11-01",
       "due_date": "2024-12-01",
@@ -14682,10 +14755,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 28,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000042",
       "invoice_date": "2024-11-01",
       "due_date": "2024-12-01",
@@ -14742,10 +14817,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 29,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000032",
       "invoice_date": "2024-08-30",
       "due_date": "2024-09-01",
@@ -14802,10 +14879,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 30,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000035",
       "invoice_date": "2024-09-30",
       "due_date": "2024-10-01",
@@ -14862,10 +14941,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 31,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000036",
       "invoice_date": "2024-09-30",
       "due_date": "2024-10-01",
@@ -14922,10 +15003,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 32,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000037",
       "invoice_date": "2024-09-30",
       "due_date": "2024-10-01",
@@ -14982,10 +15065,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 33,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000043",
       "invoice_date": "2024-11-01",
       "due_date": "2024-12-01",
@@ -15042,10 +15127,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 34,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "000033",
       "invoice_date": "2024-08-30",
       "due_date": "2024-09-01",
@@ -15102,10 +15189,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 40,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV Hillside112024",
       "invoice_date": "2024-11-12",
       "due_date": null,
@@ -23930,10 +24019,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 216,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000116",
       "invoice_date": "2025-07-01",
       "due_date": "2025-07-01",
@@ -24006,10 +24097,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 217,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000146",
       "invoice_date": "2025-10-22",
       "due_date": "2025-10-22",
@@ -24082,10 +24175,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 218,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000148",
       "invoice_date": "2025-10-27",
       "due_date": "2025-10-27",
@@ -24190,10 +24285,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 219,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "INV-000145",
       "invoice_date": "2025-10-20",
       "due_date": "2025-10-20",
@@ -24384,11 +24481,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 228,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was missing"
+        "Generated invoice number - original was missing",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "HIGH-MISSING-20250617-186",
       "invoice_date": "2025-06-17",
@@ -24564,11 +24662,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 230,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [
-        "Generated invoice number - original was placeholder \"INV\""
+        "Generated invoice number - original was placeholder \"INV\"",
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
       ],
       "invoice_number": "THE-20250801-188",
       "invoice_date": "2025-08-11",
@@ -24764,10 +24863,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 234,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "15649JUN",
       "invoice_date": "2025-08-18",
       "due_date": null,
@@ -24920,10 +25021,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 235,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "16540",
       "invoice_date": "2025-07-01",
       "due_date": null,
@@ -25052,10 +25155,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 236,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "15649JUL",
       "invoice_date": "2025-08-18",
       "due_date": null,
@@ -25208,10 +25313,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 237,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "15661AUG",
       "invoice_date": "2025-08-18",
       "due_date": null,
@@ -25612,10 +25719,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 240,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "17019",
       "invoice_date": "2025-10-14",
       "due_date": null,
@@ -25672,10 +25781,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 241,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "15677",
       "invoice_date": "2025-09-14",
       "due_date": null,
@@ -25743,10 +25854,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 243,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "15769",
       "invoice_date": null,
       "due_date": null,
@@ -25899,10 +26012,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 244,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "17018",
       "invoice_date": "2025-10-15",
       "due_date": null,
@@ -26063,10 +26178,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 245,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "17026",
       "invoice_date": "2025-10-21",
       "due_date": null,
@@ -26219,10 +26336,12 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "RENTAL",
+      "meta_invoice_type": "HOTEL",
       "meta_source_page": 246,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-      "meta_notes": [],
+      "meta_notes": [
+        "Type corrected: RENTAL → HOTEL (lodging vendor)"
+      ],
       "invoice_number": "17025",
       "invoice_date": "2025-10-21",
       "due_date": null,
