@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ledger Invoice Matching | BU 53902028</title>
+  <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ9pSMhEiJ8s-1KcvC8Ls4JK7cVRYtU6LchA&s">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0b;
+      --bg-secondary: #111113;
+      --bg-tertiary: #1a1a1d;
+      --bg-card: #16161a;
+      --border: #2a2a2e;
+      --border-light: #3a3a3e;
+      --text-primary: #e8e8e8;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666;
+      --accent: #f59e0b;
+      --accent-dim: #b45309;
+      --accent-glow: rgba(245, 158, 11, 0.15);
+      --success: #10b981;
+      --success-glow: rgba(16, 185, 129, 0.15);
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --danger-glow: rgba(239, 68, 68, 0.15);
+      --info: #3b82f6;
+      --info-glow: rgba(59, 130, 246, 0.15);
+      --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--bg-primary);
+    }
+
+    .logo-text {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-sub {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+
+    .header-stats {
+      display: flex;
+      gap: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .stat-value.success { color: var(--success); }
+    .stat-value.danger { color: var(--danger); }
+
+    .stat-label {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.65rem;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    /* Main Layout */
+    .main-container {
+      display: flex;
+      max-width: 1800px;
+      margin: 0 auto;
+      min-height: calc(100vh - 70px);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 320px;
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border);
+      padding: 1.5rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 70px);
+      position: sticky;
+      top: 70px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Search */
+    .search-box {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Filter Groups */
+    .filter-group {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+
+    .filter-header {
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .filter-header:hover {
+      background: var(--bg-card);
+    }
+
+    .filter-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filter-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--text-secondary);
+    }
+
+    .filter-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .filter-count {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: var(--bg-primary);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .filter-chevron {
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+
+    .filter-group.open .filter-chevron {
+      transform: rotate(180deg);
+    }
+
+    .filter-content {
+      display: none;
+      padding: 0.5rem;
+      border-top: 1px solid var(--border);
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .filter-group.open .filter-content {
+      display: block;
+    }
+
+    .filter-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-size: 0.8rem;
+    }
+
+    .filter-option:hover {
+      background: var(--bg-card);
+    }
+
+    .filter-option.active {
+      background: var(--accent-glow);
+      color: var(--accent);
+    }
+
+    .filter-option-count {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .filter-checkbox {
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--border-light);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .filter-option.active .filter-checkbox {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .filter-option.active .filter-checkbox::after {
+      content: '\2713';
+      font-size: 10px;
+      color: var(--bg-primary);
+    }
+
+    .clear-filters {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      width: 100%;
+      transition: all 0.2s;
+    }
+
+    .clear-filters:hover {
+      background: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    /* Content Area */
+    .content {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .results-count {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .results-count strong {
+      color: var(--text-primary);
+    }
+
+    /* Match Status Pills */
+    .match-status-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .match-pill {
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .match-pill.all {
+      background: var(--bg-tertiary);
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+
+    .match-pill.matched {
+      background: var(--success-glow);
+      border-color: var(--success);
+      color: var(--success);
+    }
+
+    .match-pill.unmatched {
+      background: var(--danger-glow);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    .match-pill.journal {
+      background: var(--info-glow);
+      border-color: var(--info);
+      color: var(--info);
+    }
+
+    .match-pill.active {
+      box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px currentColor;
+    }
+
+    .match-pill:hover {
+      filter: brightness(1.1);
+    }
+
+    /* Ledger Table */
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .ledger-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: var(--bg-secondary);
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .ledger-table th.sortable {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .ledger-table th.sortable:hover {
+      color: var(--text-primary);
+    }
+
+    .ledger-table th.sorted {
+      color: var(--accent);
+    }
+
+    .ledger-table th .sort-icon {
+      margin-left: 0.25rem;
+      opacity: 0.5;
+    }
+
+    .ledger-table th.sorted .sort-icon {
+      opacity: 1;
+    }
+
+    .ledger-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .ledger-table tr:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .ledger-table tr.matched {
+      background: var(--success-glow);
+    }
+
+    .ledger-table tr.matched:hover {
+      background: rgba(16, 185, 129, 0.2);
+    }
+
+    .ledger-table tr.unmatched {
+      background: var(--danger-glow);
+    }
+
+    .ledger-table tr.unmatched:hover {
+      background: rgba(239, 68, 68, 0.2);
+    }
+
+    .ledger-table tr.journal {
+      background: var(--info-glow);
+    }
+
+    .ledger-table tr.journal:hover {
+      background: rgba(59, 130, 246, 0.2);
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .status-badge.matched {
+      background: var(--success-glow);
+      color: var(--success);
+    }
+
+    .status-badge.unmatched {
+      background: var(--danger-glow);
+      color: var(--danger);
+    }
+
+    .status-badge.journal {
+      background: var(--info-glow);
+      color: var(--info);
+    }
+
+    .status-badge svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Match Details */
+    .match-details {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .match-type {
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+    }
+
+    .match-confidence {
+      color: var(--success);
+    }
+
+    /* Thumbnail */
+    .thumb-cell {
+      width: 60px;
+    }
+
+    .thumb-preview {
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+      background: var(--bg-tertiary);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+    }
+
+    .thumb-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb-preview.no-image {
+      color: var(--text-muted);
+    }
+
+    .thumb-preview svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Amount */
+    .amount {
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+
+    .amount.debit {
+      color: var(--text-primary);
+    }
+
+    .amount.credit {
+      color: var(--success);
+    }
+
+    /* Vendor Name */
+    .vendor-name {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .invoice-num {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Date */
+    .date-cell {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    /* Category */
+    .category-badge {
+      display: inline-block;
+      padding: 0.15rem 0.4rem;
+      background: var(--bg-tertiary);
+      border-radius: 3px;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+
+    /* Row Actions */
+    .row-actions {
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .ledger-table tr:hover .row-actions {
+      opacity: 1;
+    }
+
+    .action-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .action-btn:hover {
+      background: var(--bg-card);
+      color: var(--accent);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      max-width: 1200px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      border: 1px solid var(--border);
+    }
+
+    .modal-image-section {
+      flex: 1;
+      background: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      min-height: 400px;
+    }
+
+    .modal-image-section img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .modal-no-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-muted);
+    }
+
+    .modal-no-image svg {
+      width: 64px;
+      height: 64px;
+      opacity: 0.3;
+    }
+
+    .modal-details-section {
+      width: 400px;
+      overflow-y: auto;
+      border-left: 1px solid var(--border);
+    }
+
+    .modal-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .detail-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-section-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .detail-section-title .source-badge {
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      font-size: 0.6rem;
+    }
+
+    .detail-section-title .source-badge.ledger {
+      background: var(--accent-glow);
+      color: var(--accent);
+    }
+
+    .detail-section-title .source-badge.ocr {
+      background: var(--info-glow);
+      color: var(--info);
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .detail-label {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .detail-value {
+      font-size: 0.85rem;
+      text-align: right;
+      max-width: 60%;
+    }
+
+    .detail-value.mono {
+      font-family: var(--font-mono);
+    }
+
+    .detail-value.amount {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Summary Card */
+    .summary-card {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .summary-card-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .summary-stat {
+      text-align: center;
+      padding: 0.5rem;
+      background: var(--bg-primary);
+      border-radius: 4px;
+    }
+
+    .summary-stat-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .summary-stat-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+    }
+
+    .empty-state svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+
+    /* Loading */
+    .loading {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">MN</div>
+        <div>
+          <div class="logo-text">Ledger Invoice Matching</div>
+          <div class="logo-sub">BU 53902028</div>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat">
+          <div class="stat-value" id="total-entries">-</div>
+          <div class="stat-label">Ledger Entries</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value success" id="matched-count">-</div>
+          <div class="stat-label">Matched</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value danger" id="unmatched-count">-</div>
+          <div class="stat-label">Unmatched</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="match-rate">-</div>
+          <div class="stat-label">Match Rate</div>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+          Invoice Viewer
+        </a>
+        <a href="learn.html" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          Learn
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Search</div>
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input type="text" class="search-input" id="search-input" placeholder="Vendor, invoice #, amount...">
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Match Status</div>
+        <div class="match-status-filters">
+          <div class="match-pill all active" data-status="all">All</div>
+          <div class="match-pill matched" data-status="matched">Matched</div>
+          <div class="match-pill unmatched" data-status="unmatched">Unmatched</div>
+          <div class="match-pill journal" data-status="journal">Journals</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Filters</div>
+
+        <div class="filter-group" id="filter-vendor">
+          <div class="filter-header">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <span class="filter-name">Vendor</span>
+            </div>
+            <span class="filter-count" id="filter-count-vendor">0</span>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" id="filter-options-vendor"></div>
+        </div>
+
+        <div class="filter-group" id="filter-category">
+          <div class="filter-header">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
+              </svg>
+              <span class="filter-name">Category</span>
+            </div>
+            <span class="filter-count" id="filter-count-category">0</span>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" id="filter-options-category"></div>
+        </div>
+
+        <div class="filter-group" id="filter-match-type">
+          <div class="filter-header">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+              <span class="filter-name">Match Type</span>
+            </div>
+            <span class="filter-count" id="filter-count-match-type">0</span>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" id="filter-options-match-type"></div>
+        </div>
+
+        <button class="clear-filters" id="clear-filters">Clear All Filters</button>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="summary-card">
+          <div class="summary-card-title">Amount Summary</div>
+          <div class="summary-stats">
+            <div class="summary-stat">
+              <div class="summary-stat-value" id="total-amount">$0</div>
+              <div class="summary-stat-label">Total</div>
+            </div>
+            <div class="summary-stat">
+              <div class="summary-stat-value" id="matched-amount">$0</div>
+              <div class="summary-stat-label">Matched</div>
+            </div>
+            <div class="summary-stat">
+              <div class="summary-stat-value" id="unmatched-amount">$0</div>
+              <div class="summary-stat-label">Unmatched</div>
+            </div>
+            <div class="summary-stat">
+              <div class="summary-stat-value" id="journal-amount">$0</div>
+              <div class="summary-stat-label">Journals</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="results-count">
+            Showing <strong id="results-shown">0</strong> of <strong id="results-total">0</strong> entries
+          </div>
+        </div>
+      </div>
+
+      <div id="loading" class="loading">
+        <div class="loading-spinner"></div>
+        <div>Loading ledger data...</div>
+      </div>
+
+      <div id="table-container" style="display: none;">
+        <table class="ledger-table">
+          <thead>
+            <tr>
+              <th class="thumb-cell">Image</th>
+              <th class="sortable" data-sort="status">Status</th>
+              <th class="sortable" data-sort="vendor">Vendor</th>
+              <th class="sortable" data-sort="invoice_number">Invoice #</th>
+              <th class="sortable" data-sort="invoice_date">Invoice Date</th>
+              <th class="sortable" data-sort="amount">Amount</th>
+              <th class="sortable" data-sort="category">Category</th>
+              <th>Match Info</th>
+            </tr>
+          </thead>
+          <tbody id="ledger-body"></tbody>
+        </table>
+      </div>
+
+      <div id="empty-state" class="empty-state" style="display: none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.3-4.3"/>
+        </svg>
+        <div>No entries match your filters</div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-image-section" id="modal-image-section">
+        <img id="modal-image" src="" alt="">
+        <div class="modal-no-image" id="modal-no-image" style="display: none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="9" cy="9" r="2"/>
+            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          </svg>
+          <div>No invoice image available</div>
+          <div style="font-size: 0.8rem;">This ledger entry has not been matched to a scanned invoice</div>
+        </div>
+      </div>
+      <div class="modal-details-section">
+        <div class="modal-header">
+          <div class="modal-title" id="modal-title">Entry Details</div>
+          <button class="modal-close" id="modal-close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6 6 18"/>
+              <path d="m6 6 12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==================== STATE ====================
+    let allEntries = [];
+    let filteredEntries = [];
+    let currentSort = { field: 'invoice_date', direction: 'desc' };
+    let activeFilters = {
+      search: '',
+      status: 'all',
+      vendor: [],
+      category: [],
+      matchType: []
+    };
+
+    // ==================== UTILITIES ====================
+    function formatNumber(num) {
+      if (num === null || num === undefined) return '0.00';
+      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function debounce(fn, delay) {
+      let timeout;
+      return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn(...args), delay);
+      };
+    }
+
+    function getGoogleDriveLargeImageUrl(fileId) {
+      if (!fileId) return null;
+      return `https://lh3.googleusercontent.com/d/${fileId}=w800`;
+    }
+
+    // ==================== DATA LOADING ====================
+    async function loadMergedData() {
+      try {
+        const response = await fetch('./merged-data.json');
+        const data = await response.json();
+
+        const entries = [];
+
+        // Process matched invoices
+        if (data.matched_invoices) {
+          data.matched_invoices.forEach(inv => {
+            entries.push({
+              ...inv,
+              _status: 'matched',
+              _statusLabel: 'Matched',
+              _thumbnail: inv.ocr?.all_source_file_ids?.[0]
+                ? getGoogleDriveLargeImageUrl(inv.ocr.all_source_file_ids[0])
+                : null
+            });
+          });
+        }
+
+        // Process unmatched ledger invoices
+        if (data.ledger_only?.invoices) {
+          data.ledger_only.invoices.forEach(inv => {
+            entries.push({
+              ...inv,
+              _status: 'unmatched',
+              _statusLabel: 'Unmatched'
+            });
+          });
+        }
+
+        // Process journal entries
+        if (data.ledger_only?.journals) {
+          data.ledger_only.journals.forEach(inv => {
+            entries.push({
+              ...inv,
+              _status: 'journal',
+              _statusLabel: 'Journal'
+            });
+          });
+        }
+
+        allEntries = entries;
+        filteredEntries = [...entries];
+
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('table-container').style.display = 'block';
+
+        updateStats();
+        renderFilterOptions();
+        applyFilters();
+
+      } catch (error) {
+        console.error('Failed to load merged data:', error);
+        document.getElementById('loading').innerHTML = `
+          <div style="color: var(--danger);">Failed to load data</div>
+          <div style="font-size: 0.8rem; margin-top: 0.5rem;">${error.message}</div>
+        `;
+      }
+    }
+
+    // ==================== STATS ====================
+    function updateStats() {
+      const matched = allEntries.filter(e => e._status === 'matched');
+      const unmatched = allEntries.filter(e => e._status === 'unmatched');
+      const journals = allEntries.filter(e => e._status === 'journal');
+      const invoices = allEntries.filter(e => e._status !== 'journal');
+
+      document.getElementById('total-entries').textContent = allEntries.length;
+      document.getElementById('matched-count').textContent = matched.length;
+      document.getElementById('unmatched-count').textContent = unmatched.length;
+
+      const matchRate = invoices.length > 0
+        ? ((matched.length / invoices.length) * 100).toFixed(1) + '%'
+        : '0%';
+      document.getElementById('match-rate').textContent = matchRate;
+
+      const totalAmount = allEntries.reduce((sum, e) => sum + (e.unified?.amount || e.ledger?.amount || 0), 0);
+      const matchedAmount = matched.reduce((sum, e) => sum + (e.unified?.amount || 0), 0);
+      const unmatchedAmount = unmatched.reduce((sum, e) => sum + (e.unified?.amount || 0), 0);
+      const journalAmount = journals.reduce((sum, e) => sum + (e.unified?.amount || 0), 0);
+
+      document.getElementById('total-amount').textContent = '$' + formatNumber(totalAmount);
+      document.getElementById('matched-amount').textContent = '$' + formatNumber(matchedAmount);
+      document.getElementById('unmatched-amount').textContent = '$' + formatNumber(unmatchedAmount);
+      document.getElementById('journal-amount').textContent = '$' + formatNumber(journalAmount);
+    }
+
+    // ==================== FILTERS ====================
+    function renderFilterOptions() {
+      const filters = {
+        vendor: {},
+        category: {},
+        matchType: {}
+      };
+
+      allEntries.forEach(entry => {
+        const vendor = entry.unified?.vendor_name || entry.ledger?.vendor_name || 'Unknown';
+        filters.vendor[vendor] = (filters.vendor[vendor] || 0) + 1;
+
+        const category = entry.unified?.category || entry.ledger?.object_account_descr || 'Unknown';
+        filters.category[category] = (filters.category[category] || 0) + 1;
+
+        const matchType = entry._data_sources?.match_type || 'N/A';
+        filters.matchType[matchType] = (filters.matchType[matchType] || 0) + 1;
+      });
+
+      renderFilterGroup('vendor', filters.vendor, activeFilters.vendor);
+      renderFilterGroup('category', filters.category, activeFilters.category);
+      renderFilterGroup('match-type', filters.matchType, activeFilters.matchType);
+    }
+
+    function renderFilterGroup(type, options, activeOptions) {
+      const container = document.getElementById(`filter-options-${type}`);
+      const countEl = document.getElementById(`filter-count-${type}`);
+      const sortedKeys = Object.keys(options).sort((a, b) => options[b] - options[a]);
+
+      countEl.textContent = sortedKeys.length;
+
+      container.innerHTML = sortedKeys.map(key => `
+        <div class="filter-option ${activeOptions.includes(key) ? 'active' : ''}" data-value="${escapeHtml(key)}">
+          <div class="filter-checkbox"></div>
+          <span>${escapeHtml(key)}</span>
+          <span class="filter-option-count">${options[key]}</span>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.filter-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+          const value = opt.dataset.value;
+          const filterKey = type === 'match-type' ? 'matchType' : type;
+          const idx = activeFilters[filterKey].indexOf(value);
+          if (idx > -1) {
+            activeFilters[filterKey].splice(idx, 1);
+            opt.classList.remove('active');
+          } else {
+            activeFilters[filterKey].push(value);
+            opt.classList.add('active');
+          }
+          applyFilters();
+        });
+      });
+    }
+
+    function applyFilters() {
+      filteredEntries = allEntries.filter(entry => {
+        // Status filter
+        if (activeFilters.status !== 'all' && entry._status !== activeFilters.status) {
+          return false;
+        }
+
+        // Search filter
+        if (activeFilters.search) {
+          const search = activeFilters.search.toLowerCase();
+          const vendor = (entry.unified?.vendor_name || entry.ledger?.vendor_name || '').toLowerCase();
+          const invoiceNum = (entry.unified?.invoice_number || entry.ledger?.invoice_number || '').toLowerCase();
+          const amount = String(entry.unified?.amount || entry.ledger?.amount || '');
+
+          if (!vendor.includes(search) && !invoiceNum.includes(search) && !amount.includes(search)) {
+            return false;
+          }
+        }
+
+        // Vendor filter
+        if (activeFilters.vendor.length > 0) {
+          const vendor = entry.unified?.vendor_name || entry.ledger?.vendor_name || 'Unknown';
+          if (!activeFilters.vendor.includes(vendor)) return false;
+        }
+
+        // Category filter
+        if (activeFilters.category.length > 0) {
+          const category = entry.unified?.category || entry.ledger?.object_account_descr || 'Unknown';
+          if (!activeFilters.category.includes(category)) return false;
+        }
+
+        // Match type filter
+        if (activeFilters.matchType.length > 0) {
+          const matchType = entry._data_sources?.match_type || 'N/A';
+          if (!activeFilters.matchType.includes(matchType)) return false;
+        }
+
+        return true;
+      });
+
+      sortEntries();
+      renderTable();
+      updateResultsCount();
+    }
+
+    function sortEntries() {
+      const { field, direction } = currentSort;
+      const mult = direction === 'asc' ? 1 : -1;
+
+      filteredEntries.sort((a, b) => {
+        let aVal, bVal;
+
+        switch (field) {
+          case 'status':
+            aVal = a._status;
+            bVal = b._status;
+            break;
+          case 'vendor':
+            aVal = a.unified?.vendor_name || a.ledger?.vendor_name || '';
+            bVal = b.unified?.vendor_name || b.ledger?.vendor_name || '';
+            break;
+          case 'invoice_number':
+            aVal = a.unified?.invoice_number || a.ledger?.invoice_number || '';
+            bVal = b.unified?.invoice_number || b.ledger?.invoice_number || '';
+            break;
+          case 'invoice_date':
+            aVal = a.unified?.invoice_date || a.ledger?.invoice_date || '';
+            bVal = b.unified?.invoice_date || b.ledger?.invoice_date || '';
+            break;
+          case 'amount':
+            aVal = a.unified?.amount || a.ledger?.amount || 0;
+            bVal = b.unified?.amount || b.ledger?.amount || 0;
+            return (aVal - bVal) * mult;
+          case 'category':
+            aVal = a.unified?.category || a.ledger?.object_account_descr || '';
+            bVal = b.unified?.category || b.ledger?.object_account_descr || '';
+            break;
+          default:
+            return 0;
+        }
+
+        return String(aVal).localeCompare(String(bVal)) * mult;
+      });
+    }
+
+    function updateResultsCount() {
+      document.getElementById('results-shown').textContent = filteredEntries.length;
+      document.getElementById('results-total').textContent = allEntries.length;
+
+      const tableContainer = document.getElementById('table-container');
+      const emptyState = document.getElementById('empty-state');
+
+      if (filteredEntries.length === 0) {
+        tableContainer.style.display = 'none';
+        emptyState.style.display = 'block';
+      } else {
+        tableContainer.style.display = 'block';
+        emptyState.style.display = 'none';
+      }
+    }
+
+    // ==================== RENDERING ====================
+    function renderTable() {
+      const tbody = document.getElementById('ledger-body');
+
+      tbody.innerHTML = filteredEntries.map((entry, idx) => {
+        const ledger = entry.ledger || {};
+        const unified = entry.unified || {};
+        const dataSources = entry._data_sources || {};
+
+        const vendor = unified.vendor_name || ledger.vendor_name || 'Unknown';
+        const invoiceNum = unified.invoice_number || ledger.invoice_number || 'N/A';
+        const invoiceDate = unified.invoice_date || ledger.invoice_date || '-';
+        const amount = unified.amount || ledger.amount || 0;
+        const category = unified.category || ledger.object_account_descr || '-';
+        const isCredit = ledger.credit > 0;
+
+        const matchType = dataSources.match_type || 'N/A';
+        const matchConfidence = dataSources.match_confidence
+          ? (dataSources.match_confidence * 100).toFixed(0) + '%'
+          : '-';
+
+        return `
+          <tr class="${entry._status}" data-index="${idx}">
+            <td class="thumb-cell">
+              <div class="thumb-preview ${entry._thumbnail ? '' : 'no-image'}">
+                ${entry._thumbnail
+                  ? `<img src="${entry._thumbnail}" alt="" loading="lazy">`
+                  : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                      <circle cx="9" cy="9" r="2"/>
+                      <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                    </svg>`
+                }
+              </div>
+            </td>
+            <td>
+              <span class="status-badge ${entry._status}">
+                ${entry._status === 'matched' ? `
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                ` : entry._status === 'unmatched' ? `
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
+                  </svg>
+                ` : `
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                  </svg>
+                `}
+                ${entry._statusLabel}
+              </span>
+            </td>
+            <td>
+              <div class="vendor-name">${escapeHtml(vendor)}</div>
+            </td>
+            <td>
+              <span class="invoice-num">${escapeHtml(invoiceNum)}</span>
+            </td>
+            <td class="date-cell">${invoiceDate}</td>
+            <td>
+              <span class="amount ${isCredit ? 'credit' : 'debit'}">
+                ${isCredit ? '-' : ''}$${formatNumber(Math.abs(amount))}
+              </span>
+            </td>
+            <td>
+              <span class="category-badge">${escapeHtml(category)}</span>
+            </td>
+            <td>
+              ${entry._status === 'matched' ? `
+                <div class="match-details">
+                  <div class="match-type">${matchType}</div>
+                  <div class="match-confidence">Confidence: ${matchConfidence}</div>
+                </div>
+              ` : entry._status === 'unmatched' ? `
+                <div class="match-details">No OCR match found</div>
+              ` : `
+                <div class="match-details">Payroll entry</div>
+              `}
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      // Add click handlers for rows
+      tbody.querySelectorAll('tr').forEach(row => {
+        row.addEventListener('click', () => {
+          const idx = parseInt(row.dataset.index);
+          openModal(filteredEntries[idx]);
+        });
+        row.style.cursor = 'pointer';
+      });
+    }
+
+    // ==================== MODAL ====================
+    function openModal(entry) {
+      const overlay = document.getElementById('modal-overlay');
+      const imageSection = document.getElementById('modal-image-section');
+      const modalImage = document.getElementById('modal-image');
+      const noImage = document.getElementById('modal-no-image');
+      const modalTitle = document.getElementById('modal-title');
+      const modalBody = document.getElementById('modal-body');
+
+      const ledger = entry.ledger || {};
+      const ocr = entry.ocr || {};
+      const unified = entry.unified || {};
+      const dataSources = entry._data_sources || {};
+
+      modalTitle.textContent = unified.vendor_name || ledger.vendor_name || 'Entry Details';
+
+      // Handle image
+      if (entry._thumbnail) {
+        modalImage.src = entry._thumbnail;
+        modalImage.style.display = 'block';
+        noImage.style.display = 'none';
+      } else {
+        modalImage.style.display = 'none';
+        noImage.style.display = 'flex';
+      }
+
+      // Build details
+      let html = '';
+
+      // Match Status Section
+      html += `
+        <div class="detail-section">
+          <div class="detail-section-title">
+            Match Status
+            <span class="status-badge ${entry._status}">${entry._statusLabel}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Match Type</span>
+            <span class="detail-value mono">${dataSources.match_type || 'N/A'}</span>
+          </div>
+          ${dataSources.match_confidence ? `
+          <div class="detail-row">
+            <span class="detail-label">Confidence</span>
+            <span class="detail-value">${(dataSources.match_confidence * 100).toFixed(0)}%</span>
+          </div>
+          ` : ''}
+          ${dataSources.match_notes ? `
+          <div class="detail-row">
+            <span class="detail-label">Notes</span>
+            <span class="detail-value" style="font-size: 0.75rem">${dataSources.match_notes}</span>
+          </div>
+          ` : ''}
+        </div>
+      `;
+
+      // Ledger Data Section
+      html += `
+        <div class="detail-section">
+          <div class="detail-section-title">
+            Ledger Data
+            <span class="source-badge ledger">SOURCE</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Document Type</span>
+            <span class="detail-value">${ledger.document_type || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Document #</span>
+            <span class="detail-value mono">${ledger.document_number || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Invoice #</span>
+            <span class="detail-value mono">${ledger.invoice_number || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Vendor</span>
+            <span class="detail-value">${ledger.vendor_name || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Vendor ID</span>
+            <span class="detail-value mono">${ledger.vendor_id || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Invoice Date</span>
+            <span class="detail-value">${ledger.invoice_date || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Payment Date</span>
+            <span class="detail-value">${ledger.payment_date || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">GL Date</span>
+            <span class="detail-value">${ledger.gl_date || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Amount</span>
+            <span class="detail-value amount">$${formatNumber(ledger.amount || 0)}</span>
+          </div>
+          ${ledger.debit ? `
+          <div class="detail-row">
+            <span class="detail-label">Debit</span>
+            <span class="detail-value">$${formatNumber(ledger.debit)}</span>
+          </div>
+          ` : ''}
+          ${ledger.credit ? `
+          <div class="detail-row">
+            <span class="detail-label">Credit</span>
+            <span class="detail-value" style="color: var(--success)">$${formatNumber(ledger.credit)}</span>
+          </div>
+          ` : ''}
+          <div class="detail-row">
+            <span class="detail-label">Object Account</span>
+            <span class="detail-value">${ledger.object_account_descr || ledger.object_account || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Business Unit</span>
+            <span class="detail-value mono">${ledger.business_unit || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Fund</span>
+            <span class="detail-value mono">${ledger.fund || '-'}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Batch</span>
+            <span class="detail-value mono" style="font-size: 0.7rem">${ledger.batch_number || '-'}</span>
+          </div>
+          ${ledger.explanation ? `
+          <div class="detail-row">
+            <span class="detail-label">Explanation</span>
+            <span class="detail-value" style="font-size: 0.75rem">${ledger.explanation}</span>
+          </div>
+          ` : ''}
+        </div>
+      `;
+
+      // OCR Data Section (if matched)
+      if (entry._status === 'matched' && ocr) {
+        html += `
+          <div class="detail-section">
+            <div class="detail-section-title">
+              OCR Scan Data
+              <span class="source-badge ocr">SUPPLEMENTARY</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Invoice Type</span>
+              <span class="detail-value">${ocr.meta_invoice_type || '-'}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">OCR Confidence</span>
+              <span class="detail-value">${ocr.meta_confidence ? (ocr.meta_confidence * 100).toFixed(0) + '%' : '-'}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Source Page</span>
+              <span class="detail-value mono">${ocr.meta_source_page || '-'}</span>
+            </div>
+            ${ocr.invoice_total ? `
+            <div class="detail-row">
+              <span class="detail-label">Invoice Total (OCR)</span>
+              <span class="detail-value">$${formatNumber(ocr.invoice_total)}</span>
+            </div>
+            ` : ''}
+            ${ocr.processor_name ? `
+            <div class="detail-row">
+              <span class="detail-label">Processor</span>
+              <span class="detail-value">${ocr.processor_name}</span>
+            </div>
+            ` : ''}
+            ${ocr.vendor_phone ? `
+            <div class="detail-row">
+              <span class="detail-label">Vendor Phone</span>
+              <span class="detail-value">${ocr.vendor_phone}</span>
+            </div>
+            ` : ''}
+            ${ocr.vendor_email ? `
+            <div class="detail-row">
+              <span class="detail-label">Vendor Email</span>
+              <span class="detail-value" style="font-size: 0.75rem">${ocr.vendor_email}</span>
+            </div>
+            ` : ''}
+          </div>
+        `;
+
+        // Line Items
+        if (ocr.line_items && ocr.line_items.length > 0) {
+          html += `
+            <div class="detail-section">
+              <div class="detail-section-title">Line Items (${ocr.line_items.length})</div>
+              <div style="max-height: 200px; overflow-y: auto;">
+                <table style="width: 100%; font-size: 0.7rem; border-collapse: collapse;">
+                  <thead>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                      <th style="text-align: left; padding: 4px;">Description</th>
+                      <th style="text-align: right; padding: 4px;">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${ocr.line_items.slice(0, 10).map(item => `
+                      <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 4px;">${escapeHtml(item.description || '-')}</td>
+                        <td style="text-align: right; padding: 4px;">$${formatNumber(item.amount || 0)}</td>
+                      </tr>
+                    `).join('')}
+                    ${ocr.line_items.length > 10 ? `
+                      <tr>
+                        <td colspan="2" style="padding: 4px; color: var(--text-muted);">...and ${ocr.line_items.length - 10} more</td>
+                      </tr>
+                    ` : ''}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          `;
+        }
+
+        // Employee Names
+        if (ocr.employee_names && ocr.employee_names.length > 0) {
+          html += `
+            <div class="detail-section">
+              <div class="detail-section-title">Employee Names</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">
+                ${ocr.employee_names.join(', ')}
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      modalBody.innerHTML = html;
+      overlay.classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('open');
+    }
+
+    // ==================== EVENT LISTENERS ====================
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load data
+      loadMergedData();
+
+      // Search
+      document.getElementById('search-input').addEventListener('input', debounce((e) => {
+        activeFilters.search = e.target.value;
+        applyFilters();
+      }, 300));
+
+      // Match status pills
+      document.querySelectorAll('.match-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('.match-pill').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          activeFilters.status = pill.dataset.status;
+          applyFilters();
+        });
+      });
+
+      // Filter group toggles
+      document.querySelectorAll('.filter-group .filter-header').forEach(header => {
+        header.addEventListener('click', () => {
+          header.parentElement.classList.toggle('open');
+        });
+      });
+
+      // Clear filters
+      document.getElementById('clear-filters').addEventListener('click', () => {
+        activeFilters = {
+          search: '',
+          status: 'all',
+          vendor: [],
+          category: [],
+          matchType: []
+        };
+        document.getElementById('search-input').value = '';
+        document.querySelectorAll('.match-pill').forEach(p => p.classList.remove('active'));
+        document.querySelector('.match-pill.all').classList.add('active');
+        renderFilterOptions();
+        applyFilters();
+      });
+
+      // Sort headers
+      document.querySelectorAll('.ledger-table th.sortable').forEach(th => {
+        th.addEventListener('click', () => {
+          const field = th.dataset.sort;
+          if (currentSort.field === field) {
+            currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+          } else {
+            currentSort.field = field;
+            currentSort.direction = 'asc';
+          }
+
+          document.querySelectorAll('.ledger-table th.sortable').forEach(h => {
+            h.classList.remove('sorted');
+          });
+          th.classList.add('sorted');
+
+          applyFilters();
+        });
+      });
+
+      // Modal close
+      document.getElementById('modal-close').addEventListener('click', closeModal);
+      document.getElementById('modal-overlay').addEventListener('click', (e) => {
+        if (e.target.id === 'modal-overlay') closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+    });
+  </script>
+</body>
+</html>
