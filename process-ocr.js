@@ -106,9 +106,17 @@ function parseOCR(ocrField) {
 function normalizeVendorName(name) {
   if (!name) return '';
   const normalized = name.toLowerCase().trim();
-  // Treat ESA variations as the same vendor
-  if (normalized.includes('extended stay') || normalized.includes('esa management') || normalized.includes('esa suites')) {
-    return 'esa';
+  // Keep Extended Stay America separate from ESA Management L.L.C.
+  // Extended Stay America invoices are complete single-page invoices
+  // ESA Management L.L.C. invoices may have continuation pages that need merging
+  if (normalized.includes('extended stay america') || normalized === 'extended stay') {
+    return 'extended_stay_america';
+  }
+  if (normalized.includes('esa management')) {
+    return 'esa_management';
+  }
+  if (normalized.includes('esa suites')) {
+    return 'esa_suites';
   }
   return normalized;
 }

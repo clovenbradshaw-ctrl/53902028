@@ -8068,8 +8068,16 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_049.png,Finan
       ""category"": ""room""
     },
     {
+      ""date"": ""2024-09-15"",
+      ""description"": ""Guest Name - Room Revenue"",
+      ""quantity"": 1,
+      ""unit_price"": 56,
+      ""amount"": 56,
+      ""category"": ""room""
+    },
+    {
       ""date"": ""2024-09-16"",
-      ""description"": ""Room Charge"",
+      ""description"": ""Guest Name - Room Revenue"",
       ""quantity"": 1,
       ""unit_price"": 56,
       ""amount"": 56,
@@ -8077,7 +8085,7 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_049.png,Finan
     },
     {
       ""date"": ""2024-09-17"",
-      ""description"": ""Room Charge"",
+      ""description"": ""Guest Name - Room Revenue"",
       ""quantity"": 1,
       ""unit_price"": 56,
       ""amount"": 56,
@@ -8085,7 +8093,7 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_049.png,Finan
     },
     {
       ""date"": ""2024-09-18"",
-      ""description"": ""Room Charge"",
+      ""description"": ""Guest Name - Room Revenue"",
       ""quantity"": 1,
       ""unit_price"": 56,
       ""amount"": 56,
@@ -8093,7 +8101,7 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_049.png,Finan
     },
     {
       ""date"": ""2024-09-19"",
-      ""description"": ""Room Charge"",
+      ""description"": ""Guest Name - Room Revenue"",
       ""quantity"": 1,
       ""unit_price"": 56,
       ""amount"": 56,
@@ -8101,7 +8109,7 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_049.png,Finan
     },
     {
       ""date"": ""2024-09-20"",
-      ""description"": ""Room Charge"",
+      ""description"": ""Guest Name - Room Revenue"",
       ""quantity"": 1,
       ""unit_price"": 56,
       ""amount"": 56,
@@ -8109,7 +8117,7 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_049.png,Finan
     },
     {
       ""date"": ""2024-09-21"",
-      ""description"": ""Room Charge"",
+      ""description"": ""Guest Name - Room Revenue"",
       ""quantity"": 1,
       ""unit_price"": 56,
       ""amount"": 56,
@@ -8117,58 +8125,10 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_049.png,Finan
     },
     {
       ""date"": ""2024-09-15"",
-      ""description"": ""Room Charge"",
+      ""description"": ""Guest Name - Room Revenue"",
       ""quantity"": 1,
-      ""unit_price"": 66,
-      ""amount"": 66,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-16"",
-      ""description"": ""Room Charge"",
-      ""quantity"": 1,
-      ""unit_price"": 66,
-      ""amount"": 66,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-17"",
-      ""description"": ""Room Charge"",
-      ""quantity"": 1,
-      ""unit_price"": 66,
-      ""amount"": 66,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-18"",
-      ""description"": ""Room Charge"",
-      ""quantity"": 1,
-      ""unit_price"": 66,
-      ""amount"": 66,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-19"",
-      ""description"": ""Room Charge"",
-      ""quantity"": 1,
-      ""unit_price"": 66,
-      ""amount"": 66,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-20"",
-      ""description"": ""Room Charge"",
-      ""quantity"": 1,
-      ""unit_price"": 66,
-      ""amount"": 66,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-21"",
-      ""description"": ""Room Charge"",
-      ""quantity"": 1,
-      ""unit_price"": 66,
-      ""amount"": 66,
+      ""unit_price"": 56,
+      ""amount"": 56,
       ""category"": ""room""
     }
   ],
@@ -8176,29 +8136,23 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_049.png,Finan
   ""confirmation_numbers"": [
     ""9700274543"",
     ""9700274545"",
-    ""9700274547"",
-    ""9700274851"",
-    ""9700274853"",
-    ""9700274855""
+    ""9700274547""
   ],
   ""employee_names"": [],
   ""reference_numbers"": [],
   ""merge_info"": {
-    ""page_count"": 2,
+    ""page_count"": 1,
     ""source_pages"": [
-      49,
-      50
+      49
     ],
-    ""was_merged"": true,
-    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 49, Pages 49, 50""
+    ""was_merged"": false,
+    ""merge_reasoning"": ""Single-page invoice""
   },
   ""all_source_file_ids"": [
-    ""1LOsk6HGe0Viy-XwyNkSrojl0wKDwBFac"",
-    ""1qTF8BNoNlkXyP_oR6UpxUvBFM9fmllU4""
+    ""1LOsk6HGe0Viy-XwyNkSrojl0wKDwBFac""
   ],
   ""all_source_rows"": [
-    ""49"",
-    ""50""
+    ""49""
   ]
 }"
 Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_050.png,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_050.png,https://drive.google.com/open?id=1qTF8BNoNlkXyP_oR6UpxUvBFM9fmllU4,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_050.png thumbnail.png (https://v5.airtableusercontent.com/v3/u/49/49/1767852000000/NoteiW0k88PkaetPzF7uAQ/bdR5Qn1Awcd0Oa102lp6CwjP-1nRHW-KdeAZoV8QBs3rspbIkDeGvey-rc3uAOgIRcW_RPNChT1ZGeoC0AL-D-4E9YwLuozYEHsJ0CQ_-V3OVhS2AjKaq4m8riqm-9nd/FthUQrw_2NwKHE8UqWHU6DhU1uHmzB03CdyBD-TAgNs),1/7/2026 4:04pm,1/7/2026 4:04pm,1/7/2026 9:57pm,Mike Lacy,png,382679,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_images,https://drive.google.com/file/d/1qTF8BNoNlkXyP_oR6UpxUvBFM9fmllU4/view?usp=drivesdk,1qTF8BNoNlkXyP_oR6UpxUvBFM9fmllU4,"Image 50 of 256
@@ -8415,148 +8369,140 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_050.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": []
 }",50,"{
-  ""meta_confidence"": 0.98,
+  ""meta_confidence"": 0.95,
   ""meta_invoice_type"": ""HOTEL"",
-  ""meta_is_full_invoice"": true,
-  ""meta_is_continuation_page"": false,
-  ""meta_has_grand_total"": true,
-  ""meta_source_page"": 49,
+  ""meta_is_full_invoice"": false,
+  ""meta_is_continuation_page"": true,
+  ""meta_has_grand_total"": false,
+  ""meta_source_page"": 50,
   ""meta_source_file"": ""Finance_BU_53902028_Invoices.pdf"",
   ""meta_notes"": [],
-  ""invoice_number"": ""1554944384"",
-  ""invoice_date"": ""2024-09-22"",
-  ""due_date"": ""2024-09-22"",
-  ""vendor_name"": ""Extended Stay America"",
-  ""vendor_id"": ""1020857"",
-  ""vendor_address"": ""13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277"",
+  ""invoice_number"": null,
+  ""invoice_date"": null,
+  ""due_date"": null,
+  ""vendor_name"": ""ESA Management L.L.C."",
+  ""vendor_id"": null,
+  ""vendor_address"": null,
   ""vendor_phone"": null,
-  ""vendor_email"": ""accountsreceivable@extendedstay.com"",
-  ""payer_name"": ""The Family Center"",
-  ""payer_address"": ""139 Thompson Lane, Nashville, TN 37211"",
-  ""bu_code"": ""53902028.502363"",
-  ""processor_name"": ""Joseph M"",
-  ""processor_date"": ""2024-09-23"",
-  ""invoice_total"": 4410,
+  ""vendor_email"": null,
+  ""payer_name"": null,
+  ""payer_address"": null,
+  ""bu_code"": null,
+  ""processor_name"": null,
+  ""processor_date"": null,
+  ""invoice_total"": 0,
   ""amount_paid"": 0,
-  ""amount_due"": 4410,
+  ""amount_due"": 0,
   ""taxes"": 0,
   ""service_start"": ""2024-09-15"",
-  ""service_end"": ""2024-09-23"",
+  ""service_end"": ""2024-09-22"",
   ""service_description"": null,
-  ""property_name"": ""ESA Suites - Nashville - Airport - Music City"",
+  ""property_name"": null,
   ""property_address"": null,
   ""unit_count"": 0,
   ""line_items"": [
     {
+      ""date"": ""2024-09-16"",
+      ""description"": ""Room Charge"",
+      ""quantity"": 1,
+      ""unit_price"": 56,
+      ""amount"": 56,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2024-09-17"",
+      ""description"": ""Room Charge"",
+      ""quantity"": 1,
+      ""unit_price"": 56,
+      ""amount"": 56,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2024-09-18"",
+      ""description"": ""Room Charge"",
+      ""quantity"": 1,
+      ""unit_price"": 56,
+      ""amount"": 56,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2024-09-19"",
+      ""description"": ""Room Charge"",
+      ""quantity"": 1,
+      ""unit_price"": 56,
+      ""amount"": 56,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2024-09-20"",
+      ""description"": ""Room Charge"",
+      ""quantity"": 1,
+      ""unit_price"": 56,
+      ""amount"": 56,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2024-09-21"",
+      ""description"": ""Room Charge"",
+      ""quantity"": 1,
+      ""unit_price"": 56,
+      ""amount"": 56,
+      ""category"": ""room""
+    },
+    {
       ""date"": ""2024-09-15"",
-      ""description"": ""Guest Name - Room Revenue"",
+      ""description"": ""Room Charge"",
       ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-16"",
-      ""description"": ""Guest Name - Room Revenue"",
-      ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-17"",
-      ""description"": ""Guest Name - Room Revenue"",
-      ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-18"",
-      ""description"": ""Guest Name - Room Revenue"",
-      ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-19"",
-      ""description"": ""Guest Name - Room Revenue"",
-      ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-20"",
-      ""description"": ""Guest Name - Room Revenue"",
-      ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-21"",
-      ""description"": ""Guest Name - Room Revenue"",
-      ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
-      ""category"": ""room""
-    },
-    {
-      ""date"": ""2024-09-22"",
-      ""description"": ""Guest Name - Room Revenue"",
-      ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
+      ""unit_price"": 66,
+      ""amount"": 66,
       ""category"": ""room""
     },
     {
       ""date"": ""2024-09-16"",
       ""description"": ""Room Charge"",
       ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
+      ""unit_price"": 66,
+      ""amount"": 66,
       ""category"": ""room""
     },
     {
       ""date"": ""2024-09-17"",
       ""description"": ""Room Charge"",
       ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
+      ""unit_price"": 66,
+      ""amount"": 66,
       ""category"": ""room""
     },
     {
       ""date"": ""2024-09-18"",
       ""description"": ""Room Charge"",
       ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
+      ""unit_price"": 66,
+      ""amount"": 66,
       ""category"": ""room""
     },
     {
       ""date"": ""2024-09-19"",
       ""description"": ""Room Charge"",
       ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
+      ""unit_price"": 66,
+      ""amount"": 66,
       ""category"": ""room""
     },
     {
       ""date"": ""2024-09-20"",
       ""description"": ""Room Charge"",
       ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
+      ""unit_price"": 66,
+      ""amount"": 66,
       ""category"": ""room""
     },
     {
       ""date"": ""2024-09-21"",
       ""description"": ""Room Charge"",
       ""quantity"": 1,
-      ""unit_price"": 56,
-      ""amount"": 56,
+      ""unit_price"": 66,
+      ""amount"": 66,
       ""category"": ""room""
     },
     {
@@ -8618,8 +8564,6 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_050.png,Finan
   ],
   ""cost_allocations"": [],
   ""confirmation_numbers"": [
-    ""9700274543"",
-    ""9700274545"",
     ""9700274547"",
     ""9700274851"",
     ""9700274853"",
@@ -8628,20 +8572,17 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_050.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": [],
   ""merge_info"": {
-    ""page_count"": 2,
+    ""page_count"": 1,
     ""source_pages"": [
-      49,
       50
     ],
-    ""was_merged"": true,
-    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 49, Pages 49, 50""
+    ""was_merged"": false,
+    ""merge_reasoning"": ""Single-page invoice""
   },
   ""all_source_file_ids"": [
-    ""1LOsk6HGe0Viy-XwyNkSrojl0wKDwBFac"",
     ""1qTF8BNoNlkXyP_oR6UpxUvBFM9fmllU4""
   ],
   ""all_source_rows"": [
-    ""49"",
     ""50""
   ]
 }"
