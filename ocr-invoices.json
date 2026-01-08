@@ -11572,7 +11572,7 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "HOTEL",
+      "meta_invoice_type": "RENTAL",
       "meta_source_page": 207,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [],
@@ -11840,7 +11840,7 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "HOTEL",
+      "meta_invoice_type": "RENTAL",
       "meta_source_page": 208,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [],
@@ -12742,7 +12742,7 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "HOTEL",
+      "meta_invoice_type": "RENTAL",
       "meta_source_page": 212,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [],
@@ -12806,7 +12806,7 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "HOTEL",
+      "meta_invoice_type": "RENTAL",
       "meta_source_page": 214,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [],
@@ -13212,7 +13212,7 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "HOTEL",
+      "meta_invoice_type": "RENTAL",
       "meta_source_page": 213,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [],
@@ -23647,7 +23647,7 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "HOTEL",
+      "meta_invoice_type": "RENTAL",
       "meta_source_page": 217,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [],
@@ -23827,7 +23827,7 @@
     },
     {
       "meta_confidence": 0.98,
-      "meta_invoice_type": "HOTEL",
+      "meta_invoice_type": "RENTAL",
       "meta_source_page": 219,
       "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
       "meta_notes": [],
