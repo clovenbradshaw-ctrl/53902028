@@ -117,6 +117,15 @@ function isSameVendor(vendor1, vendor2) {
   return normalizeVendorName(vendor1) === normalizeVendorName(vendor2);
 }
 
+/**
+ * Checks if vendor name is unknown/missing (OCR couldn't extract it)
+ */
+function isUnknownVendor(vendorName) {
+  if (!vendorName) return true;
+  const normalized = vendorName.toLowerCase().trim();
+  return normalized === 'unknown' || normalized === '';
+}
+
 // ==================== LINE ITEM DEDUPLICATION ====================
 function deduplicateLineItems(items) {
   const seen = new Set();
@@ -146,7 +155,8 @@ function isEffectiveContinuationPage(ocr) {
   const hasNoInvoiceNum = !ocr.invoice_number ||
                           ocr.invoice_number === 'N/A' ||
                           ocr.invoice_number === 'null' ||
-                          ocr.invoice_number === 'string';
+                          ocr.invoice_number === 'string' ||
+                          ocr.invoice_number === 'unknown';
 
   // No vendor_id suggests it's not a header page
   const hasNoVendorId = !ocr.vendor_id;
@@ -154,8 +164,19 @@ function isEffectiveContinuationPage(ocr) {
   // No bu_code suggests it's not a header page
   const hasNoBuCode = !ocr.bu_code;
 
+  // Unknown vendor name suggests OCR couldn't extract it (likely a summary/billing page)
+  const hasUnknownVendor = !ocr.vendor_name ||
+                           ocr.vendor_name === 'unknown' ||
+                           ocr.vendor_name === 'Unknown';
+
   // If it has no date AND (no invoice number OR no vendor_id), treat as continuation
   if (hasNoDate && (hasNoInvoiceNum || hasNoVendorId)) {
+    return true;
+  }
+
+  // NEW: If vendor is unknown AND has no date AND has no vendor_id/bu_code, treat as continuation
+  // This catches billing summary pages that don't have header info
+  if (hasUnknownVendor && hasNoDate && hasNoVendorId && hasNoBuCode) {
     return true;
   }
 
@@ -389,7 +410,8 @@ function processInvoices(rows) {
       }
       // 4. Continuation page (marked or effective) + missing vendor_id/bu_code + consecutive
       else if ((isContinuation || isEffectiveCont) && !currentOcr?.vendor_id && !currentOcr?.bu_code && isConsecutive) {
-        if (isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name)) {
+        // Allow merge if same vendor OR if current page has unknown vendor (OCR couldn't extract it)
+        if (isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name) || isUnknownVendor(currentOcr?.vendor_name)) {
           shouldMerge = true;
         }
       }
@@ -417,6 +439,14 @@ function processInvoices(rows) {
                currentOcr.bu_code === firstOcr.bu_code &&
                !currentOcr?.vendor_id &&
                isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name)) {
+        shouldMerge = true;
+      }
+      // 8. NEW: Pages with unknown vendor that are effectively continuation pages
+      // Consecutive pages + same invoice type + current page has unknown vendor + no header info
+      // This catches billing summary pages where OCR couldn't extract vendor info
+      else if (isEffectiveCont && isConsecutive && isUnknownVendor(currentOcr?.vendor_name) &&
+               currentOcr?.meta_invoice_type === firstOcr?.meta_invoice_type &&
+               !currentOcr?.vendor_id && !currentOcr?.bu_code) {
         shouldMerge = true;
       }
 
@@ -449,7 +479,8 @@ function processInvoices(rows) {
           }
         }
         // Override 4: Different vendor from the first page in group
-        if (!isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name)) {
+        // But allow unknown vendor pages to merge (they're likely continuation pages with missing vendor info)
+        if (!isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name) && !isUnknownVendor(currentOcr?.vendor_name)) {
           shouldMerge = false;
         }
         // Override 5: Non-consecutive pages

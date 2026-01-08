@@ -1,6 +1,6 @@
 {
   "_metadata": {
-    "generated_at": "2026-01-08T15:07:02.819Z",
+    "generated_at": "2026-01-08T15:36:30.463Z",
     "ledger_source": "ledger.csv",
     "ocr_source": "data.csv",
     "description": "Merged financial data from Metro Nashville ledger (source of truth) and OCR-extracted invoice scans",
@@ -53933,7 +53933,9 @@
         "meta_invoice_type": "INTERNAL",
         "meta_source_page": 189,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [],
+        "meta_notes": [
+          "No header or totals visible. Continuation page."
+        ],
         "invoice_number": "L-6426 / RS2025-974",
         "invoice_date": "2025-09-03",
         "due_date": null,
@@ -54006,18 +54008,21 @@
           "RS2025-974"
         ],
         "merge_info": {
-          "page_count": 1,
+          "page_count": 2,
           "source_pages": [
-            189
+            189,
+            190
           ],
-          "was_merged": false,
-          "merge_reasoning": "Single-page invoice"
+          "was_merged": true,
+          "merge_reasoning": "Contains continuation pages, Grand total on page 189, Pages 189, 190"
         },
         "all_source_file_ids": [
-          "1snXmc938OEbb1Hj-CzxNTK_wZezYun2o"
+          "1snXmc938OEbb1Hj-CzxNTK_wZezYun2o",
+          "1UsyS_iX5O0eKIYhXypTIaJ6iet-_tiCZ"
         ],
         "all_source_rows": [
-          "189"
+          "189",
+          "190"
         ]
       },
       "unified": {
@@ -54072,79 +54077,6 @@
         "confirmation_numbers": [],
         "employee_names": [],
         "service_period": "2025-08-01 to 2026-07-28"
-      }
-    },
-    {
-      "_data_sources": {
-        "ledger": false,
-        "ocr": true,
-        "match_type": "ocr_only",
-        "match_confidence": 0.5,
-        "match_notes": "Not found in ledger - may be internal form or processing document"
-      },
-      "ledger": null,
-      "ocr": {
-        "meta_confidence": 0.2,
-        "meta_invoice_type": "INTERNAL",
-        "meta_source_page": 190,
-        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [
-          "No header or totals visible. Continuation page."
-        ],
-        "invoice_number": null,
-        "invoice_date": null,
-        "due_date": null,
-        "vendor_name": null,
-        "vendor_id": null,
-        "vendor_address": null,
-        "vendor_phone": null,
-        "vendor_email": null,
-        "payer_name": null,
-        "payer_address": null,
-        "bu_code": null,
-        "processor_name": null,
-        "processor_date": null,
-        "invoice_total": 0,
-        "amount_paid": 0,
-        "amount_due": 0,
-        "taxes": 0,
-        "service_start": null,
-        "service_end": null,
-        "service_description": null,
-        "property_name": null,
-        "property_address": null,
-        "unit_count": 0,
-        "line_items": [],
-        "cost_allocations": [],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "reference_numbers": [],
-        "merge_info": {
-          "page_count": 1,
-          "source_pages": [
-            190
-          ],
-          "was_merged": false,
-          "merge_reasoning": "Single-page invoice"
-        },
-        "all_source_file_ids": [
-          "1UsyS_iX5O0eKIYhXypTIaJ6iet-_tiCZ"
-        ],
-        "all_source_rows": [
-          "190"
-        ]
-      },
-      "unified": {
-        "vendor_name": "",
-        "invoice_number": "",
-        "invoice_date": "",
-        "amount": 0,
-        "payment_date": "",
-        "category": "INTERNAL",
-        "line_items": [],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "service_period": "to"
       }
     },
     {
@@ -54330,7 +54262,9 @@
         "meta_invoice_type": "INTERNAL",
         "meta_source_page": 192,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [],
+        "meta_notes": [
+          "Page contains only a blank Metro internal form layout with no financial data."
+        ],
         "invoice_number": "L-6426 / RS2025-974",
         "invoice_date": "2025-10-05",
         "due_date": null,
@@ -54371,18 +54305,21 @@
           "RS2025-974"
         ],
         "merge_info": {
-          "page_count": 1,
+          "page_count": 2,
           "source_pages": [
-            192
+            192,
+            193
           ],
-          "was_merged": false,
-          "merge_reasoning": "Single-page invoice"
+          "was_merged": true,
+          "merge_reasoning": "Contains continuation pages, Grand total on page 192, Pages 192, 193"
         },
         "all_source_file_ids": [
-          "16yHJYGAPkZE0t3AaH6d_-pakhcI4Tcrb"
+          "16yHJYGAPkZE0t3AaH6d_-pakhcI4Tcrb",
+          "1mgfkd-NN4h2MAFwaxphn9zjMLBPKXiCH"
         ],
         "all_source_rows": [
-          "192"
+          "192",
+          "193"
         ]
       },
       "unified": {
@@ -54405,79 +54342,6 @@
         "confirmation_numbers": [],
         "employee_names": [],
         "service_period": "2025-09-01 to 2025-09-30"
-      }
-    },
-    {
-      "_data_sources": {
-        "ledger": false,
-        "ocr": true,
-        "match_type": "ocr_only",
-        "match_confidence": 0.5,
-        "match_notes": "Not found in ledger - may be internal form or processing document"
-      },
-      "ledger": null,
-      "ocr": {
-        "meta_confidence": 0.2,
-        "meta_invoice_type": "INTERNAL",
-        "meta_source_page": 193,
-        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [
-          "Page contains only a blank Metro internal form layout with no financial data."
-        ],
-        "invoice_number": null,
-        "invoice_date": null,
-        "due_date": null,
-        "vendor_name": null,
-        "vendor_id": null,
-        "vendor_address": null,
-        "vendor_phone": null,
-        "vendor_email": null,
-        "payer_name": null,
-        "payer_address": null,
-        "bu_code": null,
-        "processor_name": null,
-        "processor_date": null,
-        "invoice_total": 0,
-        "amount_paid": 0,
-        "amount_due": 0,
-        "taxes": 0,
-        "service_start": null,
-        "service_end": null,
-        "service_description": null,
-        "property_name": null,
-        "property_address": null,
-        "unit_count": 0,
-        "line_items": [],
-        "cost_allocations": [],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "reference_numbers": [],
-        "merge_info": {
-          "page_count": 1,
-          "source_pages": [
-            193
-          ],
-          "was_merged": false,
-          "merge_reasoning": "Single-page invoice"
-        },
-        "all_source_file_ids": [
-          "1mgfkd-NN4h2MAFwaxphn9zjMLBPKXiCH"
-        ],
-        "all_source_rows": [
-          "193"
-        ]
-      },
-      "unified": {
-        "vendor_name": "",
-        "invoice_number": "",
-        "invoice_date": "",
-        "amount": 0,
-        "payment_date": "",
-        "category": "INTERNAL",
-        "line_items": [],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "service_period": "to"
       }
     },
     {
@@ -60099,7 +59963,7 @@
         "meta_notes": [],
         "invoice_number": "59EE76EB",
         "invoice_date": "2025-08-21",
-        "due_date": null,
+        "due_date": "2025-08-14",
         "vendor_name": "Grand Tents & Events",
         "vendor_id": null,
         "vendor_address": "812 Madison Industrial Rd, Madison, TN 37115",
@@ -60110,9 +59974,9 @@
         "bu_code": null,
         "processor_name": null,
         "processor_date": null,
-        "invoice_total": 6304,
+        "invoice_total": 7595.6,
         "amount_paid": 0,
-        "amount_due": 6304,
+        "amount_due": 7595.6,
         "taxes": 0,
         "service_start": "2025-08-21",
         "service_end": "2025-08-21",
@@ -60272,6 +60136,62 @@
             "unit_price": 39,
             "amount": 78,
             "category": "equipment"
+          },
+          {
+            "date": null,
+            "description": "Rental Item Total",
+            "quantity": 1,
+            "unit_price": 4273,
+            "amount": 4273,
+            "category": "equipment"
+          },
+          {
+            "date": null,
+            "description": "Purchase Total",
+            "quantity": 1,
+            "unit_price": 1144,
+            "amount": 1144,
+            "category": "equipment"
+          },
+          {
+            "date": null,
+            "description": "Bundle Total",
+            "quantity": 1,
+            "unit_price": 655,
+            "amount": 655,
+            "category": "equipment"
+          },
+          {
+            "date": null,
+            "description": "Delivery Total",
+            "quantity": 1,
+            "unit_price": 100,
+            "amount": 100,
+            "category": "fee"
+          },
+          {
+            "date": null,
+            "description": "Damage Waiver Fee Total",
+            "quantity": 1,
+            "unit_price": 492.8,
+            "amount": 492.8,
+            "category": "fee"
+          },
+          {
+            "date": null,
+            "description": "LABOR FEE",
+            "quantity": 1,
+            "unit_price": 910.8,
+            "amount": 910.8,
+            "category": "labor"
+          },
+          {
+            "date": null,
+            "description": "FUEL SURCHARGE",
+            "quantity": 1,
+            "unit_price": 20,
+            "amount": 20,
+            "category": "fee"
           }
         ],
         "cost_allocations": [],
@@ -60279,25 +60199,28 @@
         "employee_names": [],
         "reference_numbers": [],
         "merge_info": {
-          "page_count": 1,
+          "page_count": 2,
           "source_pages": [
-            253
+            253,
+            254
           ],
-          "was_merged": false,
-          "merge_reasoning": "Single-page invoice"
+          "was_merged": true,
+          "merge_reasoning": "Grand total on page 253, Pages 253, 254"
         },
         "all_source_file_ids": [
-          "1aLNztQjrReeLC38PEIjbX2x3vxj62ISr"
+          "1aLNztQjrReeLC38PEIjbX2x3vxj62ISr",
+          "1fQ8nR2Y8noaC-n-SrQBeYdNwXFID3Uyh"
         ],
         "all_source_rows": [
-          "253"
+          "253",
+          "254"
         ]
       },
       "unified": {
         "vendor_name": "Grand Tents & Events",
         "invoice_number": "59EE76EB",
         "invoice_date": "2025-08-21",
-        "amount": 6304,
+        "amount": 7595.6,
         "payment_date": "",
         "category": "EQUIPMENT",
         "line_items": [
@@ -60452,196 +60375,67 @@
             "unit_price": 39,
             "amount": 78,
             "category": "equipment"
+          },
+          {
+            "date": null,
+            "description": "Rental Item Total",
+            "quantity": 1,
+            "unit_price": 4273,
+            "amount": 4273,
+            "category": "equipment"
+          },
+          {
+            "date": null,
+            "description": "Purchase Total",
+            "quantity": 1,
+            "unit_price": 1144,
+            "amount": 1144,
+            "category": "equipment"
+          },
+          {
+            "date": null,
+            "description": "Bundle Total",
+            "quantity": 1,
+            "unit_price": 655,
+            "amount": 655,
+            "category": "equipment"
+          },
+          {
+            "date": null,
+            "description": "Delivery Total",
+            "quantity": 1,
+            "unit_price": 100,
+            "amount": 100,
+            "category": "fee"
+          },
+          {
+            "date": null,
+            "description": "Damage Waiver Fee Total",
+            "quantity": 1,
+            "unit_price": 492.8,
+            "amount": 492.8,
+            "category": "fee"
+          },
+          {
+            "date": null,
+            "description": "LABOR FEE",
+            "quantity": 1,
+            "unit_price": 910.8,
+            "amount": 910.8,
+            "category": "labor"
+          },
+          {
+            "date": null,
+            "description": "FUEL SURCHARGE",
+            "quantity": 1,
+            "unit_price": 20,
+            "amount": 20,
+            "category": "fee"
           }
         ],
         "confirmation_numbers": [],
         "employee_names": [],
         "service_period": "2025-08-21 to 2025-08-21"
-      }
-    },
-    {
-      "_data_sources": {
-        "ledger": false,
-        "ocr": true,
-        "match_type": "ocr_only",
-        "match_confidence": 0.5,
-        "match_notes": "Not found in ledger - may be internal form or processing document"
-      },
-      "ledger": null,
-      "ocr": {
-        "meta_confidence": 0.95,
-        "meta_invoice_type": "EQUIPMENT",
-        "meta_source_page": 254,
-        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [],
-        "invoice_number": "unknown",
-        "invoice_date": null,
-        "due_date": "2025-08-14",
-        "vendor_name": "unknown",
-        "vendor_id": null,
-        "vendor_address": null,
-        "vendor_phone": null,
-        "vendor_email": null,
-        "payer_name": null,
-        "payer_address": null,
-        "bu_code": null,
-        "processor_name": null,
-        "processor_date": null,
-        "invoice_total": 7595.6,
-        "amount_paid": 0,
-        "amount_due": 7595.6,
-        "taxes": 0,
-        "service_start": null,
-        "service_end": null,
-        "service_description": null,
-        "property_name": null,
-        "property_address": null,
-        "unit_count": 0,
-        "line_items": [
-          {
-            "date": null,
-            "description": "Rental Item Total",
-            "quantity": 1,
-            "unit_price": 4273,
-            "amount": 4273,
-            "category": "equipment"
-          },
-          {
-            "date": null,
-            "description": "Purchase Total",
-            "quantity": 1,
-            "unit_price": 1144,
-            "amount": 1144,
-            "category": "equipment"
-          },
-          {
-            "date": null,
-            "description": "Bundle Total",
-            "quantity": 1,
-            "unit_price": 655,
-            "amount": 655,
-            "category": "equipment"
-          },
-          {
-            "date": null,
-            "description": "Delivery Total",
-            "quantity": 1,
-            "unit_price": 100,
-            "amount": 100,
-            "category": "fee"
-          },
-          {
-            "date": null,
-            "description": "Damage Waiver Fee Total",
-            "quantity": 1,
-            "unit_price": 492.8,
-            "amount": 492.8,
-            "category": "fee"
-          },
-          {
-            "date": null,
-            "description": "LABOR FEE",
-            "quantity": 1,
-            "unit_price": 910.8,
-            "amount": 910.8,
-            "category": "labor"
-          },
-          {
-            "date": null,
-            "description": "FUEL SURCHARGE",
-            "quantity": 1,
-            "unit_price": 20,
-            "amount": 20,
-            "category": "fee"
-          }
-        ],
-        "cost_allocations": [],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "reference_numbers": [],
-        "merge_info": {
-          "page_count": 1,
-          "source_pages": [
-            254
-          ],
-          "was_merged": false,
-          "merge_reasoning": "Single-page invoice"
-        },
-        "all_source_file_ids": [
-          "1fQ8nR2Y8noaC-n-SrQBeYdNwXFID3Uyh"
-        ],
-        "all_source_rows": [
-          "254"
-        ]
-      },
-      "unified": {
-        "vendor_name": "unknown",
-        "invoice_number": "unknown",
-        "invoice_date": "",
-        "amount": 7595.6,
-        "payment_date": "",
-        "category": "EQUIPMENT",
-        "line_items": [
-          {
-            "date": null,
-            "description": "Rental Item Total",
-            "quantity": 1,
-            "unit_price": 4273,
-            "amount": 4273,
-            "category": "equipment"
-          },
-          {
-            "date": null,
-            "description": "Purchase Total",
-            "quantity": 1,
-            "unit_price": 1144,
-            "amount": 1144,
-            "category": "equipment"
-          },
-          {
-            "date": null,
-            "description": "Bundle Total",
-            "quantity": 1,
-            "unit_price": 655,
-            "amount": 655,
-            "category": "equipment"
-          },
-          {
-            "date": null,
-            "description": "Delivery Total",
-            "quantity": 1,
-            "unit_price": 100,
-            "amount": 100,
-            "category": "fee"
-          },
-          {
-            "date": null,
-            "description": "Damage Waiver Fee Total",
-            "quantity": 1,
-            "unit_price": 492.8,
-            "amount": 492.8,
-            "category": "fee"
-          },
-          {
-            "date": null,
-            "description": "LABOR FEE",
-            "quantity": 1,
-            "unit_price": 910.8,
-            "amount": 910.8,
-            "category": "labor"
-          },
-          {
-            "date": null,
-            "description": "FUEL SURCHARGE",
-            "quantity": 1,
-            "unit_price": 20,
-            "amount": 20,
-            "category": "fee"
-          }
-        ],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "service_period": "to"
       }
     },
     {

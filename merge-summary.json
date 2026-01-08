@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-08T15:07:02.842Z",
+  "generated_at": "2026-01-08T15:36:30.488Z",
   "ledger_stats": {
     "total_entries": 262,
     "invoice_entries": 134,
@@ -24,7 +24,7 @@
   },
   "ocr_stats": {
     "total_pages": 256,
-    "unique_invoices": 210,
+    "unique_invoices": 207,
     "unique_vendors": [
       "97 Wallace Studios, LLC",
       "Antonia Whitfield",
@@ -57,17 +57,16 @@
       "The Ave",
       "Thompson Machinery",
       "Thompson Machinery Commerce Corp.",
-      "Vendor# 25079",
-      "unknown"
+      "Vendor# 25079"
     ],
-    "total_ocr_amount": "3072416.41"
+    "total_ocr_amount": "3066112.41"
   },
   "match_stats": {
     "matched_pairs": 90,
     "unmatched_ledger_invoices": 44,
-    "unmatched_ocr_invoices": 124,
+    "unmatched_ocr_invoices": 121,
     "match_rate_ledger": "67.2%",
-    "match_rate_ocr": "42.9%",
+    "match_rate_ocr": "43.5%",
     "by_match_type": {
       "invoice_number": 61,
       "vendor_date_amount": 29
@@ -102,9 +101,9 @@
       "Depaul USA": 12,
       "Community Care Fellowship, Inc.": 10,
       "Ryan LaSuer": 1,
-      "unknown": 5,
       "Davidson County - Office of Homeless Services": 1,
       "Nashville Launch Pad, Inc.": 2,
+      "unknown": 2,
       "Hillside Crossing Hotel": 13,
       "Robert J Young Company": 3,
       "RJ Young": 1,
