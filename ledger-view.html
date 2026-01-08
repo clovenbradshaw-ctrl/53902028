@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ledger Invoice Matching | BU 53902028</title>
+  <title>Ledger Review | BU 53902028</title>
   <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ9pSMhEiJ8s-1KcvC8Ls4JK7cVRYtU6LchA&s">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -476,19 +476,19 @@
       background: var(--bg-tertiary);
     }
 
-    .ledger-table tr.matched {
+    .ledger-table tr.has-scan {
       background: var(--success-glow);
     }
 
-    .ledger-table tr.matched:hover {
+    .ledger-table tr.has-scan:hover {
       background: rgba(16, 185, 129, 0.2);
     }
 
-    .ledger-table tr.unmatched {
+    .ledger-table tr.no-scan {
       background: transparent;
     }
 
-    .ledger-table tr.unmatched:hover {
+    .ledger-table tr.no-scan:hover {
       background: var(--bg-tertiary);
     }
 
@@ -871,26 +871,22 @@
       <div class="logo">
         <div class="logo-icon">MN</div>
         <div>
-          <div class="logo-text">Ledger Invoice Matching</div>
+          <div class="logo-text">Ledger Review</div>
           <div class="logo-sub">BU 53902028</div>
         </div>
       </div>
       <div class="header-stats">
         <div class="stat">
           <div class="stat-value" id="total-entries">-</div>
-          <div class="stat-label">Ledger Entries</div>
+          <div class="stat-label">Total Entries</div>
         </div>
         <div class="stat">
-          <div class="stat-value success" id="matched-count">-</div>
-          <div class="stat-label">Matched</div>
+          <div class="stat-value success" id="with-scan-count">-</div>
+          <div class="stat-label">With Scan</div>
         </div>
         <div class="stat">
-          <div class="stat-value muted" id="unmatched-count">-</div>
-          <div class="stat-label">No Invoice Scan</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value" id="match-rate">-</div>
-          <div class="stat-label">Match Rate</div>
+          <div class="stat-value muted" id="no-scan-count">-</div>
+          <div class="stat-label">No Scan</div>
         </div>
       </div>
       <nav class="header-nav">
@@ -927,11 +923,11 @@
       </div>
 
       <div class="sidebar-section">
-        <div class="sidebar-title">Match Status</div>
+        <div class="sidebar-title">Scan Status</div>
         <div class="match-status-filters">
           <div class="match-pill all active" data-status="all">All</div>
-          <div class="match-pill matched" data-status="matched">With Invoice Scan</div>
-          <div class="match-pill unmatched" data-status="unmatched">Ledger Only</div>
+          <div class="match-pill matched" data-status="has-scan">Has Scan</div>
+          <div class="match-pill unmatched" data-status="no-scan">No Scan</div>
         </div>
       </div>
 
@@ -971,23 +967,6 @@
           <div class="filter-content" id="filter-options-category"></div>
         </div>
 
-        <div class="filter-group" id="filter-match-type">
-          <div class="filter-header">
-            <div class="filter-header-left">
-              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-                <path d="m9 12 2 2 4-4"/>
-              </svg>
-              <span class="filter-name">Match Type</span>
-            </div>
-            <span class="filter-count" id="filter-count-match-type">0</span>
-            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </div>
-          <div class="filter-content" id="filter-options-match-type"></div>
-        </div>
-
         <button class="clear-filters" id="clear-filters">Clear All Filters</button>
       </div>
 
@@ -1000,12 +979,12 @@
               <div class="summary-stat-label">Total</div>
             </div>
             <div class="summary-stat">
-              <div class="summary-stat-value" id="matched-amount">$0</div>
-              <div class="summary-stat-label">Matched</div>
+              <div class="summary-stat-value" id="with-scan-amount">$0</div>
+              <div class="summary-stat-label">With Scan</div>
             </div>
             <div class="summary-stat">
-              <div class="summary-stat-value" id="unmatched-amount">$0</div>
-              <div class="summary-stat-label">Ledger Only</div>
+              <div class="summary-stat-value" id="no-scan-amount">$0</div>
+              <div class="summary-stat-label">No Scan</div>
             </div>
           </div>
         </div>
@@ -1030,14 +1009,12 @@
         <table class="ledger-table">
           <thead>
             <tr>
-              <th class="thumb-cell">Image</th>
-              <th class="sortable" data-sort="status">Status</th>
+              <th class="thumb-cell">Scan</th>
               <th class="sortable" data-sort="vendor">Vendor</th>
               <th class="sortable" data-sort="invoice_number">Invoice #</th>
               <th class="sortable" data-sort="invoice_date">Invoice Date</th>
               <th class="sortable" data-sort="amount">Amount</th>
               <th class="sortable" data-sort="category">Category</th>
-              <th>Match Info</th>
             </tr>
           </thead>
           <tbody id="ledger-body"></tbody>
@@ -1065,8 +1042,8 @@
             <circle cx="9" cy="9" r="2"/>
             <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
           </svg>
-          <div>No invoice image available</div>
-          <div style="font-size: 0.8rem;">This ledger entry has not been matched to a scanned invoice</div>
+          <div>No scan available</div>
+          <div style="font-size: 0.8rem;">This ledger entry does not have an associated invoice scan</div>
         </div>
       </div>
       <div class="modal-details-section">
@@ -1093,8 +1070,7 @@
       search: '',
       status: 'all',
       vendor: [],
-      category: [],
-      matchType: []
+      category: []
     };
 
     // ==================== UTILITIES ====================
@@ -1131,13 +1107,13 @@
 
         const entries = [];
 
-        // Process matched invoices
+        // Process entries with scans (matched invoices)
         if (data.matched_invoices) {
           data.matched_invoices.forEach(inv => {
             entries.push({
               ...inv,
-              _status: 'matched',
-              _statusLabel: 'Matched',
+              _status: 'has-scan',
+              _hasScan: true,
               _thumbnail: inv.ocr?.all_source_file_ids?.[0]
                 ? getGoogleDriveLargeImageUrl(inv.ocr.all_source_file_ids[0])
                 : null
@@ -1145,17 +1121,16 @@
           });
         }
 
-        // Process unmatched ledger invoices (ledger-only, no OCR scan)
+        // Process entries without scans (ledger-only)
         if (data.ledger_only?.invoices) {
           data.ledger_only.invoices.forEach(inv => {
             entries.push({
               ...inv,
-              _status: 'unmatched',
-              _statusLabel: 'Ledger Only'
+              _status: 'no-scan',
+              _hasScan: false
             });
           });
         }
-        // Note: Journal entries are excluded from this view - ledger data is the focus
 
         allEntries = entries;
         filteredEntries = [...entries];
@@ -1178,33 +1153,27 @@
 
     // ==================== STATS ====================
     function updateStats() {
-      const matched = allEntries.filter(e => e._status === 'matched');
-      const unmatched = allEntries.filter(e => e._status === 'unmatched');
+      const withScan = allEntries.filter(e => e._hasScan);
+      const noScan = allEntries.filter(e => !e._hasScan);
 
       document.getElementById('total-entries').textContent = allEntries.length;
-      document.getElementById('matched-count').textContent = matched.length;
-      document.getElementById('unmatched-count').textContent = unmatched.length;
-
-      const matchRate = allEntries.length > 0
-        ? ((matched.length / allEntries.length) * 100).toFixed(1) + '%'
-        : '0%';
-      document.getElementById('match-rate').textContent = matchRate;
+      document.getElementById('with-scan-count').textContent = withScan.length;
+      document.getElementById('no-scan-count').textContent = noScan.length;
 
       const totalAmount = allEntries.reduce((sum, e) => sum + (e.unified?.amount || e.ledger?.amount || 0), 0);
-      const matchedAmount = matched.reduce((sum, e) => sum + (e.unified?.amount || 0), 0);
-      const unmatchedAmount = unmatched.reduce((sum, e) => sum + (e.unified?.amount || 0), 0);
+      const withScanAmount = withScan.reduce((sum, e) => sum + (e.unified?.amount || 0), 0);
+      const noScanAmount = noScan.reduce((sum, e) => sum + (e.unified?.amount || e.ledger?.amount || 0), 0);
 
       document.getElementById('total-amount').textContent = '$' + formatNumber(totalAmount);
-      document.getElementById('matched-amount').textContent = '$' + formatNumber(matchedAmount);
-      document.getElementById('unmatched-amount').textContent = '$' + formatNumber(unmatchedAmount);
+      document.getElementById('with-scan-amount').textContent = '$' + formatNumber(withScanAmount);
+      document.getElementById('no-scan-amount').textContent = '$' + formatNumber(noScanAmount);
     }
 
     // ==================== FILTERS ====================
     function renderFilterOptions() {
       const filters = {
         vendor: {},
-        category: {},
-        matchType: {}
+        category: {}
       };
 
       allEntries.forEach(entry => {
@@ -1213,14 +1182,10 @@
 
         const category = entry.unified?.category || entry.ledger?.object_account_descr || 'Unknown';
         filters.category[category] = (filters.category[category] || 0) + 1;
-
-        const matchType = entry._data_sources?.match_type || 'N/A';
-        filters.matchType[matchType] = (filters.matchType[matchType] || 0) + 1;
       });
 
       renderFilterGroup('vendor', filters.vendor, activeFilters.vendor);
       renderFilterGroup('category', filters.category, activeFilters.category);
-      renderFilterGroup('match-type', filters.matchType, activeFilters.matchType);
     }
 
     function renderFilterGroup(type, options, activeOptions) {
@@ -1257,8 +1222,11 @@
 
     function applyFilters() {
       filteredEntries = allEntries.filter(entry => {
-        // Status filter
-        if (activeFilters.status !== 'all' && entry._status !== activeFilters.status) {
+        // Scan status filter
+        if (activeFilters.status === 'has-scan' && !entry._hasScan) {
+          return false;
+        }
+        if (activeFilters.status === 'no-scan' && entry._hasScan) {
           return false;
         }
 
@@ -1286,12 +1254,6 @@
           if (!activeFilters.category.includes(category)) return false;
         }
 
-        // Match type filter
-        if (activeFilters.matchType.length > 0) {
-          const matchType = entry._data_sources?.match_type || 'N/A';
-          if (!activeFilters.matchType.includes(matchType)) return false;
-        }
-
         return true;
       });
 
@@ -1308,10 +1270,6 @@
         let aVal, bVal;
 
         switch (field) {
-          case 'status':
-            aVal = a._status;
-            bVal = b._status;
-            break;
           case 'vendor':
             aVal = a.unified?.vendor_name || a.ledger?.vendor_name || '';
             bVal = b.unified?.vendor_name || b.ledger?.vendor_name || '';
@@ -1363,7 +1321,6 @@
       tbody.innerHTML = filteredEntries.map((entry, idx) => {
         const ledger = entry.ledger || {};
         const unified = entry.unified || {};
-        const dataSources = entry._data_sources || {};
 
         const vendor = unified.vendor_name || ledger.vendor_name || 'Unknown';
         const invoiceNum = unified.invoice_number || ledger.invoice_number || 'N/A';
@@ -1372,13 +1329,8 @@
         const category = unified.category || ledger.object_account_descr || '-';
         const isCredit = ledger.credit > 0;
 
-        const matchType = dataSources.match_type || 'N/A';
-        const matchConfidence = dataSources.match_confidence
-          ? (dataSources.match_confidence * 100).toFixed(0) + '%'
-          : '-';
-
         return `
-          <tr class="${entry._status}" data-index="${idx}">
+          <tr class="${entry._hasScan ? 'has-scan' : 'no-scan'}" data-index="${idx}">
             <td class="thumb-cell">
               <div class="thumb-preview ${entry._thumbnail ? '' : 'no-image'}">
                 ${entry._thumbnail
@@ -1390,20 +1342,6 @@
                     </svg>`
                 }
               </div>
-            </td>
-            <td>
-              <span class="status-badge ${entry._status}">
-                ${entry._status === 'matched' ? `
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="m9 12 2 2 4-4"/>
-                  </svg>
-                ` : `
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                  </svg>
-                `}
-                ${entry._statusLabel}
-              </span>
             </td>
             <td>
               <div class="vendor-name">${escapeHtml(vendor)}</div>
@@ -1419,16 +1357,6 @@
             </td>
             <td>
               <span class="category-badge">${escapeHtml(category)}</span>
-            </td>
-            <td>
-              ${entry._status === 'matched' ? `
-                <div class="match-details">
-                  <div class="match-type">${matchType}</div>
-                  <div class="match-confidence">Confidence: ${matchConfidence}</div>
-                </div>
-              ` : `
-                <div class="match-details" style="color: var(--text-muted)">Invoice scan not available</div>
-              `}
             </td>
           </tr>
         `;
@@ -1472,32 +1400,6 @@
 
       // Build details
       let html = '';
-
-      // Match Status Section
-      html += `
-        <div class="detail-section">
-          <div class="detail-section-title">
-            Match Status
-            <span class="status-badge ${entry._status}">${entry._statusLabel}</span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-label">Match Type</span>
-            <span class="detail-value mono">${dataSources.match_type || 'N/A'}</span>
-          </div>
-          ${dataSources.match_confidence ? `
-          <div class="detail-row">
-            <span class="detail-label">Confidence</span>
-            <span class="detail-value">${(dataSources.match_confidence * 100).toFixed(0)}%</span>
-          </div>
-          ` : ''}
-          ${dataSources.match_notes ? `
-          <div class="detail-row">
-            <span class="detail-label">Notes</span>
-            <span class="detail-value" style="font-size: 0.75rem">${dataSources.match_notes}</span>
-          </div>
-          ` : ''}
-        </div>
-      `;
 
       // Ledger Data Section
       html += `
@@ -1579,13 +1481,13 @@
         </div>
       `;
 
-      // OCR Data Section (if matched)
-      if (entry._status === 'matched' && ocr) {
+      // Scan Data Section (if has scan)
+      if (entry._hasScan && ocr) {
         html += `
           <div class="detail-section">
             <div class="detail-section-title">
-              OCR Scan Data
-              <span class="source-badge ocr">SUPPLEMENTARY</span>
+              Scan Data
+              <span class="source-badge ocr">FROM SCAN</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Invoice Type</span>
@@ -1713,8 +1615,7 @@
           search: '',
           status: 'all',
           vendor: [],
-          category: [],
-          matchType: []
+          category: []
         };
         document.getElementById('search-input').value = '';
         document.querySelectorAll('.match-pill').forEach(p => p.classList.remove('active'));
