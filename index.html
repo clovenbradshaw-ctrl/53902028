@@ -1837,6 +1837,17 @@
     let currentImageIndex = 0; // For multi-image invoices
 
     // ==================== CSV PARSING ====================
+    // Parse JSON string from CSV field (for nested data like line_items, cost_allocations)
+    function parseJSONField(field) {
+      if (!field || field.trim() === '') return null;
+      try {
+        const parsed = JSON.parse(field);
+        return Array.isArray(parsed) || typeof parsed === 'object' ? parsed : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
     function parseCSV(text) {
       const rows = [];
       let currentRow = [];
@@ -2012,12 +2023,12 @@
         property_address: ocr?.property_address || null,
         unit_count: ocr?.unit_count || 0,
 
-        // Line items and arrays
-        line_items: ocr?.line_items || [],
-        cost_allocations: ocr?.cost_allocations || ocr?.accounting?.costallocationstrings || [],
-        confirmation_numbers: ocr?.confirmation_numbers || [],
-        employee_names: ocr?.employee_names || [],
-        reference_numbers: ocr?.reference_numbers || [],
+        // Line items and arrays - check direct CSV columns first, then OCR data
+        line_items: parseJSONField(row['Line Items']) || ocr?.line_items || [],
+        cost_allocations: parseJSONField(row['Cost Allocations']) || ocr?.cost_allocations || ocr?.accounting?.costallocationstrings || [],
+        confirmation_numbers: parseJSONField(row['Confirmation Numbers']) || ocr?.confirmation_numbers || [],
+        employee_names: parseJSONField(row['Employee Names']) || ocr?.employee_names || [],
+        reference_numbers: parseJSONField(row['Reference Numbers']) || ocr?.reference_numbers || [],
 
         // Keep raw OCR for detail view
         rawOCR: ocr
@@ -3325,8 +3336,21 @@
         'Vendor Name', 'Vendor ID', 'Vendor Address', 'Vendor Phone', 'Vendor Email',
         'Invoice Type', 'Total Amount', 'Subtotal',
         'BU Code', 'Processor', 'Processor Date', 'Payer Entity',
-        'Confidence', 'File Name', 'Drive URL'
+        'Confidence', 'File Name', 'Drive URL',
+        'Line Items', 'Cost Allocations', 'Confirmation Numbers', 'Employee Names', 'Reference Numbers'
       ];
+
+      // Helper to serialize nested data as JSON string
+      const serializeField = (value) => {
+        if (value === null || value === undefined) return '';
+        if (Array.isArray(value)) {
+          return value.length > 0 ? JSON.stringify(value) : '';
+        }
+        if (typeof value === 'object') {
+          return JSON.stringify(value);
+        }
+        return String(value);
+      };
 
       const rows = filteredInvoices.map(inv => [
         inv.invoice_number,
@@ -3347,18 +3371,26 @@
         inv.payer_entity || '',
         inv.confidence || '',
         inv.name,
-        inv.driveUrl || ''
+        inv.driveUrl || '',
+        serializeField(inv.line_items),
+        serializeField(inv.cost_allocations),
+        serializeField(inv.confirmation_numbers),
+        serializeField(inv.employee_names),
+        serializeField(inv.reference_numbers)
       ]);
 
+      // Escape CSV field - handles commas, quotes, newlines within cells
+      const escapeCSVField = (cell) => {
+        const str = String(cell);
+        if (str.includes(',') || str.includes('"') || str.includes('\n') || str.includes('\r')) {
+          return `"${str.replace(/"/g, '""')}"`;
+        }
+        return str;
+      };
+
       const csvContent = [
-        headers.join(','),
-        ...rows.map(row => row.map(cell => {
-          const str = String(cell);
-          if (str.includes(',') || str.includes('"') || str.includes('\n')) {
-            return `"${str.replace(/"/g, '""')}"`;
-          }
-          return str;
-        }).join(','))
+        headers.map(escapeCSVField).join(','),
+        ...rows.map(row => row.map(escapeCSVField).join(','))
       ].join('\n');
 
       downloadFile(csvContent, getExportFilename('.csv'), 'text/csv');
