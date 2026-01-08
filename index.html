@@ -1707,7 +1707,7 @@
                   <polyline points="9,14 12,17 15,14"/>
                 </svg>
                 Download All Files
-                <span class="export-desc">Google Drive URLs</span>
+                <span class="export-desc">Opens Google Drive</span>
               </div>
             </div>
           </div>
@@ -3746,49 +3746,8 @@
     }
 
     function exportDriveDownloadLinks() {
-      // Collect all unique file IDs from filtered invoices
-      const fileIdSet = new Set();
-      const fileInfo = [];
-
-      filteredInvoices.forEach(inv => {
-        // Get all source file IDs if this is a merged invoice
-        const fileIds = inv.all_source_file_ids || [inv.fileId];
-        fileIds.forEach(fid => {
-          if (fid && !fileIdSet.has(fid)) {
-            fileIdSet.add(fid);
-            fileInfo.push({
-              fileId: fid,
-              name: inv.name,
-              vendor: inv.vendor_name,
-              invoiceNumber: inv.invoice_number
-            });
-          }
-        });
-      });
-
-      // Generate download URLs in multiple formats
-      const lines = [
-        '# Google Drive Bulk Download Links',
-        `# Generated: ${new Date().toISOString()}`,
-        `# Total files: ${fileInfo.length}`,
-        '#',
-        '# Instructions:',
-        '# 1. Use a download manager that supports batch URL imports (e.g., Free Download Manager, JDownloader)',
-        '# 2. Import this file or copy the URLs below',
-        '# 3. Alternatively, paste URLs into browser one at a time',
-        '#',
-        '# ========== DIRECT DOWNLOAD LINKS ==========',
-        ''
-      ];
-
-      fileInfo.forEach(file => {
-        lines.push(`# ${file.vendor} - Invoice ${file.invoiceNumber}`);
-        lines.push(`https://drive.google.com/uc?export=download&id=${file.fileId}`);
-        lines.push('');
-      });
-
-      const content = lines.join('\n');
-      downloadFile(content, getExportFilename('_drive_downloads.txt'), 'text/plain');
+      // Open the Google Drive zip containing all invoice files and ledger CSV
+      window.open('https://drive.google.com/file/d/119LFmkZT2-y5tSGcxJvrjjqHeEsDlWRz/view?usp=sharing', '_blank');
     }
 
     function handleExport(type) {
