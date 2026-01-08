@@ -2001,13 +2001,13 @@
           ? (ocr?.processor_date || null)
           : (ocr?.accounting?.processor_date || null),
 
-        // Financial amounts
+        // Financial amounts (use ?? to preserve 0 values)
         invoice_total: isNewFormat
-          ? (ocr?.invoice_total || null)
-          : (ocr?.totals?.grand_total || ocr?.totals?.total_due || null),
-        amount_paid: ocr?.amount_paid || null,
-        amount_due: ocr?.amount_due || null,
-        taxes: ocr?.taxes || null,
+          ? (ocr?.invoice_total ?? null)
+          : (ocr?.totals?.grand_total ?? ocr?.totals?.total_due ?? null),
+        amount_paid: ocr?.amount_paid ?? null,
+        amount_due: ocr?.amount_due ?? null,
+        taxes: ocr?.taxes ?? null,
 
         // Service details
         service_start: ocr?.service_start || null,
