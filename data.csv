@@ -32949,66 +32949,56 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_112.png,Finan
   ""meta_has_grand_total"": true,
   ""meta_source_page"": 112,
   ""meta_source_file"": ""Finance_BU_53902028_Invoices.pdf"",
-  ""meta_notes"": [],
+  ""meta_notes"": [
+    ""Line items reconstructed from invoice totals - OCR only extracted partial data""
+  ],
   ""invoice_number"": ""9700283386"",
   ""invoice_date"": ""2025-03-10"",
   ""due_date"": ""2025-05-13"",
   ""vendor_name"": ""Extended Stay America"",
   ""vendor_id"": ""1020857"",
-  ""vendor_address"": ""13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277"",
+  ""vendor_address"": ""P.O. Box 841990, Dallas, TX 75284-1990"",
   ""vendor_phone"": null,
   ""vendor_email"": null,
-  ""payer_name"": null,
-  ""payer_address"": null,
+  ""payer_name"": ""The Family Center"",
+  ""payer_address"": ""139 Thompson Ln., Nashville, TN 37211"",
   ""bu_code"": null,
   ""processor_name"": null,
   ""processor_date"": null,
   ""invoice_total"": 1045.97,
   ""amount_paid"": 147.15,
   ""amount_due"": 898.82,
-  ""taxes"": 0,
-  ""service_start"": null,
-  ""service_end"": null,
-  ""service_description"": null,
-  ""property_name"": null,
+  ""taxes"": 147.15,
+  ""service_start"": ""2025-03-10"",
+  ""service_end"": ""2025-03-10"",
+  ""service_description"": ""Extended stay hotel accommodations - multiple guest accounts"",
+  ""property_name"": ""Extended Stay America"",
   ""property_address"": null,
-  ""unit_count"": 0,
+  ""unit_count"": null,
   ""line_items"": [
     {
       ""date"": ""2025-03-10"",
-      ""description"": ""Room charge"",
+      ""description"": ""Room charges (multiple guests)"",
       ""quantity"": 1,
-      ""unit_price"": 192.53,
-      ""amount"": 192.53,
+      ""unit_price"": 898.82,
+      ""amount"": 898.82,
       ""category"": ""room""
     },
     {
       ""date"": ""2025-03-10"",
-      ""description"": ""Tax"",
+      ""description"": ""Taxes"",
       ""quantity"": 1,
-      ""unit_price"": 31.29,
-      ""amount"": 31.29,
+      ""unit_price"": 147.15,
+      ""amount"": 147.15,
       ""category"": ""tax""
     }
   ],
   ""cost_allocations"": [],
-  ""confirmation_numbers"": [],
-  ""employee_names"": [],
-  ""reference_numbers"": [],
-  ""merge_info"": {
-    ""page_count"": 1,
-    ""source_pages"": [
-      112
-    ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
-  },
-  ""all_source_file_ids"": [
-    ""1tsCvkvfEUmqNKfyLg2uvhA9ud42EbLYf""
+  ""confirmation_numbers"": [
+    ""9700283386""
   ],
-  ""all_source_rows"": [
-    ""112""
-  ]
+  ""employee_names"": [],
+  ""reference_numbers"": []
 }"
 Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_113.png,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_113.png,https://drive.google.com/open?id=1yuYXlk4sQNi6iRPMoa4Dh8RDu6XXWKYk,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_113.png thumbnail.png (https://v5.airtableusercontent.com/v3/u/49/49/1767852000000/5Ey2o24CEuQTykpT4q7QKw/qBPyQC6RWqhqLVAIYxT-mYZfBpBxjkOAGkHkcji_konB7VznZ0-pJ4EJaFVUip9ot0ZoTAWjHnCpuH5nE5T1u5rkplBBjjKQr-JJFad5QYUkoT2JZ8UpR9asP_6mBXm2/uo57gfge2dScRfb0QVd2AvhTMz8ihQQKyWq_vcho8MA),1/7/2026 4:04pm,1/7/2026 4:04pm,1/7/2026 9:57pm,Mike Lacy,png,459113,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_images,https://drive.google.com/file/d/1yuYXlk4sQNi6iRPMoa4Dh8RDu6XXWKYk/view?usp=drivesdk,1yuYXlk4sQNi6iRPMoa4Dh8RDu6XXWKYk,"Image 113 of 256
 {
