@@ -2785,7 +2785,10 @@
       const totalAmount = invoices.reduce((sum, i) => sum + (i.invoice_total || 0), 0);
       document.getElementById('total-amount').textContent = '$' + formatNumber(totalAmount);
       
-      const dates = invoices.map(i => i.invoice_date).filter(Boolean).sort();
+      const dates = invoices
+        .map(i => i.invoice_date)
+        .filter(d => d && typeof d === 'string' && /^\d{4}-\d{2}/.test(d))
+        .sort();
       if (dates.length > 0) {
         const from = dates[0].substring(5, 7) + '/' + dates[0].substring(2, 4);
         const to = dates[dates.length - 1].substring(5, 7) + '/' + dates[dates.length - 1].substring(2, 4);
@@ -3385,7 +3388,10 @@
         }
       });
 
-      const dates = filteredInvoices.map(inv => inv.invoice_date).filter(Boolean).sort();
+      const dates = filteredInvoices
+        .map(inv => inv.invoice_date)
+        .filter(d => d && typeof d === 'string' && /^\d{4}-\d{2}/.test(d))
+        .sort();
 
       const summary = {
         export_date: new Date().toISOString(),
