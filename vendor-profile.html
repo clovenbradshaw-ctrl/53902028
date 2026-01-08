@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendor Profile | Metro Nashville BU 53902028</title>
+  <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ9pSMhEiJ8s-1KcvC8Ls4JK7cVRYtU6LchA&s">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0b;
+      --bg-secondary: #111113;
+      --bg-tertiary: #1a1a1d;
+      --bg-card: #16161a;
+      --border: #2a2a2e;
+      --border-light: #3a3a3e;
+      --text-primary: #e8e8e8;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666;
+      --accent: #f59e0b;
+      --accent-dim: #b45309;
+      --accent-glow: rgba(245, 158, 11, 0.15);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+      --info-glow: rgba(59, 130, 246, 0.15);
+      --ocr-color: #8b5cf6;
+      --ocr-glow: rgba(139, 92, 246, 0.15);
+      --ledger-color: #10b981;
+      --ledger-glow: rgba(16, 185, 129, 0.15);
+      --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--bg-primary);
+    }
+
+    .logo-text {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-sub {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .nav-link svg {
+      width: 14px;
+      height: 14px;
+      margin-right: 0.4rem;
+      vertical-align: -2px;
+    }
+
+    /* Main Layout */
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-sep {
+      color: var(--text-muted);
+    }
+
+    /* Vendor Selection */
+    .vendor-selector {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .vendor-selector h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .vendor-selector p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .vendor-search-container {
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+      position: relative;
+    }
+
+    .vendor-search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-family: var(--font-sans);
+    }
+
+    .vendor-search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .vendor-search-icon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+    }
+
+    .vendor-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 0.5rem;
+    }
+
+    .vendor-list-item {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+    }
+
+    .vendor-list-item:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .vendor-list-item-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .vendor-list-item-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+    }
+
+    .vendor-list-item-meta span {
+      color: var(--text-secondary);
+    }
+
+    .vendor-list-item-meta .ocr-count {
+      color: var(--ocr-color);
+    }
+
+    .vendor-list-item-meta .ledger-count {
+      color: var(--ledger-color);
+    }
+
+    /* Vendor Profile Header */
+    .vendor-header {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .vendor-header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .vendor-identity {
+      flex: 1;
+    }
+
+    .vendor-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .vendor-id-badge {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      background: var(--bg-tertiary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      color: var(--text-secondary);
+    }
+
+    .vendor-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .vendor-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .vendor-contact-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+    }
+
+    /* Data Source Toggle */
+    .data-source-toggle {
+      display: flex;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .data-source-btn {
+      padding: 0.75rem 1.25rem;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .data-source-btn:hover {
+      color: var(--text-primary);
+      background: var(--bg-card);
+    }
+
+    .data-source-btn.active {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .data-source-btn.active.ocr-active {
+      background: var(--ocr-color);
+    }
+
+    .data-source-btn.active.ledger-active {
+      background: var(--ledger-color);
+    }
+
+    .data-source-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Stats Grid */
+    .vendor-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .vendor-stat {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .vendor-stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .vendor-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .vendor-stat.ocr .vendor-stat-value {
+      color: var(--ocr-color);
+    }
+
+    .vendor-stat.ledger .vendor-stat-value {
+      color: var(--ledger-color);
+    }
+
+    /* Content Sections */
+    .content-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-tertiary);
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title .badge {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .section-title .badge.ocr {
+      background: var(--ocr-glow);
+      color: var(--ocr-color);
+    }
+
+    .section-title .badge.ledger {
+      background: var(--ledger-glow);
+      color: var(--ledger-color);
+    }
+
+    .section-content {
+      padding: 1.5rem;
+    }
+
+    /* Invoice Table */
+    .invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .invoice-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-tertiary);
+      font-weight: 600;
+    }
+
+    .invoice-table td {
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .invoice-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .invoice-table tr:hover td {
+      background: var(--bg-tertiary);
+    }
+
+    .invoice-table .invoice-number {
+      font-family: var(--font-mono);
+      color: var(--accent);
+    }
+
+    .invoice-table .amount {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .invoice-table .date {
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+    }
+
+    .invoice-table .source-badge {
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    .invoice-table .source-badge.ocr {
+      background: var(--ocr-glow);
+      color: var(--ocr-color);
+    }
+
+    .invoice-table .source-badge.ledger {
+      background: var(--ledger-glow);
+      color: var(--ledger-color);
+    }
+
+    .invoice-table .type-badge {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: var(--info-glow);
+      color: var(--info);
+    }
+
+    .invoice-table .object-code {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* Link to invoice viewer */
+    .view-invoice-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .view-invoice-link:hover {
+      text-decoration: underline;
+    }
+
+    .view-invoice-link svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-muted);
+    }
+
+    .empty-state svg {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    .empty-state h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    /* Line Items Section */
+    .line-items-toggle {
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .line-items-toggle:hover {
+      text-decoration: underline;
+    }
+
+    .line-items-container {
+      display: none;
+      background: var(--bg-tertiary);
+      border-radius: 6px;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .line-items-container.open {
+      display: block;
+    }
+
+    .line-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .line-item:last-child {
+      border-bottom: none;
+    }
+
+    .line-item-desc {
+      color: var(--text-secondary);
+      flex: 1;
+      margin-right: 1rem;
+    }
+
+    .line-item-amount {
+      font-family: var(--font-mono);
+      color: var(--text-primary);
+    }
+
+    /* Comparison View */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .comparison-column {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .comparison-column-header {
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-column-header.ocr {
+      background: var(--ocr-glow);
+      color: var(--ocr-color);
+    }
+
+    .comparison-column-header.ledger {
+      background: var(--ledger-glow);
+      color: var(--ledger-color);
+    }
+
+    /* Loading State */
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-muted);
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-wrap: wrap;
+      }
+
+      .vendor-header-top {
+        flex-direction: column;
+      }
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .data-source-toggle {
+        flex-wrap: wrap;
+      }
+
+      .invoice-table {
+        font-size: 0.8rem;
+      }
+
+      .invoice-table th,
+      .invoice-table td {
+        padding: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">MN</div>
+        <div>
+          <div class="logo-text">Metro Nashville</div>
+          <div class="logo-sub">Vendor Profile</div>
+        </div>
+      </a>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          Invoice Viewer
+        </a>
+        <a href="ledger-view.html" class="nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          Ledger Review
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span id="breadcrumb-vendor">Vendors</span>
+    </nav>
+
+    <!-- Loading State -->
+    <div id="loading-state" class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading vendor data...</p>
+    </div>
+
+    <!-- Vendor Selection (shown when no vendor selected) -->
+    <div id="vendor-selector" class="vendor-selector" style="display: none;">
+      <h2>Select a Vendor</h2>
+      <p>Choose a vendor to view their detailed profile with invoice and ledger data.</p>
+      <div class="vendor-search-container">
+        <svg class="vendor-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" class="vendor-search-input" id="vendor-search" placeholder="Search vendors...">
+      </div>
+      <div class="vendor-list" id="vendor-list"></div>
+    </div>
+
+    <!-- Vendor Profile (shown when vendor selected) -->
+    <div id="vendor-profile" style="display: none;">
+      <!-- Vendor Header -->
+      <div class="vendor-header">
+        <div class="vendor-header-top">
+          <div class="vendor-identity">
+            <h1 class="vendor-name">
+              <span id="vendor-display-name">Vendor Name</span>
+              <span class="vendor-id-badge" id="vendor-id-badge">ID: 00000</span>
+            </h1>
+            <div class="vendor-contact" id="vendor-contact">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+          <div class="data-source-toggle">
+            <button class="data-source-btn active" data-source="both">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              Both
+            </button>
+            <button class="data-source-btn" data-source="ocr">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              OCR Invoices
+            </button>
+            <button class="data-source-btn" data-source="ledger">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Ledger Data
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="vendor-stats" id="vendor-stats">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Invoice Lists -->
+      <div id="content-container">
+        <!-- OCR Section -->
+        <div id="ocr-section" class="content-section">
+          <div class="section-header">
+            <h2 class="section-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              Scanned Invoice Data
+              <span class="badge ocr" id="ocr-count-badge">0 invoices</span>
+            </h2>
+          </div>
+          <div class="section-content">
+            <table class="invoice-table" id="ocr-table">
+              <thead>
+                <tr>
+                  <th>Invoice #</th>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Service Period</th>
+                  <th>Line Items</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="ocr-table-body">
+              </tbody>
+            </table>
+            <div id="ocr-empty" class="empty-state" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              <h3>No OCR Data</h3>
+              <p>No scanned invoice data available for this vendor.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ledger Section -->
+        <div id="ledger-section" class="content-section">
+          <div class="section-header">
+            <h2 class="section-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Ledger Entries
+              <span class="badge ledger" id="ledger-count-badge">0 entries</span>
+            </h2>
+          </div>
+          <div class="section-content">
+            <table class="invoice-table" id="ledger-table">
+              <thead>
+                <tr>
+                  <th>Invoice #</th>
+                  <th>Date</th>
+                  <th>Object Account</th>
+                  <th>Amount</th>
+                  <th>GL Date</th>
+                  <th>Batch</th>
+                  <th>Explanation</th>
+                </tr>
+              </thead>
+              <tbody id="ledger-table-body">
+              </tbody>
+            </table>
+            <div id="ledger-empty" class="empty-state" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              <h3>No Ledger Data</h3>
+              <p>No ledger entries available for this vendor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // ==================== VENDOR NAME NORMALIZATION ====================
+    const VENDOR_MAPPINGS = {
+      'extended stay america': 'ESA MANAGEMENT LLC',
+      'esa management l.l.c.': 'ESA MANAGEMENT LLC',
+      'esa management llc': 'ESA MANAGEMENT LLC',
+      'esa management': 'ESA MANAGEMENT LLC',
+      'esa suites': 'ESA MANAGEMENT LLC',
+      'esa': 'ESA MANAGEMENT LLC',
+      'the ave': 'THE AVE NASHVILLE LLC',
+      'the ave nashville': 'THE AVE NASHVILLE LLC',
+      'the ave nashville llc': 'THE AVE NASHVILLE LLC',
+      'hillside crossing hotel': 'HILLSIDE CROSSING LLC',
+      'hillside crossing llc': 'HILLSIDE CROSSING LLC',
+      'hillside crossing': 'HILLSIDE CROSSING LLC',
+      'randstad': 'Randstad North America Inc dba Randstad USA LLC',
+      'randstad usa': 'Randstad North America Inc dba Randstad USA LLC',
+      'randstad north america': 'Randstad North America Inc dba Randstad USA LLC',
+      'depaul usa': 'Depaul USA',
+      'depaul': 'Depaul USA',
+      'community care fellowship, inc.': 'COMMUNITY CARE FELLOWSHIP',
+      'community care fellowship': 'COMMUNITY CARE FELLOWSHIP',
+      'rj young': 'RJ Young Company LLC',
+      'r.j. young': 'RJ Young Company LLC',
+      'robert j young company': 'RJ Young Company LLC',
+      'rj young company llc': 'RJ Young Company LLC',
+      'grainger': '"W.W. Grainger, Inc. dba Grainger"',
+      'w.w. grainger': '"W.W. Grainger, Inc. dba Grainger"',
+      'w.w. grainger, inc.': '"W.W. Grainger, Inc. dba Grainger"',
+      'w.w. grainger, inc. dba grainger': '"W.W. Grainger, Inc. dba Grainger"',
+      '97 wallace studios, llc': '97 WALLACE STUDIOS',
+      '97 wallace studios': '97 WALLACE STUDIOS',
+      'thompson machinery': 'Thompson Machinery Commerce Corp.',
+      'thompson machinery commerce corp.': 'Thompson Machinery Commerce Corp.',
+      'gordon food service inc.': '"Gordon Food Service, Inc."',
+      'gordon food service': '"Gordon Food Service, Inc."',
+      'gordon food service store': '"Gordon Food Service, Inc."',
+      'gordon food service, inc.': '"Gordon Food Service, Inc."',
+      'j hamilton': '"Hamilton, Justen T"',
+      'hamilton, justen t': '"Hamilton, Justen T"',
+      'justen hamilton': '"Hamilton, Justen T"',
+      'the hospitality hub of memphis': 'The Hospitality Hub of Memphis',
+      'hospitality hub': 'The Hospitality Hub of Memphis',
+    };
+
+    // Reverse mapping for display names
+    const DISPLAY_NAMES = {
+      'ESA MANAGEMENT LLC': 'Extended Stay America',
+      'THE AVE NASHVILLE LLC': 'The Ave Nashville',
+      'HILLSIDE CROSSING LLC': 'Hillside Crossing',
+      'Randstad North America Inc dba Randstad USA LLC': 'Randstad',
+      '"W.W. Grainger, Inc. dba Grainger"': 'Grainger',
+      '"Gordon Food Service, Inc."': 'Gordon Food Service',
+      '"Hamilton, Justen T"': 'Justen Hamilton',
+    };
+
+    function normalizeVendor(vendorName) {
+      if (!vendorName) return '';
+      const lower = vendorName.toLowerCase().trim();
+      return VENDOR_MAPPINGS[lower] || vendorName;
+    }
+
+    function getDisplayName(vendorName) {
+      return DISPLAY_NAMES[vendorName] || vendorName.replace(/"/g, '');
+    }
+
+    function formatCurrency(amount) {
+      if (amount === null || amount === undefined || isNaN(amount)) return '$0.00';
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      }).format(amount);
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '-';
+      const date = new Date(dateStr);
+      if (isNaN(date.getTime())) {
+        // Try parsing US format
+        const parts = dateStr.split('/');
+        if (parts.length === 3) {
+          return `${parts[0]}/${parts[1]}/${parts[2]}`;
+        }
+        return dateStr;
+      }
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
+    }
+
+    // ==================== DATA LOADING ====================
+    let ocrData = null;
+    let ledgerData = null;
+    let currentVendor = null;
+    let currentSource = 'both';
+
+    async function loadData() {
+      try {
+        const [ocrResponse, ledgerResponse] = await Promise.all([
+          fetch('./ocr-invoices.json'),
+          fetch('./ledger-invoices.json')
+        ]);
+
+        ocrData = await ocrResponse.json();
+        ledgerData = await ledgerResponse.json();
+
+        document.getElementById('loading-state').style.display = 'none';
+
+        // Check URL for vendor parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const vendorParam = urlParams.get('vendor');
+
+        if (vendorParam) {
+          selectVendor(decodeURIComponent(vendorParam));
+        } else {
+          showVendorSelector();
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+        document.getElementById('loading-state').innerHTML = `
+          <div style="color: var(--danger);">
+            <h3>Error Loading Data</h3>
+            <p>Could not load vendor data. Please ensure the JSON files exist.</p>
+            <p style="font-size: 0.8rem; margin-top: 1rem;">${error.message}</p>
+          </div>
+        `;
+      }
+    }
+
+    // ==================== VENDOR LIST ====================
+    function buildVendorList() {
+      const vendors = new Map();
+
+      // Collect OCR vendors
+      if (ocrData && ocrData.invoices) {
+        ocrData.invoices.forEach(inv => {
+          const normalized = normalizeVendor(inv.vendor_name);
+          if (!vendors.has(normalized)) {
+            vendors.set(normalized, {
+              name: normalized,
+              displayName: getDisplayName(normalized),
+              ocrCount: 0,
+              ocrTotal: 0,
+              ledgerCount: 0,
+              ledgerTotal: 0,
+              vendorId: inv.vendor_id,
+              address: inv.vendor_address,
+              phone: inv.vendor_phone,
+              email: inv.vendor_email
+            });
+          }
+          const v = vendors.get(normalized);
+          v.ocrCount++;
+          v.ocrTotal += parseFloat(inv.invoice_total) || 0;
+          if (inv.vendor_id && !v.vendorId) v.vendorId = inv.vendor_id;
+          if (inv.vendor_address && !v.address) v.address = inv.vendor_address;
+          if (inv.vendor_phone && !v.phone) v.phone = inv.vendor_phone;
+          if (inv.vendor_email && !v.email) v.email = inv.vendor_email;
+        });
+      }
+
+      // Collect Ledger vendors
+      if (ledgerData && ledgerData.invoices) {
+        ledgerData.invoices.forEach(inv => {
+          const normalized = normalizeVendor(inv.vendor_name);
+          if (!vendors.has(normalized)) {
+            vendors.set(normalized, {
+              name: normalized,
+              displayName: getDisplayName(normalized),
+              ocrCount: 0,
+              ocrTotal: 0,
+              ledgerCount: 0,
+              ledgerTotal: 0,
+              vendorId: inv.vendor_id
+            });
+          }
+          const v = vendors.get(normalized);
+          v.ledgerCount++;
+          v.ledgerTotal += parseFloat(inv.amount) || 0;
+          if (inv.vendor_id && !v.vendorId) v.vendorId = inv.vendor_id;
+        });
+      }
+
+      return Array.from(vendors.values()).sort((a, b) => {
+        const totalA = a.ocrCount + a.ledgerCount;
+        const totalB = b.ocrCount + b.ledgerCount;
+        return totalB - totalA;
+      });
+    }
+
+    function showVendorSelector() {
+      document.getElementById('vendor-selector').style.display = 'block';
+      document.getElementById('vendor-profile').style.display = 'none';
+
+      const vendors = buildVendorList();
+      renderVendorList(vendors);
+
+      // Setup search
+      const searchInput = document.getElementById('vendor-search');
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const filtered = vendors.filter(v =>
+          v.displayName.toLowerCase().includes(query) ||
+          v.name.toLowerCase().includes(query)
+        );
+        renderVendorList(filtered);
+      });
+    }
+
+    function renderVendorList(vendors) {
+      const container = document.getElementById('vendor-list');
+      container.innerHTML = vendors.map(v => `
+        <div class="vendor-list-item" onclick="selectVendor('${encodeURIComponent(v.name)}')">
+          <div class="vendor-list-item-name">${v.displayName}</div>
+          <div class="vendor-list-item-meta">
+            <span class="ocr-count">${v.ocrCount} OCR</span>
+            <span class="ledger-count">${v.ledgerCount} Ledger</span>
+            <span>${formatCurrency(v.ocrTotal + v.ledgerTotal)}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ==================== VENDOR PROFILE ====================
+    function selectVendor(vendorName) {
+      const decoded = decodeURIComponent(vendorName);
+      currentVendor = decoded;
+
+      // Update URL
+      const url = new URL(window.location);
+      url.searchParams.set('vendor', decoded);
+      window.history.pushState({}, '', url);
+
+      document.getElementById('vendor-selector').style.display = 'none';
+      document.getElementById('vendor-profile').style.display = 'block';
+
+      renderVendorProfile();
+    }
+
+    function renderVendorProfile() {
+      const vendors = buildVendorList();
+      const vendor = vendors.find(v => v.name === currentVendor);
+
+      if (!vendor) {
+        document.getElementById('vendor-profile').innerHTML = `
+          <div class="empty-state">
+            <h3>Vendor Not Found</h3>
+            <p>Could not find vendor: ${currentVendor}</p>
+            <a href="vendor-profile.html" style="color: var(--accent);">Back to vendor list</a>
+          </div>
+        `;
+        return;
+      }
+
+      // Update breadcrumb
+      document.getElementById('breadcrumb-vendor').textContent = vendor.displayName;
+
+      // Update header
+      document.getElementById('vendor-display-name').textContent = vendor.displayName;
+      document.getElementById('vendor-id-badge').textContent = vendor.vendorId ? `ID: ${vendor.vendorId}` : 'No ID';
+
+      // Contact info
+      const contactEl = document.getElementById('vendor-contact');
+      let contactHTML = '';
+      if (vendor.address) {
+        contactHTML += `
+          <div class="vendor-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            ${vendor.address}
+          </div>
+        `;
+      }
+      if (vendor.phone) {
+        contactHTML += `
+          <div class="vendor-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            ${vendor.phone}
+          </div>
+        `;
+      }
+      if (vendor.email) {
+        contactHTML += `
+          <div class="vendor-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            ${vendor.email}
+          </div>
+        `;
+      }
+      contactEl.innerHTML = contactHTML || '<span style="color: var(--text-muted);">No contact information available</span>';
+
+      // Stats
+      renderStats(vendor);
+
+      // Data source toggle handlers
+      document.querySelectorAll('.data-source-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          document.querySelectorAll('.data-source-btn').forEach(b => {
+            b.classList.remove('active', 'ocr-active', 'ledger-active');
+          });
+          btn.classList.add('active');
+          if (btn.dataset.source === 'ocr') btn.classList.add('ocr-active');
+          if (btn.dataset.source === 'ledger') btn.classList.add('ledger-active');
+          currentSource = btn.dataset.source;
+          renderDataSections();
+        });
+      });
+
+      // Render data sections
+      renderDataSections();
+    }
+
+    function renderStats(vendor) {
+      const statsEl = document.getElementById('vendor-stats');
+      statsEl.innerHTML = `
+        <div class="vendor-stat">
+          <div class="vendor-stat-value">${vendor.ocrCount + vendor.ledgerCount}</div>
+          <div class="vendor-stat-label">Total Records</div>
+        </div>
+        <div class="vendor-stat">
+          <div class="vendor-stat-value">${formatCurrency(vendor.ocrTotal + vendor.ledgerTotal)}</div>
+          <div class="vendor-stat-label">Total Amount</div>
+        </div>
+        <div class="vendor-stat ocr">
+          <div class="vendor-stat-value">${vendor.ocrCount}</div>
+          <div class="vendor-stat-label">OCR Invoices</div>
+        </div>
+        <div class="vendor-stat ocr">
+          <div class="vendor-stat-value">${formatCurrency(vendor.ocrTotal)}</div>
+          <div class="vendor-stat-label">OCR Total</div>
+        </div>
+        <div class="vendor-stat ledger">
+          <div class="vendor-stat-value">${vendor.ledgerCount}</div>
+          <div class="vendor-stat-label">Ledger Entries</div>
+        </div>
+        <div class="vendor-stat ledger">
+          <div class="vendor-stat-value">${formatCurrency(vendor.ledgerTotal)}</div>
+          <div class="vendor-stat-label">Ledger Total</div>
+        </div>
+      `;
+    }
+
+    function renderDataSections() {
+      const ocrSection = document.getElementById('ocr-section');
+      const ledgerSection = document.getElementById('ledger-section');
+
+      if (currentSource === 'both') {
+        ocrSection.style.display = 'block';
+        ledgerSection.style.display = 'block';
+      } else if (currentSource === 'ocr') {
+        ocrSection.style.display = 'block';
+        ledgerSection.style.display = 'none';
+      } else {
+        ocrSection.style.display = 'none';
+        ledgerSection.style.display = 'block';
+      }
+
+      renderOCRTable();
+      renderLedgerTable();
+    }
+
+    function renderOCRTable() {
+      const tbody = document.getElementById('ocr-table-body');
+      const emptyState = document.getElementById('ocr-empty');
+      const countBadge = document.getElementById('ocr-count-badge');
+
+      // Get OCR invoices for this vendor
+      const invoices = ocrData.invoices.filter(inv =>
+        normalizeVendor(inv.vendor_name) === currentVendor
+      ).sort((a, b) => new Date(b.invoice_date) - new Date(a.invoice_date));
+
+      countBadge.textContent = `${invoices.length} invoice${invoices.length !== 1 ? 's' : ''}`;
+
+      if (invoices.length === 0) {
+        tbody.innerHTML = '';
+        emptyState.style.display = 'block';
+        document.getElementById('ocr-table').style.display = 'none';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      document.getElementById('ocr-table').style.display = 'table';
+
+      tbody.innerHTML = invoices.map((inv, idx) => {
+        const lineItemsId = `line-items-${idx}`;
+        const hasLineItems = inv.line_items && inv.line_items.length > 0;
+        const servicePeriod = inv.service_start && inv.service_end
+          ? `${formatDate(inv.service_start)} - ${formatDate(inv.service_end)}`
+          : '-';
+
+        return `
+          <tr>
+            <td class="invoice-number">${inv.invoice_number || '-'}</td>
+            <td class="date">${formatDate(inv.invoice_date)}</td>
+            <td><span class="type-badge">${inv.meta_invoice_type || 'UNKNOWN'}</span></td>
+            <td class="amount">${formatCurrency(inv.invoice_total)}</td>
+            <td class="date">${servicePeriod}</td>
+            <td>
+              ${hasLineItems ? `
+                <span class="line-items-toggle" onclick="toggleLineItems('${lineItemsId}')">
+                  ${inv.line_items.length} items
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+                <div id="${lineItemsId}" class="line-items-container">
+                  ${inv.line_items.map(item => `
+                    <div class="line-item">
+                      <span class="line-item-desc">${item.description || 'No description'}</span>
+                      <span class="line-item-amount">${formatCurrency(item.amount)}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              ` : '-'}
+            </td>
+            <td>
+              <a href="index.html?search=${encodeURIComponent(inv.invoice_number || '')}" class="view-invoice-link">
+                View
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderLedgerTable() {
+      const tbody = document.getElementById('ledger-table-body');
+      const emptyState = document.getElementById('ledger-empty');
+      const countBadge = document.getElementById('ledger-count-badge');
+
+      // Get ledger entries for this vendor
+      const entries = ledgerData.invoices.filter(inv =>
+        normalizeVendor(inv.vendor_name) === currentVendor
+      ).sort((a, b) => {
+        const dateA = new Date(a.invoice_date.replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2'));
+        const dateB = new Date(b.invoice_date.replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2'));
+        return dateB - dateA;
+      });
+
+      countBadge.textContent = `${entries.length} entr${entries.length !== 1 ? 'ies' : 'y'}`;
+
+      if (entries.length === 0) {
+        tbody.innerHTML = '';
+        emptyState.style.display = 'block';
+        document.getElementById('ledger-table').style.display = 'none';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      document.getElementById('ledger-table').style.display = 'table';
+
+      tbody.innerHTML = entries.map(inv => `
+        <tr>
+          <td class="invoice-number">${inv.invoice_number || '-'}</td>
+          <td class="date">${inv.invoice_date || '-'}</td>
+          <td class="object-code">${inv.object_account || '-'}</td>
+          <td class="amount">${formatCurrency(inv.amount)}</td>
+          <td class="date">${inv.gl_date || '-'}</td>
+          <td style="font-size: 0.75rem; color: var(--text-secondary);">${inv.batch_number || '-'}</td>
+          <td style="font-size: 0.8rem; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${inv.explanation || ''}">${inv.explanation || '-'}</td>
+        </tr>
+      `).join('');
+    }
+
+    function toggleLineItems(id) {
+      const container = document.getElementById(id);
+      container.classList.toggle('open');
+    }
+
+    // ==================== INITIALIZE ====================
+    document.addEventListener('DOMContentLoaded', loadData);
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const vendorParam = urlParams.get('vendor');
+      if (vendorParam) {
+        selectVendor(decodeURIComponent(vendorParam));
+      } else {
+        currentVendor = null;
+        showVendorSelector();
+      }
+    });
+  </script>
+</body>
+</html>
