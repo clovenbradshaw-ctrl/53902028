@@ -132,6 +132,13 @@ function deduplicateLineItems(items) {
 function createMergedInvoice(pages, rowDataList) {
   if (pages.length === 0) return null;
 
+  // Sort pages by source page number so lower numbers come first
+  pages = [...pages].sort((a, b) => {
+    const pageA = a.ocr?.meta_source_page || 0;
+    const pageB = b.ocr?.meta_source_page || 0;
+    return pageA - pageB;
+  });
+
   const pageOcrs = pages.map(p => p.ocr);
   const pageRows = pages.map(p => p.row);
 
