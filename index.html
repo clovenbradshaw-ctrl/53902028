@@ -52,7 +52,7 @@
     }
 
     .header-content {
-      max-width: 2100px;
+      max-width: 1800px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -148,7 +148,7 @@
     /* Main Layout */
     .main-container {
       display: flex;
-      max-width: 2100px;
+      max-width: 1800px;
       margin: 0 auto;
       min-height: calc(100vh - 70px);
     }
@@ -169,59 +169,37 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Money Flow Sidebar */
-    .money-flow-sidebar {
-      width: 280px;
-      min-width: 280px;
-      background: var(--bg-secondary);
-      border-right: 1px solid var(--border);
-      padding: 1.5rem 1rem;
-      overflow-y: auto;
-      max-height: calc(100vh - 70px);
-      position: sticky;
-      top: 70px;
-    }
-
-    .money-flow-title {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .money-flow-title svg {
-      width: 14px;
-      height: 14px;
-      color: var(--info);
-    }
-
-    .flow-subtitle {
+    /* Money Flow Section (collapsible) */
+    .flow-scope-notice {
       font-size: 0.65rem;
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
+      padding: 0.5rem;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
       line-height: 1.4;
+    }
+
+    .flow-scope-notice strong {
+      color: var(--info);
     }
 
     .flow-container {
       position: relative;
-      padding-left: 20px;
+      padding-left: 16px;
     }
 
     .flow-line {
       position: absolute;
-      left: 7px;
-      top: 10px;
-      bottom: 10px;
+      left: 5px;
+      top: 8px;
+      bottom: 8px;
       width: 2px;
       background: linear-gradient(180deg,
         var(--success) 0%,
-        var(--info) 30%,
-        var(--warning) 60%,
+        var(--info) 25%,
+        var(--warning) 50%,
         var(--accent) 100%
       );
       border-radius: 2px;
@@ -229,27 +207,26 @@
 
     .flow-node {
       position: relative;
-      margin-bottom: 0.75rem;
-      padding: 0.75rem;
-      background: var(--bg-tertiary);
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      background: var(--bg-primary);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 6px;
       transition: all 0.2s;
     }
 
     .flow-node:hover {
       border-color: var(--border-light);
-      background: var(--bg-card);
     }
 
     .flow-node::before {
       content: '';
       position: absolute;
-      left: -16px;
+      left: -14px;
       top: 50%;
       transform: translateY(-50%);
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--bg-secondary);
       border: 2px solid var(--text-muted);
@@ -258,59 +235,55 @@
     .flow-node.source::before {
       background: var(--success);
       border-color: var(--success);
-      box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
     }
 
     .flow-node.allocation::before {
       background: var(--info);
       border-color: var(--info);
-      box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
     }
 
     .flow-node.reallocation::before {
       background: var(--warning);
       border-color: var(--warning);
-      box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
     }
 
     .flow-node.current::before {
       background: var(--accent);
       border-color: var(--accent);
-      box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
     }
 
     .flow-node-header {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.15rem;
     }
 
     .flow-node-label {
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--text-muted);
     }
 
     .flow-node-year {
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       font-family: var(--font-mono);
       color: var(--text-muted);
     }
 
     .flow-node-title {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: var(--text-primary);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.15rem;
     }
 
     .flow-node-amount {
       font-family: var(--font-mono);
-      font-size: 1rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
 
     .flow-node.source .flow-node-amount { color: var(--success); }
@@ -319,17 +292,17 @@
     .flow-node.current .flow-node-amount { color: var(--accent); }
 
     .flow-node-desc {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       color: var(--text-secondary);
-      line-height: 1.4;
+      line-height: 1.3;
     }
 
     .flow-node-link {
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-      margin-top: 0.5rem;
-      font-size: 0.65rem;
+      margin-top: 0.35rem;
+      font-size: 0.6rem;
       color: var(--info);
       text-decoration: none;
       opacity: 0.8;
@@ -342,27 +315,13 @@
     }
 
     .flow-node-link svg {
-      width: 10px;
-      height: 10px;
-    }
-
-    .flow-arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0.25rem 0;
-      padding-left: 20px;
-    }
-
-    .flow-arrow svg {
-      width: 16px;
-      height: 16px;
-      color: var(--text-muted);
+      width: 9px;
+      height: 9px;
     }
 
     .flow-breakdown {
-      margin-top: 0.5rem;
-      padding-top: 0.5rem;
+      margin-top: 0.35rem;
+      padding-top: 0.35rem;
       border-top: 1px dashed var(--border);
     }
 
@@ -370,8 +329,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.65rem;
-      padding: 0.25rem 0;
+      font-size: 0.6rem;
+      padding: 0.15rem 0;
     }
 
     .flow-breakdown-label {
@@ -384,33 +343,26 @@
     }
 
     .flow-legend {
-      margin-top: 1.5rem;
-      padding: 0.75rem;
-      background: var(--bg-tertiary);
-      border-radius: 6px;
-      border: 1px solid var(--border);
-    }
-
-    .flow-legend-title {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
+      margin-top: 0.75rem;
+      padding: 0.5rem;
+      background: var(--bg-primary);
+      border-radius: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     .flow-legend-item {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.65rem;
+      gap: 0.25rem;
+      font-size: 0.55rem;
       color: var(--text-secondary);
-      margin-bottom: 0.25rem;
     }
 
     .flow-legend-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
     }
 
@@ -418,36 +370,6 @@
     .flow-legend-dot.allocation { background: var(--info); }
     .flow-legend-dot.reallocation { background: var(--warning); }
     .flow-legend-dot.current { background: var(--accent); }
-
-    .flow-total {
-      margin-top: 1rem;
-      padding: 0.75rem;
-      background: rgba(245, 158, 11, 0.1);
-      border: 1px solid var(--accent-dim);
-      border-radius: 6px;
-      text-align: center;
-    }
-
-    .flow-total-label {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .flow-total-amount {
-      font-family: var(--font-mono);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .flow-total-subtitle {
-      font-size: 0.6rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
-    }
 
     .sidebar-title {
       font-size: 0.7rem;
@@ -1815,188 +1737,6 @@
   </header>
 
   <div class="main-container">
-    <!-- Money Flow Sidebar -->
-    <aside class="money-flow-sidebar">
-      <div class="money-flow-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-        </svg>
-        Money Flow
-      </div>
-      <div class="flow-subtitle">
-        How ARPA funds were allocated and reallocated through Metro Council resolutions
-      </div>
-
-      <div class="flow-container">
-        <div class="flow-line"></div>
-
-        <!-- Federal Source -->
-        <div class="flow-node source">
-          <div class="flow-node-header">
-            <span class="flow-node-label">Federal Source</span>
-            <span class="flow-node-year">2021</span>
-          </div>
-          <div class="flow-node-title">American Rescue Plan Act</div>
-          <div class="flow-node-amount">$1.9 Trillion</div>
-          <div class="flow-node-desc">Federal COVID-19 relief funds distributed to state and local governments</div>
-        </div>
-
-        <!-- Metro Nashville Allocation -->
-        <div class="flow-node source">
-          <div class="flow-node-header">
-            <span class="flow-node-label">Metro Nashville</span>
-            <span class="flow-node-year">2021</span>
-          </div>
-          <div class="flow-node-title">Total ARPA Allocation</div>
-          <div class="flow-node-amount">$260M+</div>
-          <div class="flow-node-desc">Metro Nashville's share of ARPA State & Local Fiscal Recovery Funds</div>
-        </div>
-
-        <!-- RS2022-1860 -->
-        <div class="flow-node allocation">
-          <div class="flow-node-header">
-            <span class="flow-node-label">Council Resolution</span>
-            <span class="flow-node-year">Nov 2022</span>
-          </div>
-          <div class="flow-node-title">RS2022-1860</div>
-          <div class="flow-node-amount">$9,500,000</div>
-          <div class="flow-node-desc">Original allocation to Shared Equity Housing program for affordable housing initiatives</div>
-          <a href="https://nashville.legistar.com/LegislationDetail.aspx?ID=5931612&GUID=A7A86D37-9FCC-4D05-88E4-2CEF9EBC82D4" target="_blank" class="flow-node-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              <polyline points="15,3 21,3 21,9"/>
-              <line x1="10" y1="14" x2="21" y2="3"/>
-            </svg>
-            View Resolution
-          </a>
-        </div>
-
-        <!-- RS2024-490 -->
-        <div class="flow-node reallocation">
-          <div class="flow-node-header">
-            <span class="flow-node-label">Reallocation</span>
-            <span class="flow-node-year">Jun 2024</span>
-          </div>
-          <div class="flow-node-title">RS2024-490</div>
-          <div class="flow-node-amount">$8,439,446</div>
-          <div class="flow-node-desc">Funds reallocated from Shared Equity Housing to homeless services</div>
-          <div class="flow-breakdown">
-            <div class="flow-breakdown-item">
-              <span class="flow-breakdown-label">Strobel Center</span>
-              <span class="flow-breakdown-amount">$4,400,000</span>
-            </div>
-            <div class="flow-breakdown-item">
-              <span class="flow-breakdown-label">Barnes Fund (R13)</span>
-              <span class="flow-breakdown-amount">$4,039,446</span>
-            </div>
-          </div>
-          <a href="https://nashville.legistar.com/LegislationDetail.aspx?ID=6706795&GUID=3911D2DC-BA71-4A2D-B975-458961A0A8A8" target="_blank" class="flow-node-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              <polyline points="15,3 21,3 21,9"/>
-              <line x1="10" y1="14" x2="21" y2="3"/>
-            </svg>
-            View Resolution
-          </a>
-        </div>
-
-        <!-- Barnes Fund Amendment -->
-        <div class="flow-node reallocation">
-          <div class="flow-node-header">
-            <span class="flow-node-label">Amendment</span>
-            <span class="flow-node-year">2024</span>
-          </div>
-          <div class="flow-node-title">Barnes Fund Increase</div>
-          <div class="flow-node-amount">+$1,200,000</div>
-          <div class="flow-node-desc">Additional funds added to Barnes Housing Fund (R13) for expanded services</div>
-          <div class="flow-breakdown">
-            <div class="flow-breakdown-item">
-              <span class="flow-breakdown-label">New Barnes Total</span>
-              <span class="flow-breakdown-amount">$5,239,446</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- RS2025-974 -->
-        <div class="flow-node current">
-          <div class="flow-node-header">
-            <span class="flow-node-label">New Program</span>
-            <span class="flow-node-year">2025</span>
-          </div>
-          <div class="flow-node-title">RS2025-974</div>
-          <div class="flow-node-amount">$1,300,000</div>
-          <div class="flow-node-desc">Mobile Housing Navigation program for unsheltered individuals</div>
-          <div class="flow-breakdown">
-            <div class="flow-breakdown-item">
-              <span class="flow-breakdown-label">Community Care Fellowship</span>
-              <span class="flow-breakdown-amount">$900,000</span>
-            </div>
-            <div class="flow-breakdown-item">
-              <span class="flow-breakdown-label">Nashville Launch Pad</span>
-              <span class="flow-breakdown-amount">$397,900</span>
-            </div>
-          </div>
-          <a href="https://nashville.legistar.com/LegislationDetail.aspx?ID=7093299&GUID=08251286-2A31-4D4D-AD28-2AC14F430F9D" target="_blank" class="flow-node-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              <polyline points="15,3 21,3 21,9"/>
-              <line x1="10" y1="14" x2="21" y2="3"/>
-            </svg>
-            View Resolution
-          </a>
-        </div>
-
-        <!-- Current State -->
-        <div class="flow-node current">
-          <div class="flow-node-header">
-            <span class="flow-node-label">BU 53902028</span>
-            <span class="flow-node-year">Now</span>
-          </div>
-          <div class="flow-node-title">Current Allocation</div>
-          <div class="flow-node-amount">$9,639,446</div>
-          <div class="flow-node-desc">Total funds tracked in this invoice viewer</div>
-          <div class="flow-breakdown">
-            <div class="flow-breakdown-item">
-              <span class="flow-breakdown-label">Strobel Center</span>
-              <span class="flow-breakdown-amount">$4,400,000</span>
-            </div>
-            <div class="flow-breakdown-item">
-              <span class="flow-breakdown-label">Barnes Fund (R13)</span>
-              <span class="flow-breakdown-amount">$5,239,446</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Legend -->
-      <div class="flow-legend">
-        <div class="flow-legend-title">Legend</div>
-        <div class="flow-legend-item">
-          <span class="flow-legend-dot source"></span>
-          Federal / Metro Source
-        </div>
-        <div class="flow-legend-item">
-          <span class="flow-legend-dot allocation"></span>
-          Original Allocation
-        </div>
-        <div class="flow-legend-item">
-          <span class="flow-legend-dot reallocation"></span>
-          Reallocation / Amendment
-        </div>
-        <div class="flow-legend-item">
-          <span class="flow-legend-dot current"></span>
-          Current State
-        </div>
-      </div>
-
-      <!-- ARPA Deadline -->
-      <div class="flow-total">
-        <div class="flow-total-label">ARPA Spending Deadline</div>
-        <div class="flow-total-amount">Dec 31, 2026</div>
-        <div class="flow-total-subtitle">All funds must be obligated by this date</div>
-      </div>
-    </aside>
-
     <aside class="sidebar">
       <!-- Account Info Panel -->
       <div class="sidebar-section" id="account-info-panel">
@@ -2045,6 +1785,162 @@
             <div style="padding: 0.5rem; background: rgba(239, 68, 68, 0.1); border-radius: 4px; border-left: 2px solid var(--danger);">
               <div style="color: var(--danger); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em;">ARPA Deadline</div>
               <div style="font-family: var(--font-mono); font-size: 0.8rem;">December 31, 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Money Flow Section -->
+      <div class="sidebar-section">
+        <div class="filter-group open" data-filter="money-flow">
+          <div class="filter-header" style="background: var(--info-glow); border-left: 3px solid var(--info);">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="var(--info)" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+              <span class="filter-name" style="color: var(--info)">Money Flow</span>
+            </div>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" style="display: block; padding: 0.75rem;">
+            <!-- Scope Notice -->
+            <div class="flow-scope-notice">
+              <strong>This viewer tracks only a portion</strong> of Nashville's $260M+ ARPA allocation — specifically the <strong>$9.6M reallocated</strong> from Shared Equity Housing to homeless services via RS2024-490.
+            </div>
+
+            <div class="flow-container">
+              <div class="flow-line"></div>
+
+              <!-- Original ARPA Allocation -->
+              <div class="flow-node source">
+                <div class="flow-node-header">
+                  <span class="flow-node-label">Original Allocation</span>
+                  <span class="flow-node-year">Nov 2022</span>
+                </div>
+                <div class="flow-node-title">RS2022-1860</div>
+                <div class="flow-node-amount">$9,500,000</div>
+                <div class="flow-node-desc">ARPA funds allocated to "Shared Equity Housing" program</div>
+                <a href="https://nashville.legistar.com/LegislationDetail.aspx?ID=5931612&GUID=A7A86D37-9FCC-4D05-88E4-2CEF9EBC82D4" target="_blank" class="flow-node-link">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15,3 21,3 21,9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  View Resolution
+                </a>
+              </div>
+
+              <!-- Reallocation -->
+              <div class="flow-node reallocation">
+                <div class="flow-node-header">
+                  <span class="flow-node-label">Reallocation</span>
+                  <span class="flow-node-year">Jun 2024</span>
+                </div>
+                <div class="flow-node-title">RS2024-490</div>
+                <div class="flow-node-amount">$8,439,446</div>
+                <div class="flow-node-desc">Redirected from housing to homeless services</div>
+                <div class="flow-breakdown">
+                  <div class="flow-breakdown-item">
+                    <span class="flow-breakdown-label">Strobel Center</span>
+                    <span class="flow-breakdown-amount">$4,400,000</span>
+                  </div>
+                  <div class="flow-breakdown-item">
+                    <span class="flow-breakdown-label">Barnes Fund (R13)</span>
+                    <span class="flow-breakdown-amount">$4,039,446</span>
+                  </div>
+                </div>
+                <a href="https://nashville.legistar.com/LegislationDetail.aspx?ID=6706795&GUID=3911D2DC-BA71-4A2D-B975-458961A0A8A8" target="_blank" class="flow-node-link">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15,3 21,3 21,9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  View Resolution
+                </a>
+              </div>
+
+              <!-- Barnes Amendment -->
+              <div class="flow-node reallocation">
+                <div class="flow-node-header">
+                  <span class="flow-node-label">Amendment</span>
+                  <span class="flow-node-year">2024</span>
+                </div>
+                <div class="flow-node-title">Barnes Fund Increase</div>
+                <div class="flow-node-amount">+$1,200,000</div>
+                <div class="flow-node-desc">Additional funds to Barnes Housing Fund</div>
+              </div>
+
+              <!-- RS2025-974 -->
+              <div class="flow-node allocation">
+                <div class="flow-node-header">
+                  <span class="flow-node-label">New Program</span>
+                  <span class="flow-node-year">2025</span>
+                </div>
+                <div class="flow-node-title">RS2025-974</div>
+                <div class="flow-node-amount">$1,300,000</div>
+                <div class="flow-node-desc">Mobile Housing Navigation</div>
+                <div class="flow-breakdown">
+                  <div class="flow-breakdown-item">
+                    <span class="flow-breakdown-label">Community Care Fellowship</span>
+                    <span class="flow-breakdown-amount">$900,000</span>
+                  </div>
+                  <div class="flow-breakdown-item">
+                    <span class="flow-breakdown-label">Nashville Launch Pad</span>
+                    <span class="flow-breakdown-amount">$397,900</span>
+                  </div>
+                </div>
+                <a href="https://nashville.legistar.com/LegislationDetail.aspx?ID=7093299&GUID=08251286-2A31-4D4D-AD28-2AC14F430F9D" target="_blank" class="flow-node-link">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15,3 21,3 21,9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  View Resolution
+                </a>
+              </div>
+
+              <!-- Current State -->
+              <div class="flow-node current">
+                <div class="flow-node-header">
+                  <span class="flow-node-label">This Viewer</span>
+                  <span class="flow-node-year">Now</span>
+                </div>
+                <div class="flow-node-title">BU 53902028</div>
+                <div class="flow-node-amount">$9,639,446</div>
+                <div class="flow-node-desc">Total tracked in this invoice viewer</div>
+                <div class="flow-breakdown">
+                  <div class="flow-breakdown-item">
+                    <span class="flow-breakdown-label">Strobel Center</span>
+                    <span class="flow-breakdown-amount">$4,400,000</span>
+                  </div>
+                  <div class="flow-breakdown-item">
+                    <span class="flow-breakdown-label">Barnes Fund (R13)</span>
+                    <span class="flow-breakdown-amount">$5,239,446</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="flow-legend">
+              <div class="flow-legend-item">
+                <span class="flow-legend-dot source"></span>
+                Original
+              </div>
+              <div class="flow-legend-item">
+                <span class="flow-legend-dot reallocation"></span>
+                Reallocation
+              </div>
+              <div class="flow-legend-item">
+                <span class="flow-legend-dot allocation"></span>
+                New Program
+              </div>
+              <div class="flow-legend-item">
+                <span class="flow-legend-dot current"></span>
+                Current
+              </div>
             </div>
           </div>
         </div>
