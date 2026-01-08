@@ -458,6 +458,47 @@
       color: var(--text-primary);
     }
 
+    /* Filtered Stats */
+    .filtered-stats {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+
+    .filtered-stats.hidden {
+      display: none;
+    }
+
+    .filtered-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filtered-stat-label {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .filtered-stat-value {
+      color: var(--accent);
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .filtered-stat-divider {
+      width: 1px;
+      height: 24px;
+      background: var(--border);
+    }
+
     .view-toggles {
       display: flex;
       background: var(--bg-tertiary);
@@ -1686,6 +1727,22 @@
           <div class="results-count">
             Showing <strong id="results-shown">0</strong> of <strong id="results-total">0</strong> invoices
           </div>
+          <div class="filtered-stats hidden" id="filtered-stats">
+            <div class="filtered-stat">
+              <span class="filtered-stat-label">Filtered Total</span>
+              <span class="filtered-stat-value" id="filtered-amount">$0</span>
+            </div>
+            <div class="filtered-stat-divider"></div>
+            <div class="filtered-stat">
+              <span class="filtered-stat-label">Vendors</span>
+              <span class="filtered-stat-value" id="filtered-vendors">0</span>
+            </div>
+            <div class="filtered-stat-divider"></div>
+            <div class="filtered-stat">
+              <span class="filtered-stat-label">Avg Invoice</span>
+              <span class="filtered-stat-value" id="filtered-avg">$0</span>
+            </div>
+          </div>
         </div>
         <div class="toolbar-right" style="display: flex; gap: 1rem; align-items: center;">
           <div class="pivot-select">
@@ -2735,9 +2792,10 @@
       
       // Apply sorting
       sortInvoices();
-      
+
       renderInvoices();
       updateResultsCount();
+      updateFilteredStats();
       renderActiveFilters();
     }
 
@@ -3141,6 +3199,30 @@
     function updateResultsCount() {
       document.getElementById('results-shown').textContent = filteredInvoices.length;
       document.getElementById('results-total').textContent = invoices.length;
+    }
+
+    function updateFilteredStats() {
+      const statsContainer = document.getElementById('filtered-stats');
+      const isFiltered = filteredInvoices.length !== invoices.length;
+
+      if (!isFiltered) {
+        statsContainer.classList.add('hidden');
+        return;
+      }
+
+      statsContainer.classList.remove('hidden');
+
+      // Calculate filtered total
+      const filteredTotal = filteredInvoices.reduce((sum, inv) => sum + (inv.invoice_total || 0), 0);
+      document.getElementById('filtered-amount').textContent = '$' + formatNumber(filteredTotal);
+
+      // Calculate unique vendors in filtered results
+      const filteredVendors = new Set(filteredInvoices.map(inv => inv.vendor_name));
+      document.getElementById('filtered-vendors').textContent = filteredVendors.size;
+
+      // Calculate average invoice amount
+      const avgAmount = filteredInvoices.length > 0 ? filteredTotal / filteredInvoices.length : 0;
+      document.getElementById('filtered-avg').textContent = '$' + formatNumber(avgAmount);
     }
 
     function updateStats() {
