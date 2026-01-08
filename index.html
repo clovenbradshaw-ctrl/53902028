@@ -675,6 +675,18 @@
       text-overflow: ellipsis;
     }
 
+    .invoice-vendor.clickable,
+    .invoice-row-vendor.clickable {
+      cursor: pointer;
+      transition: color 0.15s ease;
+    }
+
+    .invoice-vendor.clickable:hover,
+    .invoice-row-vendor.clickable:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
     .invoice-meta {
       display: flex;
       flex-wrap: wrap;
@@ -2345,6 +2357,25 @@
     }
 
     // ==================== FILTERING ====================
+    function filterByVendor(vendorName) {
+      // Clear any existing vendor filter and set the clicked vendor
+      activeFilters.vendor = [vendorName];
+
+      // Update the filter UI to reflect the selection
+      const vendorFilterContainer = document.getElementById('filter-options-vendor');
+      if (vendorFilterContainer) {
+        vendorFilterContainer.querySelectorAll('.filter-option').forEach(opt => {
+          if (opt.dataset.value === vendorName) {
+            opt.classList.add('active');
+          } else {
+            opt.classList.remove('active');
+          }
+        });
+      }
+
+      applyFilters();
+    }
+
     function applyFilters() {
       filteredInvoices = invoices.filter(inv => {
         // Search
@@ -2493,7 +2524,7 @@
             </div>
           </div>
           <div class="invoice-info">
-            <div class="invoice-vendor">${escapeHtml(inv.vendor_name)}</div>
+            <div class="invoice-vendor clickable" data-vendor="${escapeHtml(inv.vendor_name)}">${escapeHtml(inv.vendor_name)}</div>
             <div class="invoice-date">${inv.invoice_date || 'No date'} ${inv.invoice_number !== 'N/A' ? `• #${inv.invoice_number}` : ''}</div>
             <div class="invoice-meta">
               ${inv.invoice_total ? `<span class="invoice-tag amount">$${formatNumber(inv.invoice_total)}</span>` : ''}
@@ -2514,6 +2545,14 @@
       container.querySelectorAll('.invoice-card').forEach(card => {
         card.addEventListener('click', () => openModal(parseInt(card.dataset.index)));
       });
+
+      // Add vendor click handlers
+      container.querySelectorAll('.invoice-vendor.clickable').forEach(vendor => {
+        vendor.addEventListener('click', (e) => {
+          e.stopPropagation();
+          filterByVendor(vendor.dataset.vendor);
+        });
+      });
     }
 
     function renderListView(container) {
@@ -2525,7 +2564,7 @@
               ${inv.thumbnailUrl ? `<img src="${inv.thumbnailUrl}" alt="" loading="lazy">` : ''}
             </div>
             <div>
-              <div class="invoice-row-vendor">${escapeHtml(inv.vendor_name)}</div>
+              <div class="invoice-row-vendor clickable" data-vendor="${escapeHtml(inv.vendor_name)}">${escapeHtml(inv.vendor_name)}</div>
               <div class="invoice-row-id">#${inv.invoice_number}</div>
             </div>
             <div class="invoice-row-date">${inv.invoice_date || '—'}</div>
@@ -2544,6 +2583,14 @@
       
       container.querySelectorAll('.invoice-row').forEach(row => {
         row.addEventListener('click', () => openModal(parseInt(row.dataset.index)));
+      });
+
+      // Add vendor click handlers
+      container.querySelectorAll('.invoice-row-vendor.clickable').forEach(vendor => {
+        vendor.addEventListener('click', (e) => {
+          e.stopPropagation();
+          filterByVendor(vendor.dataset.vendor);
+        });
       });
     }
 
@@ -2627,7 +2674,7 @@
                     }
                   </div>
                   <div class="invoice-info">
-                    <div class="invoice-vendor">${escapeHtml(inv.vendor_name)}</div>
+                    <div class="invoice-vendor clickable" data-vendor="${escapeHtml(inv.vendor_name)}">${escapeHtml(inv.vendor_name)}</div>
                     <div class="invoice-date">${inv.invoice_date || 'No date'}</div>
                     <div class="invoice-meta">
                       ${inv.invoice_total ? `<span class="invoice-tag amount">$${formatNumber(inv.invoice_total)}</span>` : ''}
@@ -2642,6 +2689,14 @@
       
       container.querySelectorAll('.invoice-card').forEach(card => {
         card.addEventListener('click', () => openModal(parseInt(card.dataset.index)));
+      });
+
+      // Add vendor click handlers
+      container.querySelectorAll('.invoice-vendor.clickable').forEach(vendor => {
+        vendor.addEventListener('click', (e) => {
+          e.stopPropagation();
+          filterByVendor(vendor.dataset.vendor);
+        });
       });
     }
 
