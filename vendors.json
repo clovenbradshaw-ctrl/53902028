@@ -1,0 +1,285 @@
+{
+  "version": "1.0",
+  "generated": "2026-01-08",
+  "description": "Canonical vendor registry for Metro Nashville BU 53902028",
+  "vendors": [
+    {
+      "guid": "v-001-esa-management",
+      "vendor_id": "1020857",
+      "canonical_name": "ESA MANAGEMENT LLC",
+      "display_name": "Extended Stay America",
+      "aliases": [
+        "Extended Stay America",
+        "ESA Management LLC",
+        "ESA Management L.L.C.",
+        "ESA Management",
+        "ESA Suites",
+        "ESA"
+      ],
+      "category": "lodging"
+    },
+    {
+      "guid": "v-002-the-ave",
+      "vendor_id": "1018405",
+      "canonical_name": "THE AVE NASHVILLE LLC",
+      "display_name": "The Ave Nashville",
+      "aliases": [
+        "The Ave (Castello Equity Partners)",
+        "The Ave Nashville LLC",
+        "The Ave Nashville",
+        "The Ave",
+        "Castello Equity Partners"
+      ],
+      "category": "lodging"
+    },
+    {
+      "guid": "v-003-hillside-crossing",
+      "vendor_id": "1021245",
+      "canonical_name": "HILLSIDE CROSSING LLC",
+      "display_name": "Hillside Crossing",
+      "aliases": [
+        "Hillside Crossing Hotel",
+        "Hillside Crossing LLC",
+        "Hillside Crossing"
+      ],
+      "category": "lodging"
+    },
+    {
+      "guid": "v-004-randstad",
+      "vendor_id": "19083",
+      "canonical_name": "RANDSTAD NORTH AMERICA INC",
+      "display_name": "Randstad",
+      "aliases": [
+        "Randstad",
+        "Randstad USA",
+        "Randstad North America",
+        "Randstad North America Inc dba Randstad USA LLC"
+      ],
+      "category": "staffing"
+    },
+    {
+      "guid": "v-005-depaul-usa",
+      "vendor_id": "1020406",
+      "canonical_name": "DEPAUL USA",
+      "display_name": "Depaul USA",
+      "aliases": [
+        "Depaul USA",
+        "Depaul"
+      ],
+      "category": "services"
+    },
+    {
+      "guid": "v-006-community-care",
+      "vendor_id": "1007670",
+      "canonical_name": "COMMUNITY CARE FELLOWSHIP",
+      "display_name": "Community Care Fellowship",
+      "aliases": [
+        "Community Care Fellowship, Inc.",
+        "Community Care Fellowship",
+        "COMMUNITY CARE FELLOWSHIP"
+      ],
+      "category": "services"
+    },
+    {
+      "guid": "v-007-rj-young",
+      "vendor_id": "4777",
+      "canonical_name": "RJ YOUNG COMPANY LLC",
+      "display_name": "RJ Young",
+      "aliases": [
+        "RJ Young",
+        "R.J. Young",
+        "Robert J Young Company",
+        "RJ Young Company LLC"
+      ],
+      "category": "equipment"
+    },
+    {
+      "guid": "v-008-grainger",
+      "vendor_id": null,
+      "canonical_name": "W.W. GRAINGER INC",
+      "display_name": "Grainger",
+      "aliases": [
+        "Grainger",
+        "W.W. Grainger",
+        "W.W. Grainger, Inc.",
+        "W.W. Grainger, Inc. dba Grainger"
+      ],
+      "category": "supplies"
+    },
+    {
+      "guid": "v-009-97-wallace",
+      "vendor_id": "1018278",
+      "canonical_name": "97 WALLACE STUDIOS",
+      "display_name": "97 Wallace Studios",
+      "aliases": [
+        "97 Wallace Studios, LLC",
+        "97 Wallace Studios LLC",
+        "97 Wallace Studios",
+        "97 WALLACE STUDIOS"
+      ],
+      "category": "lodging"
+    },
+    {
+      "guid": "v-010-thompson",
+      "vendor_id": null,
+      "canonical_name": "THOMPSON MACHINERY COMMERCE CORP",
+      "display_name": "Thompson Machinery",
+      "aliases": [
+        "Thompson Machinery",
+        "Thompson Machinery Commerce Corp."
+      ],
+      "category": "equipment"
+    },
+    {
+      "guid": "v-011-gordon-food",
+      "vendor_id": "12122",
+      "canonical_name": "GORDON FOOD SERVICE INC",
+      "display_name": "Gordon Food Service",
+      "aliases": [
+        "Gordon Food Service Inc.",
+        "Gordon Food Service",
+        "Gordon Food Service Store",
+        "Gordon Food Service, Inc."
+      ],
+      "category": "food"
+    },
+    {
+      "guid": "v-012-hamilton",
+      "vendor_id": "1023350",
+      "canonical_name": "HAMILTON JUSTEN T",
+      "display_name": "Justen Hamilton",
+      "aliases": [
+        "J Hamilton",
+        "Hamilton, Justen T",
+        "Justen Hamilton"
+      ],
+      "category": "services"
+    },
+    {
+      "guid": "v-013-hospitality-hub",
+      "vendor_id": null,
+      "canonical_name": "THE HOSPITALITY HUB OF MEMPHIS",
+      "display_name": "Hospitality Hub",
+      "aliases": [
+        "The Hospitality Hub of Memphis",
+        "Hospitality Hub"
+      ],
+      "category": "services"
+    },
+    {
+      "guid": "v-014-greenview",
+      "vendor_id": "1024315",
+      "canonical_name": "GREENVIEW STUDIOS LLC",
+      "display_name": "Greenview Studios",
+      "aliases": [
+        "Greenview Studios",
+        "Greenview Studios, LLC",
+        "Greenview Studios LLC"
+      ],
+      "category": "lodging"
+    },
+    {
+      "guid": "v-015-randy-baker",
+      "vendor_id": "941401",
+      "canonical_name": "RANDY D BAKER",
+      "display_name": "Randy D. Baker",
+      "aliases": [
+        "Randy D. Baker"
+      ],
+      "category": "services"
+    },
+    {
+      "guid": "v-016-cssrt",
+      "vendor_id": "1023432",
+      "canonical_name": "CSSRT INC",
+      "display_name": "CSSRT",
+      "aliases": [
+        "CSSRT, INC",
+        "CSSRT"
+      ],
+      "category": "services"
+    },
+    {
+      "guid": "v-017-nashville-launchpad",
+      "vendor_id": "1012381",
+      "canonical_name": "NASHVILLE LAUNCH PAD INC",
+      "display_name": "Nashville Launch Pad",
+      "aliases": [
+        "Nashville Launch Pad, Inc.",
+        "Nashville Launch Pad"
+      ],
+      "category": "services"
+    },
+    {
+      "guid": "v-018-highland-east",
+      "vendor_id": "1023472",
+      "canonical_name": "HIGHLAND EAST APARTMENTS",
+      "display_name": "Highland East Apartments",
+      "aliases": [
+        "Highland East Apartments",
+        "Highland East"
+      ],
+      "category": "lodging"
+    },
+    {
+      "guid": "v-019-antonia-whitfield",
+      "vendor_id": "239265",
+      "canonical_name": "ANTONIA WHITFIELD",
+      "display_name": "Antonia Whitfield",
+      "aliases": [
+        "Antonia Whitfield"
+      ],
+      "category": "services"
+    },
+    {
+      "guid": "v-020-grand-tents",
+      "vendor_id": null,
+      "canonical_name": "GRAND TENTS AND EVENTS",
+      "display_name": "Grand Tents & Events",
+      "aliases": [
+        "Grand Tents & Events"
+      ],
+      "category": "equipment"
+    },
+    {
+      "guid": "v-021-nottingham",
+      "vendor_id": "1025464",
+      "canonical_name": "NOTTINGHAM PARTNERS LLC",
+      "display_name": "Nottingham Partners",
+      "aliases": [
+        "Nottingham Partners LLC"
+      ],
+      "category": "services"
+    },
+    {
+      "guid": "v-022-premiere-building",
+      "vendor_id": "388",
+      "canonical_name": "PREMIERE BUILDING MAINTENANCE CORP",
+      "display_name": "Premiere Building Maintenance",
+      "aliases": [
+        "Premiere Building Maintenance Corporation"
+      ],
+      "category": "maintenance"
+    },
+    {
+      "guid": "v-023-traffic-control",
+      "vendor_id": "17663",
+      "canonical_name": "PROFESSIONAL TRAFFIC CONTROL SERVICES LLC",
+      "display_name": "Professional Traffic Control",
+      "aliases": [
+        "Professional Traffic Control Services, LLC"
+      ],
+      "category": "services"
+    },
+    {
+      "guid": "v-024-deborah-hollis",
+      "vendor_id": "1014805",
+      "canonical_name": "DEBORAH L HOLLIS",
+      "display_name": "Deborah L. Hollis",
+      "aliases": [
+        "DEBORAH L HOLLIS"
+      ],
+      "category": "services"
+    }
+  ]
+}

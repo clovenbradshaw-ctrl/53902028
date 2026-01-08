@@ -36,7 +36,9 @@
       "batch_number": "KOFAX-09SEP2024140908",
       "batch_date": "9/9/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-cbee7893fa4bf636"
     },
     {
       "document_type": "Invoice",
@@ -60,7 +62,9 @@
       "batch_number": "KOFAX-24SEP2024120959",
       "batch_date": "9/24/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-68fb5dc8af0a19de"
     },
     {
       "document_type": "Invoice",
@@ -84,7 +88,9 @@
       "batch_number": "KOFAX-12SEP2024140934",
       "batch_date": "9/12/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-232bdba6bdcd7233"
     },
     {
       "document_type": "Invoice",
@@ -108,7 +114,9 @@
       "batch_number": "KOFAX-19SEP2024180955",
       "batch_date": "9/19/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-682c9769d9a90b8c"
     },
     {
       "document_type": "Invoice",
@@ -132,7 +140,9 @@
       "batch_number": "KOFAX-26SEP2024210901",
       "batch_date": "9/26/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-a578efbdf235d7a9"
     },
     {
       "document_type": "Invoice",
@@ -156,7 +166,9 @@
       "batch_number": "KOFAX-24SEP2024120959",
       "batch_date": "9/24/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-596d724823a11ab8"
     },
     {
       "document_type": "Invoice",
@@ -180,7 +192,8 @@
       "batch_number": "KOFAX-30SEP2024170934",
       "batch_date": "9/30/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "invoice_guid": "inv-ldg-b1f1afb34554541f"
     },
     {
       "document_type": "Invoice",
@@ -204,7 +217,8 @@
       "batch_number": "KOFAX-30SEP2024170934",
       "batch_date": "9/30/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "invoice_guid": "inv-ldg-90ada3e74b5089a0"
     },
     {
       "document_type": "Invoice",
@@ -228,7 +242,8 @@
       "batch_number": "KOFAX-30SEP2024170934",
       "batch_date": "9/30/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "invoice_guid": "inv-ldg-90ada3e74b5089a0"
     },
     {
       "document_type": "Invoice",
@@ -252,7 +267,9 @@
       "batch_number": "KOFAX-06OCT2024061000",
       "batch_date": "10/6/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-ad6a3691cfd92e49"
     },
     {
       "document_type": "Invoice",
@@ -276,7 +293,9 @@
       "batch_number": "KOFAX-06OCT2024061000",
       "batch_date": "10/6/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-ee798652a03d48d0"
     },
     {
       "document_type": "Invoice",
@@ -300,7 +319,9 @@
       "batch_number": "KOFAX-14OCT2024121001",
       "batch_date": "10/14/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-489aab9cb9a78784"
     },
     {
       "document_type": "Invoice",
@@ -324,7 +345,9 @@
       "batch_number": "KOFAX-07OCT2024091054",
       "batch_date": "10/7/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-7d5d459fe403b6fb"
     },
     {
       "document_type": "Invoice",
@@ -348,7 +371,9 @@
       "batch_number": "KOFAX-18OCT2024121002",
       "batch_date": "10/18/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-31408269267e9135"
     },
     {
       "document_type": "Invoice",
@@ -372,7 +397,9 @@
       "batch_number": "KOFAX-18OCT2024121002",
       "batch_date": "10/18/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-1962dc7058fc513d"
     },
     {
       "document_type": "Invoice",
@@ -396,7 +423,9 @@
       "batch_number": "KOFAX-18OCT2024121002",
       "batch_date": "10/18/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-3220bf2a190d111f"
     },
     {
       "document_type": "Invoice",
@@ -420,7 +449,9 @@
       "batch_number": "KOFAX-18OCT2024121002",
       "batch_date": "10/18/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-2cc66e0c80874bc8"
     },
     {
       "document_type": "Invoice",
@@ -444,7 +475,9 @@
       "batch_number": "KOFAX-18OCT2024121002",
       "batch_date": "10/18/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-1268f6cefe66ab31"
     },
     {
       "document_type": "Invoice",
@@ -468,7 +501,9 @@
       "batch_number": "KOFAX-14OCT2024121001",
       "batch_date": "10/14/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-865ddadbc904ddd4"
     },
     {
       "document_type": "Invoice",
@@ -492,7 +527,9 @@
       "batch_number": "KOFAX-18OCT2024121002",
       "batch_date": "10/18/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-8fa28e24b126e466"
     },
     {
       "document_type": "Invoice",
@@ -516,7 +553,9 @@
       "batch_number": "KOFAX-17OCT2024151025",
       "batch_date": "10/17/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-44e637c2ea04f346"
     },
     {
       "document_type": "Invoice",
@@ -540,7 +579,9 @@
       "batch_number": "KOFAX-21OCT2024161041",
       "batch_date": "10/21/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-dade5d3d4d80acad"
     },
     {
       "document_type": "Invoice",
@@ -564,7 +605,9 @@
       "batch_number": "KOFAX-24OCT2024101044",
       "batch_date": "10/24/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-7199c40509c66393"
     },
     {
       "document_type": "Invoice",
@@ -588,7 +631,9 @@
       "batch_number": "KOFAX-04NOV2024161101",
       "batch_date": "11/4/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV"
+      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-b548d55a2c99e3f4"
     },
     {
       "document_type": "Invoice",
@@ -612,7 +657,9 @@
       "batch_number": "KOFAX-02DEC2024081254",
       "batch_date": "12/2/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV"
+      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-7eeb677beb01fb22"
     },
     {
       "document_type": "Invoice",
@@ -636,7 +683,9 @@
       "batch_number": "KOFAX-08NOV2024161107",
       "batch_date": "11/8/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-3ce601857381b473"
     },
     {
       "document_type": "Invoice",
@@ -660,7 +709,9 @@
       "batch_number": "KOFAX-02DEC2024081254",
       "batch_date": "12/2/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV"
+      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-595a07aefc1b1a09"
     },
     {
       "document_type": "Invoice",
@@ -684,7 +735,9 @@
       "batch_number": "KOFAX-02DEC2024081254",
       "batch_date": "12/2/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV"
+      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-03964a59a4f4d592"
     },
     {
       "document_type": "Invoice",
@@ -708,7 +761,9 @@
       "batch_number": "KOFAX-02DEC2024151201",
       "batch_date": "12/2/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV"
+      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-a514376fbd96d039"
     },
     {
       "document_type": "Invoice",
@@ -732,7 +787,9 @@
       "batch_number": "KOFAX-27NOV2024121107",
       "batch_date": "11/27/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-007-rj-young",
+      "invoice_guid": "inv-ldg-832ee8002a5dce9d"
     },
     {
       "document_type": "Invoice",
@@ -756,7 +813,9 @@
       "batch_number": "KOFAX-12DEC2024161218",
       "batch_date": "12/12/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV"
+      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-de35610751d01843"
     },
     {
       "document_type": "Invoice",
@@ -780,7 +839,9 @@
       "batch_number": "KOFAX-12DEC2024161218",
       "batch_date": "12/12/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-566cd2f7da33e04c"
     },
     {
       "document_type": "Invoice",
@@ -804,7 +865,9 @@
       "batch_number": "KOFAX-27DEC2024171252",
       "batch_date": "12/27/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-d77614c46628801a"
     },
     {
       "document_type": "Invoice",
@@ -828,7 +891,9 @@
       "batch_number": "KOFAX-06JAN2025120104",
       "batch_date": "1/6/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-3796b7c16ca7ce40"
     },
     {
       "document_type": "Invoice",
@@ -852,7 +917,9 @@
       "batch_number": "KOFAX-28JAN2025110118",
       "batch_date": "1/28/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-eee8c78755a4f3db"
     },
     {
       "document_type": "Invoice",
@@ -876,7 +943,9 @@
       "batch_number": "KOFAX-13JAN2025140159",
       "batch_date": "1/13/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ldg-ba8af82002aac7c5"
     },
     {
       "document_type": "Invoice",
@@ -900,7 +969,9 @@
       "batch_number": "KOFAX-28JAN2025110118",
       "batch_date": "1/28/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-9f4eccc1515da477"
     },
     {
       "document_type": "Invoice",
@@ -924,7 +995,9 @@
       "batch_number": "KOFAX-23JAN2025170152",
       "batch_date": "1/23/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-627de4c4e9e86eeb"
     },
     {
       "document_type": "Invoice",
@@ -948,7 +1021,9 @@
       "batch_number": "KOFAX-23JAN2025170152",
       "batch_date": "1/23/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-627de4c4e9e86eeb"
     },
     {
       "document_type": "Invoice",
@@ -972,7 +1047,9 @@
       "batch_number": "KOFAX-23JAN2025170152",
       "batch_date": "1/23/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-627de4c4e9e86eeb"
     },
     {
       "document_type": "Invoice",
@@ -996,7 +1073,9 @@
       "batch_number": "KOFAX-28JAN2025110118",
       "batch_date": "1/28/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-cb7c2ef8fbc4b3ef"
     },
     {
       "document_type": "Invoice",
@@ -1020,7 +1099,9 @@
       "batch_number": "KOFAX-30APR2025130450",
       "batch_date": "4/30/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-007-rj-young",
+      "invoice_guid": "inv-ldg-a2effd5093b57986"
     },
     {
       "document_type": "Invoice",
@@ -1044,7 +1125,9 @@
       "batch_number": "KOFAX-03FEB2025140233",
       "batch_date": "2/3/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-02d4950b4117a324"
     },
     {
       "document_type": "Invoice",
@@ -1068,7 +1151,9 @@
       "batch_number": "KOFAX-06FEB2025100252",
       "batch_date": "2/6/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ldg-e8d27cdd28045279"
     },
     {
       "document_type": "Invoice",
@@ -1092,7 +1177,9 @@
       "batch_number": "KOFAX-10FEB2025150258",
       "batch_date": "2/10/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-897d9fa405cff1d8"
     },
     {
       "document_type": "Invoice",
@@ -1116,7 +1203,9 @@
       "batch_number": "KOFAX-11FEB2025150217",
       "batch_date": "2/11/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ldg-f5baa8572ee8308e"
     },
     {
       "document_type": "Invoice",
@@ -1140,7 +1229,9 @@
       "batch_number": "KOFAX-14FEB2025130253",
       "batch_date": "2/14/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-011-gordon-food",
+      "invoice_guid": "inv-ldg-3dfdd50d9e56fd37"
     },
     {
       "document_type": "Invoice",
@@ -1164,7 +1255,9 @@
       "batch_number": "KOFAX-18FEB2025160257",
       "batch_date": "2/18/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-88db76f75de97d27"
     },
     {
       "document_type": "Invoice",
@@ -1188,7 +1281,9 @@
       "batch_number": "KOFAX-24FEB2025100224",
       "batch_date": "2/24/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-23d666bf5a9e7df0"
     },
     {
       "document_type": "Invoice",
@@ -1212,7 +1307,9 @@
       "batch_number": "KOFAX-10MAR2025170331",
       "batch_date": "3/10/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ldg-7cacf20473605f45"
     },
     {
       "document_type": "Invoice",
@@ -1236,7 +1333,9 @@
       "batch_number": "KOFAX-11APR2025110452",
       "batch_date": "4/11/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ldg-c4fbd365806252f5"
     },
     {
       "document_type": "Invoice",
@@ -1260,7 +1359,9 @@
       "batch_number": "KOFAX-30APR2025130450",
       "batch_date": "4/30/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-007-rj-young",
+      "invoice_guid": "inv-ldg-bb00855544587f0f"
     },
     {
       "document_type": "Invoice",
@@ -1284,7 +1385,9 @@
       "batch_number": "KOFAX-13MAY2025110507",
       "batch_date": "5/13/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ldg-1ccb9e25abb82fcb"
     },
     {
       "document_type": "Invoice",
@@ -1308,7 +1411,9 @@
       "batch_number": "KOFAX-05JUN2025170603",
       "batch_date": "6/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-0ddc9520fc9ccd47"
     },
     {
       "document_type": "Invoice",
@@ -1332,7 +1437,9 @@
       "batch_number": "KOFAX-05JUN2025170603",
       "batch_date": "6/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-2c5b4553be6fa18c"
     },
     {
       "document_type": "Invoice",
@@ -1356,7 +1463,9 @@
       "batch_number": "KOFAX-05JUN2025170603",
       "batch_date": "6/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-f31624f355adea62"
     },
     {
       "document_type": "Invoice",
@@ -1380,7 +1489,9 @@
       "batch_number": "KOFAX-05JUN2025170603",
       "batch_date": "6/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-20b5d3d85195b850"
     },
     {
       "document_type": "Invoice",
@@ -1404,7 +1515,9 @@
       "batch_number": "KOFAX-28MAY2025180551",
       "batch_date": "5/28/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-011-gordon-food",
+      "invoice_guid": "inv-ldg-d7fc6ab93f472076"
     },
     {
       "document_type": "Invoice",
@@ -1428,7 +1541,9 @@
       "batch_number": "KOFAX-28MAY2025180551",
       "batch_date": "5/28/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-012-hamilton",
+      "invoice_guid": "inv-ldg-3a64d790a2fd75f7"
     },
     {
       "document_type": "Invoice",
@@ -1452,7 +1567,9 @@
       "batch_number": "KOFAX-05JUN2025170603",
       "batch_date": "6/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-009-97-wallace",
+      "invoice_guid": "inv-ldg-d6001d7af7bff0b4"
     },
     {
       "document_type": "Invoice",
@@ -1476,7 +1593,9 @@
       "batch_number": "KOFAX-10JUN2025170603",
       "batch_date": "6/10/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ldg-726db0009ae6af64"
     },
     {
       "document_type": "Invoice",
@@ -1500,7 +1619,9 @@
       "batch_number": "KOFAX-18SEP2024180935",
       "batch_date": "9/18/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-54120f5d439c9c11"
     },
     {
       "document_type": "Invoice",
@@ -1524,7 +1645,9 @@
       "batch_number": "KOFAX-18SEP2024180935",
       "batch_date": "9/18/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-6f26f815d07db9f2"
     },
     {
       "document_type": "Invoice",
@@ -1548,7 +1671,9 @@
       "batch_number": "KOFAX-18SEP2024180935",
       "batch_date": "9/18/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-6202879c3d20c7fa"
     },
     {
       "document_type": "Invoice",
@@ -1572,7 +1697,9 @@
       "batch_number": "KOFAX-06JAN2025120104",
       "batch_date": "1/6/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-0e33fbed394d636c"
     },
     {
       "document_type": "Invoice",
@@ -1596,7 +1723,9 @@
       "batch_number": "KOFAX-23JAN2025160150",
       "batch_date": "1/23/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-4cf21795bb956cb0"
     },
     {
       "document_type": "Invoice",
@@ -1620,7 +1749,9 @@
       "batch_number": "KOFAX-23JAN2025160150",
       "batch_date": "1/23/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-21d033fe9cf897d2"
     },
     {
       "document_type": "Invoice",
@@ -1644,7 +1775,9 @@
       "batch_number": "KOFAX-23JAN2025160150",
       "batch_date": "1/23/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-4b77eb7c0b723218"
     },
     {
       "document_type": "Invoice",
@@ -1668,7 +1801,9 @@
       "batch_number": "KOFAX-10FEB2025150258",
       "batch_date": "2/10/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-fe8c18f28eb9c742"
     },
     {
       "document_type": "Invoice",
@@ -1692,7 +1827,9 @@
       "batch_number": "KOFAX-11MAR2025160352",
       "batch_date": "3/11/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ldg-5c7e1034f54caaac"
     },
     {
       "document_type": "Invoice",
@@ -1716,7 +1853,9 @@
       "batch_number": "KOFAX-25FEB2025170200",
       "batch_date": "2/25/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-fcc7564c340dde1b"
     },
     {
       "document_type": "Invoice",
@@ -1740,7 +1879,9 @@
       "batch_number": "KOFAX-25FEB2025170200",
       "batch_date": "2/25/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-095d15e3311ca19a"
     },
     {
       "document_type": "Invoice",
@@ -1764,7 +1905,9 @@
       "batch_number": "KOFAX-25FEB2025170200",
       "batch_date": "2/25/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-a2124ae972084b3f"
     },
     {
       "document_type": "Invoice",
@@ -1788,7 +1931,9 @@
       "batch_number": "KOFAX-26FEB2025160210",
       "batch_date": "2/26/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-bf564277e79464a4"
     },
     {
       "document_type": "Invoice",
@@ -1812,7 +1957,9 @@
       "batch_number": "KOFAX-20MAR2025100356",
       "batch_date": "3/20/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-453e8ad98c5bce08"
     },
     {
       "document_type": "Invoice",
@@ -1836,7 +1983,9 @@
       "batch_number": "KOFAX-20MAR2025100356",
       "batch_date": "3/20/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-a0e969c47dc60426"
     },
     {
       "document_type": "Invoice",
@@ -1860,7 +2009,9 @@
       "batch_number": "KOFAX-30APR2025130450",
       "batch_date": "4/30/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-007-rj-young",
+      "invoice_guid": "inv-ldg-4e92b1e87d9300df"
     },
     {
       "document_type": "Invoice",
@@ -1884,7 +2035,9 @@
       "batch_number": "KOFAX-31MAR2025170313",
       "batch_date": "3/31/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-c52165143ed71372"
     },
     {
       "document_type": "Invoice",
@@ -1908,7 +2061,9 @@
       "batch_number": "KOFAX-23APR2025090436",
       "batch_date": "4/23/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ldg-c6f3efe9c71a0a8f"
     },
     {
       "document_type": "Invoice",
@@ -1932,7 +2087,9 @@
       "batch_number": "KOFAX-29APR2025180401",
       "batch_date": "4/29/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-960ede4cb6289142"
     },
     {
       "document_type": "Invoice",
@@ -1956,7 +2113,9 @@
       "batch_number": "KOFAX-29APR2025180401",
       "batch_date": "4/29/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-5eee44f2fc649e72"
     },
     {
       "document_type": "Invoice",
@@ -1980,7 +2139,9 @@
       "batch_number": "KOFAX-29APR2025180401",
       "batch_date": "4/29/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-0f92a3aca8b24e47"
     },
     {
       "document_type": "Invoice",
@@ -2004,7 +2165,9 @@
       "batch_number": "KOFAX-29APR2025180401",
       "batch_date": "4/29/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-4c5c54217b168245"
     },
     {
       "document_type": "Invoice",
@@ -2028,7 +2191,9 @@
       "batch_number": "KOFAX-08MAY2025170544",
       "batch_date": "5/8/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-f3edb0040f28ab49"
     },
     {
       "document_type": "Invoice",
@@ -2052,7 +2217,9 @@
       "batch_number": "KOFAX-05MAY2025100526",
       "batch_date": "5/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-84884eeb5500e64e"
     },
     {
       "document_type": "Invoice",
@@ -2076,7 +2243,9 @@
       "batch_number": "KOFAX-08MAY2025170544",
       "batch_date": "5/8/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-ab01f9fde3da105c"
     },
     {
       "document_type": "Invoice",
@@ -2100,7 +2269,9 @@
       "batch_number": "KOFAX-16MAY2025160549",
       "batch_date": "5/16/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ldg-f4c27584afd22a4b"
     },
     {
       "document_type": "Invoice",
@@ -2124,7 +2295,9 @@
       "batch_number": "KOFAX-04JUN2025140633",
       "batch_date": "6/4/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-c7f01b7a1575f65d"
     },
     {
       "document_type": "Invoice",
@@ -2148,7 +2321,9 @@
       "batch_number": "KOFAX-18JUN2025180617",
       "batch_date": "6/18/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ldg-fd25dc659cce8156"
     },
     {
       "document_type": "Invoice",
@@ -2172,7 +2347,9 @@
       "batch_number": "KOFAX-20JUN2025150621",
       "batch_date": "6/20/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-6044ccc3ddba4a8a"
     },
     {
       "document_type": "Invoice",
@@ -2196,7 +2373,9 @@
       "batch_number": "KOFAX-05SEP2024200933",
       "batch_date": "9/5/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-67eb0fd603b3fc60"
     },
     {
       "document_type": "Invoice",
@@ -2220,7 +2399,9 @@
       "batch_number": "KOFAX-05SEP2024200933",
       "batch_date": "9/5/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-ccd3fe54183b3d59"
     },
     {
       "document_type": "Invoice",
@@ -2244,7 +2425,9 @@
       "batch_number": "KOFAX-05SEP2024200933",
       "batch_date": "9/5/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-cc6e69e22e38e01c"
     },
     {
       "document_type": "Invoice",
@@ -2268,7 +2451,9 @@
       "batch_number": "KOFAX-05SEP2024200933",
       "batch_date": "9/5/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-91d23ff873d3850d"
     },
     {
       "document_type": "Invoice",
@@ -2292,7 +2477,9 @@
       "batch_number": "KOFAX-05SEP2024200933",
       "batch_date": "9/5/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-7a9709887dad4e2b"
     },
     {
       "document_type": "Invoice",
@@ -2316,7 +2503,9 @@
       "batch_number": "KOFAX-24SEP2024120959",
       "batch_date": "9/24/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-eb4edcfedc4bb7da"
     },
     {
       "document_type": "Invoice",
@@ -2340,7 +2529,9 @@
       "batch_number": "KOFAX-14OCT2024121001",
       "batch_date": "10/14/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-a4aaa28836d55298"
     },
     {
       "document_type": "Invoice",
@@ -2364,7 +2555,9 @@
       "batch_number": "KOFAX-14OCT2024121001",
       "batch_date": "10/14/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-ffc2c8549a24c4cf"
     },
     {
       "document_type": "Invoice",
@@ -2388,7 +2581,9 @@
       "batch_number": "KOFAX-14OCT2024121001",
       "batch_date": "10/14/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-ae974222af161ab8"
     },
     {
       "document_type": "Invoice",
@@ -2412,7 +2607,9 @@
       "batch_number": "KOFAX-18OCT2024121002",
       "batch_date": "10/18/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ldg-f40f68a02b501173"
     },
     {
       "document_type": "Invoice",
@@ -2436,7 +2633,9 @@
       "batch_number": "KOFAX-04DEC2024081221",
       "batch_date": "12/4/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV"
+      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-c67a611e70f1a122"
     },
     {
       "document_type": "Invoice",
@@ -2460,7 +2659,9 @@
       "batch_number": "KOFAX-04DEC2024081221",
       "batch_date": "12/4/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV"
+      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-030c1bd490a7e2b2"
     },
     {
       "document_type": "Invoice",
@@ -2484,7 +2685,9 @@
       "batch_number": "KOFAX-04NOV2024161101",
       "batch_date": "11/4/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-6e7e7cce93a33505"
     },
     {
       "document_type": "Invoice",
@@ -2508,7 +2711,9 @@
       "batch_number": "KOFAX-04NOV2024161101",
       "batch_date": "11/4/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-5debf16b9753bca0"
     },
     {
       "document_type": "Invoice",
@@ -2532,7 +2737,9 @@
       "batch_number": "KOFAX-04NOV2024161101",
       "batch_date": "11/4/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-b98b9a9a275f52d2"
     },
     {
       "document_type": "Invoice",
@@ -2556,7 +2763,9 @@
       "batch_number": "KOFAX-04DEC2024081221",
       "batch_date": "12/4/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV"
+      "last_updated_by": "ELIJAH.PAYNE@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-a23ad524dcebd024"
     },
     {
       "document_type": "Invoice",
@@ -2580,7 +2789,9 @@
       "batch_number": "KOFAX-13NOV2024141121",
       "batch_date": "11/13/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-e77d90304d02fb02"
     },
     {
       "document_type": "Invoice",
@@ -2604,7 +2815,9 @@
       "batch_number": "KOFAX-13NOV2024141121",
       "batch_date": "11/13/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-e77d90304d02fb02"
     },
     {
       "document_type": "Invoice",
@@ -2628,7 +2841,9 @@
       "batch_number": "KOFAX-19NOV2024141152",
       "batch_date": "11/19/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-e2ed255bc027a689"
     },
     {
       "document_type": "Invoice",
@@ -2652,7 +2867,9 @@
       "batch_number": "KOFAX-13NOV2024141121",
       "batch_date": "11/13/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ldg-e77d90304d02fb02"
     },
     {
       "document_type": "Invoice",
@@ -2676,7 +2893,9 @@
       "batch_number": "KOFAX-14FEB2025130253",
       "batch_date": "2/14/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-016-cssrt",
+      "invoice_guid": "inv-ldg-0eaa3815f8f28721"
     },
     {
       "document_type": "Invoice",
@@ -2700,7 +2919,9 @@
       "batch_number": "KOFAX-16DEC2024171241",
       "batch_date": "12/16/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-023c1cb62cbb4079"
     },
     {
       "document_type": "Invoice",
@@ -2724,7 +2945,9 @@
       "batch_number": "KOFAX-16DEC2024171241",
       "batch_date": "12/16/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-023c1cb62cbb4079"
     },
     {
       "document_type": "Invoice",
@@ -2748,7 +2971,9 @@
       "batch_number": "KOFAX-16DEC2024171241",
       "batch_date": "12/16/2024",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ldg-2868756ea8456e16"
     },
     {
       "document_type": "Invoice",
@@ -2772,7 +2997,9 @@
       "batch_number": "KOFAX-28JAN2025110122",
       "batch_date": "1/28/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-864844d7ee0e011f"
     },
     {
       "document_type": "Invoice",
@@ -2796,7 +3023,9 @@
       "batch_number": "KOFAX-28JAN2025110122",
       "batch_date": "1/28/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-3d5065cd6d491a70"
     },
     {
       "document_type": "Invoice",
@@ -2820,7 +3049,9 @@
       "batch_number": "KOFAX-28JAN2025110122",
       "batch_date": "1/28/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-def0045a97542226"
     },
     {
       "document_type": "Invoice",
@@ -2844,7 +3075,9 @@
       "batch_number": "KOFAX-25FEB2025170200",
       "batch_date": "2/25/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-a2124ae972084b3f"
     },
     {
       "document_type": "Invoice",
@@ -2868,7 +3101,9 @@
       "batch_number": "KOFAX-25FEB2025170200",
       "batch_date": "2/25/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-a2124ae972084b3f"
     },
     {
       "document_type": "Invoice",
@@ -2892,7 +3127,9 @@
       "batch_number": "KOFAX-01APR2025170412",
       "batch_date": "4/1/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ldg-ddba6b0cf5cb8704"
     },
     {
       "document_type": "Invoice",
@@ -2916,7 +3153,9 @@
       "batch_number": "KOFAX-20MAR2025100356",
       "batch_date": "3/20/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+      "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-c23e7c326c8799fc"
     },
     {
       "document_type": "Invoice",
@@ -2940,7 +3179,9 @@
       "batch_number": "KOFAX-05MAY2025100526",
       "batch_date": "5/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV"
+      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV",
+      "vendor_guid": "v-024-deborah-hollis",
+      "invoice_guid": "inv-ldg-1a8ab8d5abff2ed4"
     },
     {
       "document_type": "Invoice",
@@ -2964,7 +3205,9 @@
       "batch_number": "KOFAX-05MAY2025100526",
       "batch_date": "5/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV"
+      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV",
+      "vendor_guid": "v-024-deborah-hollis",
+      "invoice_guid": "inv-ldg-1a8ab8d5abff2ed4"
     },
     {
       "document_type": "Invoice",
@@ -2988,7 +3231,9 @@
       "batch_number": "KOFAX-05MAY2025100526",
       "batch_date": "5/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV"
+      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV",
+      "vendor_guid": "v-024-deborah-hollis",
+      "invoice_guid": "inv-ldg-1a8ab8d5abff2ed4"
     },
     {
       "document_type": "Invoice",
@@ -3012,7 +3257,9 @@
       "batch_number": "KOFAX-05MAY2025100526",
       "batch_date": "5/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV"
+      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV",
+      "vendor_guid": "v-024-deborah-hollis",
+      "invoice_guid": "inv-ldg-de43be8bb2be4267"
     },
     {
       "document_type": "Invoice",
@@ -3036,7 +3283,9 @@
       "batch_number": "KOFAX-05MAY2025100526",
       "batch_date": "5/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV"
+      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV",
+      "vendor_guid": "v-024-deborah-hollis",
+      "invoice_guid": "inv-ldg-1a8ab8d5abff2ed4"
     },
     {
       "document_type": "Invoice",
@@ -3060,7 +3309,9 @@
       "batch_number": "KOFAX-05MAY2025100526",
       "batch_date": "5/5/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV"
+      "last_updated_by": "SYLVIA.HOLLOWAY@NASHVILLE.GOV",
+      "vendor_guid": "v-024-deborah-hollis",
+      "invoice_guid": "inv-ldg-de43be8bb2be4267"
     },
     {
       "document_type": "Invoice",
@@ -3084,7 +3335,9 @@
       "batch_number": "KOFAX-20JUN2025150621",
       "batch_date": "6/20/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-9b1585dec763e82f"
     },
     {
       "document_type": "Invoice",
@@ -3108,7 +3361,9 @@
       "batch_number": "KOFAX-20JUN2025150621",
       "batch_date": "6/20/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-0ae10d752e2d357c"
     },
     {
       "document_type": "Invoice",
@@ -3132,7 +3387,9 @@
       "batch_number": "KOFAX-20JUN2025150621",
       "batch_date": "6/20/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-9b1585dec763e82f"
     },
     {
       "document_type": "Invoice",
@@ -3156,7 +3413,9 @@
       "batch_number": "KOFAX-20JUN2025150621",
       "batch_date": "6/20/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-6044ccc3ddba4a8a"
     },
     {
       "document_type": "Invoice",
@@ -3180,7 +3439,9 @@
       "batch_number": "KOFAX-23JUN2025070646",
       "batch_date": "6/23/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-51a6f50366c8ba10"
     },
     {
       "document_type": "Invoice",
@@ -3204,7 +3465,9 @@
       "batch_number": "KOFAX-23JUN2025070646",
       "batch_date": "6/23/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-4b2b6e67d57904e7"
     },
     {
       "document_type": "Invoice",
@@ -3228,7 +3491,9 @@
       "batch_number": "KOFAX-23JUN2025070646",
       "batch_date": "6/23/2025",
       "created": "7/9/2025 9:10am",
-      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+      "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV",
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ldg-51a6f50366c8ba10"
     }
   ],
   "journals": [

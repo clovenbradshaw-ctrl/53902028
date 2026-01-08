@@ -858,80 +858,75 @@
   </main>
 
   <script>
-    // ==================== VENDOR NAME NORMALIZATION ====================
-    const VENDOR_MAPPINGS = {
-      'extended stay america': 'ESA MANAGEMENT LLC',
-      'esa management l.l.c.': 'ESA MANAGEMENT LLC',
-      'esa management llc': 'ESA MANAGEMENT LLC',
-      'esa management': 'ESA MANAGEMENT LLC',
-      'esa suites': 'ESA MANAGEMENT LLC',
-      'esa': 'ESA MANAGEMENT LLC',
-      'the ave': 'THE AVE NASHVILLE LLC',
-      'the ave nashville': 'THE AVE NASHVILLE LLC',
-      'the ave nashville llc': 'THE AVE NASHVILLE LLC',
-      'hillside crossing hotel': 'HILLSIDE CROSSING LLC',
-      'hillside crossing llc': 'HILLSIDE CROSSING LLC',
-      'hillside crossing': 'HILLSIDE CROSSING LLC',
-      'randstad': 'Randstad North America Inc dba Randstad USA LLC',
-      'randstad usa': 'Randstad North America Inc dba Randstad USA LLC',
-      'randstad north america': 'Randstad North America Inc dba Randstad USA LLC',
-      'depaul usa': 'Depaul USA',
-      'depaul': 'Depaul USA',
-      'community care fellowship, inc.': 'COMMUNITY CARE FELLOWSHIP',
-      'community care fellowship': 'COMMUNITY CARE FELLOWSHIP',
-      'rj young': 'RJ Young Company LLC',
-      'r.j. young': 'RJ Young Company LLC',
-      'robert j young company': 'RJ Young Company LLC',
-      'rj young company llc': 'RJ Young Company LLC',
-      'grainger': '"W.W. Grainger, Inc. dba Grainger"',
-      'w.w. grainger': '"W.W. Grainger, Inc. dba Grainger"',
-      'w.w. grainger, inc.': '"W.W. Grainger, Inc. dba Grainger"',
-      'w.w. grainger, inc. dba grainger': '"W.W. Grainger, Inc. dba Grainger"',
-      '97 wallace studios, llc': '97 WALLACE STUDIOS',
-      '97 wallace studios llc': '97 WALLACE STUDIOS',
-      '97 wallace studios': '97 WALLACE STUDIOS',
-      'thompson machinery': 'Thompson Machinery Commerce Corp.',
-      'thompson machinery commerce corp.': 'Thompson Machinery Commerce Corp.',
-      'gordon food service inc.': '"Gordon Food Service, Inc."',
-      'gordon food service': '"Gordon Food Service, Inc."',
-      'gordon food service store': '"Gordon Food Service, Inc."',
-      'gordon food service, inc.': '"Gordon Food Service, Inc."',
-      'j hamilton': '"Hamilton, Justen T"',
-      'hamilton, justen t': '"Hamilton, Justen T"',
-      'justen hamilton': '"Hamilton, Justen T"',
-      'the hospitality hub of memphis': 'The Hospitality Hub of Memphis',
-      'hospitality hub': 'The Hospitality Hub of Memphis',
-      'greenview studios': 'Greenview Studios LLC',
-      'greenview studios, llc': 'Greenview Studios LLC',
-      'greenview studios llc': 'Greenview Studios LLC',
-      'highland east apartments': 'HIGHLAND EAST APARTMENTS',
-      'highland east': 'HIGHLAND EAST APARTMENTS',
-      'castello equity partners': 'THE AVE NASHVILLE LLC',
-      'the ave (castello equity partners)': 'THE AVE NASHVILLE LLC',
-    };
+    // ==================== VENDOR REGISTRY ====================
+    let vendorRegistry = null;
+    let vendorByGuid = new Map();
+    let vendorByAlias = new Map();
+    let vendorByVendorId = new Map();
 
-    // Reverse mapping for display names
-    const DISPLAY_NAMES = {
-      'ESA MANAGEMENT LLC': 'Extended Stay America',
-      'THE AVE NASHVILLE LLC': 'The Ave Nashville',
-      'HILLSIDE CROSSING LLC': 'Hillside Crossing',
-      'Randstad North America Inc dba Randstad USA LLC': 'Randstad',
-      '"W.W. Grainger, Inc. dba Grainger"': 'Grainger',
-      '"Gordon Food Service, Inc."': 'Gordon Food Service',
-      '"Hamilton, Justen T"': 'Justen Hamilton',
-      '97 WALLACE STUDIOS': '97 Wallace Studios',
-      'HIGHLAND EAST APARTMENTS': 'Highland East Apartments',
-      'Greenview Studios LLC': 'Greenview Studios',
-    };
+    async function loadVendorRegistry() {
+      try {
+        const response = await fetch('./vendors.json');
+        vendorRegistry = await response.json();
 
+        // Build lookup maps for fast access
+        vendorRegistry.vendors.forEach(vendor => {
+          // Map by GUID
+          vendorByGuid.set(vendor.guid, vendor);
+
+          // Map by vendor_id
+          if (vendor.vendor_id) {
+            vendorByVendorId.set(vendor.vendor_id, vendor);
+          }
+
+          // Map by all aliases (lowercase for case-insensitive lookup)
+          vendor.aliases.forEach(alias => {
+            vendorByAlias.set(alias.toLowerCase().trim(), vendor);
+          });
+        });
+
+        console.log(`Loaded ${vendorRegistry.vendors.length} vendors from registry`);
+        return true;
+      } catch (error) {
+        console.error('Error loading vendor registry:', error);
+        return false;
+      }
+    }
+
+    // Get vendor from registry by name or ID
+    function getVendorFromRegistry(vendorName, vendorId) {
+      // First try by vendor_id (most reliable)
+      if (vendorId && vendorByVendorId.has(vendorId)) {
+        return vendorByVendorId.get(vendorId);
+      }
+
+      // Then try by name alias
+      if (vendorName) {
+        const normalized = vendorName.toLowerCase().trim();
+        if (vendorByAlias.has(normalized)) {
+          return vendorByAlias.get(normalized);
+        }
+      }
+
+      return null;
+    }
+
+    // Get vendor GUID for an invoice
+    function getVendorGuid(invoice) {
+      const vendor = getVendorFromRegistry(invoice.vendor_name, invoice.vendor_id);
+      return vendor ? vendor.guid : null;
+    }
+
+    // Legacy normalization for backwards compatibility
     function normalizeVendor(vendorName) {
       if (!vendorName) return '';
-      const lower = vendorName.toLowerCase().trim();
-      return VENDOR_MAPPINGS[lower] || vendorName;
+      const vendor = getVendorFromRegistry(vendorName, null);
+      return vendor ? vendor.canonical_name : vendorName;
     }
 
     function getDisplayName(vendorName) {
-      return DISPLAY_NAMES[vendorName] || vendorName.replace(/"/g, '');
+      const vendor = getVendorFromRegistry(vendorName, null);
+      return vendor ? vendor.display_name : vendorName.replace(/"/g, '');
     }
 
     function formatCurrency(amount) {
@@ -968,6 +963,9 @@
 
     async function loadData() {
       try {
+        // Load vendor registry first
+        await loadVendorRegistry();
+
         const [ocrResponse, ledgerResponse] = await Promise.all([
           fetch('./ocr-invoices.json'),
           fetch('./ledger-invoices.json')
@@ -975,6 +973,9 @@
 
         ocrData = await ocrResponse.json();
         ledgerData = await ledgerResponse.json();
+
+        // Enrich invoice data with vendor GUIDs
+        enrichInvoicesWithVendorGuids();
 
         document.getElementById('loading-state').style.display = 'none';
 
@@ -999,57 +1000,86 @@
       }
     }
 
+    // Add vendor GUIDs to all invoices for reliable filtering
+    function enrichInvoicesWithVendorGuids() {
+      if (ocrData && ocrData.invoices) {
+        ocrData.invoices.forEach(inv => {
+          inv._vendor_guid = getVendorGuid(inv);
+        });
+      }
+      if (ledgerData && ledgerData.invoices) {
+        ledgerData.invoices.forEach(inv => {
+          inv._vendor_guid = getVendorGuid(inv);
+        });
+      }
+    }
+
     // ==================== VENDOR LIST ====================
     function buildVendorList() {
       const vendors = new Map();
 
-      // Collect OCR vendors
+      // Collect OCR vendors - group by vendor GUID
       if (ocrData && ocrData.invoices) {
         ocrData.invoices.forEach(inv => {
-          const normalized = normalizeVendor(inv.vendor_name);
-          if (!vendors.has(normalized)) {
-            vendors.set(normalized, {
-              name: normalized,
-              displayName: getDisplayName(normalized),
+          const vendorGuid = inv._vendor_guid;
+          if (!vendorGuid) {
+            // Skip invoices without a known vendor
+            console.warn('Invoice without vendor GUID:', inv.invoice_number, inv.vendor_name);
+            return;
+          }
+
+          const registryVendor = vendorByGuid.get(vendorGuid);
+
+          if (!vendors.has(vendorGuid)) {
+            vendors.set(vendorGuid, {
+              guid: vendorGuid,
+              name: registryVendor ? registryVendor.canonical_name : inv.vendor_name,
+              displayName: registryVendor ? registryVendor.display_name : inv.vendor_name,
               ocrCount: 0,
               ocrTotal: 0,
               ledgerCount: 0,
               ledgerTotal: 0,
-              vendorId: inv.vendor_id,
+              vendorId: registryVendor ? registryVendor.vendor_id : inv.vendor_id,
               address: inv.vendor_address,
               phone: inv.vendor_phone,
               email: inv.vendor_email
             });
           }
-          const v = vendors.get(normalized);
+          const v = vendors.get(vendorGuid);
           v.ocrCount++;
           v.ocrTotal += parseFloat(inv.invoice_total) || 0;
-          if (inv.vendor_id && !v.vendorId) v.vendorId = inv.vendor_id;
           if (inv.vendor_address && !v.address) v.address = inv.vendor_address;
           if (inv.vendor_phone && !v.phone) v.phone = inv.vendor_phone;
           if (inv.vendor_email && !v.email) v.email = inv.vendor_email;
         });
       }
 
-      // Collect Ledger vendors
+      // Collect Ledger vendors - group by vendor GUID
       if (ledgerData && ledgerData.invoices) {
         ledgerData.invoices.forEach(inv => {
-          const normalized = normalizeVendor(inv.vendor_name);
-          if (!vendors.has(normalized)) {
-            vendors.set(normalized, {
-              name: normalized,
-              displayName: getDisplayName(normalized),
+          const vendorGuid = inv._vendor_guid;
+          if (!vendorGuid) {
+            // Skip invoices without a known vendor
+            return;
+          }
+
+          const registryVendor = vendorByGuid.get(vendorGuid);
+
+          if (!vendors.has(vendorGuid)) {
+            vendors.set(vendorGuid, {
+              guid: vendorGuid,
+              name: registryVendor ? registryVendor.canonical_name : inv.vendor_name,
+              displayName: registryVendor ? registryVendor.display_name : inv.vendor_name,
               ocrCount: 0,
               ocrTotal: 0,
               ledgerCount: 0,
               ledgerTotal: 0,
-              vendorId: inv.vendor_id
+              vendorId: registryVendor ? registryVendor.vendor_id : inv.vendor_id
             });
           }
-          const v = vendors.get(normalized);
+          const v = vendors.get(vendorGuid);
           v.ledgerCount++;
           v.ledgerTotal += parseFloat(inv.amount) || 0;
-          if (inv.vendor_id && !v.vendorId) v.vendorId = inv.vendor_id;
         });
       }
 
@@ -1071,10 +1101,21 @@
       const searchInput = document.getElementById('vendor-search');
       searchInput.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
-        const filtered = vendors.filter(v =>
-          v.displayName.toLowerCase().includes(query) ||
-          v.name.toLowerCase().includes(query)
-        );
+        const filtered = vendors.filter(v => {
+          // Search by display name and canonical name
+          if (v.displayName.toLowerCase().includes(query) ||
+              v.name.toLowerCase().includes(query)) {
+            return true;
+          }
+          // Also search through aliases from the registry
+          const registryVendor = vendorByGuid.get(v.guid);
+          if (registryVendor && registryVendor.aliases) {
+            return registryVendor.aliases.some(alias =>
+              alias.toLowerCase().includes(query)
+            );
+          }
+          return false;
+        });
         renderVendorList(filtered);
       });
     }
@@ -1082,7 +1123,7 @@
     function renderVendorList(vendors) {
       const container = document.getElementById('vendor-list');
       container.innerHTML = vendors.map(v => `
-        <div class="vendor-list-item" onclick="selectVendor('${encodeURIComponent(v.name)}')">
+        <div class="vendor-list-item" onclick="selectVendor('${v.guid}')">
           <div class="vendor-list-item-name">${v.displayName}</div>
           <div class="vendor-list-item-meta">
             <span class="ocr-count">${v.ocrCount} OCR</span>
@@ -1094,12 +1135,32 @@
     }
 
     // ==================== VENDOR PROFILE ====================
-    function selectVendor(vendorName) {
-      currentVendor = vendorName;
+    let currentVendorGuid = null;
 
-      // Update URL
+    function selectVendor(vendorIdentifier) {
+      const decoded = decodeURIComponent(vendorIdentifier);
+
+      // Determine if this is a GUID or a legacy vendor name
+      if (decoded.startsWith('v-')) {
+        // It's a GUID
+        currentVendorGuid = decoded;
+        currentVendor = decoded;
+      } else {
+        // Legacy: try to find vendor by name and get its GUID
+        const vendor = getVendorFromRegistry(decoded, null);
+        if (vendor) {
+          currentVendorGuid = vendor.guid;
+          currentVendor = vendor.guid;
+        } else {
+          // Fallback for unknown vendors
+          currentVendorGuid = null;
+          currentVendor = decoded;
+        }
+      }
+
+      // Update URL with GUID for consistency
       const url = new URL(window.location);
-      url.searchParams.set('vendor', vendorName);
+      url.searchParams.set('vendor', currentVendor);
       window.history.pushState({}, '', url);
 
       document.getElementById('vendor-selector').style.display = 'none';
@@ -1110,8 +1171,17 @@
 
     function renderVendorProfile() {
       const vendors = buildVendorList();
-      const normalizedCurrentVendor = normalizeVendor(currentVendor);
-      const vendor = vendors.find(v => v.name === normalizedCurrentVendor);
+
+      // Find vendor by GUID or by canonical name
+      let vendor;
+      if (currentVendorGuid) {
+        vendor = vendors.find(v => v.guid === currentVendorGuid);
+      }
+      if (!vendor) {
+        // Fallback: try to match by canonical name
+        const normalized = normalizeVendor(currentVendor);
+        vendor = vendors.find(v => v.name === normalized);
+      }
 
       if (!vendor) {
         document.getElementById('vendor-profile').innerHTML = `
@@ -1235,11 +1305,15 @@
       const emptyState = document.getElementById('ocr-empty');
       const countBadge = document.getElementById('ocr-count-badge');
 
-      // Get OCR invoices for this vendor
-      const normalizedCurrentVendor = normalizeVendor(currentVendor);
-      const invoices = ocrData.invoices.filter(inv =>
-        normalizeVendor(inv.vendor_name) === normalizedCurrentVendor
-      ).sort((a, b) => new Date(b.invoice_date) - new Date(a.invoice_date));
+      // Get OCR invoices for this vendor - filter by GUID for strict matching
+      const invoices = ocrData.invoices.filter(inv => {
+        // Primary: match by vendor GUID
+        if (currentVendorGuid && inv._vendor_guid) {
+          return inv._vendor_guid === currentVendorGuid;
+        }
+        // Fallback: legacy name matching
+        return normalizeVendor(inv.vendor_name) === normalizeVendor(currentVendor);
+      }).sort((a, b) => new Date(b.invoice_date) - new Date(a.invoice_date));
 
       countBadge.textContent = `${invoices.length} invoice${invoices.length !== 1 ? 's' : ''}`;
 
@@ -1299,11 +1373,15 @@
       const emptyState = document.getElementById('ledger-empty');
       const countBadge = document.getElementById('ledger-count-badge');
 
-      // Get ledger entries for this vendor
-      const normalizedCurrentVendor = normalizeVendor(currentVendor);
-      const entries = ledgerData.invoices.filter(inv =>
-        normalizeVendor(inv.vendor_name) === normalizedCurrentVendor
-      ).sort((a, b) => {
+      // Get ledger entries for this vendor - filter by GUID for strict matching
+      const entries = ledgerData.invoices.filter(inv => {
+        // Primary: match by vendor GUID
+        if (currentVendorGuid && inv._vendor_guid) {
+          return inv._vendor_guid === currentVendorGuid;
+        }
+        // Fallback: legacy name matching
+        return normalizeVendor(inv.vendor_name) === normalizeVendor(currentVendor);
+      }).sort((a, b) => {
         const dateA = new Date(a.invoice_date.replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2'));
         const dateB = new Date(b.invoice_date.replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2'));
         return dateB - dateA;
@@ -1350,6 +1428,7 @@
         selectVendor(vendorParam);
       } else {
         currentVendor = null;
+        currentVendorGuid = null;
         showVendorSelector();
       }
     });
