@@ -106,6 +106,13 @@ function serializeOCR(ocr, pageNumber) {
   return JSON.stringify(ocr, null, 2);
 }
 
+function serializeRawOCR(ocr, originalField) {
+  // Preserve "Image X of Y" prefix if present
+  const prefixMatch = originalField?.match(/^(Image \d+ of \d+\s*\n?)/i);
+  const prefix = prefixMatch ? prefixMatch[1] : '';
+  return prefix + JSON.stringify(ocr, null, 2);
+}
+
 function getPageNumber(row) {
   const match = row['File Path']?.match(/_page_(\d+)\.png$/);
   return match ? parseInt(match[1], 10) : null;
@@ -304,6 +311,38 @@ function applyUpdates(row) {
 
   if (updated && ocr) {
     row.postProcessOCR = serializeOCR(ocr, pageNum);
+  }
+
+  // 9. Sync invoice amounts from postProcessOCR to raw OCR
+  // This ensures the raw OCR field also has correct amounts for continuation pages
+  const postOcr = parseOCR(row.postProcessOCR);
+  const rawOcr = parseOCR(row.OCR);
+  if (postOcr && rawOcr) {
+    let rawUpdated = false;
+
+    // Copy invoice_total if raw OCR has 0/null but postProcessOCR has a value
+    if ((rawOcr.invoice_total === 0 || rawOcr.invoice_total === null || rawOcr.invoice_total === undefined)
+        && postOcr.invoice_total > 0) {
+      rawOcr.invoice_total = postOcr.invoice_total;
+      rawUpdated = true;
+    }
+
+    // Also copy amount_paid and amount_due if they're empty
+    if ((rawOcr.amount_paid === 0 || rawOcr.amount_paid === null || rawOcr.amount_paid === undefined)
+        && postOcr.amount_paid !== undefined) {
+      rawOcr.amount_paid = postOcr.amount_paid;
+      rawUpdated = true;
+    }
+    if ((rawOcr.amount_due === 0 || rawOcr.amount_due === null || rawOcr.amount_due === undefined)
+        && postOcr.amount_due !== undefined) {
+      rawOcr.amount_due = postOcr.amount_due;
+      rawUpdated = true;
+    }
+
+    if (rawUpdated) {
+      row.OCR = serializeRawOCR(rawOcr, row.OCR);
+      console.log(`  Page ${pageNum}: Synced amounts from postProcessOCR to raw OCR (invoice_total: ${rawOcr.invoice_total})`);
+    }
   }
 
   return row;
