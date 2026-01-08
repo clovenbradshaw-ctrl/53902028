@@ -715,7 +715,7 @@
 
     .invoice-row {
       display: grid;
-      grid-template-columns: 100px 1fr 150px 120px 100px 80px;
+      grid-template-columns: 100px 1fr 150px 120px 100px 80px 100px;
       gap: 1rem;
       align-items: center;
       padding: 0.75rem 1rem;
@@ -1125,7 +1125,7 @@
         <div class="logo-icon">INV</div>
         <div>
           <div class="logo-text">Metro Nashville Invoice Viewer</div>
-          <div class="logo-sub">BU 53902028 • Office of Homeless Services</div>
+          <div class="logo-sub">BU 53902028 • Dept 053 • Fund 30216 • RS2024-490</div>
         </div>
       </div>
       <div class="header-stats">
@@ -1151,6 +1151,58 @@
 
   <div class="main-container">
     <aside class="sidebar">
+      <!-- Account Info Panel -->
+      <div class="sidebar-section" id="account-info-panel">
+        <div class="filter-group open" data-filter="account-info">
+          <div class="filter-header" style="background: var(--accent-glow); border-left: 3px solid var(--accent);">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+              <span class="filter-name" style="color: var(--accent)">Account Info</span>
+            </div>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" style="display: block; padding: 0.75rem; font-size: 0.8rem;">
+            <div style="margin-bottom: 0.75rem;">
+              <div style="color: var(--text-muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em;">Business Unit</div>
+              <div style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent);">53902028</div>
+              <div style="color: var(--text-secondary); font-size: 0.75rem;">RS2024-490 ARPA Allocation</div>
+            </div>
+            <div style="margin-bottom: 0.75rem;">
+              <div style="color: var(--text-muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em;">Department</div>
+              <div>053 – Office of Homeless Services</div>
+            </div>
+            <div style="margin-bottom: 0.75rem;">
+              <div style="color: var(--text-muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em;">Fund</div>
+              <div>30216 – ARPA Fund</div>
+            </div>
+            <div style="margin-bottom: 0.75rem;">
+              <div style="color: var(--text-muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em;">Total Allocation</div>
+              <div style="font-family: var(--font-mono); color: var(--accent);">$9,639,446</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.75rem; padding: 0.5rem; background: var(--bg-primary); border-radius: 4px;">
+              <div>
+                <div style="color: var(--text-muted); font-size: 0.6rem;">Strobel Center</div>
+                <div style="font-family: var(--font-mono); font-size: 0.75rem;">$4.4M</div>
+              </div>
+              <div>
+                <div style="color: var(--text-muted); font-size: 0.6rem;">Barnes Fund R13</div>
+                <div style="font-family: var(--font-mono); font-size: 0.75rem;">$5.24M</div>
+              </div>
+            </div>
+            <div style="padding: 0.5rem; background: rgba(239, 68, 68, 0.1); border-radius: 4px; border-left: 2px solid var(--danger);">
+              <div style="color: var(--danger); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em;">ARPA Deadline</div>
+              <div style="font-family: var(--font-mono); font-size: 0.8rem;">December 31, 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="sidebar-section">
         <div class="search-box">
           <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1221,6 +1273,24 @@
           <div class="filter-content" id="filter-options-processor"></div>
         </div>
 
+        <div class="filter-group" data-filter="object_code">
+          <div class="filter-header">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+              <span class="filter-name">Object Code</span>
+            </div>
+            <span class="filter-count" id="filter-count-object_code">0</span>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" id="filter-options-object_code"></div>
+        </div>
+
         <div class="filter-group" data-filter="bu_code">
           <div class="filter-header">
             <div class="filter-header-left">
@@ -1271,6 +1341,8 @@
             <label>Group by:</label>
             <select class="pivot-dropdown" id="pivot-by">
               <option value="none">None</option>
+              <option value="allocation">Allocation</option>
+              <option value="object_code">Object Code</option>
               <option value="vendor">Vendor</option>
               <option value="invoice_type">Invoice Type</option>
               <option value="processor">Processor</option>
@@ -1418,6 +1490,224 @@
   </div>
 
   <script>
+    // ==================== ACCOUNT REFERENCE DATA ====================
+    // Business Unit 53902028 - RS2024-490 ARPA Allocation
+    // Source: Metro Nashville Oracle R-12 / Office of Homeless Services
+    const ACCOUNT_INFO = {
+      businessUnit: {
+        code: '53902028',
+        name: 'RS2024-490 ARPA Allocation',
+        department: '053',
+        departmentName: 'Office of Homeless Services',
+        fund: '30216',
+        fundName: 'ARPA Fund',
+        projectCode: 'R240490',
+        resolution: 'RS2024-490',
+        resolutionDate: '2024-06-04',
+        totalAllocation: 9639446.00,
+        arpaDeadline: '2026-12-31'
+      },
+
+      allocations: [
+        {
+          name: 'Strobel Center Operations',
+          amount: 4400000.00,
+          percentage: 45.6,
+          purpose: 'Supportive services and operating expenses',
+          vendor: 'Depaul USA',
+          facility: 'Strobel Center',
+          facilityAddress: '1210 Murfreesboro Pike',
+          units: 90,
+          openedDate: '2024-07-18',
+          supplementalFunding: 3500000.00,
+          supplementalResolution: 'RS2025-1436'
+        },
+        {
+          name: 'Barnes Fund R13',
+          amount: 5239446.00,
+          percentage: 54.4,
+          purpose: 'Eligible Barnes Fund R13 projects that will increase affordable housing units',
+          programType: 'Capital development grants to nonprofit housing developers',
+          disbursementMethod: 'Reimbursement basis',
+          affordabilityPeriod: '30 years',
+          r13TotalAwarded: 37934615.00,
+          r13UnitsCreated: 1164
+        }
+      ],
+
+      fundingSources: [
+        { resolution: 'RS2022-1860', purpose: 'Collective/Shared Equity Housing', allocated: 9500000, spent: 1060554, reallocated: 8439446 },
+        { resolution: 'RS2022-1861', purpose: 'Shared Housing Improvements for seniors', allocated: 1200000, spent: 0, reallocated: 1200000 }
+      ],
+
+      objectCodes: {
+        // Personnel Services (5011XX)
+        '501101': { name: 'Regular Pay', category: 'Personnel Services' },
+        '501102': { name: 'Leave Pay', category: 'Personnel Services' },
+        '501103': { name: 'Holiday Pay', category: 'Personnel Services' },
+        '501104': { name: 'Overtime Pay', category: 'Personnel Services' },
+        '501106': { name: 'Shift Differential Pay', category: 'Personnel Services' },
+        '501108': { name: 'Injured on Duty Pay', category: 'Personnel Services' },
+        '501109': { name: 'Longevity', category: 'Personnel Services' },
+        '501131': { name: 'IOD-NCS 90 Percent', category: 'Personnel Services' },
+        '501134': { name: 'Paid Family Leave', category: 'Personnel Services' },
+        '501160': { name: 'YE Biweekly Sal/Fringe Accrual', category: 'Personnel Services' },
+        '501172': { name: 'Employer OASDI', category: 'Personnel Services' },
+        '501173': { name: 'Employer SSN Medical', category: 'Personnel Services' },
+        '501174': { name: 'Employer Group Health', category: 'Personnel Services' },
+        '501175': { name: 'Employer Dental Group', category: 'Personnel Services' },
+        '501176': { name: 'Employer Group Life', category: 'Personnel Services' },
+        '501177': { name: 'Employer Pension', category: 'Personnel Services' },
+        '501181': { name: 'FSA Pre-Tax Savings', category: 'Personnel Services' },
+        '501182': { name: 'Cafe Plan Pre-Tax Savings', category: 'Personnel Services' },
+        // Professional Services (502XXX)
+        '502105': { name: 'Cable Television', category: 'Professional Services' },
+        '502229': { name: 'Management Consultant', category: 'Professional Services' },
+        '502239': { name: 'Subcontractors Cost', category: 'Professional Services' },
+        '502246': { name: 'Casework Services', category: 'Professional Services' },
+        '502314': { name: 'Pre-Employment Checks', category: 'Professional Services' },
+        '502331': { name: 'Temporary Service', category: 'Professional Services' },
+        '502357': { name: 'Internet Services', category: 'Professional Services' },
+        '502363': { name: 'Care of Persons', category: 'Professional Services', description: 'Direct care services for individuals including housing, shelter, and supportive services' },
+        '502365': { name: 'Bus Service', category: 'Professional Services' },
+        '502405': { name: 'Travel - Non-employee', category: 'Professional Services' },
+        '502451': { name: 'Employee Out-of-town Travel', category: 'Professional Services' },
+        '502453': { name: 'Employee Local Travel/Parking', category: 'Professional Services' },
+        '502503': { name: 'Cell Phone Service', category: 'Professional Services' },
+        '502520': { name: 'Postage & Delivery Service', category: 'Professional Services' },
+        '502701': { name: 'Printing/Binding', category: 'Professional Services' },
+        '502801': { name: 'Advertising & Promotion', category: 'Professional Services' },
+        '502883': { name: 'Registration', category: 'Professional Services' },
+        '502920': { name: 'Other Repair & Maintenance Service', category: 'Professional Services' },
+        '502951': { name: 'Info Systems Charge', category: 'Professional Services' },
+        '502957': { name: 'Telecommunications Charge', category: 'Professional Services' },
+        '502977': { name: 'Fleet Management', category: 'Professional Services' },
+        '502983': { name: 'Surplus Property', category: 'Professional Services' },
+        // Supplies & Materials (503XXX)
+        '503100': { name: 'Office & Admin Supply', category: 'Supplies & Materials' },
+        '503120': { name: 'Computer Software', category: 'Supplies & Materials' },
+        '503130': { name: 'Computer Hardware <$10K', category: 'Supplies & Materials' },
+        '503150': { name: 'Furniture/Fixtures <$10K', category: 'Supplies & Materials' },
+        '503200': { name: 'Household & Janitorial Supply', category: 'Supplies & Materials' },
+        '503210': { name: 'Food & Ice', category: 'Supplies & Materials' },
+        '503320': { name: 'Uniforms/Work Related Items', category: 'Supplies & Materials' },
+        '503801': { name: 'Auto Fuel', category: 'Supplies & Materials' },
+        '503999': { name: 'Credit Card Clearing', category: 'Supplies & Materials' },
+        // Rent & Leases (505XXX)
+        '505174': { name: 'Interest Expense MIP', category: 'Rent & Leases' },
+        '505231': { name: 'Rent Building & Land', category: 'Rent & Leases' },
+        '505233': { name: 'Rent Equipment', category: 'Rent & Leases' },
+        '505252': { name: 'Software License', category: 'Rent & Leases' },
+        '505254': { name: 'Drug Test Fee', category: 'Rent & Leases' },
+        '505303': { name: 'Contribute/Grant Person', category: 'Rent & Leases' },
+        // Capital Outlay (507XXX)
+        '507250': { name: 'Building Improvements', category: 'Capital Outlay' },
+        // Transfers (531XXX)
+        '531005': { name: 'Transfer FA Proprietary Funds', category: 'Transfers' }
+      },
+
+      relatedBusinessUnits: {
+        '53101000': { fund: '10101', name: 'General Fund operations' },
+        '53101100': { fund: '10101', name: 'General Fund (sub-unit)' },
+        '53312000': { fund: '32138', name: 'Federal grants (HUD CoC/ESG)' },
+        '53312400': { fund: '32138', name: 'Federal grants (HUD CoC/ESG)' },
+        '53312500': { fund: '32138', name: 'Federal grants (HUD CoC/ESG)' },
+        '53312710': { fund: '32138', name: 'Federal grants (HUD CoC/ESG)' },
+        '53701500': { fund: '30153', name: 'Special fund (contributions)' },
+        '53902025': { fund: '30216', projectCode: 'R221698', resolution: 'RS2022-1698', name: 'ARPA – Interim Housing ($9M)' },
+        '53902026': { fund: '30216', projectCode: 'R221699', resolution: 'RS2022-1699', name: 'ARPA – Low Barrier Shelter ($3.5M)' },
+        '53902027': { fund: '30216', projectCode: 'R211207', resolution: 'RS2021-1207', name: 'ARPA – Social Services/HID ($1.54M)' },
+        '53902028': { fund: '30216', projectCode: 'R240490', resolution: 'RS2024-490', name: 'RS2024-490 ARPA Allocation ($9.64M)' }
+      },
+
+      barnesFundR13Grantees: [
+        { organization: 'Samaritan Recovery Community', award: 4000000, units: 184 },
+        { organization: 'Arts and Business Council (Opaline)', award: 4000000, units: 148 },
+        { organization: 'Be a Helping Hand Foundation', award: 4000000, units: 34 },
+        { organization: 'Non-Profit Housing Corporation', award: 4000000, units: 188, arpaFunded: true },
+        { organization: 'Habitat for Humanity', award: 3999000, units: 26 },
+        { organization: 'Woodbine Community Organization', award: 3800000, units: 232 },
+        { organization: 'AAA Residential Resources', award: 3700000, units: 16 },
+        { organization: 'Affordable Housing Resources', award: 2640000, units: 44 },
+        { organization: 'Pathway Lending', award: 2000000, units: 62 },
+        { organization: 'Springboard Landings', award: 1491605, units: 10 },
+        { organization: 'Rebuilding Together Nashville', award: 1217198, units: 65 },
+        { organization: 'Park Center', award: 1024212, units: 9 },
+        { organization: 'TN Prison Outreach Ministry', award: 1000000, units: 18 },
+        { organization: 'The Housing Fund', award: 500000, units: 85 },
+        { organization: 'Living Development Concepts', award: 375000, units: 3 },
+        { organization: 'Westminster Home Connection', award: 187600, units: 40 }
+      ],
+
+      strobelCenterServices: [
+        'Property Management',
+        'Case Management',
+        'Mental Health Services',
+        'Substance Abuse Treatment',
+        'Vocational Support',
+        '24/7 Staffing'
+      ],
+
+      oversightIssues: [
+        { issue: 'Contract Lapse', details: 'Strobel Center operated September 2024 through August 2025 without formal contract. OHS used voucher payments during this period.' },
+        { issue: 'Budget Overrun', details: 'Strobel contract exceeded budget by $500,000–$700,000, prompting RS2025-1436 supplemental appropriation.' },
+        { issue: 'Audit Request', details: 'Councilmember Ginny Welsch requested OHS audit in May 2025.' },
+        { issue: 'ARPA Deadline', details: 'All ARPA funds must be expended by December 31, 2026.' }
+      ],
+
+      contacts: {
+        financeManager: { name: 'Joseph K. Marsh', email: 'joseph.marsh@nashville.gov' },
+        budgetOfficer: { name: 'Aaron Pratt', phone: '615-862-6120' },
+        barnesFund: { department: "Mayor's Office of Housing", website: 'nashville.gov/housing' }
+      }
+    };
+
+    // Helper function to parse bu_code and get object code info
+    function parseAccountCode(buCode) {
+      if (!buCode) return null;
+      const parts = buCode.split('.');
+      const businessUnit = parts[0];
+      const objectCode = parts[1];
+
+      const objectInfo = ACCOUNT_INFO.objectCodes[objectCode] || null;
+      const buInfo = ACCOUNT_INFO.relatedBusinessUnits[businessUnit] || null;
+
+      return {
+        businessUnit,
+        objectCode,
+        objectInfo,
+        buInfo,
+        fullString: buCode,
+        isTargetBU: businessUnit === '53902028'
+      };
+    }
+
+    // Get allocation context based on vendor/invoice type
+    function getAllocationContext(invoice) {
+      const vendor = invoice.vendor_name?.toLowerCase() || '';
+      const invoiceType = invoice.meta_invoice_type?.toLowerCase() || '';
+
+      // Check if it's Strobel Center related (Depaul USA or housing-related for PSH)
+      if (vendor.includes('depaul')) {
+        return ACCOUNT_INFO.allocations[0]; // Strobel Center
+      }
+
+      // Check if vendor is a Barnes Fund R13 grantee
+      const barnesGrantee = ACCOUNT_INFO.barnesFundR13Grantees.find(g =>
+        vendor.toLowerCase().includes(g.organization.toLowerCase().split(' ')[0])
+      );
+      if (barnesGrantee) {
+        return { ...ACCOUNT_INFO.allocations[1], grantee: barnesGrantee };
+      }
+
+      // Default: likely Strobel Center related (Care of Persons for housing)
+      if (invoiceType === 'rental' || invoiceType === 'hotel') {
+        return ACCOUNT_INFO.allocations[0]; // Strobel supportive housing
+      }
+
+      return null;
+    }
+
     // ==================== STATE ====================
     let invoices = [];
     let filteredInvoices = [];
@@ -1429,6 +1719,7 @@
       invoice_type: [],
       vendor: [],
       processor: [],
+      object_code: [],
       bu_code: [],
       dateFrom: null,
       dateTo: null,
@@ -1655,12 +1946,25 @@
         if (activeFilters.processor.length > 0) {
           if (!activeFilters.processor.includes(inv.processor_name)) return false;
         }
-        
+
+        // Object Code
+        if (activeFilters.object_code.length > 0) {
+          const acctInfo = parseAccountCode(inv.bu_code);
+          if (acctInfo && acctInfo.objectCode) {
+            const objKey = acctInfo.objectInfo
+              ? `${acctInfo.objectCode} – ${acctInfo.objectInfo.name}`
+              : acctInfo.objectCode;
+            if (!activeFilters.object_code.includes(objKey)) return false;
+          } else {
+            return false;
+          }
+        }
+
         // BU Code
         if (activeFilters.bu_code.length > 0) {
           if (!activeFilters.bu_code.includes(inv.bu_code)) return false;
         }
-        
+
         // Date range
         if (activeFilters.dateFrom && inv.invoice_date) {
           if (inv.invoice_date < activeFilters.dateFrom) return false;
@@ -1764,7 +2068,13 @@
             <div class="invoice-meta">
               ${inv.invoice_total ? `<span class="invoice-tag amount">$${formatNumber(inv.invoice_total)}</span>` : ''}
               <span class="invoice-tag type">${inv.meta_invoice_type}</span>
-              ${inv.processor_name ? `<span class="invoice-tag">${inv.processor_name}</span>` : ''}
+              ${(() => {
+                const acctInfo = parseAccountCode(inv.bu_code);
+                if (acctInfo && acctInfo.objectInfo) {
+                  return `<span class="invoice-tag" title="${acctInfo.objectInfo.category}: ${acctInfo.objectInfo.name}" style="background: rgba(16, 185, 129, 0.15); color: var(--success);">${acctInfo.objectCode}</span>`;
+                }
+                return '';
+              })()}
             </div>
           </div>
         </div>
@@ -1790,6 +2100,13 @@
             <div class="invoice-row-date">${inv.invoice_date || '—'}</div>
             <div class="invoice-row-amount">${inv.invoice_total ? '$' + formatNumber(inv.invoice_total) : '—'}</div>
             <div class="invoice-row-type">${inv.meta_invoice_type}</div>
+            ${(() => {
+              const acctInfo = parseAccountCode(inv.bu_code);
+              if (acctInfo && acctInfo.objectInfo) {
+                return `<div class="invoice-row-type" title="${acctInfo.objectInfo.name}" style="background: rgba(16, 185, 129, 0.15); color: var(--success);">${acctInfo.objectCode}</div>`;
+              }
+              return `<div class="invoice-row-type" style="color: var(--text-muted);">—</div>`;
+            })()}
           </div>
         `).join('')}
       </div>`;
@@ -1801,10 +2118,24 @@
 
     function renderPivotView(container) {
       const groups = {};
-      
+
       filteredInvoices.forEach((inv, idx) => {
         let key;
         switch (currentPivot) {
+          case 'allocation':
+            const alloc = getAllocationContext(inv);
+            key = alloc ? alloc.name : 'Unclassified';
+            break;
+          case 'object_code':
+            const acctInfo = parseAccountCode(inv.bu_code);
+            if (acctInfo && acctInfo.objectInfo) {
+              key = `${acctInfo.objectCode} – ${acctInfo.objectInfo.name}`;
+            } else if (acctInfo) {
+              key = acctInfo.objectCode || 'Unknown';
+            } else {
+              key = 'Unknown';
+            }
+            break;
           case 'vendor':
             key = inv.vendor_name || 'Unknown';
             break;
@@ -1888,6 +2219,7 @@
         invoice_type: {},
         vendor: {},
         processor: {},
+        object_code: {},
         bu_code: {}
       };
 
@@ -1900,6 +2232,14 @@
         }
         if (inv.processor_name) {
           filters.processor[inv.processor_name] = (filters.processor[inv.processor_name] || 0) + 1;
+        }
+        // Extract object code from bu_code
+        const acctInfo = parseAccountCode(inv.bu_code);
+        if (acctInfo && acctInfo.objectCode) {
+          const objKey = acctInfo.objectInfo
+            ? `${acctInfo.objectCode} – ${acctInfo.objectInfo.name}`
+            : acctInfo.objectCode;
+          filters.object_code[objKey] = (filters.object_code[objKey] || 0) + 1;
         }
         if (inv.bu_code) {
           filters.bu_code[inv.bu_code] = (filters.bu_code[inv.bu_code] || 0) + 1;
@@ -2161,10 +2501,53 @@
 
         <div class="detail-section">
           <div class="detail-section-title">Accounting</div>
-          <div class="detail-row">
-            <span class="detail-label">BU Code</span>
-            <span class="detail-value mono">${inv.bu_code || '—'}</span>
-          </div>
+          ${(() => {
+            const acctInfo = parseAccountCode(inv.bu_code);
+            if (acctInfo) {
+              return `
+                <div class="detail-row">
+                  <span class="detail-label">Account String</span>
+                  <span class="detail-value mono">${inv.bu_code || '—'}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Business Unit</span>
+                  <span class="detail-value mono">${acctInfo.businessUnit}</span>
+                </div>
+                ${acctInfo.buInfo ? `
+                <div class="detail-row">
+                  <span class="detail-label">BU Description</span>
+                  <span class="detail-value" style="font-size: 0.8rem">${acctInfo.buInfo.name}</span>
+                </div>
+                ` : ''}
+                <div class="detail-row">
+                  <span class="detail-label">Object Code</span>
+                  <span class="detail-value mono">${acctInfo.objectCode}</span>
+                </div>
+                ${acctInfo.objectInfo ? `
+                <div class="detail-row">
+                  <span class="detail-label">Object Name</span>
+                  <span class="detail-value">${acctInfo.objectInfo.name}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Category</span>
+                  <span class="detail-value">${acctInfo.objectInfo.category}</span>
+                </div>
+                ${acctInfo.objectInfo.description ? `
+                <div class="detail-row">
+                  <span class="detail-label">Description</span>
+                  <span class="detail-value" style="font-size: 0.75rem">${acctInfo.objectInfo.description}</span>
+                </div>
+                ` : ''}
+                ` : ''}
+              `;
+            }
+            return `
+              <div class="detail-row">
+                <span class="detail-label">BU Code</span>
+                <span class="detail-value mono">${inv.bu_code || '—'}</span>
+              </div>
+            `;
+          })()}
           <div class="detail-row">
             <span class="detail-label">Processor</span>
             <span class="detail-value">${inv.processor_name || '—'}</span>
@@ -2174,6 +2557,56 @@
             <span class="detail-value">${inv.processor_date || '—'}</span>
           </div>
         </div>
+
+        ${(() => {
+          const allocation = getAllocationContext(inv);
+          if (allocation) {
+            return `
+              <div class="detail-section">
+                <div class="detail-section-title" style="color: var(--accent)">Allocation Context</div>
+                <div class="detail-row">
+                  <span class="detail-label">Program</span>
+                  <span class="detail-value">${allocation.name}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Authorized Purpose</span>
+                  <span class="detail-value" style="font-size: 0.75rem">${allocation.purpose}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Allocation</span>
+                  <span class="detail-value amount">$${formatNumber(allocation.amount)}</span>
+                </div>
+                ${allocation.vendor ? `
+                <div class="detail-row">
+                  <span class="detail-label">Primary Contractor</span>
+                  <span class="detail-value">${allocation.vendor}</span>
+                </div>
+                ` : ''}
+                ${allocation.facility ? `
+                <div class="detail-row">
+                  <span class="detail-label">Facility</span>
+                  <span class="detail-value">${allocation.facility}</span>
+                </div>
+                ` : ''}
+                ${allocation.grantee ? `
+                <div class="detail-row">
+                  <span class="detail-label">R13 Grantee</span>
+                  <span class="detail-value">${allocation.grantee.organization}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Grant Award</span>
+                  <span class="detail-value">$${formatNumber(allocation.grantee.award)}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Units Created</span>
+                  <span class="detail-value">${allocation.grantee.units}</span>
+                </div>
+                ` : ''}
+              </div>
+            `;
+          }
+          return '';
+        })()}
 
         ${inv.line_items && inv.line_items.length > 0 ? `
         <div class="detail-section">
@@ -2612,6 +3045,7 @@
           invoice_type: [],
           vendor: [],
           processor: [],
+          object_code: [],
           bu_code: [],
           dateFrom: null,
           dateTo: null,
