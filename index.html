@@ -26,6 +26,7 @@
       --warning: #f59e0b;
       --danger: #ef4444;
       --info: #3b82f6;
+      --info-glow: rgba(59, 130, 246, 0.15);
       --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
       --font-mono: 'IBM Plex Mono', monospace;
     }
@@ -631,12 +632,34 @@
       overflow: hidden;
       cursor: pointer;
       transition: all 0.2s;
+      position: relative;
     }
 
     .invoice-card:hover {
       border-color: var(--accent-dim);
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    /* RS2025-974 funded vendor highlight */
+    .invoice-card.rs2025-974 {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(245, 158, 11, 0.05) 100%);
+    }
+
+    .invoice-card.rs2025-974::before {
+      content: 'RS2025-974';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--accent);
+      color: var(--bg-primary);
+      font-size: 0.6rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 10;
+      font-family: var(--font-mono);
     }
 
     .invoice-thumb {
@@ -1485,6 +1508,61 @@
         </div>
       </div>
 
+      <!-- Funding Chain / Resolutions -->
+      <div class="sidebar-section">
+        <div class="filter-group open" data-filter="funding-chain">
+          <div class="filter-header" style="background: var(--info-glow); border-left: 3px solid var(--info);">
+            <div class="filter-header-left">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="var(--info)" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+              <span class="filter-name" style="color: var(--info)">Funding Chain</span>
+            </div>
+            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="filter-content" style="display: block; padding: 0.75rem; font-size: 0.75rem;">
+            <div style="color: var(--text-muted); font-size: 0.65rem; margin-bottom: 0.5rem;">Council Resolutions</div>
+
+            <a href="https://nashville.legistar.com/LegislationDetail.aspx?ID=5931612&GUID=A7A86D37-9FCC-4D05-88E4-2CEF9EBC82D4"
+               target="_blank"
+               style="display: block; padding: 0.5rem; background: var(--bg-primary); border-radius: 4px; margin-bottom: 0.5rem; text-decoration: none; border: 1px solid var(--border); transition: border-color 0.2s;">
+              <div style="color: var(--info); font-weight: 500;">RS2022-1860</div>
+              <div style="color: var(--text-secondary); font-size: 0.7rem;">Original ARPA allocation ($9.5M to Shared Equity Housing)</div>
+            </a>
+
+            <a href="https://nashville.legistar.com/LegislationDetail.aspx?ID=6706795&GUID=3911D2DC-BA71-4A2D-B975-458961A0A8A8"
+               target="_blank"
+               style="display: block; padding: 0.5rem; background: var(--bg-primary); border-radius: 4px; margin-bottom: 0.5rem; text-decoration: none; border: 1px solid var(--border); transition: border-color 0.2s;">
+              <div style="color: var(--info); font-weight: 500;">RS2024-490</div>
+              <div style="color: var(--text-secondary); font-size: 0.7rem;">Reallocation ($4.4M Strobel + $4.04M Barnes Fund)</div>
+            </a>
+
+            <a href="https://nashville.legistar.com/LegislationDetail.aspx?ID=7093299&GUID=08251286-2A31-4D4D-AD28-2AC14F430F9D"
+               target="_blank"
+               style="display: block; padding: 0.5rem; background: var(--accent-glow); border-radius: 4px; margin-bottom: 0.5rem; text-decoration: none; border: 1px solid var(--accent-dim); transition: border-color 0.2s;">
+              <div style="color: var(--accent); font-weight: 500;">RS2025-974</div>
+              <div style="color: var(--text-secondary); font-size: 0.7rem;">Mobile Housing Navigation ($1.3M)</div>
+              <div style="color: var(--text-muted); font-size: 0.65rem; margin-top: 0.25rem;">
+                Community Care Fellowship: $900K<br>
+                Nashville Launch Pad: $397.9K
+              </div>
+            </a>
+
+            <div style="font-size: 0.65rem; color: var(--text-muted); padding-top: 0.5rem; border-top: 1px solid var(--border);">
+              <svg style="width: 10px; height: 10px; vertical-align: -1px; margin-right: 4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15,3 21,3 21,9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              Links open Nashville LegisLation Portal
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="sidebar-section">
         <div class="search-box">
           <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1953,6 +2031,18 @@
         fullString: buCode,
         isTargetBU: businessUnit === '53902028'
       };
+    }
+
+    // RS2025-974 funded vendors (Mobile Housing Navigation)
+    const RS2025_974_VENDORS = [
+      'community care fellowship',
+      'nashville launch pad'
+    ];
+
+    function isRS2025974Vendor(vendorName) {
+      if (!vendorName) return false;
+      const lower = vendorName.toLowerCase();
+      return RS2025_974_VENDORS.some(v => lower.includes(v));
     }
 
     // Get allocation context based on vendor/invoice type
@@ -2692,9 +2782,10 @@
       container.innerHTML = `<div class="invoice-grid">${filteredInvoices.map((inv, idx) => {
         const thumbnails = inv.all_thumbnails || [inv.thumbnailUrl].filter(Boolean);
         const isMultiPage = thumbnails.length > 1;
+        const isRS974 = isRS2025974Vendor(inv.vendor_name);
 
         return `
-        <div class="invoice-card" data-index="${idx}">
+        <div class="invoice-card${isRS974 ? ' rs2025-974' : ''}" data-index="${idx}">
           <div class="invoice-thumb">
             ${isMultiPage ? `<div class="multi-page-badge">${thumbnails.length} pages</div>` : ''}
             ${isMultiPage
@@ -2876,9 +2967,9 @@
             </div>
             <div class="invoice-grid">
               ${items.map(inv => `
-                <div class="invoice-card" data-index="${inv.originalIndex}">
+                <div class="invoice-card${isRS2025974Vendor(inv.vendor_name) ? ' rs2025-974' : ''}" data-index="${inv.originalIndex}">
                   <div class="invoice-thumb">
-                    ${inv.thumbnailUrl 
+                    ${inv.thumbnailUrl
                       ? `<img src="${inv.thumbnailUrl}" alt="${inv.vendor_name}" loading="lazy">`
                       : `<div class="invoice-thumb-placeholder">
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
