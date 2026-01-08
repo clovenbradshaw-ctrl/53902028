@@ -122,59 +122,6 @@ const HILLSIDE_PAGES = [207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 2
 // Non-invoice pages to exclude
 const EXCLUDE_PAGES = [190, 193, 205, 206];
 
-// Page 112 complete JSON replacement - OCR missed most line items
-// Invoice shows multiple guest accounts but only 1 row was extracted
-const PAGE_112_JSON = {
-  "meta_confidence": 0.95,
-  "meta_invoice_type": "HOTEL",
-  "meta_is_full_invoice": true,
-  "meta_is_continuation_page": false,
-  "meta_has_grand_total": true,
-  "meta_source_page": 112,
-  "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-  "meta_notes": ["Line items reconstructed from invoice totals - OCR only extracted partial data"],
-
-  "invoice_number": "9700283386",
-  "invoice_date": "2025-03-10",
-  "due_date": "2025-05-13",
-
-  "vendor_name": "Extended Stay America",
-  "vendor_id": "1020857",
-  "vendor_address": "P.O. Box 841990, Dallas, TX 75284-1990",
-  "vendor_phone": null,
-  "vendor_email": null,
-
-  "payer_name": "The Family Center",
-  "payer_address": "139 Thompson Ln., Nashville, TN 37211",
-
-  "bu_code": null,
-  "processor_name": null,
-  "processor_date": null,
-
-  "invoice_total": 1045.97,
-  "amount_paid": 147.15,
-  "amount_due": 898.82,
-  "taxes": 147.15,
-
-  "service_start": "2025-03-10",
-  "service_end": "2025-03-10",
-  "service_description": "Extended stay hotel accommodations - multiple guest accounts",
-
-  "property_name": "Extended Stay America",
-  "property_address": null,
-  "unit_count": null,
-
-  "line_items": [
-    {"date": "2025-03-10", "description": "Room charges (multiple guests)", "quantity": 1, "unit_price": 898.82, "amount": 898.82, "category": "room"},
-    {"date": "2025-03-10", "description": "Taxes", "quantity": 1, "unit_price": 147.15, "amount": 147.15, "category": "tax"}
-  ],
-
-  "cost_allocations": [],
-  "confirmation_numbers": ["9700283386"],
-  "employee_names": [],
-  "reference_numbers": []
-};
-
 // Page 122 complete JSON replacement
 const PAGE_122_JSON = {
   "meta_confidence": 0.98,
@@ -307,22 +254,15 @@ function applyUpdates(row) {
     }
   }
 
-  // 6. Page 112 - Replace incomplete JSON (OCR missed most line items)
-  if (pageNum === 112) {
-    ocr = PAGE_112_JSON;
-    updated = true;
-    console.log(`  Page ${pageNum}: Replaced incomplete OCR with corrected data`);
-  }
-
-  // 7. Page 122 - Replace truncated JSON (always replace regardless of existing ocr)
+  // 6. Page 122 - Replace truncated JSON (always replace regardless of existing ocr)
   if (pageNum === 122) {
     ocr = PAGE_122_JSON;
     updated = true;
     console.log(`  Page ${pageNum}: Replaced truncated JSON with complete data`);
   }
 
-  // Early return for pages 112 and 122 if ocr was set
-  if ((pageNum === 112 || pageNum === 122) && ocr) {
+  // Early return for page 122 if ocr was set
+  if (pageNum === 122 && ocr) {
     row.postProcessOCR = serializeOCR(ocr, pageNum);
     return row;
   }
