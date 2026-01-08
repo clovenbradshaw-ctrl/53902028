@@ -1385,6 +1385,9 @@
       // Prefer larger Google Drive image, fall back to Airtable thumbnail
       const thumbnailUrl = getGoogleDriveLargeImageUrl(fileId) || extractThumbnailUrl(row.Thumbnail);
 
+      // Support both new flat format and old nested format for backward compatibility
+      const isNewFormat = ocr?.meta_confidence !== undefined || ocr?.meta_invoice_type !== undefined;
+
       return {
         id: fileId || row.Name,
         name: row.Name,
@@ -1394,32 +1397,86 @@
         created: row.Created,
         modified: row['Last Modified'],
         fileSize: parseInt(row['File Size (in bytes)']) || 0,
-        
-        // OCR extracted data
-        invoice_number: ocr?.invoice_identifiers?.invoice_number || 'N/A',
-        invoice_date: ocr?.invoice_identifiers?.invoice_date || null,
-        due_date: ocr?.invoice_identifiers?.due_date || null,
-        po_number: ocr?.invoice_identifiers?.po_number || null,
-        
-        vendor_name: ocr?.vendor?.name || 'Unknown Vendor',
-        vendor_address: ocr?.vendor?.address?.full_raw || '',
-        vendor_phone: ocr?.vendor?.phone || null,
-        vendor_email: ocr?.vendor?.email || null,
-        vendor_id: ocr?.accounting?.vendor_id || null,
-        
-        bu_code: ocr?.accounting?.bu_code || null,
-        processor_name: ocr?.accounting?.processor_name || null,
-        processor_date: ocr?.accounting?.processor_date || null,
-        
-        invoice_type: ocr?.extraction_metadata?.invoicetype || ocr?.extraction_metadata?.invoice_type || 'UNKNOWN',
-        confidence: ocr?.extraction_metadata?.confidence_score || null,
-        line_item_count: ocr?.extraction_metadata?.lineitemcount || 0,
-        
-        total_amount: ocr?.totals?.grand_total || ocr?.totals?.total_due || null,
-        subtotal: ocr?.totals?.subtotal || null,
-        
-        payer_entity: ocr?.payer?.entity_name || null,
-        
+
+        // OCR extracted data - metadata
+        meta_confidence: isNewFormat
+          ? (ocr?.meta_confidence || null)
+          : (ocr?.extraction_metadata?.confidence_score || null),
+        meta_invoice_type: isNewFormat
+          ? (ocr?.meta_invoice_type || 'UNKNOWN')
+          : (ocr?.extraction_metadata?.invoicetype || ocr?.extraction_metadata?.invoice_type || 'UNKNOWN'),
+        meta_notes: ocr?.meta_notes || ocr?.extraction_metadata?.extraction_notes || [],
+
+        // Invoice identifiers
+        invoice_number: isNewFormat
+          ? (ocr?.invoice_number || 'N/A')
+          : (ocr?.invoice_identifiers?.invoice_number || 'N/A'),
+        invoice_date: isNewFormat
+          ? (ocr?.invoice_date || null)
+          : (ocr?.invoice_identifiers?.invoice_date || null),
+        due_date: isNewFormat
+          ? (ocr?.due_date || null)
+          : (ocr?.invoice_identifiers?.due_date || null),
+
+        // Vendor information
+        vendor_name: isNewFormat
+          ? (ocr?.vendor_name || 'Unknown Vendor')
+          : (ocr?.vendor?.name || 'Unknown Vendor'),
+        vendor_id: isNewFormat
+          ? (ocr?.vendor_id || null)
+          : (ocr?.accounting?.vendor_id || null),
+        vendor_address: isNewFormat
+          ? (ocr?.vendor_address || '')
+          : (ocr?.vendor?.address?.full_raw || ''),
+        vendor_phone: isNewFormat
+          ? (ocr?.vendor_phone || null)
+          : (ocr?.vendor?.phone || null),
+        vendor_email: isNewFormat
+          ? (ocr?.vendor_email || null)
+          : (ocr?.vendor?.email || null),
+
+        // Payer information
+        payer_name: isNewFormat
+          ? (ocr?.payer_name || null)
+          : (ocr?.payer?.entity_name || null),
+        payer_address: ocr?.payer_address || null,
+
+        // Accounting/Processing
+        bu_code: isNewFormat
+          ? (ocr?.bu_code || null)
+          : (ocr?.accounting?.bu_code || null),
+        processor_name: isNewFormat
+          ? (ocr?.processor_name || null)
+          : (ocr?.accounting?.processor_name || null),
+        processor_date: isNewFormat
+          ? (ocr?.processor_date || null)
+          : (ocr?.accounting?.processor_date || null),
+
+        // Financial amounts
+        invoice_total: isNewFormat
+          ? (ocr?.invoice_total || null)
+          : (ocr?.totals?.grand_total || ocr?.totals?.total_due || null),
+        amount_paid: ocr?.amount_paid || null,
+        amount_due: ocr?.amount_due || null,
+        taxes: ocr?.taxes || null,
+
+        // Service details
+        service_start: ocr?.service_start || null,
+        service_end: ocr?.service_end || null,
+        service_description: ocr?.service_description || null,
+
+        // Property information
+        property_name: ocr?.property_name || null,
+        property_address: ocr?.property_address || null,
+        unit_count: ocr?.unit_count || 0,
+
+        // Line items and arrays
+        line_items: ocr?.line_items || [],
+        cost_allocations: ocr?.cost_allocations || ocr?.accounting?.costallocationstrings || [],
+        confirmation_numbers: ocr?.confirmation_numbers || [],
+        employee_names: ocr?.employee_names || [],
+        reference_numbers: ocr?.reference_numbers || [],
+
         // Keep raw OCR for detail view
         rawOCR: ocr
       };
@@ -1436,7 +1493,7 @@
             inv.invoice_number,
             inv.bu_code,
             inv.processor_name,
-            inv.invoice_type,
+            inv.meta_invoice_type,
             inv.name
           ].filter(Boolean).join(' ').toLowerCase();
           if (!searchable.includes(search)) return false;
@@ -1444,7 +1501,7 @@
         
         // Invoice type
         if (activeFilters.invoice_type.length > 0) {
-          if (!activeFilters.invoice_type.includes(inv.invoice_type)) return false;
+          if (!activeFilters.invoice_type.includes(inv.meta_invoice_type)) return false;
         }
         
         // Vendor
@@ -1471,11 +1528,11 @@
         }
         
         // Amount range
-        if (activeFilters.amountMin !== null && inv.total_amount !== null) {
-          if (inv.total_amount < activeFilters.amountMin) return false;
+        if (activeFilters.amountMin !== null && inv.invoice_total !== null) {
+          if (inv.invoice_total < activeFilters.amountMin) return false;
         }
-        if (activeFilters.amountMax !== null && inv.total_amount !== null) {
-          if (inv.total_amount > activeFilters.amountMax) return false;
+        if (activeFilters.amountMax !== null && inv.invoice_total !== null) {
+          if (inv.invoice_total > activeFilters.amountMax) return false;
         }
         
         return true;
@@ -1497,9 +1554,9 @@
           case 'date-asc':
             return (a.invoice_date || '').localeCompare(b.invoice_date || '');
           case 'amount-desc':
-            return (b.total_amount || 0) - (a.total_amount || 0);
+            return (b.invoice_total || 0) - (a.invoice_total || 0);
           case 'amount-asc':
-            return (a.total_amount || 0) - (b.total_amount || 0);
+            return (a.invoice_total || 0) - (b.invoice_total || 0);
           case 'vendor-asc':
             return (a.vendor_name || '').localeCompare(b.vendor_name || '');
           default:
@@ -1563,8 +1620,8 @@
             <div class="invoice-vendor">${escapeHtml(inv.vendor_name)}</div>
             <div class="invoice-date">${inv.invoice_date || 'No date'} ${inv.invoice_number !== 'N/A' ? `• #${inv.invoice_number}` : ''}</div>
             <div class="invoice-meta">
-              ${inv.total_amount ? `<span class="invoice-tag amount">$${formatNumber(inv.total_amount)}</span>` : ''}
-              <span class="invoice-tag type">${inv.invoice_type}</span>
+              ${inv.invoice_total ? `<span class="invoice-tag amount">$${formatNumber(inv.invoice_total)}</span>` : ''}
+              <span class="invoice-tag type">${inv.meta_invoice_type}</span>
               ${inv.processor_name ? `<span class="invoice-tag">${inv.processor_name}</span>` : ''}
             </div>
           </div>
@@ -1589,8 +1646,8 @@
               <div class="invoice-row-id">#${inv.invoice_number}</div>
             </div>
             <div class="invoice-row-date">${inv.invoice_date || '—'}</div>
-            <div class="invoice-row-amount">${inv.total_amount ? '$' + formatNumber(inv.total_amount) : '—'}</div>
-            <div class="invoice-row-type">${inv.invoice_type}</div>
+            <div class="invoice-row-amount">${inv.invoice_total ? '$' + formatNumber(inv.invoice_total) : '—'}</div>
+            <div class="invoice-row-type">${inv.meta_invoice_type}</div>
           </div>
         `).join('')}
       </div>`;
@@ -1610,7 +1667,7 @@
             key = inv.vendor_name || 'Unknown';
             break;
           case 'invoice_type':
-            key = inv.invoice_type || 'Unknown';
+            key = inv.meta_invoice_type || 'Unknown';
             break;
           case 'processor':
             key = inv.processor_name || 'Unknown';
@@ -1636,7 +1693,7 @@
       
       container.innerHTML = sortedKeys.map(key => {
         const items = groups[key];
-        const totalAmount = items.reduce((sum, inv) => sum + (inv.total_amount || 0), 0);
+        const totalAmount = items.reduce((sum, inv) => sum + (inv.invoice_total || 0), 0);
         
         return `
           <div class="pivot-group">
@@ -1669,7 +1726,7 @@
                     <div class="invoice-vendor">${escapeHtml(inv.vendor_name)}</div>
                     <div class="invoice-date">${inv.invoice_date || 'No date'}</div>
                     <div class="invoice-meta">
-                      ${inv.total_amount ? `<span class="invoice-tag amount">$${formatNumber(inv.total_amount)}</span>` : ''}
+                      ${inv.invoice_total ? `<span class="invoice-tag amount">$${formatNumber(inv.invoice_total)}</span>` : ''}
                     </div>
                   </div>
                 </div>
@@ -1691,10 +1748,10 @@
         processor: {},
         bu_code: {}
       };
-      
+
       invoices.forEach(inv => {
-        if (inv.invoice_type) {
-          filters.invoice_type[inv.invoice_type] = (filters.invoice_type[inv.invoice_type] || 0) + 1;
+        if (inv.meta_invoice_type) {
+          filters.invoice_type[inv.meta_invoice_type] = (filters.invoice_type[inv.meta_invoice_type] || 0) + 1;
         }
         if (inv.vendor_name) {
           filters.vendor[inv.vendor_name] = (filters.vendor[inv.vendor_name] || 0) + 1;
@@ -1812,7 +1869,7 @@
       const vendors = new Set(invoices.map(i => i.vendor_name));
       document.getElementById('total-vendors').textContent = vendors.size;
       
-      const totalAmount = invoices.reduce((sum, i) => sum + (i.total_amount || 0), 0);
+      const totalAmount = invoices.reduce((sum, i) => sum + (i.invoice_total || 0), 0);
       document.getElementById('total-amount').textContent = '$' + formatNumber(totalAmount);
       
       const dates = invoices.map(i => i.invoice_date).filter(Boolean).sort();
@@ -1849,21 +1906,71 @@
             <span class="detail-value">${inv.due_date || '—'}</span>
           </div>
           <div class="detail-row">
-            <span class="detail-label">PO Number</span>
-            <span class="detail-value mono">${inv.po_number || '—'}</span>
-          </div>
-          <div class="detail-row">
             <span class="detail-label">Type</span>
-            <span class="detail-value">${inv.invoice_type}</span>
+            <span class="detail-value">${inv.meta_invoice_type}</span>
           </div>
-          ${inv.total_amount ? `
+          ${inv.invoice_total !== null ? `
           <div class="detail-row">
-            <span class="detail-label">Amount</span>
-            <span class="detail-value amount">$${formatNumber(inv.total_amount)}</span>
+            <span class="detail-label">Invoice Total</span>
+            <span class="detail-value amount">$${formatNumber(inv.invoice_total)}</span>
+          </div>
+          ` : ''}
+          ${inv.amount_paid !== null ? `
+          <div class="detail-row">
+            <span class="detail-label">Amount Paid</span>
+            <span class="detail-value">$${formatNumber(inv.amount_paid)}</span>
+          </div>
+          ` : ''}
+          ${inv.amount_due !== null ? `
+          <div class="detail-row">
+            <span class="detail-label">Amount Due</span>
+            <span class="detail-value amount">$${formatNumber(inv.amount_due)}</span>
+          </div>
+          ` : ''}
+          ${inv.taxes !== null ? `
+          <div class="detail-row">
+            <span class="detail-label">Taxes</span>
+            <span class="detail-value">$${formatNumber(inv.taxes)}</span>
           </div>
           ` : ''}
         </div>
-        
+
+        ${(inv.service_start || inv.service_end || inv.service_description || inv.property_name) ? `
+        <div class="detail-section">
+          <div class="detail-section-title">Service Details</div>
+          ${inv.service_start || inv.service_end ? `
+          <div class="detail-row">
+            <span class="detail-label">Service Period</span>
+            <span class="detail-value">${inv.service_start || '—'} to ${inv.service_end || '—'}</span>
+          </div>
+          ` : ''}
+          ${inv.service_description ? `
+          <div class="detail-row">
+            <span class="detail-label">Description</span>
+            <span class="detail-value">${inv.service_description}</span>
+          </div>
+          ` : ''}
+          ${inv.property_name ? `
+          <div class="detail-row">
+            <span class="detail-label">Property</span>
+            <span class="detail-value">${inv.property_name}</span>
+          </div>
+          ` : ''}
+          ${inv.property_address ? `
+          <div class="detail-row">
+            <span class="detail-label">Property Address</span>
+            <span class="detail-value">${inv.property_address}</span>
+          </div>
+          ` : ''}
+          ${inv.unit_count > 0 ? `
+          <div class="detail-row">
+            <span class="detail-label">Units</span>
+            <span class="detail-value">${inv.unit_count}</span>
+          </div>
+          ` : ''}
+        </div>
+        ` : ''}
+
         <div class="detail-section">
           <div class="detail-section-title">Vendor</div>
           <div class="detail-row">
@@ -1893,7 +2000,23 @@
           </div>
           ` : ''}
         </div>
-        
+
+        ${inv.payer_name ? `
+        <div class="detail-section">
+          <div class="detail-section-title">Payer</div>
+          <div class="detail-row">
+            <span class="detail-label">Name</span>
+            <span class="detail-value">${inv.payer_name}</span>
+          </div>
+          ${inv.payer_address ? `
+          <div class="detail-row">
+            <span class="detail-label">Address</span>
+            <span class="detail-value">${inv.payer_address.replace(/\n/g, '<br>')}</span>
+          </div>
+          ` : ''}
+        </div>
+        ` : ''}
+
         <div class="detail-section">
           <div class="detail-section-title">Accounting</div>
           <div class="detail-row">
@@ -1908,14 +2031,55 @@
             <span class="detail-label">Processed Date</span>
             <span class="detail-value">${inv.processor_date || '—'}</span>
           </div>
-          ${inv.payer_entity ? `
+        </div>
+
+        ${inv.line_items && inv.line_items.length > 0 ? `
+        <div class="detail-section">
+          <div class="detail-section-title">Line Items (${inv.line_items.length})</div>
+          <div class="line-items-table">
+            <table style="width: 100%; font-size: 0.75rem; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <th style="text-align: left; padding: 4px;">Date</th>
+                  <th style="text-align: left; padding: 4px;">Description</th>
+                  <th style="text-align: right; padding: 4px;">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${inv.line_items.slice(0, 10).map(item => `
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 4px;">${item.date || '—'}</td>
+                  <td style="padding: 4px;">${escapeHtml(item.description || '—')}</td>
+                  <td style="text-align: right; padding: 4px;">$${formatNumber(item.amount || 0)}</td>
+                </tr>
+                `).join('')}
+                ${inv.line_items.length > 10 ? `
+                <tr>
+                  <td colspan="3" style="padding: 4px; color: var(--text-secondary);">...and ${inv.line_items.length - 10} more items</td>
+                </tr>
+                ` : ''}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        ` : ''}
+
+        ${inv.confirmation_numbers && inv.confirmation_numbers.length > 0 ? `
+        <div class="detail-section">
+          <div class="detail-section-title">Reference Numbers</div>
           <div class="detail-row">
-            <span class="detail-label">Payer</span>
-            <span class="detail-value">${inv.payer_entity}</span>
+            <span class="detail-label">Confirmations</span>
+            <span class="detail-value mono">${inv.confirmation_numbers.join(', ')}</span>
+          </div>
+          ${inv.reference_numbers && inv.reference_numbers.length > 0 ? `
+          <div class="detail-row">
+            <span class="detail-label">References</span>
+            <span class="detail-value mono">${inv.reference_numbers.join(', ')}</span>
           </div>
           ` : ''}
         </div>
-        
+        ` : ''}
+
         <div class="detail-section">
           <div class="detail-section-title">File</div>
           <div class="detail-row">
@@ -1935,10 +2099,16 @@
             </a>
           </div>
           ` : ''}
-          ${inv.confidence ? `
+          ${inv.meta_confidence ? `
           <div class="detail-row">
             <span class="detail-label">OCR Confidence</span>
-            <span class="detail-value">${(inv.confidence * 100).toFixed(0)}%</span>
+            <span class="detail-value">${(inv.meta_confidence * 100).toFixed(0)}%</span>
+          </div>
+          ` : ''}
+          ${inv.meta_notes && inv.meta_notes.length > 0 ? `
+          <div class="detail-row">
+            <span class="detail-label">Notes</span>
+            <span class="detail-value" style="font-size: 0.75rem">${inv.meta_notes.join('; ')}</span>
           </div>
           ` : ''}
         </div>
