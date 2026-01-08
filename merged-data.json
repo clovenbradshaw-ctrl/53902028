@@ -1,6 +1,6 @@
 {
   "_metadata": {
-    "generated_at": "2026-01-08T15:36:30.463Z",
+    "generated_at": "2026-01-08T17:38:30.479Z",
     "ledger_source": "ledger.csv",
     "ocr_source": "data.csv",
     "description": "Merged financial data from Metro Nashville ledger (source of truth) and OCR-extracted invoice scans",
@@ -10149,7 +10149,7 @@
         "invoice_number": "INV7240439",
         "invoice_date": "2024-11-25",
         "due_date": "2024-12-25",
-        "vendor_name": "RJ Young",
+        "vendor_name": "Robert J Young Company",
         "vendor_id": "4777",
         "vendor_address": "Robert J Young Company, PO Box 306412, Nashville, TN 37230-6412",
         "vendor_phone": "800-347-1955",
@@ -22530,7 +22530,7 @@
         "invoice_number": "INV-000003",
         "invoice_date": "2025-01-02",
         "due_date": "2025-01-02",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -23042,7 +23042,7 @@
         "invoice_number": "INV-000044",
         "invoice_date": "2025-02-03",
         "due_date": "2025-02-03",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -23730,7 +23730,7 @@
         "invoice_number": "INV-000050",
         "invoice_date": "2025-02-26",
         "due_date": "2025-02-26",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -24277,7 +24277,7 @@
         "invoice_number": "INV-000073",
         "invoice_date": "2025-03-31",
         "due_date": "2025-03-31",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -24664,7 +24664,7 @@
         "invoice_number": "INV-000088",
         "invoice_date": "2025-04-28",
         "due_date": "2025-04-28",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -24776,7 +24776,7 @@
         "invoice_number": "INV-000089",
         "invoice_date": "2025-04-28",
         "due_date": "2025-04-28",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -24894,7 +24894,7 @@
         "invoice_number": "INV-000092",
         "invoice_date": "2025-04-28",
         "due_date": "2025-04-28",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -25006,7 +25006,7 @@
         "invoice_number": "INV-000094",
         "invoice_date": "2025-04-28",
         "due_date": "2025-04-28",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": null,
         "vendor_phone": null,
@@ -25664,7 +25664,7 @@
         "invoice_number": "INV-000107",
         "invoice_date": "2025-06-02",
         "due_date": "2025-06-02",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -40889,9 +40889,9 @@
         "invoice_number": "9700274557",
         "invoice_date": "2024-10-05",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -41080,7 +41080,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700274557",
         "invoice_date": "2024-10-05",
         "amount": 1768,
@@ -41260,9 +41260,9 @@
         "invoice_number": "9700274855",
         "invoice_date": "2024-10-05",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -42056,7 +42056,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700274855",
         "invoice_date": "2024-10-05",
         "amount": 11550,
@@ -42835,9 +42835,9 @@
         "invoice_number": "9700274859",
         "invoice_date": "2024-10-05",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -43176,7 +43176,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700274859",
         "invoice_date": "2024-10-05",
         "amount": 10890,
@@ -43506,9 +43506,9 @@
         "invoice_number": "9700274867",
         "invoice_date": "2024-10-05",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -43607,7 +43607,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700274867",
         "invoice_date": "2024-10-05",
         "amount": 14838,
@@ -43697,9 +43697,9 @@
         "invoice_number": "9700274853",
         "invoice_date": "2024-11-02",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -43826,7 +43826,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700274853",
         "invoice_date": "2024-11-02",
         "amount": 2674.45,
@@ -43941,9 +43941,9 @@
         "invoice_number": "9700274853",
         "invoice_date": "2024-11-23",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -44147,7 +44147,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700274853",
         "invoice_date": "2024-11-23",
         "amount": 1065,
@@ -44342,9 +44342,9 @@
         "invoice_number": "9700280735",
         "invoice_date": "2024-11-22",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -44443,7 +44443,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700280735",
         "invoice_date": "2024-11-22",
         "amount": 2143.7,
@@ -44533,9 +44533,9 @@
         "invoice_number": "9700283386",
         "invoice_date": "2024-11-30",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -44625,7 +44625,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283386",
         "invoice_date": "2024-11-30",
         "amount": 2072,
@@ -44706,9 +44706,9 @@
         "invoice_number": "9700283386",
         "invoice_date": "2024-12-02",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -44844,7 +44844,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283386",
         "invoice_date": "2024-12-02",
         "amount": 2072,
@@ -44971,9 +44971,9 @@
         "invoice_number": "9700283386",
         "invoice_date": "2024-12-21",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45077,7 +45077,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283386",
         "invoice_date": "2024-12-21",
         "amount": 1975.25,
@@ -45172,9 +45172,9 @@
         "invoice_number": "9700283386",
         "invoice_date": "2025-01-04",
         "due_date": "2025-01-22",
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45262,7 +45262,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283386",
         "invoice_date": "2025-01-04",
         "amount": 2206.47,
@@ -45341,9 +45341,9 @@
         "invoice_number": "9700283186",
         "invoice_date": "2025-02-01",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990, Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45433,7 +45433,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283186",
         "invoice_date": "2025-02-01",
         "amount": 1031.73,
@@ -45514,9 +45514,9 @@
         "invoice_number": "9700283386",
         "invoice_date": "2025-03-08",
         "due_date": "2025-03-26",
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45604,7 +45604,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283386",
         "invoice_date": "2025-03-08",
         "amount": 1152.2,
@@ -45683,9 +45683,9 @@
         "invoice_number": "9700283386",
         "invoice_date": "2025-03-10",
         "due_date": "2025-05-13",
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45741,7 +45741,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283386",
         "invoice_date": "2025-03-10",
         "amount": 1045.97,
@@ -45788,9 +45788,9 @@
         "invoice_number": "9700283386",
         "invoice_date": "2025-03-01",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45880,7 +45880,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283386",
         "invoice_date": "2025-03-01",
         "amount": 1061.24,
@@ -45961,9 +45961,9 @@
         "invoice_number": "9700283386",
         "invoice_date": "2025-02-15",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -46053,7 +46053,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283386",
         "invoice_date": "2025-02-15",
         "amount": 1022,
@@ -46838,6 +46838,247 @@
         ],
         "employee_names": [],
         "service_period": "2025-05-04 to 2025-05-11"
+      }
+    },
+    {
+      "_data_sources": {
+        "ledger": false,
+        "ocr": true,
+        "match_type": "ocr_only",
+        "match_confidence": 0.5,
+        "match_notes": "Not found in ledger - may be internal form or processing document"
+      },
+      "ledger": null,
+      "ocr": {
+        "meta_confidence": 0.98,
+        "meta_invoice_type": "HOTEL",
+        "meta_source_page": 122,
+        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
+        "meta_notes": [],
+        "invoice_number": "1555056163",
+        "invoice_date": "2025-05-18",
+        "due_date": "2025-05-18",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_phone": null,
+        "vendor_email": "accountsreceivable@extendedstay.com",
+        "payer_name": "The Family Center",
+        "payer_address": "139 Thompson Ln., Nashville, TN 37211",
+        "bu_code": "53902028.502363",
+        "processor_name": "Joseph Marsh",
+        "processor_date": "2025-07-10",
+        "invoice_total": 542.87,
+        "amount_paid": 329.76,
+        "amount_due": 542.87,
+        "taxes": 69.44,
+        "service_start": "2025-05-11",
+        "service_end": "2025-05-17",
+        "service_description": "Hotel stays for two guest accounts",
+        "property_name": "ESA Suites - Nashville - Airport - Music City",
+        "property_address": null,
+        "unit_count": 2,
+        "line_items": [
+          {
+            "date": "2025-05-11",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-12",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-13",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-14",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-15",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-16",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-17",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-11",
+            "description": "Room night for guest 9700274867",
+            "quantity": 1,
+            "unit_price": 68.99,
+            "amount": 82.7,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-12",
+            "description": "Room night for guest 9700274867",
+            "quantity": 1,
+            "unit_price": 68.99,
+            "amount": 82.7,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-13",
+            "description": "Room night for guest 9700274867",
+            "quantity": 1,
+            "unit_price": 68.99,
+            "amount": 82.7,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-14",
+            "description": "Room night for guest 9700274867",
+            "quantity": 1,
+            "unit_price": 176,
+            "amount": 204.6,
+            "category": "room"
+          }
+        ],
+        "cost_allocations": [],
+        "confirmation_numbers": [
+          "9700274547",
+          "9700274867"
+        ],
+        "employee_names": [],
+        "reference_numbers": []
+      },
+      "unified": {
+        "vendor_name": "Extended Stay America",
+        "invoice_number": "1555056163",
+        "invoice_date": "2025-05-18",
+        "amount": 542.87,
+        "payment_date": "",
+        "category": "HOTEL",
+        "line_items": [
+          {
+            "date": "2025-05-11",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-12",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-13",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-14",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-15",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-16",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-17",
+            "description": "Room night for guest 9700274547",
+            "quantity": 1,
+            "unit_price": 59.99,
+            "amount": 59.99,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-11",
+            "description": "Room night for guest 9700274867",
+            "quantity": 1,
+            "unit_price": 68.99,
+            "amount": 82.7,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-12",
+            "description": "Room night for guest 9700274867",
+            "quantity": 1,
+            "unit_price": 68.99,
+            "amount": 82.7,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-13",
+            "description": "Room night for guest 9700274867",
+            "quantity": 1,
+            "unit_price": 68.99,
+            "amount": 82.7,
+            "category": "room"
+          },
+          {
+            "date": "2025-05-14",
+            "description": "Room night for guest 9700274867",
+            "quantity": 1,
+            "unit_price": 176,
+            "amount": 204.6,
+            "category": "room"
+          }
+        ],
+        "confirmation_numbers": [
+          "9700274547",
+          "9700274867"
+        ],
+        "employee_names": [],
+        "service_period": "2025-05-11 to 2025-05-17"
       }
     },
     {
@@ -49376,9 +49617,9 @@
         "invoice_number": "9700283386",
         "invoice_date": "2025-02-22",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -49482,7 +49723,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283386",
         "invoice_date": "2025-02-22",
         "amount": 1022,
@@ -49577,9 +49818,9 @@
         "invoice_number": "9700283386",
         "invoice_date": "2025-02-03",
         "due_date": null,
-        "vendor_name": "ESA Management L.L.C.",
-        "vendor_id": null,
-        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
+        "vendor_name": "Extended Stay America",
+        "vendor_id": "1020857",
+        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -49717,7 +49958,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "ESA Management L.L.C.",
+        "vendor_name": "Extended Stay America",
         "invoice_number": "9700283386",
         "invoice_date": "2025-02-03",
         "amount": 1053.23,
@@ -55401,7 +55642,7 @@
         "invoice_number": "INV-000116",
         "invoice_date": "2025-07-01",
         "due_date": "2025-07-01",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -55467,7 +55708,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "invoice_number": "INV-000116",
         "invoice_date": "2025-07-01",
         "amount": 1050,
@@ -55522,7 +55763,7 @@
         "invoice_number": "INV-000146",
         "invoice_date": "2025-10-22",
         "due_date": "2025-10-22",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -55588,7 +55829,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "invoice_number": "INV-000146",
         "invoice_date": "2025-10-22",
         "amount": 2600,
@@ -55643,7 +55884,7 @@
         "invoice_number": "INV-000148",
         "invoice_date": "2025-10-27",
         "due_date": "2025-10-27",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -55741,7 +55982,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "invoice_number": "INV-000148",
         "invoice_date": "2025-10-27",
         "amount": 5750,
@@ -55828,7 +56069,7 @@
         "invoice_number": "INV-000145",
         "invoice_date": "2025-10-20",
         "due_date": "2025-10-20",
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "vendor_id": "1021245",
         "vendor_address": "Tennessee, U.S.A",
         "vendor_phone": null,
@@ -55878,7 +56119,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "Hillside Crossing Hotel",
+        "vendor_name": "Hillside Crossing LLC",
         "invoice_number": "INV-000145",
         "invoice_date": "2025-10-20",
         "amount": 1400,
@@ -56006,7 +56247,7 @@
         "invoice_number": "WO3001533847",
         "invoice_date": "2025-04-02",
         "due_date": null,
-        "vendor_name": "Thompson Machinery Commerce Corp.",
+        "vendor_name": "Thompson Machinery",
         "vendor_id": null,
         "vendor_address": "1245 Bridgestone Boulevard, LaVergne, Tennessee 37086",
         "vendor_phone": "(615) 256-2424",
@@ -56068,7 +56309,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "Thompson Machinery Commerce Corp.",
+        "vendor_name": "Thompson Machinery",
         "invoice_number": "WO3001533847",
         "invoice_date": "2025-04-02",
         "amount": 2700,
@@ -56115,7 +56356,7 @@
         "invoice_number": null,
         "invoice_date": "2025-06-17",
         "due_date": null,
-        "vendor_name": "HIGHLAND EAST APARTMENTS",
+        "vendor_name": "Highland East Apartments",
         "vendor_id": "1023472",
         "vendor_address": "301 BEN ALLEN RD, NASHVILLE, TN. 37207",
         "vendor_phone": null,
@@ -56173,7 +56414,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "HIGHLAND EAST APARTMENTS",
+        "vendor_name": "Highland East Apartments",
         "invoice_number": "",
         "invoice_date": "2025-06-17",
         "amount": 1138,
@@ -56220,7 +56461,7 @@
         "invoice_number": null,
         "invoice_date": "2025-06-16",
         "due_date": null,
-        "vendor_name": "Highland East",
+        "vendor_name": "Highland East Apartments",
         "vendor_id": null,
         "vendor_address": null,
         "vendor_phone": null,
@@ -56318,7 +56559,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "Highland East",
+        "vendor_name": "Highland East Apartments",
         "invoice_number": "",
         "invoice_date": "2025-06-16",
         "amount": 1253,
