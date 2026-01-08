@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-08T14:56:21.347Z",
+  "generated_at": "2026-01-08T15:07:02.842Z",
   "ledger_stats": {
     "total_entries": 262,
     "invoice_entries": 134,
@@ -63,14 +63,14 @@
     "total_ocr_amount": "3072416.41"
   },
   "match_stats": {
-    "matched_pairs": 94,
-    "unmatched_ledger_invoices": 40,
-    "unmatched_ocr_invoices": 120,
-    "match_rate_ledger": "70.1%",
-    "match_rate_ocr": "44.8%",
+    "matched_pairs": 90,
+    "unmatched_ledger_invoices": 44,
+    "unmatched_ocr_invoices": 124,
+    "match_rate_ledger": "67.2%",
+    "match_rate_ocr": "42.9%",
     "by_match_type": {
       "invoice_number": 61,
-      "vendor_date": 33
+      "vendor_date_amount": 29
     }
   },
   "vendor_breakdown": {

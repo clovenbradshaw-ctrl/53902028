@@ -396,7 +396,6 @@ function matchInvoices(ledgerEntries, ocrInvoices) {
   // Build lookup indexes for OCR data
   const ocrByInvoiceNum = new Map();
   const ocrByVendorAndDate = new Map();
-  const ocrByVendorAndAmount = new Map();
 
   ocrInvoices.forEach((ocr, idx) => {
     const invoiceNum = normalizeInvoiceNumber(ocr.invoice_number);
@@ -414,13 +413,6 @@ function matchInvoices(ledgerEntries, ocrInvoices) {
       ocrByVendorAndDate.set(dateKey, []);
     }
     ocrByVendorAndDate.get(dateKey).push({ ocr, idx });
-
-    // Index by vendor + amount
-    const amountKey = `${normalizedVendor}|${Math.round((ocr.invoice_total || 0) * 100)}`;
-    if (!ocrByVendorAndAmount.has(amountKey)) {
-      ocrByVendorAndAmount.set(amountKey, []);
-    }
-    ocrByVendorAndAmount.get(amountKey).push({ ocr, idx });
   });
 
   // Pass 1: Match by invoice number (strongest match)
@@ -460,27 +452,30 @@ function matchInvoices(ledgerEntries, ocrInvoices) {
     }
   });
 
-  // Pass 2: Match by vendor + invoice date (for remaining)
+  // Pass 2: Match by vendor + invoice date + amount (for remaining)
   unmatchedLedger.filter(l => l.document_type === 'Invoice').forEach(ledger => {
     const ledgerVendor = ledger.vendor_name;
     const ledgerDate = normalizeDate(ledger.invoice_date);
+    const ledgerAmount = Math.round((ledger.debit || 0) * 100); // Amount in cents for comparison
 
     if (!ledgerDate) return;
 
-    // Look for OCR records with same vendor and matching date
+    // Look for OCR records with same vendor, matching date, AND matching amount
     for (const ocr of unmatchedOcr) {
       const normalizedOcrVendor = normalizeVendorForLedgerMatch(ocr.vendor_name);
       const ocrDate = normalizeDate(ocr.invoice_date);
+      const ocrAmount = Math.round((ocr.invoice_total || 0) * 100); // Amount in cents
 
       if (normalizedOcrVendor.toUpperCase() === ledgerVendor.toUpperCase() &&
-          ledgerDate === ocrDate) {
+          ledgerDate === ocrDate &&
+          ledgerAmount === ocrAmount) {
         matches.push({
           ledger,
           ocr,
           matchInfo: {
-            type: 'vendor_date',
-            confidence: 0.80,
-            notes: `Matched by vendor (${ledgerVendor}) and invoice date (${ledgerDate})`
+            type: 'vendor_date_amount',
+            confidence: 0.85,
+            notes: `Matched by vendor (${ledgerVendor}), invoice date (${ledgerDate}), and amount ($${(ledgerAmount / 100).toFixed(2)})`
           }
         });
 
@@ -616,7 +611,7 @@ function main() {
 
       by_match_type: {
         invoice_number: matches.filter(m => m.matchInfo.type === 'invoice_number').length,
-        vendor_date: matches.filter(m => m.matchInfo.type === 'vendor_date').length
+        vendor_date_amount: matches.filter(m => m.matchInfo.type === 'vendor_date_amount').length
       }
     },
 
@@ -655,7 +650,7 @@ function main() {
   console.log(`  Ledger match rate: ${summary.match_stats.match_rate_ledger}`);
   console.log(`  OCR match rate: ${summary.match_stats.match_rate_ocr}`);
   console.log(`  By invoice number: ${summary.match_stats.by_match_type.invoice_number}`);
-  console.log(`  By vendor + date: ${summary.match_stats.by_match_type.vendor_date}`);
+  console.log(`  By vendor + date + amount: ${summary.match_stats.by_match_type.vendor_date_amount}`);
 
   console.log('\n=== Done! ===');
   console.log(`Output files:`);

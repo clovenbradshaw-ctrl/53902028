@@ -1,6 +1,6 @@
 {
   "_metadata": {
-    "generated_at": "2026-01-08T14:56:21.318Z",
+    "generated_at": "2026-01-08T15:07:02.819Z",
     "ledger_source": "ledger.csv",
     "ocr_source": "data.csv",
     "description": "Merged financial data from Metro Nashville ledger (source of truth) and OCR-extracted invoice scans",
@@ -22157,9 +22157,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2024-09-01)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2024-09-01), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -22269,9 +22269,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2024-09-01)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2024-09-01), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -22381,9 +22381,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2024-09-01)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2024-09-01), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -22493,185 +22493,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2024-11-12)"
-      },
-      "ledger": {
-        "document_type": "Invoice",
-        "document_number": "11570706",
-        "vendor_name": "HILLSIDE CROSSING LLC",
-        "vendor_id": "1021245",
-        "invoice_number": "INVHILLSIDE112024",
-        "invoice_date": "11/12/2024",
-        "payment_date": "11/20/2024",
-        "gl_date": "11/13/2024",
-        "amount": 7000,
-        "debit": 7000,
-        "credit": 0,
-        "object_account": "Care of Persons",
-        "object_account_descr": "Care of Persons",
-        "business_unit": "53902028",
-        "fund": "30216",
-        "je_category": "Purchase Invoices",
-        "explanation": "INV#INVHILLSIDE112024 NOV 2024 RENT OHS",
-        "batch_type": "Invoice Batch",
-        "batch_number": "KOFAX-13NOV2024141121",
-        "batch_date": "11/13/2024",
-        "created": "7/9/2025 9:10am",
-        "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
-      },
-      "ocr": {
-        "meta_confidence": 0.98,
-        "meta_invoice_type": "RENTAL",
-        "meta_source_page": 40,
-        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [],
-        "invoice_number": "INV Hillside112024",
-        "invoice_date": "2024-11-12",
-        "due_date": null,
-        "vendor_name": "Hillside Crossing LLC",
-        "vendor_id": "1021245",
-        "vendor_address": "717 Spence Lane, Nashville, TN 37217",
-        "vendor_phone": null,
-        "vendor_email": null,
-        "payer_name": "Metro Nashville Office of Homeless Services",
-        "payer_address": null,
-        "bu_code": "53902028.502363",
-        "processor_name": "Joseph Marsh",
-        "processor_date": "2024-11-12",
-        "invoice_total": 7500,
-        "amount_paid": 0,
-        "amount_due": 7500,
-        "taxes": 0,
-        "service_start": null,
-        "service_end": null,
-        "service_description": "Nov 2024 Rent",
-        "property_name": "Hillside Crossing LLC",
-        "property_address": "717 Spence Lane, Nashville, TN 37217",
-        "unit_count": 5,
-        "line_items": [
-          {
-            "date": null,
-            "description": "Nov 2024 Rent",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          },
-          {
-            "date": null,
-            "description": "Nov 2024 Rent",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          },
-          {
-            "date": null,
-            "description": "Nov 2024 Rent",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          },
-          {
-            "date": null,
-            "description": "Nov 2024 Rent",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          },
-          {
-            "date": null,
-            "description": "Nov 2024 Rent",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          }
-        ],
-        "cost_allocations": [],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "reference_numbers": [],
-        "merge_info": {
-          "page_count": 1,
-          "source_pages": [
-            40
-          ],
-          "was_merged": false,
-          "merge_reasoning": "Single-page invoice"
-        },
-        "all_source_file_ids": [
-          "1JOXOgHhnAoVel4LxZe_F8aAK8KMwmpHR"
-        ],
-        "all_source_rows": [
-          "40"
-        ]
-      },
-      "unified": {
-        "vendor_name": "HILLSIDE CROSSING LLC",
-        "invoice_number": "INVHILLSIDE112024",
-        "invoice_date": "11/12/2024",
-        "amount": 7000,
-        "payment_date": "11/20/2024",
-        "category": "Care of Persons",
-        "line_items": [
-          {
-            "date": null,
-            "description": "Nov 2024 Rent",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          },
-          {
-            "date": null,
-            "description": "Nov 2024 Rent",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          },
-          {
-            "date": null,
-            "description": "Nov 2024 Rent",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          },
-          {
-            "date": null,
-            "description": "Nov 2024 Rent",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          },
-          {
-            "date": null,
-            "description": "Nov 2024 Rent",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          }
-        ],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "service_period": "to"
-      }
-    },
-    {
-      "_data_sources": {
-        "ledger": true,
-        "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2025-01-02)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2025-01-02), and amount ($7000.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -22845,9 +22669,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-01-06)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-01-06), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -22957,9 +22781,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-01-06)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-01-06), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -23069,9 +22893,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-01-06)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-01-06), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -23181,137 +23005,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-01-23)"
-      },
-      "ledger": {
-        "document_type": "Invoice",
-        "document_number": "11633578",
-        "vendor_name": "THE AVE NASHVILLE LLC",
-        "vendor_id": "1018405",
-        "invoice_number": "PP212025",
-        "invoice_date": "1/23/2025",
-        "payment_date": "2/5/2025",
-        "gl_date": "1/28/2025",
-        "amount": 1400,
-        "debit": 1400,
-        "credit": 0,
-        "object_account": "Care of Persons",
-        "object_account_descr": "Care of Persons",
-        "business_unit": "53902028",
-        "fund": "30216",
-        "je_category": "Purchase Invoices",
-        "explanation": "OHS",
-        "batch_type": "Invoice Batch",
-        "batch_number": "KOFAX-28JAN2025110122",
-        "batch_date": "1/28/2025",
-        "created": "7/9/2025 9:10am",
-        "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
-      },
-      "ocr": {
-        "meta_confidence": 0.98,
-        "meta_invoice_type": "RENTAL",
-        "meta_source_page": 5,
-        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [],
-        "invoice_number": "INV",
-        "invoice_date": "2025-01-23",
-        "due_date": "2025-02-06",
-        "vendor_name": "The Ave",
-        "vendor_id": "1018405",
-        "vendor_address": "2220 Clarksville Pike, Nashville TN 37218, United States",
-        "vendor_phone": null,
-        "vendor_email": null,
-        "payer_name": "Joseph M",
-        "payer_address": null,
-        "bu_code": "53902028.502363",
-        "processor_name": null,
-        "processor_date": null,
-        "invoice_total": 2800,
-        "amount_paid": 0,
-        "amount_due": 2800,
-        "taxes": 0,
-        "service_start": "2025-01-01",
-        "service_end": "2025-02-06",
-        "service_description": "January and February 2025 Rent",
-        "property_name": "The Ave",
-        "property_address": "2220 Clarksville Pike, Nashville TN 37218",
-        "unit_count": 1,
-        "line_items": [
-          {
-            "date": "2025-01-01",
-            "description": "Monthly Rent Income - Posted from 01/01/2025 to 01/31/2025",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          },
-          {
-            "date": "2025-02-01",
-            "description": "Rent Income",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          }
-        ],
-        "cost_allocations": [],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "reference_numbers": [],
-        "merge_info": {
-          "page_count": 1,
-          "source_pages": [
-            5
-          ],
-          "was_merged": false,
-          "merge_reasoning": "Single-page invoice"
-        },
-        "all_source_file_ids": [
-          "14aNeemwSzRt6A15hyT0f6BXMW07I8wK4"
-        ],
-        "all_source_rows": [
-          "5"
-        ]
-      },
-      "unified": {
-        "vendor_name": "THE AVE NASHVILLE LLC",
-        "invoice_number": "PP212025",
-        "invoice_date": "1/23/2025",
-        "amount": 1400,
-        "payment_date": "2/5/2025",
-        "category": "Care of Persons",
-        "line_items": [
-          {
-            "date": "2025-01-01",
-            "description": "Monthly Rent Income - Posted from 01/01/2025 to 01/31/2025",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          },
-          {
-            "date": "2025-02-01",
-            "description": "Rent Income",
-            "quantity": 1,
-            "unit_price": 1400,
-            "amount": 1400,
-            "category": "rent"
-          }
-        ],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "service_period": "2025-01-01 to 2025-02-06"
-      }
-    },
-    {
-      "_data_sources": {
-        "ledger": true,
-        "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2025-02-03)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2025-02-03), and amount ($7000.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -23485,9 +23181,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (COMMUNITY CARE FELLOWSHIP) and invoice date (2025-02-12)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (COMMUNITY CARE FELLOWSHIP), invoice date (2025-02-12), and amount ($93312.50)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -23661,9 +23357,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-02-21)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-02-21), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -23773,22 +23469,22 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-02-21)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-02-21), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
-        "document_number": "11660438",
+        "document_number": "11660439",
         "vendor_name": "THE AVE NASHVILLE LLC",
         "vendor_id": "1018405",
-        "invoice_number": "PP312025",
+        "invoice_number": "MH312025",
         "invoice_date": "2/21/2025",
         "payment_date": "3/5/2025",
         "gl_date": "2/25/2025",
         "amount": 1400,
-        "debit": 0,
-        "credit": 1400,
+        "debit": 1400,
+        "credit": 0,
         "object_account": "Care of Persons",
         "object_account_descr": "Care of Persons",
         "business_unit": "53902028",
@@ -23861,7 +23557,7 @@
       },
       "unified": {
         "vendor_name": "THE AVE NASHVILLE LLC",
-        "invoice_number": "PP312025",
+        "invoice_number": "MH312025",
         "invoice_date": "2/21/2025",
         "amount": 1400,
         "payment_date": "3/5/2025",
@@ -23885,16 +23581,16 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-02-21)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-02-21), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
-        "document_number": "11660439",
+        "document_number": "11660438",
         "vendor_name": "THE AVE NASHVILLE LLC",
         "vendor_id": "1018405",
-        "invoice_number": "MH312025",
+        "invoice_number": "PP312025",
         "invoice_date": "2/21/2025",
         "payment_date": "3/5/2025",
         "gl_date": "2/25/2025",
@@ -23973,7 +23669,7 @@
       },
       "unified": {
         "vendor_name": "THE AVE NASHVILLE LLC",
-        "invoice_number": "MH312025",
+        "invoice_number": "PP312025",
         "invoice_date": "2/21/2025",
         "amount": 1400,
         "payment_date": "3/5/2025",
@@ -23997,9 +23693,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2025-02-26)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2025-02-26), and amount ($7000.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -24173,204 +23869,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (COMMUNITY CARE FELLOWSHIP) and invoice date (2025-03-14)"
-      },
-      "ledger": {
-        "document_type": "Invoice",
-        "document_number": "11693806",
-        "vendor_name": "COMMUNITY CARE FELLOWSHIP",
-        "vendor_id": "1007670",
-        "invoice_number": "3A",
-        "invoice_date": "3/14/2025",
-        "payment_date": "4/8/2025",
-        "gl_date": "4/1/2025",
-        "amount": 55562.5,
-        "debit": 55562.5,
-        "credit": 0,
-        "object_account": "Temporary Service",
-        "object_account_descr": "Temporary Service",
-        "business_unit": "53902028",
-        "fund": "30216",
-        "je_category": "Purchase Invoices",
-        "explanation": "OHS 2/9/25-2/28/25",
-        "batch_type": "Invoice Batch",
-        "batch_number": "KOFAX-01APR2025170412",
-        "batch_date": "4/1/2025",
-        "created": "7/9/2025 9:10am",
-        "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
-      },
-      "ocr": {
-        "meta_confidence": 0.98,
-        "meta_invoice_type": "INTERNAL",
-        "meta_source_page": 196,
-        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [],
-        "invoice_number": "3",
-        "invoice_date": "2025-03-14",
-        "due_date": null,
-        "vendor_name": "Community Care Fellowship, Inc.",
-        "vendor_id": "1007670",
-        "vendor_address": "511 South 8th Street, Nashville, TN 37206",
-        "vendor_phone": "615-400-6300",
-        "vendor_email": "rclasuer@gmail.com",
-        "payer_name": null,
-        "payer_address": null,
-        "bu_code": "53902028.502331",
-        "processor_name": "Dave C",
-        "processor_date": "2025-03-31",
-        "invoice_total": 55662.5,
-        "amount_paid": 0,
-        "amount_due": 55662.5,
-        "taxes": 0,
-        "service_start": "2025-02-29",
-        "service_end": "2025-02-28",
-        "service_description": "FOR THE PERIOD: 2/29/2025–2/28/2025 under contract L-6426 / RS2025-974",
-        "property_name": null,
-        "property_address": null,
-        "unit_count": 0,
-        "line_items": [
-          {
-            "date": null,
-            "description": "Salaries and Wages",
-            "quantity": 1,
-            "unit_price": 40228.15,
-            "amount": 40228.15,
-            "category": "labor"
-          },
-          {
-            "date": null,
-            "description": "Benefits and Taxes",
-            "quantity": 1,
-            "unit_price": 9120.1,
-            "amount": 9120.1,
-            "category": "labor"
-          },
-          {
-            "date": null,
-            "description": "Insurance",
-            "quantity": 1,
-            "unit_price": 4587.78,
-            "amount": 4587.78,
-            "category": "fee"
-          },
-          {
-            "date": null,
-            "description": "Specific Assistance to Individuals",
-            "quantity": 1,
-            "unit_price": 483.47,
-            "amount": 483.47,
-            "category": "service"
-          },
-          {
-            "date": null,
-            "description": "Occupancy",
-            "quantity": 1,
-            "unit_price": 923,
-            "amount": 923,
-            "category": "fee"
-          },
-          {
-            "date": null,
-            "description": "Professional Fees",
-            "quantity": 1,
-            "unit_price": 0,
-            "amount": 0,
-            "category": "service"
-          }
-        ],
-        "cost_allocations": [],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "reference_numbers": [
-          "L-6426",
-          "RS2025-974"
-        ],
-        "merge_info": {
-          "page_count": 1,
-          "source_pages": [
-            196
-          ],
-          "was_merged": false,
-          "merge_reasoning": "Single-page invoice"
-        },
-        "all_source_file_ids": [
-          "1OEuwHQle5sPZ41MCGSBV0s27c1tAAFaJ"
-        ],
-        "all_source_rows": [
-          "196"
-        ]
-      },
-      "unified": {
-        "vendor_name": "COMMUNITY CARE FELLOWSHIP",
-        "invoice_number": "3A",
-        "invoice_date": "3/14/2025",
-        "amount": 55562.5,
-        "payment_date": "4/8/2025",
-        "category": "Temporary Service",
-        "line_items": [
-          {
-            "date": null,
-            "description": "Salaries and Wages",
-            "quantity": 1,
-            "unit_price": 40228.15,
-            "amount": 40228.15,
-            "category": "labor"
-          },
-          {
-            "date": null,
-            "description": "Benefits and Taxes",
-            "quantity": 1,
-            "unit_price": 9120.1,
-            "amount": 9120.1,
-            "category": "labor"
-          },
-          {
-            "date": null,
-            "description": "Insurance",
-            "quantity": 1,
-            "unit_price": 4587.78,
-            "amount": 4587.78,
-            "category": "fee"
-          },
-          {
-            "date": null,
-            "description": "Specific Assistance to Individuals",
-            "quantity": 1,
-            "unit_price": 483.47,
-            "amount": 483.47,
-            "category": "service"
-          },
-          {
-            "date": null,
-            "description": "Occupancy",
-            "quantity": 1,
-            "unit_price": 923,
-            "amount": 923,
-            "category": "fee"
-          },
-          {
-            "date": null,
-            "description": "Professional Fees",
-            "quantity": 1,
-            "unit_price": 0,
-            "amount": 0,
-            "category": "service"
-          }
-        ],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "service_period": "2025-02-29 to 2025-02-28"
-      }
-    },
-    {
-      "_data_sources": {
-        "ledger": true,
-        "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-03-18)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-03-18), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -24480,9 +23981,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-03-18)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-03-18), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -24592,9 +24093,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (RJ Young Company LLC) and invoice date (2025-03-26)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (RJ Young Company LLC), invoice date (2025-03-26), and amount ($148.80)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -24739,9 +24240,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2025-03-31)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2025-03-31), and amount ($7000.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -24915,9 +24416,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (COMMUNITY CARE FELLOWSHIP) and invoice date (2025-04-11)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (COMMUNITY CARE FELLOWSHIP), invoice date (2025-04-11), and amount ($90937.50)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -25126,9 +24627,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2025-04-28)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2025-04-28), and amount ($1050.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -25238,9 +24739,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2025-04-28)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2025-04-28), and amount ($1050.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -25356,9 +24857,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2025-04-28)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2025-04-28), and amount ($1050.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -25468,9 +24969,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2025-04-28)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2025-04-28), and amount ($1050.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -25580,9 +25081,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-05-01)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-05-01), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -25692,9 +25193,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-05-01)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-05-01), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -25804,9 +25305,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-05-01)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-05-01), and amount ($1400.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -25932,9 +25433,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (COMMUNITY CARE FELLOWSHIP) and invoice date (2025-05-02)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (COMMUNITY CARE FELLOWSHIP), invoice date (2025-05-02), and amount ($106062.50)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -26126,9 +25627,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC) and invoice date (2025-06-02)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (HILLSIDE CROSSING LLC), invoice date (2025-06-02), and amount ($2100.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -26270,9 +25771,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (COMMUNITY CARE FELLOWSHIP) and invoice date (2025-06-03)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (COMMUNITY CARE FELLOWSHIP), invoice date (2025-06-03), and amount ($101625.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -26464,9 +25965,9 @@
       "_data_sources": {
         "ledger": true,
         "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-06-06)"
+        "match_type": "vendor_date_amount",
+        "match_confidence": 0.85,
+        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC), invoice date (2025-06-06), and amount ($1450.00)"
       },
       "ledger": {
         "document_type": "Invoice",
@@ -26479,134 +25980,6 @@
         "gl_date": "6/20/2025",
         "amount": 1450,
         "debit": 1450,
-        "credit": 0,
-        "object_account": "Care of Persons",
-        "object_account_descr": "Care of Persons",
-        "business_unit": "53902028",
-        "fund": "30216",
-        "je_category": "Purchase Invoices",
-        "explanation": "INV EG612025  E GRAY",
-        "batch_type": "Invoice Batch",
-        "batch_number": "KOFAX-20JUN2025150621",
-        "batch_date": "6/20/2025",
-        "created": "7/9/2025 9:10am",
-        "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
-      },
-      "ocr": {
-        "meta_confidence": 0.98,
-        "meta_invoice_type": "RENTAL",
-        "meta_source_page": 20,
-        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [],
-        "invoice_number": "INV",
-        "invoice_date": "2025-06-06",
-        "due_date": null,
-        "vendor_name": "The Ave",
-        "vendor_id": "1018405",
-        "vendor_address": "3230 Clarksville Pike, Nashville, TN 37218",
-        "vendor_phone": null,
-        "vendor_email": null,
-        "payer_name": null,
-        "payer_address": null,
-        "bu_code": "53902028.502363",
-        "processor_name": "Joseph Marsh",
-        "processor_date": "2025-06-25",
-        "invoice_total": 1350,
-        "amount_paid": 0,
-        "amount_due": 1350,
-        "taxes": 0,
-        "service_start": "2025-06-01",
-        "service_end": "2025-06-07",
-        "service_description": "June 2025 Rent",
-        "property_name": "The Ave",
-        "property_address": "3230 Clarksville Pike, Nashville, TN 37218",
-        "unit_count": 1,
-        "line_items": [
-          {
-            "date": "2025-06-06",
-            "description": "Late Fee Income",
-            "quantity": 1,
-            "unit_price": 50,
-            "amount": 50,
-            "category": "fee"
-          },
-          {
-            "date": "2025-06-01",
-            "description": "Rent Income",
-            "quantity": 1,
-            "unit_price": 1300,
-            "amount": 1300,
-            "category": "rent"
-          }
-        ],
-        "cost_allocations": [],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "reference_numbers": [],
-        "merge_info": {
-          "page_count": 1,
-          "source_pages": [
-            20
-          ],
-          "was_merged": false,
-          "merge_reasoning": "Single-page invoice"
-        },
-        "all_source_file_ids": [
-          "12CFivxBT162dlCmU1949FOPl1BYJ5NiZ"
-        ],
-        "all_source_rows": [
-          "20"
-        ]
-      },
-      "unified": {
-        "vendor_name": "THE AVE NASHVILLE LLC",
-        "invoice_number": "EG612025",
-        "invoice_date": "6/6/2025",
-        "amount": 1450,
-        "payment_date": "6/27/2025",
-        "category": "Care of Persons",
-        "line_items": [
-          {
-            "date": "2025-06-06",
-            "description": "Late Fee Income",
-            "quantity": 1,
-            "unit_price": 50,
-            "amount": 50,
-            "category": "fee"
-          },
-          {
-            "date": "2025-06-01",
-            "description": "Rent Income",
-            "quantity": 1,
-            "unit_price": 1300,
-            "amount": 1300,
-            "category": "rent"
-          }
-        ],
-        "confirmation_numbers": [],
-        "employee_names": [],
-        "service_period": "2025-06-01 to 2025-06-07"
-      }
-    },
-    {
-      "_data_sources": {
-        "ledger": true,
-        "ocr": true,
-        "match_type": "vendor_date",
-        "match_confidence": 0.8,
-        "match_notes": "Matched by vendor (THE AVE NASHVILLE LLC) and invoice date (2025-06-06)"
-      },
-      "ledger": {
-        "document_type": "Invoice",
-        "document_number": "11775602",
-        "vendor_name": "THE AVE NASHVILLE LLC",
-        "vendor_id": "1018405",
-        "invoice_number": "EG612025",
-        "invoice_date": "6/6/2025",
-        "payment_date": "6/27/2025",
-        "gl_date": "6/20/2025",
-        "amount": 1400,
-        "debit": 1400,
         "credit": 0,
         "object_account": "Care of Persons",
         "object_account_descr": "Care of Persons",
@@ -26690,7 +26063,7 @@
         "vendor_name": "THE AVE NASHVILLE LLC",
         "invoice_number": "EG612025",
         "invoice_date": "6/6/2025",
-        "amount": 1400,
+        "amount": 1450,
         "payment_date": "6/27/2025",
         "category": "Care of Persons",
         "line_items": [
@@ -27473,6 +26846,52 @@
           "payment_date": "11/20/2024",
           "gl_date": "11/13/2024",
           "amount": 7000,
+          "debit": 7000,
+          "credit": 0,
+          "object_account": "Care of Persons",
+          "object_account_descr": "Care of Persons",
+          "business_unit": "53902028",
+          "fund": "30216",
+          "je_category": "Purchase Invoices",
+          "explanation": "INV#INVHILLSIDE112024 NOV 2024 RENT OHS",
+          "batch_type": "Invoice Batch",
+          "batch_number": "KOFAX-13NOV2024141121",
+          "batch_date": "11/13/2024",
+          "created": "7/9/2025 9:10am",
+          "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+        },
+        "ocr": null,
+        "unified": {
+          "vendor_name": "HILLSIDE CROSSING LLC",
+          "invoice_number": "INVHILLSIDE112024",
+          "invoice_date": "11/12/2024",
+          "amount": 7000,
+          "payment_date": "11/20/2024",
+          "category": "Care of Persons",
+          "line_items": [],
+          "confirmation_numbers": [],
+          "employee_names": [],
+          "service_period": ""
+        }
+      },
+      {
+        "_data_sources": {
+          "ledger": true,
+          "ocr": false,
+          "match_type": "ledger_only",
+          "match_confidence": 1,
+          "match_notes": "No matching OCR scan found"
+        },
+        "ledger": {
+          "document_type": "Invoice",
+          "document_number": "11570706",
+          "vendor_name": "HILLSIDE CROSSING LLC",
+          "vendor_id": "1021245",
+          "invoice_number": "INVHILLSIDE112024",
+          "invoice_date": "11/12/2024",
+          "payment_date": "11/20/2024",
+          "gl_date": "11/13/2024",
+          "amount": 7000,
           "debit": 0,
           "credit": 7000,
           "object_account": "Care of Persons",
@@ -27787,6 +27206,52 @@
         },
         "ledger": {
           "document_type": "Invoice",
+          "document_number": "11633578",
+          "vendor_name": "THE AVE NASHVILLE LLC",
+          "vendor_id": "1018405",
+          "invoice_number": "PP212025",
+          "invoice_date": "1/23/2025",
+          "payment_date": "2/5/2025",
+          "gl_date": "1/28/2025",
+          "amount": 1400,
+          "debit": 1400,
+          "credit": 0,
+          "object_account": "Care of Persons",
+          "object_account_descr": "Care of Persons",
+          "business_unit": "53902028",
+          "fund": "30216",
+          "je_category": "Purchase Invoices",
+          "explanation": "OHS",
+          "batch_type": "Invoice Batch",
+          "batch_number": "KOFAX-28JAN2025110122",
+          "batch_date": "1/28/2025",
+          "created": "7/9/2025 9:10am",
+          "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+        },
+        "ocr": null,
+        "unified": {
+          "vendor_name": "THE AVE NASHVILLE LLC",
+          "invoice_number": "PP212025",
+          "invoice_date": "1/23/2025",
+          "amount": 1400,
+          "payment_date": "2/5/2025",
+          "category": "Care of Persons",
+          "line_items": [],
+          "confirmation_numbers": [],
+          "employee_names": [],
+          "service_period": ""
+        }
+      },
+      {
+        "_data_sources": {
+          "ledger": true,
+          "ocr": false,
+          "match_type": "ledger_only",
+          "match_confidence": 1,
+          "match_notes": "No matching OCR scan found"
+        },
+        "ledger": {
+          "document_type": "Invoice",
           "document_number": "11633569",
           "vendor_name": "THE AVE NASHVILLE LLC",
           "vendor_id": "1018405",
@@ -27887,8 +27352,8 @@
           "payment_date": "3/5/2025",
           "gl_date": "2/25/2025",
           "amount": 1400,
-          "debit": 1400,
-          "credit": 0,
+          "debit": 0,
+          "credit": 1400,
           "object_account": "Care of Persons",
           "object_account_descr": "Care of Persons",
           "business_unit": "53902028",
@@ -27955,6 +27420,52 @@
           "amount": 1400,
           "payment_date": "3/5/2025",
           "category": "Care of Persons",
+          "line_items": [],
+          "confirmation_numbers": [],
+          "employee_names": [],
+          "service_period": ""
+        }
+      },
+      {
+        "_data_sources": {
+          "ledger": true,
+          "ocr": false,
+          "match_type": "ledger_only",
+          "match_confidence": 1,
+          "match_notes": "No matching OCR scan found"
+        },
+        "ledger": {
+          "document_type": "Invoice",
+          "document_number": "11693806",
+          "vendor_name": "COMMUNITY CARE FELLOWSHIP",
+          "vendor_id": "1007670",
+          "invoice_number": "3A",
+          "invoice_date": "3/14/2025",
+          "payment_date": "4/8/2025",
+          "gl_date": "4/1/2025",
+          "amount": 55562.5,
+          "debit": 55562.5,
+          "credit": 0,
+          "object_account": "Temporary Service",
+          "object_account_descr": "Temporary Service",
+          "business_unit": "53902028",
+          "fund": "30216",
+          "je_category": "Purchase Invoices",
+          "explanation": "OHS 2/9/25-2/28/25",
+          "batch_type": "Invoice Batch",
+          "batch_number": "KOFAX-01APR2025170412",
+          "batch_date": "4/1/2025",
+          "created": "7/9/2025 9:10am",
+          "last_updated_by": "JOSE.VILLEDA@NASHVILLE.GOV"
+        },
+        "ocr": null,
+        "unified": {
+          "vendor_name": "COMMUNITY CARE FELLOWSHIP",
+          "invoice_number": "3A",
+          "invoice_date": "3/14/2025",
+          "amount": 55562.5,
+          "payment_date": "4/8/2025",
+          "category": "Temporary Service",
           "line_items": [],
           "confirmation_numbers": [],
           "employee_names": [],
@@ -28276,6 +27787,52 @@
           "invoice_date": "5/1/2025",
           "amount": 1400,
           "payment_date": "",
+          "category": "Care of Persons",
+          "line_items": [],
+          "confirmation_numbers": [],
+          "employee_names": [],
+          "service_period": ""
+        }
+      },
+      {
+        "_data_sources": {
+          "ledger": true,
+          "ocr": false,
+          "match_type": "ledger_only",
+          "match_confidence": 1,
+          "match_notes": "No matching OCR scan found"
+        },
+        "ledger": {
+          "document_type": "Invoice",
+          "document_number": "11775602",
+          "vendor_name": "THE AVE NASHVILLE LLC",
+          "vendor_id": "1018405",
+          "invoice_number": "EG612025",
+          "invoice_date": "6/6/2025",
+          "payment_date": "6/27/2025",
+          "gl_date": "6/20/2025",
+          "amount": 1400,
+          "debit": 1400,
+          "credit": 0,
+          "object_account": "Care of Persons",
+          "object_account_descr": "Care of Persons",
+          "business_unit": "53902028",
+          "fund": "30216",
+          "je_category": "Purchase Invoices",
+          "explanation": "INV EG612025  E GRAY",
+          "batch_type": "Invoice Batch",
+          "batch_number": "KOFAX-20JUN2025150621",
+          "batch_date": "6/20/2025",
+          "created": "7/9/2025 9:10am",
+          "last_updated_by": "JAMIE.HUNTER@NASHVILLE.GOV"
+        },
+        "ocr": null,
+        "unified": {
+          "vendor_name": "THE AVE NASHVILLE LLC",
+          "invoice_number": "EG612025",
+          "invoice_date": "6/6/2025",
+          "amount": 1400,
+          "payment_date": "6/27/2025",
           "category": "Care of Persons",
           "line_items": [],
           "confirmation_numbers": [],
@@ -38514,6 +38071,111 @@
       "ocr": {
         "meta_confidence": 0.98,
         "meta_invoice_type": "RENTAL",
+        "meta_source_page": 5,
+        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
+        "meta_notes": [],
+        "invoice_number": "INV",
+        "invoice_date": "2025-01-23",
+        "due_date": "2025-02-06",
+        "vendor_name": "The Ave",
+        "vendor_id": "1018405",
+        "vendor_address": "2220 Clarksville Pike, Nashville TN 37218, United States",
+        "vendor_phone": null,
+        "vendor_email": null,
+        "payer_name": "Joseph M",
+        "payer_address": null,
+        "bu_code": "53902028.502363",
+        "processor_name": null,
+        "processor_date": null,
+        "invoice_total": 2800,
+        "amount_paid": 0,
+        "amount_due": 2800,
+        "taxes": 0,
+        "service_start": "2025-01-01",
+        "service_end": "2025-02-06",
+        "service_description": "January and February 2025 Rent",
+        "property_name": "The Ave",
+        "property_address": "2220 Clarksville Pike, Nashville TN 37218",
+        "unit_count": 1,
+        "line_items": [
+          {
+            "date": "2025-01-01",
+            "description": "Monthly Rent Income - Posted from 01/01/2025 to 01/31/2025",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          },
+          {
+            "date": "2025-02-01",
+            "description": "Rent Income",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          }
+        ],
+        "cost_allocations": [],
+        "confirmation_numbers": [],
+        "employee_names": [],
+        "reference_numbers": [],
+        "merge_info": {
+          "page_count": 1,
+          "source_pages": [
+            5
+          ],
+          "was_merged": false,
+          "merge_reasoning": "Single-page invoice"
+        },
+        "all_source_file_ids": [
+          "14aNeemwSzRt6A15hyT0f6BXMW07I8wK4"
+        ],
+        "all_source_rows": [
+          "5"
+        ]
+      },
+      "unified": {
+        "vendor_name": "The Ave",
+        "invoice_number": "INV",
+        "invoice_date": "2025-01-23",
+        "amount": 2800,
+        "payment_date": "",
+        "category": "RENTAL",
+        "line_items": [
+          {
+            "date": "2025-01-01",
+            "description": "Monthly Rent Income - Posted from 01/01/2025 to 01/31/2025",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          },
+          {
+            "date": "2025-02-01",
+            "description": "Rent Income",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          }
+        ],
+        "confirmation_numbers": [],
+        "employee_names": [],
+        "service_period": "2025-01-01 to 2025-02-06"
+      }
+    },
+    {
+      "_data_sources": {
+        "ledger": false,
+        "ocr": true,
+        "match_type": "ocr_only",
+        "match_confidence": 0.5,
+        "match_notes": "Not found in ledger - may be internal form or processing document"
+      },
+      "ledger": null,
+      "ocr": {
+        "meta_confidence": 0.98,
+        "meta_invoice_type": "RENTAL",
         "meta_source_page": 6,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [],
@@ -39041,6 +38703,111 @@
         "confirmation_numbers": [],
         "employee_names": [],
         "service_period": "2025-06-01 to 2025-08-01"
+      }
+    },
+    {
+      "_data_sources": {
+        "ledger": false,
+        "ocr": true,
+        "match_type": "ocr_only",
+        "match_confidence": 0.5,
+        "match_notes": "Not found in ledger - may be internal form or processing document"
+      },
+      "ledger": null,
+      "ocr": {
+        "meta_confidence": 0.98,
+        "meta_invoice_type": "RENTAL",
+        "meta_source_page": 20,
+        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
+        "meta_notes": [],
+        "invoice_number": "INV",
+        "invoice_date": "2025-06-06",
+        "due_date": null,
+        "vendor_name": "The Ave",
+        "vendor_id": "1018405",
+        "vendor_address": "3230 Clarksville Pike, Nashville, TN 37218",
+        "vendor_phone": null,
+        "vendor_email": null,
+        "payer_name": null,
+        "payer_address": null,
+        "bu_code": "53902028.502363",
+        "processor_name": "Joseph Marsh",
+        "processor_date": "2025-06-25",
+        "invoice_total": 1350,
+        "amount_paid": 0,
+        "amount_due": 1350,
+        "taxes": 0,
+        "service_start": "2025-06-01",
+        "service_end": "2025-06-07",
+        "service_description": "June 2025 Rent",
+        "property_name": "The Ave",
+        "property_address": "3230 Clarksville Pike, Nashville, TN 37218",
+        "unit_count": 1,
+        "line_items": [
+          {
+            "date": "2025-06-06",
+            "description": "Late Fee Income",
+            "quantity": 1,
+            "unit_price": 50,
+            "amount": 50,
+            "category": "fee"
+          },
+          {
+            "date": "2025-06-01",
+            "description": "Rent Income",
+            "quantity": 1,
+            "unit_price": 1300,
+            "amount": 1300,
+            "category": "rent"
+          }
+        ],
+        "cost_allocations": [],
+        "confirmation_numbers": [],
+        "employee_names": [],
+        "reference_numbers": [],
+        "merge_info": {
+          "page_count": 1,
+          "source_pages": [
+            20
+          ],
+          "was_merged": false,
+          "merge_reasoning": "Single-page invoice"
+        },
+        "all_source_file_ids": [
+          "12CFivxBT162dlCmU1949FOPl1BYJ5NiZ"
+        ],
+        "all_source_rows": [
+          "20"
+        ]
+      },
+      "unified": {
+        "vendor_name": "The Ave",
+        "invoice_number": "INV",
+        "invoice_date": "2025-06-06",
+        "amount": 1350,
+        "payment_date": "",
+        "category": "RENTAL",
+        "line_items": [
+          {
+            "date": "2025-06-06",
+            "description": "Late Fee Income",
+            "quantity": 1,
+            "unit_price": 50,
+            "amount": 50,
+            "category": "fee"
+          },
+          {
+            "date": "2025-06-01",
+            "description": "Rent Income",
+            "quantity": 1,
+            "unit_price": 1300,
+            "amount": 1300,
+            "category": "rent"
+          }
+        ],
+        "confirmation_numbers": [],
+        "employee_names": [],
+        "service_period": "2025-06-01 to 2025-06-07"
       }
     },
     {
@@ -40278,6 +40045,159 @@
           {
             "date": null,
             "description": "Rent",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          }
+        ],
+        "confirmation_numbers": [],
+        "employee_names": [],
+        "service_period": "to"
+      }
+    },
+    {
+      "_data_sources": {
+        "ledger": false,
+        "ocr": true,
+        "match_type": "ocr_only",
+        "match_confidence": 0.5,
+        "match_notes": "Not found in ledger - may be internal form or processing document"
+      },
+      "ledger": null,
+      "ocr": {
+        "meta_confidence": 0.98,
+        "meta_invoice_type": "RENTAL",
+        "meta_source_page": 40,
+        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
+        "meta_notes": [],
+        "invoice_number": "INV Hillside112024",
+        "invoice_date": "2024-11-12",
+        "due_date": null,
+        "vendor_name": "Hillside Crossing LLC",
+        "vendor_id": "1021245",
+        "vendor_address": "717 Spence Lane, Nashville, TN 37217",
+        "vendor_phone": null,
+        "vendor_email": null,
+        "payer_name": "Metro Nashville Office of Homeless Services",
+        "payer_address": null,
+        "bu_code": "53902028.502363",
+        "processor_name": "Joseph Marsh",
+        "processor_date": "2024-11-12",
+        "invoice_total": 7500,
+        "amount_paid": 0,
+        "amount_due": 7500,
+        "taxes": 0,
+        "service_start": null,
+        "service_end": null,
+        "service_description": "Nov 2024 Rent",
+        "property_name": "Hillside Crossing LLC",
+        "property_address": "717 Spence Lane, Nashville, TN 37217",
+        "unit_count": 5,
+        "line_items": [
+          {
+            "date": null,
+            "description": "Nov 2024 Rent",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          },
+          {
+            "date": null,
+            "description": "Nov 2024 Rent",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          },
+          {
+            "date": null,
+            "description": "Nov 2024 Rent",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          },
+          {
+            "date": null,
+            "description": "Nov 2024 Rent",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          },
+          {
+            "date": null,
+            "description": "Nov 2024 Rent",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          }
+        ],
+        "cost_allocations": [],
+        "confirmation_numbers": [],
+        "employee_names": [],
+        "reference_numbers": [],
+        "merge_info": {
+          "page_count": 1,
+          "source_pages": [
+            40
+          ],
+          "was_merged": false,
+          "merge_reasoning": "Single-page invoice"
+        },
+        "all_source_file_ids": [
+          "1JOXOgHhnAoVel4LxZe_F8aAK8KMwmpHR"
+        ],
+        "all_source_rows": [
+          "40"
+        ]
+      },
+      "unified": {
+        "vendor_name": "Hillside Crossing LLC",
+        "invoice_number": "INV Hillside112024",
+        "invoice_date": "2024-11-12",
+        "amount": 7500,
+        "payment_date": "",
+        "category": "RENTAL",
+        "line_items": [
+          {
+            "date": null,
+            "description": "Nov 2024 Rent",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          },
+          {
+            "date": null,
+            "description": "Nov 2024 Rent",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          },
+          {
+            "date": null,
+            "description": "Nov 2024 Rent",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          },
+          {
+            "date": null,
+            "description": "Nov 2024 Rent",
+            "quantity": 1,
+            "unit_price": 1400,
+            "amount": 1400,
+            "category": "rent"
+          },
+          {
+            "date": null,
+            "description": "Nov 2024 Rent",
             "quantity": 1,
             "unit_price": 1400,
             "amount": 1400,
@@ -54558,6 +54478,178 @@
         "confirmation_numbers": [],
         "employee_names": [],
         "service_period": "to"
+      }
+    },
+    {
+      "_data_sources": {
+        "ledger": false,
+        "ocr": true,
+        "match_type": "ocr_only",
+        "match_confidence": 0.5,
+        "match_notes": "Not found in ledger - may be internal form or processing document"
+      },
+      "ledger": null,
+      "ocr": {
+        "meta_confidence": 0.98,
+        "meta_invoice_type": "INTERNAL",
+        "meta_source_page": 196,
+        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
+        "meta_notes": [],
+        "invoice_number": "3",
+        "invoice_date": "2025-03-14",
+        "due_date": null,
+        "vendor_name": "Community Care Fellowship, Inc.",
+        "vendor_id": "1007670",
+        "vendor_address": "511 South 8th Street, Nashville, TN 37206",
+        "vendor_phone": "615-400-6300",
+        "vendor_email": "rclasuer@gmail.com",
+        "payer_name": null,
+        "payer_address": null,
+        "bu_code": "53902028.502331",
+        "processor_name": "Dave C",
+        "processor_date": "2025-03-31",
+        "invoice_total": 55662.5,
+        "amount_paid": 0,
+        "amount_due": 55662.5,
+        "taxes": 0,
+        "service_start": "2025-02-29",
+        "service_end": "2025-02-28",
+        "service_description": "FOR THE PERIOD: 2/29/2025–2/28/2025 under contract L-6426 / RS2025-974",
+        "property_name": null,
+        "property_address": null,
+        "unit_count": 0,
+        "line_items": [
+          {
+            "date": null,
+            "description": "Salaries and Wages",
+            "quantity": 1,
+            "unit_price": 40228.15,
+            "amount": 40228.15,
+            "category": "labor"
+          },
+          {
+            "date": null,
+            "description": "Benefits and Taxes",
+            "quantity": 1,
+            "unit_price": 9120.1,
+            "amount": 9120.1,
+            "category": "labor"
+          },
+          {
+            "date": null,
+            "description": "Insurance",
+            "quantity": 1,
+            "unit_price": 4587.78,
+            "amount": 4587.78,
+            "category": "fee"
+          },
+          {
+            "date": null,
+            "description": "Specific Assistance to Individuals",
+            "quantity": 1,
+            "unit_price": 483.47,
+            "amount": 483.47,
+            "category": "service"
+          },
+          {
+            "date": null,
+            "description": "Occupancy",
+            "quantity": 1,
+            "unit_price": 923,
+            "amount": 923,
+            "category": "fee"
+          },
+          {
+            "date": null,
+            "description": "Professional Fees",
+            "quantity": 1,
+            "unit_price": 0,
+            "amount": 0,
+            "category": "service"
+          }
+        ],
+        "cost_allocations": [],
+        "confirmation_numbers": [],
+        "employee_names": [],
+        "reference_numbers": [
+          "L-6426",
+          "RS2025-974"
+        ],
+        "merge_info": {
+          "page_count": 1,
+          "source_pages": [
+            196
+          ],
+          "was_merged": false,
+          "merge_reasoning": "Single-page invoice"
+        },
+        "all_source_file_ids": [
+          "1OEuwHQle5sPZ41MCGSBV0s27c1tAAFaJ"
+        ],
+        "all_source_rows": [
+          "196"
+        ]
+      },
+      "unified": {
+        "vendor_name": "Community Care Fellowship, Inc.",
+        "invoice_number": "3",
+        "invoice_date": "2025-03-14",
+        "amount": 55662.5,
+        "payment_date": "",
+        "category": "INTERNAL",
+        "line_items": [
+          {
+            "date": null,
+            "description": "Salaries and Wages",
+            "quantity": 1,
+            "unit_price": 40228.15,
+            "amount": 40228.15,
+            "category": "labor"
+          },
+          {
+            "date": null,
+            "description": "Benefits and Taxes",
+            "quantity": 1,
+            "unit_price": 9120.1,
+            "amount": 9120.1,
+            "category": "labor"
+          },
+          {
+            "date": null,
+            "description": "Insurance",
+            "quantity": 1,
+            "unit_price": 4587.78,
+            "amount": 4587.78,
+            "category": "fee"
+          },
+          {
+            "date": null,
+            "description": "Specific Assistance to Individuals",
+            "quantity": 1,
+            "unit_price": 483.47,
+            "amount": 483.47,
+            "category": "service"
+          },
+          {
+            "date": null,
+            "description": "Occupancy",
+            "quantity": 1,
+            "unit_price": 923,
+            "amount": 923,
+            "category": "fee"
+          },
+          {
+            "date": null,
+            "description": "Professional Fees",
+            "quantity": 1,
+            "unit_price": 0,
+            "amount": 0,
+            "category": "service"
+          }
+        ],
+        "confirmation_numbers": [],
+        "employee_names": [],
+        "service_period": "2025-02-29 to 2025-02-28"
       }
     },
     {
