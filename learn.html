@@ -155,6 +155,18 @@
       text-decoration: underline;
     }
 
+    .toc .new-badge {
+      background: var(--danger);
+      color: white;
+      font-size: 0.65rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+
     /* Sections */
     section {
       margin-bottom: 4rem;
@@ -174,6 +186,13 @@
       font-weight: 600;
       color: var(--accent);
       margin: 2rem 0 1rem 0;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 1.5rem 0 0.75rem 0;
     }
 
     p {
@@ -200,12 +219,21 @@
       border-left-color: var(--success);
     }
 
+    .info-box.danger {
+      border-left-color: var(--danger);
+    }
+
+    .info-box.warning {
+      border-left-color: var(--warning);
+    }
+
     .info-box h4 {
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--text-secondary);
       margin-bottom: 0.5rem;
+      margin-top: 0;
     }
 
     /* Code blocks */
@@ -247,6 +275,24 @@
       font-size: 0.7rem;
       color: var(--text-muted);
       margin-bottom: 0.25rem;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: var(--bg-tertiary);
+      border-left: 4px solid var(--text-muted);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-style: normal;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
     /* Tables */
@@ -371,6 +417,7 @@
       letter-spacing: 0.05em;
       color: var(--text-muted);
       margin-bottom: 0.5rem;
+      margin-top: 0;
     }
 
     .summary-card .amount {
@@ -452,12 +499,18 @@
         <li><a href="#big-picture">1. The Big Picture: What Is This?</a></li>
         <li><a href="#arpa">2. What Are ARPA Funds?</a></li>
         <li><a href="#rs2024-490">3. Resolution RS2024-490 Explained</a></li>
-        <li><a href="#account-strings">4. Reading Account Strings</a></li>
-        <li><a href="#business-units">5. Business Units Demystified</a></li>
-        <li><a href="#object-codes">6. Object Codes: What Was Bought?</a></li>
-        <li><a href="#strobel">7. The Strobel Center</a></li>
-        <li><a href="#barnes">8. The Barnes Fund</a></li>
-        <li><a href="#glossary">9. Glossary</a></li>
+        <li><a href="#eligible-users">4. Eligible Users: Who Can Receive These Funds?</a> <span class="new-badge">New</span></li>
+        <li><a href="#account-strings">5. Reading Account Strings</a></li>
+        <li><a href="#business-units">6. Business Units Demystified</a></li>
+        <li><a href="#related-business-units">7. Related OHS Business Units</a> <span class="new-badge">New</span></li>
+        <li><a href="#object-codes">8. Object Codes: What Was Bought?</a></li>
+        <li><a href="#strobel">9. The Strobel Center</a></li>
+        <li><a href="#strobel-timeline">10. Strobel Center Oversight Timeline</a> <span class="new-badge">New</span></li>
+        <li><a href="#barnes">11. The Barnes Fund</a></li>
+        <li><a href="#not-covered">12. What This Business Unit Does NOT Cover</a> <span class="new-badge">New</span></li>
+        <li><a href="#federal-compliance">13. Federal Compliance Requirements</a> <span class="new-badge">New</span></li>
+        <li><a href="#modifications">14. Subsequent Modifications to RS2024-490</a> <span class="new-badge">New</span></li>
+        <li><a href="#glossary">15. Glossary</a></li>
       </ul>
     </nav>
 
@@ -501,6 +554,40 @@
       </div>
 
       <p>Because these are federal funds, they have <strong>stricter tracking requirements</strong> than regular city money. That's why they're separated into their own fund code: <code>30216</code> (the ARPA Fund).</p>
+
+      <h3>Nashville's Original Homeless Services ARPA Allocation (October 2022)</h3>
+
+      <p>Before RS2024-490 existed, Metro Council approved Mayor Cooper's "Housing First" plan on October 5, 2022, distributing $50 million across four core resolutions:</p>
+
+      <table>
+        <tr>
+          <th>Resolution</th>
+          <th>Amount</th>
+          <th>Purpose</th>
+        </tr>
+        <tr>
+          <td><code>RS2022-1696</code></td>
+          <td>$25,000,000</td>
+          <td>Gap Financing for Permanent Supportive Housing (administered by MDHA)</td>
+        </tr>
+        <tr>
+          <td><code>RS2022-1697</code></td>
+          <td>$9,000,000</td>
+          <td>Housing First Supportive Services (wraparound services only)</td>
+        </tr>
+        <tr>
+          <td><code>RS2022-1698</code></td>
+          <td>$9,000,000</td>
+          <td>Temporary Interim Gap Housing (includes Rodeway Inn operations)</td>
+        </tr>
+        <tr>
+          <td><code>RS2022-1699</code></td>
+          <td>$7,000,000</td>
+          <td>Low Barrier Housing Collective (landlord incentives and competitive grants)</td>
+        </tr>
+      </table>
+
+      <p>A separate <strong>$18 million</strong> went to Metro Planning Department through RS2022-1860 ($10M for collective/shared equity housing) and RS2022-1861 ($8M for aging-in-place housing). These funds were <strong>not originally designated for homeless services</strong>&mdash;they became available for reallocation when the Planning Department programs failed to materialize.</p>
     </section>
 
     <section id="rs2024-490">
@@ -543,10 +630,69 @@
           <p>Grants to nonprofit developers building affordable housing through Round 13 of the Barnes Housing Trust Fund.</p>
         </div>
       </div>
+
+      <h3>Why Were the Original Funds Available?</h3>
+
+      <p>None of the $10.7 million in RS2022-1860/1861 funds had been spent prior to reallocation. Metro Planning Department stated these funds would be "better utilized" in homeless services, though questions remain about why programs were originally appropriated for initiatives that never materialized.</p>
+    </section>
+
+    <section id="eligible-users">
+      <h2>4. Eligible Users: Who Can Receive These Funds?</h2>
+
+      <p>Federal ARPA funds have specific eligibility requirements. Understanding who qualifies helps identify whether money is reaching intended populations.</p>
+
+      <h3>Strobel Center Eligibility (45 + 45 Units)</h3>
+
+      <h4>First 45 Units &mdash; Chronically Homeless Individuals</h4>
+
+      <p>Must meet HUD's chronic homelessness definition:</p>
+      <ul>
+        <li>Homeless continuously for <strong>at least 1 year</strong>, OR</li>
+        <li>Homeless on <strong>at least 4 separate occasions</strong> in the last 3 years (episodes totaling at least 12 months)</li>
+        <li>AND has a <strong>disabling condition</strong> (mental illness, substance use disorder, physical disability, or developmental disability)</li>
+      </ul>
+
+      <h4>Second 45 Units &mdash; Priority Populations</h4>
+      <ul>
+        <li>Unhoused veterans</li>
+        <li>Young adults (18-24) experiencing homelessness</li>
+        <li>LGBTQ+ individuals experiencing homelessness</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>Documentation Required</h4>
+        <ul>
+          <li>VI-SPDAT Assessment Score (Vulnerability Index)</li>
+          <li>Documentation of chronic homelessness status</li>
+          <li>Social Security Card, ID, and/or Birth Certificate</li>
+          <li>Disability eligibility verification</li>
+          <li>Cannot be on sex offender registry</li>
+        </ul>
+      </div>
+
+      <div class="info-box highlight">
+        <h4>Critical Access Requirement</h4>
+        <p>All Strobel Center placements must go through OHS's <strong>Coordinated Entry</strong> process&mdash;a standardized assessment system that prioritizes housing based on vulnerability scores. Direct placements outside Coordinated Entry violate program design.</p>
+      </div>
+
+      <h3>Barnes Fund Round 13 Eligibility</h3>
+
+      <p>Barnes Fund grants go to <strong>nonprofit developers</strong>, not individuals. However, the housing they build must serve:</p>
+      <ul>
+        <li>Households at <strong>0-30% Area Median Income (AMI)</strong> experiencing homelessness</li>
+        <li>Properties must use <strong>Coordinated Entry Process</strong> managed by OHS for tenant selection</li>
+        <li>PSH projects must follow <strong>Housing First</strong> approach (no preconditions for entry)</li>
+        <li><strong>30-year affordability requirement</strong> on all units</li>
+      </ul>
+
+      <div class="info-box warning">
+        <h4>Historical Eligibility Compliance Concern</h4>
+        <p>Metro's own 2022 Performance Study found that <strong>only 26% of individuals moving into Permanent Supportive Housing had been homeless for one year or longer</strong>&mdash;falling significantly short of the chronic homelessness duration requirement. High levels of missing data in HMIS (Homeless Management Information System) made eligibility verification difficult to audit even before current oversight concerns emerged.</p>
+      </div>
     </section>
 
     <section id="account-strings">
-      <h2>4. Reading Account Strings</h2>
+      <h2>5. Reading Account Strings</h2>
 
       <p>When you look at invoice data, you'll see long codes like this:</p>
 
@@ -625,7 +771,7 @@
     </section>
 
     <section id="business-units">
-      <h2>5. Business Units Demystified</h2>
+      <h2>6. Business Units Demystified</h2>
 
       <p>A <strong>business unit</strong> is like a separate bank account within Metro's accounting system. Each major allocation of money gets its own business unit so spending can be tracked separately.</p>
 
@@ -666,8 +812,79 @@
       </div>
     </section>
 
+    <section id="related-business-units">
+      <h2>7. Related OHS Business Units</h2>
+
+      <p>To understand the full picture of OHS ARPA spending, you need to know the other business units. This viewer only shows <strong>53902028</strong>. Here are the related allocations:</p>
+
+      <table>
+        <tr>
+          <th>Business Unit</th>
+          <th>Resolution</th>
+          <th>Amount</th>
+          <th>Purpose</th>
+        </tr>
+        <tr>
+          <td><code>53902025</code></td>
+          <td>RS2022-1697</td>
+          <td>$9,000,000</td>
+          <td>Housing First Supportive Services (wraparound services only&mdash;NO housing payments)</td>
+        </tr>
+        <tr>
+          <td><code>53902026</code></td>
+          <td>RS2022-1698</td>
+          <td>$9,000,000</td>
+          <td>Temporary Interim Gap Housing (includes Rodeway Inn hotel operations)</td>
+        </tr>
+        <tr>
+          <td><code>53902027</code></td>
+          <td>RS2022-1699</td>
+          <td>$7,000,000</td>
+          <td>Low Barrier Housing Collective (landlord incentives, competitive grants)</td>
+        </tr>
+        <tr style="background: var(--accent-glow);">
+          <td><strong><code>53902028</code></strong></td>
+          <td><strong>RS2024-490</strong></td>
+          <td><strong>$9,639,446</strong></td>
+          <td><strong>Strobel Center + Barnes Fund R13 (this viewer)</strong></td>
+        </tr>
+      </table>
+
+      <h3>What Each Business Unit Covers</h3>
+
+      <h4>53902025 (Supportive Services Only)</h4>
+      <ul>
+        <li>Case management, mental health services, substance use recovery support</li>
+        <li>Street medicine through United Neighborhood Health Services</li>
+        <li>SOAR benefits assistance</li>
+        <li>Meals for interim housing residents</li>
+        <li><strong>Does NOT pay for housing or rent</strong></li>
+      </ul>
+
+      <h4>53902026 (Interim Gap Housing)</h4>
+      <ul>
+        <li>Salvation Army's Rodeway Inn operations (~$4.5M)</li>
+        <li>Community Care Fellowship's Mobile Housing Navigation Centers (~$4.5M)</li>
+        <li><strong>This is where hotel/motel payments are authorized</strong></li>
+      </ul>
+
+      <h4>53902027 (Low Barrier Housing Collective)</h4>
+      <ul>
+        <li>Landlord sign-on bonuses, security deposits, furniture assistance</li>
+        <li>Competitive grants to housing providers</li>
+        <li>Hospitality Hub's Rodeway Inn continuation ($2.47M after Salvation Army exit)</li>
+      </ul>
+
+      <h4>53902028 (This Viewer)</h4>
+      <ul>
+        <li>Strobel Center operations (Depaul USA contract)</li>
+        <li>Barnes Fund Round 13 grants to nonprofit developers</li>
+        <li><strong>Does NOT cover hotel/motel rent payments</strong></li>
+      </ul>
+    </section>
+
     <section id="object-codes">
-      <h2>6. Object Codes: What Was Bought?</h2>
+      <h2>8. Object Codes: What Was Bought?</h2>
 
       <p><strong>Object codes</strong> are 6-digit numbers that classify what type of expense something is. Think of them as category labels.</p>
 
@@ -696,8 +913,8 @@
         </tr>
         <tr>
           <td><code>505XXX</code></td>
-          <td>Rent & Leases</td>
-          <td>Building rent, equipment rental, licenses</td>
+          <td>Rent & Leases / Grants</td>
+          <td>Building rent, equipment rental, grants to organizations</td>
         </tr>
         <tr>
           <td><code>507XXX</code></td>
@@ -713,11 +930,16 @@
         <p>This is the primary object code for Strobel Center operations. It covers contracted services for housing, case management, and supportive services provided by Depaul USA.</p>
       </div>
 
+      <div class="info-box">
+        <h4>505303 - Contribute/Grant Person</h4>
+        <p>Used for Barnes Fund grants to nonprofit developers.</p>
+      </div>
+
       <p>When you see an invoice, the object code tells you <em>what kind</em> of expense it was, while the vendor tells you <em>who</em> was paid.</p>
     </section>
 
     <section id="strobel">
-      <h2>7. The Strobel Center</h2>
+      <h2>9. The Strobel Center</h2>
 
       <p>The <strong>Strobel Center</strong> is Nashville's first public permanent supportive housing facility, located at 1210 Murfreesboro Pike. It opened on July 18, 2024.</p>
 
@@ -738,15 +960,86 @@
         <li><strong>Substance abuse treatment</strong> &mdash; recovery support</li>
         <li><strong>24/7 staffing</strong> &mdash; front desk, overnight coverage</li>
       </ul>
+    </section>
 
-      <div class="info-box">
-        <h4>Note on Oversight</h4>
-        <p>The Strobel Center operated from September 2024 through August 2025 without a formal contract, using voucher payments. The budget was also exceeded by $500,000-$700,000, leading to a supplemental appropriation (RS2025-1436) for an additional $3.5 million.</p>
+    <section id="strobel-timeline">
+      <h2>10. Strobel Center Oversight Timeline</h2>
+
+      <p>The Strobel Center experienced significant procurement and oversight failures that are important context for understanding invoice data.</p>
+
+      <h3>Chronology of Events</h3>
+
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+        </tr>
+        <tr>
+          <td>May 2022</td>
+          <td>Construction began; $35M total cost (40% over original estimate)</td>
+        </tr>
+        <tr>
+          <td>May 28, 2024</td>
+          <td>Metro Council approves initial 4-month contract with Depaul USA</td>
+        </tr>
+        <tr>
+          <td>June 4, 2024</td>
+          <td>RS2024-490 passes, allocating $4.4M for operations</td>
+        </tr>
+        <tr>
+          <td>July 18, 2024</td>
+          <td>Strobel House grand opening</td>
+        </tr>
+        <tr>
+          <td>September 2024</td>
+          <td>Initial contract expires&mdash;<strong>OHS continues payments without renewal</strong></td>
+        </tr>
+        <tr>
+          <td>Sept 2024 &ndash; Aug 2025</td>
+          <td><strong>10+ months operating without valid contract</strong></td>
+        </tr>
+        <tr>
+          <td>~May 2025</td>
+          <td>OHS Director learns of procurement non-compliance</td>
+        </tr>
+        <tr>
+          <td>August 19, 2025</td>
+          <td>Contract lapse publicly disclosed; Council approves $3.5M emergency contract (RS2025-1436)</td>
+        </tr>
+        <tr>
+          <td>September 5, 2025</td>
+          <td>First payment under new contract</td>
+        </tr>
+      </table>
+
+      <h3>How the Voucher Bypass Worked</h3>
+
+      <p>During the contract lapse, OHS paid Depaul USA through <strong>direct vouchers</strong> rather than purchase orders. This circumvented Metro Finance oversight:</p>
+
+      <blockquote>
+        "What happened in this case is that payments were being made to DePaul through a direct voucher system. The direct voucher payment does not connect to a contract, and finance does not approve those direct vouchers. Those are all approved at the department level."
+        <cite>&mdash; Mary Jo Wiggins, Metro Finance</cite>
+      </blockquote>
+
+      <p>Standard purchase orders are connected to contracts and would have prevented payments on an expired contract. The voucher system allowed department-level approval without Finance review.</p>
+
+      <h3>Budget Overruns</h3>
+      <ul>
+        <li><strong>Original startup budget:</strong> $500,000 approved by Metro Council</li>
+        <li><strong>Actual spending:</strong> Over $1 million billed by time of discovery</li>
+        <li><strong>Overrun:</strong> $500,000-$700,000 more than initially budgeted</li>
+      </ul>
+
+      <p>This led to supplemental appropriation RS2025-1436 for an additional $3.5 million.</p>
+
+      <div class="info-box warning">
+        <h4>What This Means for Invoice Data</h4>
+        <p>Invoices from September 2024 through August 2025 were processed without contract oversight. These payments may appear normal in the data but were made outside standard procurement controls.</p>
       </div>
     </section>
 
     <section id="barnes">
-      <h2>8. The Barnes Fund</h2>
+      <h2>11. The Barnes Fund</h2>
 
       <p>The <strong>Barnes Housing Trust Fund</strong> is Nashville's competitive grant program for nonprofit housing developers. It provides capital funding to build affordable housing.</p>
 
@@ -790,12 +1083,196 @@
 
       <div class="info-box success">
         <h4>What You'll See in the Data</h4>
-        <p>Barnes Fund payments will appear as grants to nonprofit developers like Habitat for Humanity, Woodbine Community Organization, or Affordable Housing Resources. The object code will typically be something like "Contribute/Grant Person" (505303) or similar.</p>
+        <p>Barnes Fund payments will appear as grants to nonprofit developers like Habitat for Humanity, Woodbine Community Organization, or Affordable Housing Resources. The object code will typically be 505303 (Contribute/Grant Person) or similar.</p>
+      </div>
+    </section>
+
+    <section id="not-covered">
+      <h2>12. What This Business Unit Does NOT Cover</h2>
+
+      <p>Understanding what's <strong>excluded</strong> from business unit 53902028 is as important as understanding what's included.</p>
+
+      <h3>NOT Authorized Under RS2024-490 / Business Unit 53902028:</h3>
+
+      <table>
+        <tr>
+          <th>Expense Type</th>
+          <th>Where It's Authorized Instead</th>
+        </tr>
+        <tr>
+          <td>Hotel/motel rent payments</td>
+          <td>RS2022-1698 (BU 53902026) or RS2022-1699 grants (BU 53902027)</td>
+        </tr>
+        <tr>
+          <td>Wraparound supportive services (standalone)</td>
+          <td>RS2022-1697 (BU 53902025)</td>
+        </tr>
+        <tr>
+          <td>Landlord incentive payments</td>
+          <td>RS2022-1699 (BU 53902027)</td>
+        </tr>
+        <tr>
+          <td>Emergency rental assistance</td>
+          <td>Various, check specific resolution</td>
+        </tr>
+        <tr>
+          <td>Staff salaries (Metro employees)</td>
+          <td>General Fund or specific personnel allocations</td>
+        </tr>
+      </table>
+
+      <h3>The "Non-Traditional Rapid Rehousing" Question</h3>
+
+      <p>OHS operated a program placing families in hotels and apartments with Metro paying rent directly&mdash;described internally as "Non-Traditional Rapid Rehousing." This program:</p>
+
+      <ul>
+        <li>Bypassed Coordinated Entry protocols</li>
+        <li>Used unspecified "bridge funding"</li>
+        <li>Operated without identified Council authorization</li>
+        <li>Expanded to $2.4 million in FY2026</li>
+      </ul>
+
+      <div class="info-box danger">
+        <h4>Unauthorized Expenditures Identified</h4>
+        <p><strong>Invoice analysis of BU 53902028 reveals $361,871 in apparent Non-Traditional Rapid Rehousing payments</strong>&mdash;expenditures that were NOT authorized under RS2024-490. This represents an estimated 77-105 households and approximately 258 household-months of housing assistance at ~$1,400/unit/month.</p>
+      </div>
+
+      <p>Vendors receiving these payments include:</p>
+
+      <table>
+        <tr>
+          <th>Vendor</th>
+          <th>Est. Households</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td>Extended Stay America/ESA</td>
+          <td>20-30</td>
+          <td>Temporary hotel placements</td>
+        </tr>
+        <tr>
+          <td>Hillside Crossing</td>
+          <td>15-20</td>
+          <td>Mix of individual and bulk placements</td>
+        </tr>
+        <tr>
+          <td>Castello Equity Partners</td>
+          <td>14</td>
+          <td>Apartment complex</td>
+        </tr>
+        <tr>
+          <td>Greenview Studios</td>
+          <td>12-15</td>
+          <td>Large bulk payments (~$18-20k/invoice)</td>
+        </tr>
+        <tr>
+          <td>The Ave</td>
+          <td>8-12</td>
+          <td>~28 unit-months documented</td>
+        </tr>
+        <tr>
+          <td>97 Wallace Studios</td>
+          <td>5-10</td>
+          <td>Mixed payment sizes</td>
+        </tr>
+        <tr>
+          <td>Individual landlords</td>
+          <td>3-4</td>
+          <td>Randy Baker, Highland East, Nottingham</td>
+        </tr>
+      </table>
+
+      <p><strong>These payments should NOT appear in business unit 53902028.</strong> RS2024-490 authorized only Strobel Center operations and Barnes Fund grants. Hotel and direct landlord payments, if authorized at all, belong in business units 53902026 (Interim Gap Housing) or 53902027 (Low Barrier Housing Collective).</p>
+    </section>
+
+    <section id="federal-compliance">
+      <h2>13. Federal Compliance Requirements</h2>
+
+      <p>Because these are federal ARPA funds, Nashville must follow U.S. Treasury rules in addition to Metro's own policies.</p>
+
+      <h3>Treasury SLFRF Final Rule Requirements</h3>
+
+      <p>The State and Local Fiscal Recovery Funds (SLFRF) program allows homeless services spending, including:</p>
+      <ul>
+        <li>Permanent Supportive Housing operations</li>
+        <li>Non-congregate shelter (private rooms vs. dormitories)</li>
+        <li>Affordable housing development</li>
+        <li>Hotel/motel master leases for shelter expansion</li>
+      </ul>
+
+      <p>However, recipients must comply with:</p>
+
+      <h3>2 CFR Part 200 (Uniform Guidance)</h3>
+      <ul>
+        <li><strong>Competitive procurement</strong> for contracts exceeding threshold amounts</li>
+        <li><strong>Documentation</strong> of procurement rationale, contractor selection, and pricing</li>
+        <li><strong>Subrecipient monitoring</strong> with written agreements and risk assessment</li>
+        <li><strong>Cost allowability</strong> principles</li>
+      </ul>
+
+      <h3>Single Audit Requirements</h3>
+
+      <p>Nashville's $259.8 million ARPA allocation triggers mandatory Single Audit requirements. This means federal auditors can examine any ARPA expenditure for compliance.</p>
+
+      <h3>Key Deadlines</h3>
+      <ul>
+        <li><strong>Obligation deadline:</strong> December 31, 2024 (funds must be committed)</li>
+        <li><strong>Expenditure deadline:</strong> December 31, 2026 (all spending must be complete)</li>
+      </ul>
+
+      <div class="info-box warning">
+        <h4>Federal Clawback Risk</h4>
+        <p>Any funds not properly spent by the expenditure deadline must be returned to the federal government.</p>
+      </div>
+    </section>
+
+    <section id="modifications">
+      <h2>14. Subsequent Modifications to RS2024-490</h2>
+
+      <p>The original RS2024-490 allocation has been modified by subsequent Council actions.</p>
+
+      <h3>RS2025-1436 &mdash; Strobel Center Supplemental ($3.5 Million)</h3>
+
+      <p><strong>Adopted:</strong> August 19, 2025</p>
+
+      <p><strong>Purpose:</strong> Emergency contract funding after the 10-month contract lapse was discovered. Covers:</p>
+      <ul>
+        <li>Property management and resident support services</li>
+        <li>Retroactive authorization for voucher period spending</li>
+        <li>Continuation through new fiscal year</li>
+      </ul>
+
+      <p><strong>Notable Provision:</strong> Includes media coordination clause requiring Depaul USA to coordinate any media events or news releases through OHS.</p>
+
+      <h3>RS2024-240 &mdash; Barnes Fund Transfer ($7.55 Million)</h3>
+
+      <p><strong>Adopted:</strong> April 2024</p>
+
+      <p>Transferred unobligated ARPA funds from RS2022-1696 (Affordable Housing Gap Financing) to Barnes Housing Trust Fund for Round 14. New eligibility requirements:</p>
+      <ul>
+        <li>Rental housing for 0-30% AMI households experiencing homelessness</li>
+        <li>Must utilize Coordinated Entry Process</li>
+        <li>PSH projects require Housing First approach</li>
+      </ul>
+
+      <h3>Pending: Metro Audit</h3>
+
+      <p>In September 2024, the Metro Audit Committee approved Councilmember Ginny Welsch's request for a full OHS audit, citing potential irregularities totaling $3.2 million:</p>
+      <ul>
+        <li>$569,000 in improper invoicing to Depaul USA</li>
+        <li>$565,000 improper use of landlord engagement funds</li>
+        <li>$130,000 in single department credit card charges</li>
+        <li>$2 million in temporary federal funds used for permanent positions</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>Impact on Invoice Data</h4>
+        <p>The audit results may impact interpretation of invoice data in this viewer.</p>
       </div>
     </section>
 
     <section id="glossary">
-      <h2>9. Glossary</h2>
+      <h2>15. Glossary</h2>
 
       <table>
         <tr>
@@ -803,24 +1280,40 @@
           <th>Definition</th>
         </tr>
         <tr>
+          <td><strong>AMI</strong></td>
+          <td>Area Median Income &mdash; used to determine income eligibility for housing programs</td>
+        </tr>
+        <tr>
           <td><strong>ARPA</strong></td>
-          <td>American Rescue Plan Act - the federal law that provided COVID relief funds</td>
+          <td>American Rescue Plan Act &mdash; the federal law that provided COVID relief funds</td>
         </tr>
         <tr>
           <td><strong>Business Unit</strong></td>
           <td>An 8-digit code representing a specific allocation of money within Metro's accounting system</td>
         </tr>
         <tr>
+          <td><strong>Chronic Homelessness</strong></td>
+          <td>HUD definition: homeless 1+ year continuously OR 4+ episodes in 3 years, plus disabling condition</td>
+        </tr>
+        <tr>
           <td><strong>CoC</strong></td>
-          <td>Continuum of Care - HUD's program structure for homeless services funding</td>
+          <td>Continuum of Care &mdash; HUD's program structure for homeless services funding</td>
+        </tr>
+        <tr>
+          <td><strong>Coordinated Entry</strong></td>
+          <td>Standardized assessment system that prioritizes housing based on vulnerability scores</td>
         </tr>
         <tr>
           <td><strong>ESG</strong></td>
-          <td>Emergency Solutions Grant - federal funds for homeless prevention and shelter</td>
+          <td>Emergency Solutions Grant &mdash; federal funds for homeless prevention and shelter</td>
         </tr>
         <tr>
           <td><strong>Fund</strong></td>
           <td>A major source of money (General Fund, ARPA Fund, Federal Grants, etc.)</td>
+        </tr>
+        <tr>
+          <td><strong>Housing First</strong></td>
+          <td>Approach providing housing without preconditions (sobriety, employment, etc.)</td>
         </tr>
         <tr>
           <td><strong>HUD</strong></td>
@@ -832,7 +1325,7 @@
         </tr>
         <tr>
           <td><strong>OHS</strong></td>
-          <td>Office of Homeless Services - Metro Nashville department (053)</td>
+          <td>Office of Homeless Services &mdash; Metro Nashville department (053)</td>
         </tr>
         <tr>
           <td><strong>Oracle R-12</strong></td>
@@ -840,15 +1333,23 @@
         </tr>
         <tr>
           <td><strong>PSH</strong></td>
-          <td>Permanent Supportive Housing - housing with integrated services for people with disabilities</td>
+          <td>Permanent Supportive Housing &mdash; housing with integrated services for people with disabilities</td>
         </tr>
         <tr>
           <td><strong>Resolution</strong></td>
           <td>A formal decision by Metro Council authorizing spending or policy</td>
         </tr>
         <tr>
+          <td><strong>SLFRF</strong></td>
+          <td>State and Local Fiscal Recovery Funds &mdash; Treasury's ARPA program for local governments</td>
+        </tr>
+        <tr>
+          <td><strong>VI-SPDAT</strong></td>
+          <td>Vulnerability Index &mdash; Service Prioritization Decision Assistance Tool</td>
+        </tr>
+        <tr>
           <td><strong>Voucher Payment</strong></td>
-          <td>A payment made without a formal contract (sometimes used for urgent or temporary situations)</td>
+          <td>A payment made without a formal contract (bypasses Finance oversight)</td>
         </tr>
       </table>
     </section>
