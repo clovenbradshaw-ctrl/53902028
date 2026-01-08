@@ -322,6 +322,9 @@ function createMergedRecord(ledgerEntry, ocrData, matchInfo) {
     ocr: ocrData ? {
       meta_confidence: ocrData.meta_confidence,
       meta_invoice_type: ocrData.meta_invoice_type,
+      meta_is_full_invoice: ocrData.meta_is_full_invoice,
+      meta_is_continuation_page: ocrData.meta_is_continuation_page,
+      meta_has_grand_total: ocrData.meta_has_grand_total,
       meta_source_page: ocrData.meta_source_page,
       meta_source_file: ocrData.meta_source_file,
       meta_notes: ocrData.meta_notes,

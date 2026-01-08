@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-08T15:07:02.842Z",
+  "generated_at": "2026-01-08T15:34:48.693Z",
   "ledger_stats": {
     "total_entries": 262,
     "invoice_entries": 134,
@@ -24,7 +24,7 @@
   },
   "ocr_stats": {
     "total_pages": 256,
-    "unique_invoices": 210,
+    "unique_invoices": 211,
     "unique_vendors": [
       "97 Wallace Studios, LLC",
       "Antonia Whitfield",
@@ -33,41 +33,35 @@
       "Community Care Fellowship, Inc.",
       "Davidson County - Office of Homeless Services",
       "Depaul USA",
-      "ESA Management L.L.C.",
       "Extended Stay America",
       "Gordon Food Service Inc.",
       "Gordon Food Service Store",
       "Grainger",
       "Grand Tents & Events",
       "Greenview Studios, LLC",
-      "HIGHLAND EAST APARTMENTS",
-      "Highland East",
-      "Hillside Crossing Hotel",
+      "Highland East Apartments",
       "Hillside Crossing LLC",
       "J Hamilton",
       "Nashville Launch Pad, Inc.",
       "Nottingham Partners LLC",
       "Premiere Building Maintenance Corporation",
       "Professional Traffic Control Services, LLC",
-      "RJ Young",
       "Randstad",
       "Randy D. Baker",
       "Robert J Young Company",
       "Ryan LaSuer",
       "The Ave",
       "Thompson Machinery",
-      "Thompson Machinery Commerce Corp.",
-      "Vendor# 25079",
-      "unknown"
+      "Vendor# 25079"
     ],
-    "total_ocr_amount": "3072416.41"
+    "total_ocr_amount": "3072959.28"
   },
   "match_stats": {
     "matched_pairs": 90,
     "unmatched_ledger_invoices": 44,
-    "unmatched_ocr_invoices": 124,
+    "unmatched_ocr_invoices": 125,
     "match_rate_ledger": "67.2%",
-    "match_rate_ocr": "42.9%",
+    "match_rate_ocr": "42.7%",
     "by_match_type": {
       "invoice_number": 61,
       "vendor_date_amount": 29
@@ -93,27 +87,23 @@
       "The Ave": 22,
       "Castello Equity Partners": 14,
       "Grainger": 1,
-      "Hillside Crossing LLC": 5,
-      "Extended Stay America": 52,
-      "ESA Management L.L.C.": 18,
+      "Hillside Crossing LLC": 18,
+      "Extended Stay America": 71,
       "Randstad": 15,
       "CSSRT, INC": 3,
       "Gordon Food Service Store": 2,
       "Depaul USA": 12,
       "Community Care Fellowship, Inc.": 10,
       "Ryan LaSuer": 1,
-      "unknown": 5,
+      "unknown": 4,
       "Davidson County - Office of Homeless Services": 1,
       "Nashville Launch Pad, Inc.": 2,
-      "Hillside Crossing Hotel": 13,
-      "Robert J Young Company": 3,
-      "RJ Young": 1,
+      "Robert J Young Company": 4,
       "Gordon Food Service Inc.": 1,
       "J Hamilton": 1,
       "Nottingham Partners LLC": 1,
-      "Thompson Machinery Commerce Corp.": 1,
-      "HIGHLAND EAST APARTMENTS": 1,
-      "Highland East": 1,
+      "Thompson Machinery": 2,
+      "Highland East Apartments": 2,
       "Antonia Whitfield": 1,
       "Premiere Building Maintenance Corporation": 1,
       "97 Wallace Studios, LLC": 7,
@@ -121,8 +111,7 @@
       "Professional Traffic Control Services, LLC": 1,
       "Randy D. Baker": 5,
       "Vendor# 25079": 1,
-      "Thompson Machinery": 1,
-      "Grand Tents & Events": 1
+      "Grand Tents & Events": 2
     }
   }
 }
