@@ -106,7 +106,7 @@ function parseOCR(ocrField) {
 function normalizeVendorName(name) {
   if (!name) return '';
   const normalized = name.toLowerCase().trim();
-  // Treat ESA variations as the same vendor
+  // Treat ESA variations as the same vendor for merging multi-page invoices
   if (normalized.includes('extended stay') || normalized.includes('esa management') || normalized.includes('esa suites')) {
     return 'esa';
   }
@@ -321,8 +321,10 @@ function processInvoices(rows) {
 
       // STRONG signals to NOT MERGE (override)
       if (shouldMerge) {
-        // Different invoice numbers
-        if (currentOcr?.invoice_number && currentOcr.invoice_number !== 'N/A' &&
+        // Different invoice numbers - but skip this check for continuation pages
+        // since continuation pages often have incorrect invoice numbers (e.g., confirmation numbers)
+        if (!isContinuation &&
+            currentOcr?.invoice_number && currentOcr.invoice_number !== 'N/A' &&
             prevOcr?.invoice_number && prevOcr.invoice_number !== 'N/A' &&
             currentOcr.invoice_number !== prevOcr.invoice_number) {
           const firstInGroup = currentGroup[0];
