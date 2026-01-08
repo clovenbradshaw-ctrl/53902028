@@ -3,12 +3,13 @@
  * Apply data corrections to invoice data for BU 53902028
  *
  * Corrections applied:
- * 1. Contract L-6426/RS2025-974 - consolidate vendors under "Hillside Crossing Hotel"
+ * 1. Remove contract references (L-6426/RS2025-974) - these are not invoices
  * 2. Split reused invoice numbers (9700274853, 9700283386)
  * 3. Replace placeholder invoice numbers ("INV")
  * 4. Consolidate duplicate vendor IDs
  * 5. Normalize variant vendor/property names
  * 6. Fill missing invoice numbers
+ * 7. Correct invoice types for lodging vendors (RENTAL → HOTEL)
  * 7. Remove zero-amount records with null/empty vendor
  */
 
@@ -84,10 +85,6 @@ const VENDOR_NAME_MAPPINGS = {
   'Highland East': 'Highland East Apartments',
   'HIGHLAND EAST APARTMENTS': 'Highland East Apartments',
   'Highland East Apartments': 'Highland East Apartments',
-
-  // Contract vendors - consolidate under Hillside Crossing
-  'Ryan LaSuer': 'Hillside Crossing Hotel',
-  'Davidson County – Office of Homeless Services': 'Hillside Crossing Hotel'
 };
 
 // Track changes for reporting
@@ -98,8 +95,19 @@ let changeLog = {
   placeholdersFilled: 0,
   missingInvoicesFilled: 0,
   zeroRecordsRemoved: 0,
-  contractsUnlinked: 0
+  contractsUnlinked: 0,
+  invoiceTypeCorrections: 0
 };
+
+// Vendor IDs that are lodging/hotel vendors (should use HOTEL type, not RENTAL)
+const LODGING_VENDOR_IDS = [
+  '1021245',  // Hillside Crossing Hotel
+  '1020857',  // Extended Stay America / ESA Management
+  '1018405',  // The Ave Nashville
+  '1018278',  // 97 Wallace Studios
+  '1024315',  // Greenview Studios
+  '1023472'   // Highland East Apartments
+];
 
 /**
  * Process OCR invoices
@@ -123,28 +131,13 @@ function processOcrInvoices(data) {
   });
 
   invoices.forEach((inv, idx) => {
-    // 1. Handle contract L-6426/RS2025-974 entries
+    // 1. Handle contract L-6426/RS2025-974 entries - REMOVE these, they are not invoices
     if (inv.invoice_number === 'L-6426 / RS2025-974' ||
+        inv.invoice_number?.startsWith('RS2025-974') ||
         (inv.service_description && inv.service_description.includes('RS2025-974'))) {
-      // Mark as contract, not invoice
-      inv.meta_invoice_type = 'CONTRACT';
-      inv.meta_notes = inv.meta_notes || [];
-      if (!inv.meta_notes.includes('Contract reference - not an invoice')) {
-        inv.meta_notes.push('Contract reference - not an invoice');
-      }
-      // Consolidate vendor names
-      if (inv.vendor_name === 'Ryan LaSuer' ||
-          inv.vendor_name === 'Davidson County – Office of Homeless Services' ||
-          inv.vendor_name === 'Davidson County - Office of Homeless Services') {
-        inv.vendor_name = 'Hillside Crossing Hotel';
-        inv.vendor_id = '1021245';
-        changeLog.contractsUnlinked++;
-      }
-      // Generate unique identifier for contracts
-      if (inv.invoice_number === 'L-6426 / RS2025-974' && inv.service_start) {
-        inv.invoice_number = `RS2025-974-${inv.service_start.replace(/-/g, '')}`;
-        changeLog.invoiceNumberSplits++;
-      }
+      // Mark for removal - these are contract documents, not invoices
+      toRemove.push(idx);
+      changeLog.contractsUnlinked++;
     }
 
     // 2. Split duplicate invoice numbers 9700274853 and 9700283386
@@ -230,6 +223,17 @@ function processOcrInvoices(data) {
         inv.property_name = 'ESA Suites Nashville Airport Music City';
       }
     }
+
+    // 8. Correct invoice types for lodging vendors (RENTAL -> HOTEL)
+    // Lodging vendors should use HOTEL type, not RENTAL, unless it's a CONTRACT
+    if (inv.meta_invoice_type === 'RENTAL' && LODGING_VENDOR_IDS.includes(inv.vendor_id)) {
+      inv.meta_invoice_type = 'HOTEL';
+      inv.meta_notes = inv.meta_notes || [];
+      if (!inv.meta_notes.includes('Type corrected: RENTAL → HOTEL (lodging vendor)')) {
+        inv.meta_notes.push('Type corrected: RENTAL → HOTEL (lodging vendor)');
+      }
+      changeLog.invoiceTypeCorrections++;
+    }
   });
 
   // Remove marked records (in reverse order to preserve indices)
@@ -242,13 +246,14 @@ function processOcrInvoices(data) {
   data._metadata.total_invoices = data.invoices.length;
   data._metadata.last_corrected = new Date().toISOString();
   data._metadata.corrections_applied = [
+    'Removed contract references (RS2025-974) - not invoices',
     'Split duplicate invoice numbers (9700274853, 9700283386)',
     'Replaced placeholder invoice numbers',
     'Consolidated vendor IDs',
     'Normalized vendor and property names',
     'Filled missing invoice numbers',
     'Removed zero-amount records',
-    'Unlinked contract references from invoices'
+    'Corrected invoice types for lodging vendors (RENTAL → HOTEL)'
   ];
 
   return data;
@@ -341,30 +346,6 @@ function processOcrRecord(inv, idx, prefix) {
     }
   }
 
-  // Handle contract references
-  if (inv.invoice_number === 'L-6426 / RS2025-974') {
-    if (inv.service_start) {
-      inv.invoice_number = `RS2025-974-${inv.service_start.replace(/-/g, '')}`;
-    } else if (inv.invoice_date) {
-      inv.invoice_number = `RS2025-974-${inv.invoice_date.replace(/-/g, '')}`;
-    } else {
-      inv.invoice_number = `RS2025-974-${prefix}${idx}`;
-    }
-    inv.meta_invoice_type = 'CONTRACT';
-    inv.meta_notes = inv.meta_notes || [];
-    if (!inv.meta_notes.includes('Contract reference - not an invoice')) {
-      inv.meta_notes.push('Contract reference - not an invoice');
-    }
-  }
-
-  // Handle contract vendor consolidation
-  if (inv.vendor_name === 'Ryan LaSuer' ||
-      inv.vendor_name === 'Davidson County – Office of Homeless Services' ||
-      inv.vendor_name === 'Davidson County - Office of Homeless Services') {
-    inv.vendor_name = 'Hillside Crossing Hotel';
-    inv.vendor_id = '1021245';
-  }
-
   // Consolidate vendor IDs and names
   if (inv.vendor_id && VENDOR_ID_MAPPINGS[inv.vendor_id]) {
     inv.vendor_id = VENDOR_ID_MAPPINGS[inv.vendor_id];
@@ -398,6 +379,16 @@ function processOcrRecord(inv, idx, prefix) {
       inv.property_name = 'ESA Suites Nashville Airport Music City';
     }
   }
+
+  // Correct invoice types for lodging vendors (RENTAL -> HOTEL)
+  if (inv.meta_invoice_type === 'RENTAL' && LODGING_VENDOR_IDS.includes(inv.vendor_id)) {
+    inv.meta_invoice_type = 'HOTEL';
+    inv.meta_notes = inv.meta_notes || [];
+    if (!inv.meta_notes.includes('Type corrected: RENTAL → HOTEL (lodging vendor)')) {
+      inv.meta_notes.push('Type corrected: RENTAL → HOTEL (lodging vendor)');
+    }
+    changeLog.invoiceTypeCorrections++;
+  }
 }
 
 /**
@@ -423,22 +414,9 @@ function processAnyInvoiceRecord(inv, idx, prefix) {
     inv.invoice_number = `${vendorPrefix}-${dateStr.replace(/-/g, '')}-${prefix}${idx}`;
   }
 
-  // Handle contract references
-  if (inv.invoice_number === 'L-6426 / RS2025-974') {
-    const dateStr = inv.service_start || inv.invoice_date || '';
-    inv.invoice_number = `RS2025-974-${dateStr.replace(/-/g, '') || prefix + idx}`;
-  }
-
   // Normalize vendor names
   if (inv.vendor_name && VENDOR_NAME_MAPPINGS[inv.vendor_name]) {
     inv.vendor_name = VENDOR_NAME_MAPPINGS[inv.vendor_name];
-  }
-
-  // Handle contract vendor consolidation
-  if (inv.vendor_name === 'Ryan LaSuer' ||
-      inv.vendor_name === 'Davidson County – Office of Homeless Services' ||
-      inv.vendor_name === 'Davidson County - Office of Homeless Services') {
-    inv.vendor_name = 'Hillside Crossing Hotel';
   }
 
   // Consolidate vendor IDs
@@ -607,7 +585,8 @@ function main() {
   console.log(`Placeholders filled:       ${changeLog.placeholdersFilled}`);
   console.log(`Missing invoices filled:   ${changeLog.missingInvoicesFilled}`);
   console.log(`Zero records removed:      ${changeLog.zeroRecordsRemoved}`);
-  console.log(`Contracts unlinked:        ${changeLog.contractsUnlinked}`);
+  console.log(`Contracts removed:         ${changeLog.contractsUnlinked}`);
+  console.log(`Invoice type corrections:  ${changeLog.invoiceTypeCorrections}`);
   console.log('='.repeat(60));
   console.log('\nData corrections complete!');
 }
