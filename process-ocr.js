@@ -411,7 +411,10 @@ function processInvoices(rows) {
       // 4. Continuation page (marked or effective) + missing vendor_id/bu_code + consecutive
       else if ((isContinuation || isEffectiveCont) && !currentOcr?.vendor_id && !currentOcr?.bu_code && isConsecutive) {
         // Allow merge if same vendor OR if current page has unknown vendor (OCR couldn't extract it)
-        if (isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name) || isUnknownVendor(currentOcr?.vendor_name)) {
+        // BUT only if invoice types match (don't merge HOTEL with RENTAL)
+        const typesMatch = !currentOcr?.meta_invoice_type || !firstOcr?.meta_invoice_type ||
+                           currentOcr.meta_invoice_type === firstOcr.meta_invoice_type;
+        if ((isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name) || isUnknownVendor(currentOcr?.vendor_name)) && typesMatch) {
           shouldMerge = true;
         }
       }
@@ -434,11 +437,14 @@ function processInvoices(rows) {
       }
       // 7. NEW: Folio pages with same bu_code as the header should merge
       // Even if they have different folio invoice numbers, they belong to the same Company Invoice
+      // BUT only if invoice types match (don't merge HOTEL with RENTAL)
       else if (isFolioPage(currentOcr) && isConsecutive &&
                currentOcr?.bu_code && firstOcr?.bu_code &&
                currentOcr.bu_code === firstOcr.bu_code &&
                !currentOcr?.vendor_id &&
-               isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name)) {
+               isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name) &&
+               (!currentOcr?.meta_invoice_type || !firstOcr?.meta_invoice_type ||
+                currentOcr.meta_invoice_type === firstOcr.meta_invoice_type)) {
         shouldMerge = true;
       }
       // 8. NEW: Pages with unknown vendor that are effectively continuation pages
@@ -485,6 +491,12 @@ function processInvoices(rows) {
         }
         // Override 5: Non-consecutive pages
         if (!isConsecutive && currentPage > prevPage + 1) {
+          shouldMerge = false;
+        }
+        // Override 6: Different invoice types (e.g., HOTEL vs RENTAL) should never merge
+        // This is a strong signal that they are separate invoices from different vendors
+        if (currentOcr?.meta_invoice_type && firstOcr?.meta_invoice_type &&
+            currentOcr.meta_invoice_type !== firstOcr.meta_invoice_type) {
           shouldMerge = false;
         }
       }
