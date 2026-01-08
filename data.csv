@@ -20278,9 +20278,9 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_074.png,Finan
   ""bu_code"": ""53902028.502363"",
   ""processor_name"": null,
   ""processor_date"": null,
-  ""invoice_total"": 1680.02,
-  ""amount_paid"": 1680.02,
-  ""amount_due"": 0,
+  ""invoice_total"": 5633.53,
+  ""amount_paid"": 3953.53,
+  ""amount_due"": 1680,
   ""taxes"": 0,
   ""service_start"": ""2024-10-01"",
   ""service_end"": ""2024-11-17"",
@@ -20321,18 +20321,21 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_074.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": [],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
-      74
+      74,
+      75
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 74, Pages 74, 75""
   },
   ""all_source_file_ids"": [
-    ""1CzLODey3mWjneg5A5X5M8QoWxzNPfE-j""
+    ""1CzLODey3mWjneg5A5X5M8QoWxzNPfE-j"",
+    ""16CWmUFThits1_E_gYMS0icFPV2bisYIF""
   ],
   ""all_source_rows"": [
-    ""74""
+    ""74"",
+    ""75""
   ]
 }"
 Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_075.png,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_075.png,https://drive.google.com/open?id=16CWmUFThits1_E_gYMS0icFPV2bisYIF,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_075.png thumbnail.png (https://v5.airtableusercontent.com/v3/u/49/49/1767852000000/6M7l2ZxzQ29xXwx4e_kQFA/ZYVXi3F8n4JZmTQ6S0xgjyNAqgW0T0CvTnTa939_XAzEE1QKsGtX0CuZM22dUvIA9phzQxSzofASLXe397Gy65ztXoHEWVGKsQdd5CF3yRFbWDR_Mq65BeZsWKTeWVP9/YG-PxBm2k9Sjgv_xUdaAxtZS1YU2vQRzfOW7nYUhmgU),1/7/2026 4:04pm,1/7/2026 4:04pm,1/7/2026 9:57pm,Mike Lacy,png,64624,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_images,https://drive.google.com/file/d/16CWmUFThits1_E_gYMS0icFPV2bisYIF/view?usp=drivesdk,16CWmUFThits1_E_gYMS0icFPV2bisYIF,"Image 75 of 256
@@ -20386,15 +20389,15 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_075.png,Finan
 }",75,"{
   ""meta_confidence"": 0.95,
   ""meta_invoice_type"": ""HOTEL"",
-  ""meta_is_full_invoice"": false,
-  ""meta_is_continuation_page"": true,
+  ""meta_is_full_invoice"": true,
+  ""meta_is_continuation_page"": false,
   ""meta_has_grand_total"": true,
-  ""meta_source_page"": 75,
+  ""meta_source_page"": 74,
   ""meta_source_file"": ""Finance_BU_53902028_Invoices.pdf"",
   ""meta_notes"": [],
-  ""invoice_number"": ""string"",
-  ""invoice_date"": ""YYYY-MM-DD"",
-  ""due_date"": null,
+  ""invoice_number"": ""9702080735"",
+  ""invoice_date"": ""2024-11-16"",
+  ""due_date"": ""2024-11-24"",
   ""vendor_name"": ""ESA Management L.L.C."",
   ""vendor_id"": null,
   ""vendor_address"": ""P.O. Box 841990 Dallas, TX 75284-1990"",
@@ -20402,36 +20405,66 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_075.png,Finan
   ""vendor_email"": null,
   ""payer_name"": null,
   ""payer_address"": null,
-  ""bu_code"": null,
+  ""bu_code"": ""53902028.502363"",
   ""processor_name"": null,
   ""processor_date"": null,
   ""invoice_total"": 5633.53,
   ""amount_paid"": 3953.53,
   ""amount_due"": 1680,
   ""taxes"": 0,
-  ""service_start"": null,
-  ""service_end"": null,
+  ""service_start"": ""2024-10-01"",
+  ""service_end"": ""2024-11-17"",
   ""service_description"": null,
-  ""property_name"": null,
+  ""property_name"": ""ESA Management L.L.C."",
   ""property_address"": null,
   ""unit_count"": 0,
-  ""line_items"": [],
+  ""line_items"": [
+    {
+      ""date"": ""2024-11-14"",
+      ""description"": ""Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 81.99,
+      ""amount"": 81.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2024-11-15"",
+      ""description"": ""Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 81.99,
+      ""amount"": 81.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2024-11-16"",
+      ""description"": ""Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 81.99,
+      ""amount"": 81.99,
+      ""category"": ""room""
+    }
+  ],
   ""cost_allocations"": [],
-  ""confirmation_numbers"": [],
+  ""confirmation_numbers"": [
+    ""9702080735""
+  ],
   ""employee_names"": [],
   ""reference_numbers"": [],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
+      74,
       75
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 74, Pages 74, 75""
   },
   ""all_source_file_ids"": [
+    ""1CzLODey3mWjneg5A5X5M8QoWxzNPfE-j"",
     ""16CWmUFThits1_E_gYMS0icFPV2bisYIF""
   ],
   ""all_source_rows"": [
+    ""74"",
     ""75""
   ]
 }"
@@ -38456,9 +38489,9 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_134.png,Finan
   ""bu_code"": ""53902028.502363"",
   ""processor_name"": ""Joseph M"",
   ""processor_date"": ""2025-07-10"",
-  ""invoice_total"": 630,
-  ""amount_paid"": 342.66,
-  ""amount_due"": 287.34,
+  ""invoice_total"": 972.86,
+  ""amount_paid"": 342.86,
+  ""amount_due"": 630,
   ""taxes"": 0,
   ""service_start"": ""2025-04-13"",
   ""service_end"": ""2025-04-20"",
@@ -38588,18 +38621,21 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_134.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": [],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
-      134
+      134,
+      135
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 134, Pages 134, 135""
   },
   ""all_source_file_ids"": [
-    ""1NrroDjELRGbcOBsoBNcamcNwlY3OJrom""
+    ""1NrroDjELRGbcOBsoBNcamcNwlY3OJrom"",
+    ""17wKIX2l86sxhIsz29VXOr__Qnn0NhUpm""
   ],
   ""all_source_rows"": [
-    ""134""
+    ""134"",
+    ""135""
   ]
 }"
 Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_135.png,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_135.png,https://drive.google.com/open?id=17wKIX2l86sxhIsz29VXOr__Qnn0NhUpm,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_135.png thumbnail.png (https://v5.airtableusercontent.com/v3/u/49/49/1767852000000/1zdinvnkv41hiEc5IxvIOQ/nwZ18BDCMILnETpg3qzMvrDChbHKCdV24pmvtNTMq-_MpPR_06lQZ-6OHYR77Fp-TMQ9tup34rBAx_ozLFz05_25NcfakmmAps_HhN_7xgLXCabM-vHQTL_UUiH4jh1O/AjUC0sG0Uw4JfB0RQK84GppyCPIqh3qUOqY63mJSPxc),1/7/2026 4:04pm,1/7/2026 4:04pm,1/7/2026 9:57pm,Mike Lacy,png,72064,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_images,https://drive.google.com/file/d/17wKIX2l86sxhIsz29VXOr__Qnn0NhUpm/view?usp=drivesdk,17wKIX2l86sxhIsz29VXOr__Qnn0NhUpm,"Image 135 of 256
@@ -38651,54 +38687,173 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_135.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": []
 }",135,"{
-  ""meta_confidence"": 0.95,
+  ""meta_confidence"": 0.98,
   ""meta_invoice_type"": ""HOTEL"",
-  ""meta_is_full_invoice"": false,
-  ""meta_is_continuation_page"": true,
+  ""meta_is_full_invoice"": true,
+  ""meta_is_continuation_page"": false,
   ""meta_has_grand_total"": true,
-  ""meta_source_page"": 135,
+  ""meta_source_page"": 134,
   ""meta_source_file"": ""Finance_BU_53902028_Invoices.pdf"",
   ""meta_notes"": [],
-  ""invoice_number"": ""string"",
-  ""invoice_date"": ""YYYY-MM-DD"",
-  ""due_date"": null,
-  ""vendor_name"": ""ESA Management L.L.C."",
-  ""vendor_id"": null,
-  ""vendor_address"": null,
+  ""invoice_number"": ""1555049747"",
+  ""invoice_date"": ""2025-04-20"",
+  ""due_date"": ""2025-07-10"",
+  ""vendor_name"": ""Extended Stay America"",
+  ""vendor_id"": ""1020857"",
+  ""vendor_address"": ""13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277"",
   ""vendor_phone"": null,
-  ""vendor_email"": null,
-  ""payer_name"": null,
-  ""payer_address"": null,
-  ""bu_code"": null,
-  ""processor_name"": null,
-  ""processor_date"": null,
+  ""vendor_email"": ""accountsreceivable@extendedstay.com"",
+  ""payer_name"": ""The Family Center"",
+  ""payer_address"": ""139 Thompson Ln., Nashville, TN 37211"",
+  ""bu_code"": ""53902028.502363"",
+  ""processor_name"": ""Joseph M"",
+  ""processor_date"": ""2025-07-10"",
   ""invoice_total"": 972.86,
   ""amount_paid"": 342.86,
   ""amount_due"": 630,
   ""taxes"": 0,
-  ""service_start"": null,
-  ""service_end"": null,
+  ""service_start"": ""2025-04-13"",
+  ""service_end"": ""2025-04-20"",
   ""service_description"": null,
-  ""property_name"": null,
+  ""property_name"": ""ESA Suites - Nashville - Airport - Music City"",
   ""property_address"": null,
   ""unit_count"": 0,
-  ""line_items"": [],
+  ""line_items"": [
+    {
+      ""date"": ""2025-04-13"",
+      ""description"": ""9700274547 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-14"",
+      ""description"": ""9700274547 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-15"",
+      ""description"": ""9700274547 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-16"",
+      ""description"": ""9700274547 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-17"",
+      ""description"": ""9700274547 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-18"",
+      ""description"": ""9700274547 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-19"",
+      ""description"": ""9700274547 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-13"",
+      ""description"": ""9700274867 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-14"",
+      ""description"": ""9700274867 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-15"",
+      ""description"": ""9700274867 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-16"",
+      ""description"": ""9700274867 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-17"",
+      ""description"": ""9700274867 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-18"",
+      ""description"": ""9700274867 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-19"",
+      ""description"": ""9700274867 - Room charge"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    }
+  ],
   ""cost_allocations"": [],
-  ""confirmation_numbers"": [],
+  ""confirmation_numbers"": [
+    ""9700274547"",
+    ""9700274867""
+  ],
   ""employee_names"": [],
   ""reference_numbers"": [],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
+      134,
       135
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 134, Pages 134, 135""
   },
   ""all_source_file_ids"": [
+    ""1NrroDjELRGbcOBsoBNcamcNwlY3OJrom"",
     ""17wKIX2l86sxhIsz29VXOr__Qnn0NhUpm""
   ],
   ""all_source_rows"": [
+    ""134"",
     ""135""
   ]
 }"
@@ -41390,9 +41545,9 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_145.png,Finan
   ""bu_code"": ""53902028.502363"",
   ""processor_name"": ""Joseph M"",
   ""processor_date"": ""2025-07-10"",
-  ""invoice_total"": 612,
-  ""amount_paid"": 380.46,
-  ""amount_due"": 231.54,
+  ""invoice_total"": 972.86,
+  ""amount_paid"": 360.86,
+  ""amount_due"": 612,
   ""taxes"": 0,
   ""service_start"": ""2025-04-20"",
   ""service_end"": ""2025-04-27"",
@@ -41522,18 +41677,21 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_145.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": [],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
-      145
+      145,
+      146
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 145, Pages 145, 146""
   },
   ""all_source_file_ids"": [
-    ""1i8aZzbeE8TmgIflTNX4uyzk0uwwhLAv6""
+    ""1i8aZzbeE8TmgIflTNX4uyzk0uwwhLAv6"",
+    ""1MbMcu0jUpZaEeUfc08TSf_k8pdujU0oi""
   ],
   ""all_source_rows"": [
-    ""145""
+    ""145"",
+    ""146""
   ]
 }"
 Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_146.png,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_146.png,https://drive.google.com/open?id=1MbMcu0jUpZaEeUfc08TSf_k8pdujU0oi,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_146.png thumbnail.png (https://v5.airtableusercontent.com/v3/u/49/49/1767852000000/bi0NAauQtc4Mt7cJOCGUcA/O-CFF-wbAXD38b_FpAOt7S1o9_yXlATNPfRBgwfB1FeZ1YfRByQBXalQvokJ_0d84yzyF5eamioBvGVDyzP6E3MtEHyY1bmNagxABfQkgoCbRDlobkSnwvlTHqfPPOzq/3i9IufXoWjSdohTaoCmbZk9Xyoabvfvm6XyMcIh2vVA),1/7/2026 4:04pm,1/7/2026 4:04pm,1/7/2026 9:57pm,Mike Lacy,png,72120,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_images,https://drive.google.com/file/d/1MbMcu0jUpZaEeUfc08TSf_k8pdujU0oi/view?usp=drivesdk,1MbMcu0jUpZaEeUfc08TSf_k8pdujU0oi,"Image 146 of 256
@@ -41585,54 +41743,173 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_146.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": []
 }",146,"{
-  ""meta_confidence"": 0.85,
+  ""meta_confidence"": 0.98,
   ""meta_invoice_type"": ""HOTEL"",
-  ""meta_is_full_invoice"": false,
-  ""meta_is_continuation_page"": true,
+  ""meta_is_full_invoice"": true,
+  ""meta_is_continuation_page"": false,
   ""meta_has_grand_total"": true,
-  ""meta_source_page"": 146,
+  ""meta_source_page"": 145,
   ""meta_source_file"": ""Finance_BU_53902028_Invoices.pdf"",
   ""meta_notes"": [],
-  ""invoice_number"": ""string"",
-  ""invoice_date"": ""YYYY-MM-DD"",
-  ""due_date"": null,
-  ""vendor_name"": ""ESA Management L.L.C."",
-  ""vendor_id"": null,
-  ""vendor_address"": null,
+  ""invoice_number"": ""1555051100"",
+  ""invoice_date"": ""2025-04-27"",
+  ""due_date"": ""2025-07-10"",
+  ""vendor_name"": ""Extended Stay America"",
+  ""vendor_id"": ""1020857"",
+  ""vendor_address"": ""13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277"",
   ""vendor_phone"": null,
-  ""vendor_email"": null,
-  ""payer_name"": null,
-  ""payer_address"": null,
-  ""bu_code"": null,
-  ""processor_name"": null,
-  ""processor_date"": null,
+  ""vendor_email"": ""accountsreceivable@extendedstay.com"",
+  ""payer_name"": ""The Family Center"",
+  ""payer_address"": ""139 Thompson Ln., Nashville, TN 37211"",
+  ""bu_code"": ""53902028.502363"",
+  ""processor_name"": ""Joseph M"",
+  ""processor_date"": ""2025-07-10"",
   ""invoice_total"": 972.86,
   ""amount_paid"": 360.86,
   ""amount_due"": 612,
   ""taxes"": 0,
-  ""service_start"": null,
-  ""service_end"": null,
+  ""service_start"": ""2025-04-20"",
+  ""service_end"": ""2025-04-27"",
   ""service_description"": null,
-  ""property_name"": null,
+  ""property_name"": ""ESA Suites - Nashville - Airport - Music City"",
   ""property_address"": null,
   ""unit_count"": 0,
-  ""line_items"": [],
+  ""line_items"": [
+    {
+      ""date"": ""2025-04-20"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274547)"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-21"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274547)"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-22"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274547)"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-23"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274547)"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-24"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274547)"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-25"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274547)"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-26"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274547)"",
+      ""quantity"": 1,
+      ""unit_price"": 61.99,
+      ""amount"": 61.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-20"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274867)"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-21"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274867)"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-22"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274867)"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-23"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274867)"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-24"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274867)"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-25"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274867)"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    },
+    {
+      ""date"": ""2025-04-26"",
+      ""description"": ""Room charge for guest (Confirmation No: 97007274867)"",
+      ""quantity"": 1,
+      ""unit_price"": 76.99,
+      ""amount"": 76.99,
+      ""category"": ""room""
+    }
+  ],
   ""cost_allocations"": [],
-  ""confirmation_numbers"": [],
+  ""confirmation_numbers"": [
+    ""97007274547"",
+    ""97007274867""
+  ],
   ""employee_names"": [],
   ""reference_numbers"": [],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
+      145,
       146
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 145, Pages 145, 146""
   },
   ""all_source_file_ids"": [
+    ""1i8aZzbeE8TmgIflTNX4uyzk0uwwhLAv6"",
     ""1MbMcu0jUpZaEeUfc08TSf_k8pdujU0oi""
   ],
   ""all_source_rows"": [
+    ""145"",
     ""146""
   ]
 }"

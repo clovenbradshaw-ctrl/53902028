@@ -150,8 +150,11 @@ function createMergedInvoice(pages, rowDataList) {
     };
   }
 
-  // Find page with grand total
-  const pageWithTotal = pages.find(p => p.ocr?.meta_has_grand_total && (p.ocr?.invoice_total || 0) > 0);
+  // Find page with grand total - prefer the one with highest invoice_total
+  // since continuation pages often have the full invoice total
+  const pagesWithTotal = pages.filter(p => p.ocr?.meta_has_grand_total && (p.ocr?.invoice_total || 0) > 0);
+  pagesWithTotal.sort((a, b) => (b.ocr?.invoice_total || 0) - (a.ocr?.invoice_total || 0));
+  const pageWithTotal = pagesWithTotal[0];
   const totalOcr = pageWithTotal?.ocr || pageOcrs[0];
 
   // Find page with header info
@@ -332,8 +335,9 @@ function processInvoices(rows) {
             shouldMerge = false;
           }
         }
-        // Both have grand totals
-        if (hasGrandTotal && prevOcr?.meta_has_grand_total && invoiceTotal > 0 && (prevOcr?.invoice_total || 0) > 0) {
+        // Both have grand totals - but allow continuation pages to merge
+        // since continuation pages with grand totals should still merge with their header pages
+        if (!isContinuation && hasGrandTotal && prevOcr?.meta_has_grand_total && invoiceTotal > 0 && (prevOcr?.invoice_total || 0) > 0) {
           shouldMerge = false;
         }
         // Full invoice starting
