@@ -111,7 +111,7 @@
     }
 
     .stat-value.success { color: var(--success); }
-    .stat-value.danger { color: var(--danger); }
+    .stat-value.muted { color: var(--text-secondary); }
 
     .stat-label {
       color: var(--text-muted);
@@ -409,15 +409,9 @@
     }
 
     .match-pill.unmatched {
-      background: var(--danger-glow);
-      border-color: var(--danger);
-      color: var(--danger);
-    }
-
-    .match-pill.journal {
-      background: var(--info-glow);
-      border-color: var(--info);
-      color: var(--info);
+      background: var(--bg-tertiary);
+      border-color: var(--text-muted);
+      color: var(--text-secondary);
     }
 
     .match-pill.active {
@@ -491,19 +485,11 @@
     }
 
     .ledger-table tr.unmatched {
-      background: var(--danger-glow);
+      background: transparent;
     }
 
     .ledger-table tr.unmatched:hover {
-      background: rgba(239, 68, 68, 0.2);
-    }
-
-    .ledger-table tr.journal {
-      background: var(--info-glow);
-    }
-
-    .ledger-table tr.journal:hover {
-      background: rgba(59, 130, 246, 0.2);
+      background: var(--bg-tertiary);
     }
 
     /* Status Badge */
@@ -524,13 +510,8 @@
     }
 
     .status-badge.unmatched {
-      background: var(--danger-glow);
-      color: var(--danger);
-    }
-
-    .status-badge.journal {
-      background: var(--info-glow);
-      color: var(--info);
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
     }
 
     .status-badge svg {
@@ -904,8 +885,8 @@
           <div class="stat-label">Matched</div>
         </div>
         <div class="stat">
-          <div class="stat-value danger" id="unmatched-count">-</div>
-          <div class="stat-label">Unmatched</div>
+          <div class="stat-value muted" id="unmatched-count">-</div>
+          <div class="stat-label">No Invoice Scan</div>
         </div>
         <div class="stat">
           <div class="stat-value" id="match-rate">-</div>
@@ -949,9 +930,8 @@
         <div class="sidebar-title">Match Status</div>
         <div class="match-status-filters">
           <div class="match-pill all active" data-status="all">All</div>
-          <div class="match-pill matched" data-status="matched">Matched</div>
-          <div class="match-pill unmatched" data-status="unmatched">Unmatched</div>
-          <div class="match-pill journal" data-status="journal">Journals</div>
+          <div class="match-pill matched" data-status="matched">With Invoice Scan</div>
+          <div class="match-pill unmatched" data-status="unmatched">Ledger Only</div>
         </div>
       </div>
 
@@ -1025,11 +1005,7 @@
             </div>
             <div class="summary-stat">
               <div class="summary-stat-value" id="unmatched-amount">$0</div>
-              <div class="summary-stat-label">Unmatched</div>
-            </div>
-            <div class="summary-stat">
-              <div class="summary-stat-value" id="journal-amount">$0</div>
-              <div class="summary-stat-label">Journals</div>
+              <div class="summary-stat-label">Ledger Only</div>
             </div>
           </div>
         </div>
@@ -1169,27 +1145,17 @@
           });
         }
 
-        // Process unmatched ledger invoices
+        // Process unmatched ledger invoices (ledger-only, no OCR scan)
         if (data.ledger_only?.invoices) {
           data.ledger_only.invoices.forEach(inv => {
             entries.push({
               ...inv,
               _status: 'unmatched',
-              _statusLabel: 'Unmatched'
+              _statusLabel: 'Ledger Only'
             });
           });
         }
-
-        // Process journal entries
-        if (data.ledger_only?.journals) {
-          data.ledger_only.journals.forEach(inv => {
-            entries.push({
-              ...inv,
-              _status: 'journal',
-              _statusLabel: 'Journal'
-            });
-          });
-        }
+        // Note: Journal entries are excluded from this view - ledger data is the focus
 
         allEntries = entries;
         filteredEntries = [...entries];
@@ -1214,27 +1180,23 @@
     function updateStats() {
       const matched = allEntries.filter(e => e._status === 'matched');
       const unmatched = allEntries.filter(e => e._status === 'unmatched');
-      const journals = allEntries.filter(e => e._status === 'journal');
-      const invoices = allEntries.filter(e => e._status !== 'journal');
 
       document.getElementById('total-entries').textContent = allEntries.length;
       document.getElementById('matched-count').textContent = matched.length;
       document.getElementById('unmatched-count').textContent = unmatched.length;
 
-      const matchRate = invoices.length > 0
-        ? ((matched.length / invoices.length) * 100).toFixed(1) + '%'
+      const matchRate = allEntries.length > 0
+        ? ((matched.length / allEntries.length) * 100).toFixed(1) + '%'
         : '0%';
       document.getElementById('match-rate').textContent = matchRate;
 
       const totalAmount = allEntries.reduce((sum, e) => sum + (e.unified?.amount || e.ledger?.amount || 0), 0);
       const matchedAmount = matched.reduce((sum, e) => sum + (e.unified?.amount || 0), 0);
       const unmatchedAmount = unmatched.reduce((sum, e) => sum + (e.unified?.amount || 0), 0);
-      const journalAmount = journals.reduce((sum, e) => sum + (e.unified?.amount || 0), 0);
 
       document.getElementById('total-amount').textContent = '$' + formatNumber(totalAmount);
       document.getElementById('matched-amount').textContent = '$' + formatNumber(matchedAmount);
       document.getElementById('unmatched-amount').textContent = '$' + formatNumber(unmatchedAmount);
-      document.getElementById('journal-amount').textContent = '$' + formatNumber(journalAmount);
     }
 
     // ==================== FILTERS ====================
@@ -1435,11 +1397,6 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="m9 12 2 2 4-4"/>
                   </svg>
-                ` : entry._status === 'unmatched' ? `
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 6 6 18"/>
-                    <path d="m6 6 12 12"/>
-                  </svg>
                 ` : `
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
@@ -1469,10 +1426,8 @@
                   <div class="match-type">${matchType}</div>
                   <div class="match-confidence">Confidence: ${matchConfidence}</div>
                 </div>
-              ` : entry._status === 'unmatched' ? `
-                <div class="match-details">No OCR match found</div>
               ` : `
-                <div class="match-details">Payroll entry</div>
+                <div class="match-details" style="color: var(--text-muted)">Invoice scan not available</div>
               `}
             </td>
           </tr>
