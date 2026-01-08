@@ -2152,13 +2152,14 @@
     // ==================== FILE LOADING ====================
     function loadCSV(text) {
       const rows = parseCSV(text);
-      invoices = rows.map(processInvoice);
+      // Process all rows and filter to only include records with valid OCR data
+      invoices = rows.map(processInvoice).filter(inv => inv.rawOCR !== null);
       filteredInvoices = [...invoices];
-      
+
       updateStats();
       renderFilterOptions();
       applyFilters();
-      
+
       // Hide upload zone
       const uploadZone = document.getElementById('upload-zone');
       if (uploadZone) uploadZone.style.display = 'none';
