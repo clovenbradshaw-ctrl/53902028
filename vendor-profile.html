@@ -396,6 +396,21 @@
       letter-spacing: 0.05em;
     }
 
+    .vendor-stat-date {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+      font-family: var(--font-mono);
+    }
+
+    .vendor-stat.ocr .vendor-stat-date {
+      color: color-mix(in srgb, var(--ocr-color) 70%, var(--text-muted));
+    }
+
+    .vendor-stat.ledger .vendor-stat-date {
+      color: color-mix(in srgb, var(--ledger-color) 70%, var(--text-muted));
+    }
+
     .vendor-stat.ocr .vendor-stat-value {
       color: var(--ocr-color);
     }
@@ -955,6 +970,17 @@
       });
     }
 
+    function formatDateRange(minDate, maxDate) {
+      if (!minDate && !maxDate) return null;
+      const format = (d) => d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+      if (!minDate) return format(maxDate);
+      if (!maxDate) return format(minDate);
+      const minStr = format(minDate);
+      const maxStr = format(maxDate);
+      if (minStr === maxStr) return minStr;
+      return `${minStr} - ${maxStr}`;
+    }
+
     // ==================== DATA LOADING ====================
     let ocrData = null;
     let ledgerData = null;
@@ -1037,8 +1063,12 @@
               displayName: registryVendor ? registryVendor.display_name : inv.vendor_name,
               ocrCount: 0,
               ocrTotal: 0,
+              ocrMinDate: null,
+              ocrMaxDate: null,
               ledgerCount: 0,
               ledgerTotal: 0,
+              ledgerMinDate: null,
+              ledgerMaxDate: null,
               vendorId: registryVendor ? registryVendor.vendor_id : inv.vendor_id,
               address: inv.vendor_address,
               phone: inv.vendor_phone,
@@ -1048,6 +1078,14 @@
           const v = vendors.get(vendorGuid);
           v.ocrCount++;
           v.ocrTotal += parseFloat(inv.invoice_total) || 0;
+          // Track OCR date range (ISO format: YYYY-MM-DD)
+          if (inv.invoice_date) {
+            const d = new Date(inv.invoice_date);
+            if (!isNaN(d)) {
+              if (!v.ocrMinDate || d < v.ocrMinDate) v.ocrMinDate = d;
+              if (!v.ocrMaxDate || d > v.ocrMaxDate) v.ocrMaxDate = d;
+            }
+          }
           if (inv.vendor_address && !v.address) v.address = inv.vendor_address;
           if (inv.vendor_phone && !v.phone) v.phone = inv.vendor_phone;
           if (inv.vendor_email && !v.email) v.email = inv.vendor_email;
@@ -1072,14 +1110,26 @@
               displayName: registryVendor ? registryVendor.display_name : inv.vendor_name,
               ocrCount: 0,
               ocrTotal: 0,
+              ocrMinDate: null,
+              ocrMaxDate: null,
               ledgerCount: 0,
               ledgerTotal: 0,
+              ledgerMinDate: null,
+              ledgerMaxDate: null,
               vendorId: registryVendor ? registryVendor.vendor_id : inv.vendor_id
             });
           }
           const v = vendors.get(vendorGuid);
           v.ledgerCount++;
           v.ledgerTotal += parseFloat(inv.amount) || 0;
+          // Track ledger date range (US format: M/D/YYYY)
+          if (inv.invoice_date) {
+            const d = new Date(inv.invoice_date);
+            if (!isNaN(d)) {
+              if (!v.ledgerMinDate || d < v.ledgerMinDate) v.ledgerMinDate = d;
+              if (!v.ledgerMaxDate || d > v.ledgerMaxDate) v.ledgerMaxDate = d;
+            }
+          }
         });
       }
 
@@ -1253,6 +1303,8 @@
 
     function renderStats(vendor) {
       const statsEl = document.getElementById('vendor-stats');
+      const ocrDateRange = formatDateRange(vendor.ocrMinDate, vendor.ocrMaxDate);
+      const ledgerDateRange = formatDateRange(vendor.ledgerMinDate, vendor.ledgerMaxDate);
       statsEl.innerHTML = `
         <div class="vendor-stat">
           <div class="vendor-stat-value">${vendor.ocrCount + vendor.ledgerCount}</div>
@@ -1265,6 +1317,7 @@
         <div class="vendor-stat ocr">
           <div class="vendor-stat-value">${vendor.ocrCount}</div>
           <div class="vendor-stat-label">OCR Invoices</div>
+          ${ocrDateRange ? `<div class="vendor-stat-date">${ocrDateRange}</div>` : ''}
         </div>
         <div class="vendor-stat ocr">
           <div class="vendor-stat-value">${formatCurrency(vendor.ocrTotal)}</div>
@@ -1273,6 +1326,7 @@
         <div class="vendor-stat ledger">
           <div class="vendor-stat-value">${vendor.ledgerCount}</div>
           <div class="vendor-stat-label">Ledger Entries</div>
+          ${ledgerDateRange ? `<div class="vendor-stat-date">${ledgerDateRange}</div>` : ''}
         </div>
         <div class="vendor-stat ledger">
           <div class="vendor-stat-value">${formatCurrency(vendor.ledgerTotal)}</div>
