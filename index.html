@@ -2088,6 +2088,22 @@
       }
     }
 
+    // Normalize processor names (aliases to full names)
+    const PROCESSOR_NAME_ALIASES = {
+      'joseph': 'Joseph Marsh',
+      'joseph m': 'Joseph Marsh',
+      'joseph m.': 'Joseph Marsh',
+      'imani f': 'Imani Frierson',
+      'imanif': 'Imani Frierson',
+      'imani frierson finance asst.': 'Imani Frierson'
+    };
+
+    function normalizeProcessorName(name) {
+      if (!name) return null;
+      const normalized = name.toLowerCase().trim();
+      return PROCESSOR_NAME_ALIASES[normalized] || name;
+    }
+
     function processInvoice(row) {
       // Prefer postProcessOCR if available, otherwise use OCR
       const ocr = parseOCR(row.postProcessOCR) || parseOCR(row.OCR);
@@ -2155,9 +2171,9 @@
         bu_code: isNewFormat
           ? (ocr?.bu_code || null)
           : (ocr?.accounting?.bu_code || null),
-        processor_name: isNewFormat
+        processor_name: normalizeProcessorName(isNewFormat
           ? (ocr?.processor_name || null)
-          : (ocr?.accounting?.processor_name || null),
+          : (ocr?.accounting?.processor_name || null)),
         processor_date: isNewFormat
           ? (ocr?.processor_date || null)
           : (ocr?.accounting?.processor_date || null),
