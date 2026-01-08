@@ -106,17 +106,9 @@ function parseOCR(ocrField) {
 function normalizeVendorName(name) {
   if (!name) return '';
   const normalized = name.toLowerCase().trim();
-  // Keep Extended Stay America separate from ESA Management L.L.C.
-  // Extended Stay America invoices are complete single-page invoices
-  // ESA Management L.L.C. invoices may have continuation pages that need merging
-  if (normalized.includes('extended stay america') || normalized === 'extended stay') {
-    return 'extended_stay_america';
-  }
-  if (normalized.includes('esa management')) {
-    return 'esa_management';
-  }
-  if (normalized.includes('esa suites')) {
-    return 'esa_suites';
+  // Treat ESA variations as the same vendor for merging multi-page invoices
+  if (normalized.includes('extended stay') || normalized.includes('esa management') || normalized.includes('esa suites')) {
+    return 'esa';
   }
   return normalized;
 }
@@ -329,8 +321,10 @@ function processInvoices(rows) {
 
       // STRONG signals to NOT MERGE (override)
       if (shouldMerge) {
-        // Different invoice numbers
-        if (currentOcr?.invoice_number && currentOcr.invoice_number !== 'N/A' &&
+        // Different invoice numbers - but skip this check for continuation pages
+        // since continuation pages often have incorrect invoice numbers (e.g., confirmation numbers)
+        if (!isContinuation &&
+            currentOcr?.invoice_number && currentOcr.invoice_number !== 'N/A' &&
             prevOcr?.invoice_number && prevOcr.invoice_number !== 'N/A' &&
             currentOcr.invoice_number !== prevOcr.invoice_number) {
           const firstInGroup = currentGroup[0];
