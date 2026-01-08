@@ -1405,24 +1405,6 @@
           <div class="filter-content" id="filter-options-object_code"></div>
         </div>
 
-        <div class="filter-group" data-filter="bu_code">
-          <div class="filter-header">
-            <div class="filter-header-left">
-              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect width="7" height="7" x="3" y="3" rx="1"/>
-                <rect width="7" height="7" x="14" y="3" rx="1"/>
-                <rect width="7" height="7" x="14" y="14" rx="1"/>
-                <rect width="7" height="7" x="3" y="14" rx="1"/>
-              </svg>
-              <span class="filter-name">BU Code</span>
-            </div>
-            <span class="filter-count" id="filter-count-bu_code">0</span>
-            <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </div>
-          <div class="filter-content" id="filter-options-bu_code"></div>
-        </div>
       </div>
 
       <div class="sidebar-section">
@@ -1461,7 +1443,6 @@
               <option value="invoice_type">Invoice Type</option>
               <option value="processor">Processor</option>
               <option value="month">Month</option>
-              <option value="bu_code">BU Code</option>
             </select>
           </div>
           <div class="sort-select">
@@ -1834,7 +1815,6 @@
       vendor: [],
       processor: [],
       object_code: [],
-      bu_code: [],
       dateFrom: null,
       dateTo: null,
       amountMin: null,
@@ -2389,11 +2369,6 @@
           }
         }
 
-        // BU Code
-        if (activeFilters.bu_code.length > 0) {
-          if (!activeFilters.bu_code.includes(inv.bu_code)) return false;
-        }
-
         // Date range
         if (activeFilters.dateFrom && inv.invoice_date) {
           if (inv.invoice_date < activeFilters.dateFrom) return false;
@@ -2579,9 +2554,6 @@
           case 'month':
             key = inv.invoice_date ? inv.invoice_date.substring(0, 7) : 'Unknown';
             break;
-          case 'bu_code':
-            key = inv.bu_code || 'Unknown';
-            break;
           default:
             key = 'All';
         }
@@ -2650,8 +2622,7 @@
         invoice_type: {},
         vendor: {},
         processor: {},
-        object_code: {},
-        bu_code: {}
+        object_code: {}
       };
 
       invoices.forEach(inv => {
@@ -2671,9 +2642,6 @@
             ? `${acctInfo.objectCode} – ${acctInfo.objectInfo.name}`
             : acctInfo.objectCode;
           filters.object_code[objKey] = (filters.object_code[objKey] || 0) + 1;
-        }
-        if (inv.bu_code) {
-          filters.bu_code[inv.bu_code] = (filters.bu_code[inv.bu_code] || 0) + 1;
         }
       });
       
@@ -3659,7 +3627,6 @@
           vendor: [],
           processor: [],
           object_code: [],
-          bu_code: [],
           dateFrom: null,
           dateTo: null,
           amountMin: null,
