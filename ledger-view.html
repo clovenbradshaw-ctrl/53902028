@@ -827,28 +827,101 @@
     }
 
     .summary-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 0.5rem;
     }
 
     .summary-stat {
       text-align: center;
-      padding: 0.5rem;
+      padding: 0.75rem 0.5rem;
       background: var(--bg-primary);
-      border-radius: 4px;
+      border-radius: 6px;
+    }
+
+    .summary-stat.total {
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+      border: 1px solid var(--border);
     }
 
     .summary-stat-value {
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       font-weight: 600;
       font-family: var(--font-mono);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .summary-stat-label {
       font-size: 0.65rem;
       color: var(--text-muted);
       text-transform: uppercase;
+    }
+
+    .summary-stat.with-scan .summary-stat-value {
+      color: var(--success);
+    }
+
+    .summary-stat.no-scan .summary-stat-value {
+      color: var(--text-secondary);
+    }
+
+    /* Export Section */
+    .export-section {
+      margin-top: 1rem;
+    }
+
+    .export-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .export-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .export-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .export-btn:hover {
+      background: var(--bg-card);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .export-btn svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .export-btn-label {
+      flex: 1;
+    }
+
+    .export-btn-size {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
     }
 
     /* Empty State */
@@ -1041,18 +1114,80 @@
         <div class="summary-card">
           <div class="summary-card-title">Amount Summary</div>
           <div class="summary-stats">
-            <div class="summary-stat">
+            <div class="summary-stat total">
               <div class="summary-stat-value" id="total-amount">$0</div>
               <div class="summary-stat-label">Total</div>
             </div>
-            <div class="summary-stat">
+            <div class="summary-stat with-scan">
               <div class="summary-stat-value" id="with-scan-amount">$0</div>
               <div class="summary-stat-label">With Scan</div>
             </div>
-            <div class="summary-stat">
+            <div class="summary-stat no-scan">
               <div class="summary-stat-value" id="no-scan-amount">$0</div>
               <div class="summary-stat-label">No Scan</div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="export-section">
+          <div class="export-title">Export Data (JSON)</div>
+          <div class="export-buttons">
+            <button class="export-btn" onclick="exportData('ledger')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span class="export-btn-label">Ledger Only</span>
+              <span class="export-btn-size" id="ledger-count">-</span>
+            </button>
+            <button class="export-btn" onclick="exportData('ocr')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span class="export-btn-label">OCR/Scans Only</span>
+              <span class="export-btn-size" id="ocr-count">-</span>
+            </button>
+            <button class="export-btn" onclick="exportData('matched')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span class="export-btn-label">Matched (Ledger + Scan)</span>
+              <span class="export-btn-size" id="matched-count">-</span>
+            </button>
+            <button class="export-btn" onclick="exportData('unmatched-ledger')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span class="export-btn-label">Unmatched Ledger</span>
+              <span class="export-btn-size" id="unmatched-ledger-count">-</span>
+            </button>
+            <button class="export-btn" onclick="exportData('unmatched-ocr')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span class="export-btn-label">Unmatched OCR</span>
+              <span class="export-btn-size" id="unmatched-ocr-count">-</span>
+            </button>
+            <button class="export-btn" onclick="exportData('all')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span class="export-btn-label">Full Merged Dataset</span>
+              <span class="export-btn-size" id="all-count">-</span>
+            </button>
           </div>
         </div>
       </div>
@@ -1140,6 +1275,11 @@
       category: []
     };
 
+    // Store full data for exports
+    let fullMergedData = null;
+    let ledgerOnlyData = null;
+    let ocrOnlyData = null;
+
     // ==================== UTILITIES ====================
     function formatNumber(num) {
       if (num === null || num === undefined) return '0.00';
@@ -1181,8 +1321,28 @@
     // ==================== DATA LOADING ====================
     async function loadMergedData() {
       try {
-        const response = await fetch('./merged-data.json');
-        const data = await response.json();
+        // Load all data files in parallel
+        const [mergedResponse, ledgerResponse, ocrResponse] = await Promise.all([
+          fetch('./merged-data.json'),
+          fetch('./ledger-invoices.json'),
+          fetch('./ocr-invoices.json')
+        ]);
+
+        const data = await mergedResponse.json();
+        fullMergedData = data;
+
+        // Load separate datasets
+        try {
+          ledgerOnlyData = await ledgerResponse.json();
+        } catch (e) {
+          console.warn('Could not load ledger-invoices.json:', e);
+        }
+
+        try {
+          ocrOnlyData = await ocrResponse.json();
+        } catch (e) {
+          console.warn('Could not load ocr-invoices.json:', e);
+        }
 
         const entries = [];
 
@@ -1218,6 +1378,7 @@
         document.getElementById('table-container').style.display = 'block';
 
         updateStats();
+        updateExportCounts();
         renderFilterOptions();
         applyFilters();
 
@@ -1228,6 +1389,98 @@
           <div style="font-size: 0.8rem; margin-top: 0.5rem;">${error.message}</div>
         `;
       }
+    }
+
+    // ==================== EXPORT FUNCTIONALITY ====================
+    function updateExportCounts() {
+      // Ledger only (all ledger entries from source file)
+      const ledgerCount = ledgerOnlyData?.invoices?.length || 0;
+      document.getElementById('ledger-count').textContent = ledgerCount + ' items';
+
+      // OCR only (all OCR entries from source file)
+      const ocrCount = ocrOnlyData?.invoices?.length || 0;
+      document.getElementById('ocr-count').textContent = ocrCount + ' items';
+
+      // Matched (ledger + scan)
+      const matchedCount = fullMergedData?.matched_invoices?.length || 0;
+      document.getElementById('matched-count').textContent = matchedCount + ' items';
+
+      // Unmatched ledger
+      const unmatchedLedgerCount = fullMergedData?.ledger_only?.invoices?.length || 0;
+      document.getElementById('unmatched-ledger-count').textContent = unmatchedLedgerCount + ' items';
+
+      // Unmatched OCR
+      const unmatchedOcrCount = fullMergedData?.ocr_only?.invoices?.length || 0;
+      document.getElementById('unmatched-ocr-count').textContent = unmatchedOcrCount + ' items';
+
+      // All (full merged)
+      const totalCount = matchedCount + unmatchedLedgerCount + unmatchedOcrCount;
+      document.getElementById('all-count').textContent = totalCount + ' items';
+    }
+
+    function exportData(type) {
+      let data, filename;
+
+      switch(type) {
+        case 'ledger':
+          data = ledgerOnlyData;
+          filename = 'bu53902028-ledger-only.json';
+          break;
+        case 'ocr':
+          data = ocrOnlyData;
+          filename = 'bu53902028-ocr-scans-only.json';
+          break;
+        case 'matched':
+          data = {
+            export_type: 'matched_invoices',
+            export_date: new Date().toISOString(),
+            count: fullMergedData?.matched_invoices?.length || 0,
+            invoices: fullMergedData?.matched_invoices || []
+          };
+          filename = 'bu53902028-matched-invoices.json';
+          break;
+        case 'unmatched-ledger':
+          data = {
+            export_type: 'unmatched_ledger',
+            export_date: new Date().toISOString(),
+            count: fullMergedData?.ledger_only?.invoices?.length || 0,
+            invoices: fullMergedData?.ledger_only?.invoices || []
+          };
+          filename = 'bu53902028-unmatched-ledger.json';
+          break;
+        case 'unmatched-ocr':
+          data = {
+            export_type: 'unmatched_ocr',
+            export_date: new Date().toISOString(),
+            count: fullMergedData?.ocr_only?.invoices?.length || 0,
+            invoices: fullMergedData?.ocr_only?.invoices || []
+          };
+          filename = 'bu53902028-unmatched-ocr.json';
+          break;
+        case 'all':
+          data = fullMergedData;
+          filename = 'bu53902028-full-merged-data.json';
+          break;
+        default:
+          console.error('Unknown export type:', type);
+          return;
+      }
+
+      if (!data) {
+        alert('Data not available for export. Please wait for data to load.');
+        return;
+      }
+
+      // Create and trigger download
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
 
     // ==================== STATS ====================
