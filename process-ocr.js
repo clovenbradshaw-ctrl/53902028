@@ -128,6 +128,59 @@ function deduplicateLineItems(items) {
   });
 }
 
+// ==================== CONTINUATION PAGE DETECTION ====================
+/**
+ * Determines if a page is effectively a continuation page based on its characteristics.
+ * Some pages aren't marked as continuation in OCR but should be treated as such.
+ */
+function isEffectiveContinuationPage(ocr) {
+  if (!ocr) return false;
+
+  // Explicitly marked as continuation
+  if (ocr.meta_is_continuation_page === true) return true;
+
+  // Page has no invoice date - likely a continuation/detail page
+  const hasNoDate = !ocr.invoice_date || ocr.invoice_date === 'null' || ocr.invoice_date === 'YYYY-MM-DD';
+
+  // Page has no real invoice number (null, N/A, or garbage like "string")
+  const hasNoInvoiceNum = !ocr.invoice_number ||
+                          ocr.invoice_number === 'N/A' ||
+                          ocr.invoice_number === 'null' ||
+                          ocr.invoice_number === 'string';
+
+  // No vendor_id suggests it's not a header page
+  const hasNoVendorId = !ocr.vendor_id;
+
+  // No bu_code suggests it's not a header page
+  const hasNoBuCode = !ocr.bu_code;
+
+  // If it has no date AND (no invoice number OR no vendor_id), treat as continuation
+  if (hasNoDate && (hasNoInvoiceNum || hasNoVendorId)) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * Checks if a page is a "header" page (Company Invoice format with full details).
+ * Header pages have vendor_id and bu_code and are the start of an invoice.
+ */
+function isHeaderPage(ocr) {
+  if (!ocr) return false;
+  return ocr.vendor_id && ocr.bu_code && ocr.invoice_date && !ocr.meta_is_continuation_page;
+}
+
+/**
+ * Checks if a page is a detail/folio page (9700xxxxx format).
+ * These pages are separate invoices unless they're marked as continuation or lack dates.
+ */
+function isFolioPage(ocr) {
+  if (!ocr) return false;
+  const invoiceNum = ocr.invoice_number;
+  return invoiceNum && /^97\d+$/.test(String(invoiceNum));
+}
+
 // ==================== MERGE LOGIC ====================
 function createMergedInvoice(pages, rowDataList) {
   if (pages.length === 0) return null;
@@ -298,7 +351,11 @@ function processInvoices(rows) {
     const current = pagesWithOcr[i];
     const currentOcr = current.ocr;
     const currentPage = currentOcr?.meta_source_page || 0;
+
+    // Use enhanced continuation detection
     const isContinuation = currentOcr?.meta_is_continuation_page === true;
+    const isEffectiveCont = isEffectiveContinuationPage(currentOcr);
+    const isHeader = isHeaderPage(currentOcr);
     const isFullInvoice = currentOcr?.meta_is_full_invoice === true;
     const hasGrandTotal = currentOcr?.meta_has_grand_total === true;
     const invoiceTotal = currentOcr?.invoice_total || 0;
@@ -310,52 +367,92 @@ function processInvoices(rows) {
       const prevOcr = prev.ocr;
       const prevPage = prevOcr?.meta_source_page || 0;
       const isConsecutive = currentPage === prevPage + 1;
+      const firstInGroup = currentGroup[0];
+      const firstOcr = firstInGroup.ocr;
 
       let shouldMerge = false;
 
       // STRONG signals to MERGE
+      // 1. Explicitly marked as continuation + consecutive + same vendor
       if (isContinuation && isConsecutive && isSameVendor(currentOcr?.vendor_name, prevOcr?.vendor_name)) {
         shouldMerge = true;
-      } else if (isConsecutive && isSameVendor(currentOcr?.vendor_name, prevOcr?.vendor_name) && !hasGrandTotal && invoiceTotal === 0) {
+      }
+      // 2. Consecutive + same vendor + no grand total + zero amount (likely a middle page)
+      else if (isConsecutive && isSameVendor(currentOcr?.vendor_name, prevOcr?.vendor_name) && !hasGrandTotal && invoiceTotal === 0) {
         shouldMerge = true;
-      } else if (currentOcr?.invoice_number && currentOcr.invoice_number !== 'N/A' &&
-                 prevOcr?.invoice_number === currentOcr.invoice_number &&
-                 isSameVendor(currentOcr?.vendor_name, prevOcr?.vendor_name)) {
+      }
+      // 3. Same invoice number + same vendor
+      else if (currentOcr?.invoice_number && currentOcr.invoice_number !== 'N/A' &&
+               prevOcr?.invoice_number === currentOcr.invoice_number &&
+               isSameVendor(currentOcr?.vendor_name, prevOcr?.vendor_name)) {
         shouldMerge = true;
-      } else if (isContinuation && !currentOcr?.vendor_id && !currentOcr?.bu_code && isConsecutive) {
-        const firstInGroup = currentGroup[0];
-        if (isSameVendor(currentOcr?.vendor_name, firstInGroup.ocr?.vendor_name)) {
+      }
+      // 4. Continuation page (marked or effective) + missing vendor_id/bu_code + consecutive
+      else if ((isContinuation || isEffectiveCont) && !currentOcr?.vendor_id && !currentOcr?.bu_code && isConsecutive) {
+        if (isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name)) {
           shouldMerge = true;
         }
+      }
+      // 5. NEW: Effective continuation page (no date, no vendor_id) + consecutive + same vendor
+      // This catches pages that aren't marked as continuation but clearly are detail/folio pages
+      else if (isEffectiveCont && isConsecutive && isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name)) {
+        // Only merge if the first page in group is a header page
+        if (isHeaderPage(firstOcr)) {
+          shouldMerge = true;
+        }
+      }
+      // 6. NEW: Folio pages (9700xxx) following a header page should merge if consecutive and same vendor
+      // These are detail pages that show individual guest stays for the same invoice
+      else if (isFolioPage(currentOcr) && isConsecutive && isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name)) {
+        // Only merge folio pages if the first page is a header (not another folio)
+        // and the current page doesn't have vendor_id (indicating it's a detail, not standalone)
+        if (isHeaderPage(firstOcr) && !currentOcr?.vendor_id) {
+          shouldMerge = true;
+        }
+      }
+      // 7. NEW: Folio pages with same bu_code as the header should merge
+      // Even if they have different folio invoice numbers, they belong to the same Company Invoice
+      else if (isFolioPage(currentOcr) && isConsecutive &&
+               currentOcr?.bu_code && firstOcr?.bu_code &&
+               currentOcr.bu_code === firstOcr.bu_code &&
+               !currentOcr?.vendor_id &&
+               isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name)) {
+        shouldMerge = true;
       }
 
       // STRONG signals to NOT MERGE (override)
       if (shouldMerge) {
-        // Different invoice numbers - but skip this check for continuation pages
-        // since continuation pages often have incorrect invoice numbers (e.g., confirmation numbers)
-        if (!isContinuation &&
+        // Override 1: Current page is a new header page (has vendor_id, bu_code, date)
+        // Header pages always start new invoices
+        if (isHeader && !isContinuation) {
+          shouldMerge = false;
+        }
+        // Override 2: Different invoice numbers - but skip for continuation/effective continuation pages
+        else if (!isContinuation && !isEffectiveCont &&
             currentOcr?.invoice_number && currentOcr.invoice_number !== 'N/A' &&
-            prevOcr?.invoice_number && prevOcr.invoice_number !== 'N/A' &&
-            currentOcr.invoice_number !== prevOcr.invoice_number) {
-          const firstInGroup = currentGroup[0];
-          if (firstInGroup.ocr?.invoice_number !== currentOcr.invoice_number) {
+            firstOcr?.invoice_number && firstOcr.invoice_number !== 'N/A' &&
+            currentOcr.invoice_number !== firstOcr.invoice_number &&
+            !isFolioPage(currentOcr)) {
+          shouldMerge = false;
+        }
+        // Override 3: Both current and previous have grand totals with positive amounts
+        // (unless current is a continuation/effective continuation, or a folio page following a header)
+        else if (!isContinuation && !isEffectiveCont && hasGrandTotal &&
+                 prevOcr?.meta_has_grand_total && invoiceTotal > 0 &&
+                 (prevOcr?.invoice_total || 0) > 0) {
+          // Don't apply this override for folio pages that share bu_code with the header
+          const isFolioWithSameBuCode = isFolioPage(currentOcr) &&
+                                         currentOcr?.bu_code && firstOcr?.bu_code &&
+                                         currentOcr.bu_code === firstOcr.bu_code;
+          if (!isFolioWithSameBuCode) {
             shouldMerge = false;
           }
         }
-        // Both have grand totals - but allow continuation pages to merge
-        // since continuation pages with grand totals should still merge with their header pages
-        if (!isContinuation && hasGrandTotal && prevOcr?.meta_has_grand_total && invoiceTotal > 0 && (prevOcr?.invoice_total || 0) > 0) {
+        // Override 4: Different vendor from the first page in group
+        if (!isSameVendor(currentOcr?.vendor_name, firstOcr?.vendor_name)) {
           shouldMerge = false;
         }
-        // Full invoice starting
-        if (isFullInvoice && hasGrandTotal && !isContinuation) {
-          shouldMerge = false;
-        }
-        // Different vendor
-        if (!isSameVendor(currentOcr?.vendor_name, currentGroup[0].ocr?.vendor_name)) {
-          shouldMerge = false;
-        }
-        // Non-consecutive
+        // Override 5: Non-consecutive pages
         if (!isConsecutive && currentPage > prevPage + 1) {
           shouldMerge = false;
         }
@@ -364,10 +461,31 @@ function processInvoices(rows) {
       if (shouldMerge) {
         currentGroup.push(current);
 
-        // If this page has grand total, complete the group
-        if (hasGrandTotal && invoiceTotal > 0) {
-          invoiceGroups.push([...currentGroup]);
-          currentGroup = [];
+        // Complete the group when we hit a page with grand total
+        // But only if it's the last folio page (has grand total with positive amount)
+        // and not followed by another continuation/folio page that belongs to the same invoice
+        if (hasGrandTotal && invoiceTotal > 0 && !isEffectiveCont) {
+          // Peek at next page - if it's a continuation or folio page of same invoice, don't complete yet
+          const nextPage = pagesWithOcr[i + 1];
+          const nextOcr = nextPage?.ocr;
+          const nextIsConsecutive = nextOcr && (nextOcr.meta_source_page === currentPage + 1);
+          const nextIsEffectiveCont = nextOcr && isEffectiveContinuationPage(nextOcr);
+          const nextIsSameVendor = nextOcr && isSameVendor(nextOcr.vendor_name, firstOcr?.vendor_name);
+          const nextIsFolio = nextOcr && isFolioPage(nextOcr);
+          const nextHasSameBuCode = nextOcr && nextOcr.bu_code && firstOcr?.bu_code &&
+                                    nextOcr.bu_code === firstOcr.bu_code;
+          const nextIsNewHeader = nextOcr && isHeaderPage(nextOcr);
+
+          // Don't complete if next page is:
+          // 1. An effective continuation of same vendor
+          // 2. A folio page with same bu_code (part of same invoice) that's not a new header
+          const shouldContinue = nextIsConsecutive && nextIsSameVendor &&
+            (nextIsEffectiveCont || (nextIsFolio && nextHasSameBuCode && !nextIsNewHeader && !nextOcr.vendor_id));
+
+          if (!shouldContinue) {
+            invoiceGroups.push([...currentGroup]);
+            currentGroup = [];
+          }
         }
       } else {
         // Complete previous group and start new one
