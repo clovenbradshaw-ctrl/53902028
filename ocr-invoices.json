@@ -158,7 +158,9 @@
       ],
       "all_source_rows": [
         "155"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-623b89b3f89365e2"
     },
     {
       "meta_confidence": 0.98,
@@ -507,7 +509,9 @@
         "42",
         "43",
         "44"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-3f399272b02cafc3"
     },
     {
       "meta_confidence": 0.98,
@@ -651,7 +655,9 @@
       ],
       "all_source_rows": [
         "156"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-6a7af5794548e6f1"
     },
     {
       "meta_confidence": 0.98,
@@ -795,7 +801,9 @@
       ],
       "all_source_rows": [
         "160"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-9fad9d570247538b"
     },
     {
       "meta_confidence": 0.98,
@@ -943,7 +951,9 @@
       ],
       "all_source_rows": [
         "161"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-344bd3e8776344ce"
     },
     {
       "meta_confidence": 0.98,
@@ -1292,7 +1302,9 @@
         "50",
         "51",
         "52"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-4729ada863a2424c"
     },
     {
       "meta_confidence": 0.98,
@@ -1353,7 +1365,9 @@
       ],
       "all_source_rows": [
         "35"
-      ]
+      ],
+      "vendor_guid": "v-008-grainger",
+      "invoice_guid": "inv-ocr-3f8021b57979b94b"
     },
     {
       "meta_confidence": 0.98,
@@ -1414,7 +1428,9 @@
       ],
       "all_source_rows": [
         "35"
-      ]
+      ],
+      "vendor_guid": "v-008-grainger",
+      "invoice_guid": "inv-ocr-3f8021b57979b94b"
     },
     {
       "meta_confidence": 0.98,
@@ -1475,7 +1491,9 @@
       ],
       "all_source_rows": [
         "35"
-      ]
+      ],
+      "vendor_guid": "v-008-grainger",
+      "invoice_guid": "inv-ocr-3f8021b57979b94b"
     },
     {
       "meta_confidence": 0.99,
@@ -1646,7 +1664,9 @@
       ],
       "all_source_rows": [
         "158"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-6b206d293fd2c3ee"
     },
     {
       "meta_confidence": 0.98,
@@ -1997,7 +2017,9 @@
         "54",
         "55",
         "56"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-977c43e7fb453506"
     },
     {
       "meta_confidence": 0.98,
@@ -2168,7 +2190,9 @@
       ],
       "all_source_rows": [
         "157"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-80aeda72f44ec967"
     },
     {
       "meta_confidence": 0.98,
@@ -2342,7 +2366,9 @@
       ],
       "all_source_rows": [
         "57"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-e3cf79bcfb399a06"
     },
     {
       "meta_confidence": 0.98,
@@ -2408,7 +2434,9 @@
       ],
       "all_source_rows": [
         "162"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-8454c921315415f2"
     },
     {
       "meta_confidence": 0.98,
@@ -2474,7 +2502,9 @@
       ],
       "all_source_rows": [
         "166"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-408fca1cd5b8e92e"
     },
     {
       "meta_confidence": 0.98,
@@ -2540,7 +2570,9 @@
       ],
       "all_source_rows": [
         "164"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-439f42e094eff650"
     },
     {
       "meta_confidence": 0.98,
@@ -2711,7 +2743,9 @@
       ],
       "all_source_rows": [
         "168"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-705de70a3e5a8b94"
     },
     {
       "meta_confidence": 0.98,
@@ -2777,7 +2811,9 @@
       ],
       "all_source_rows": [
         "159"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-29a20e3c403199c6"
     },
     {
       "meta_confidence": 0.98,
@@ -3185,7 +3221,9 @@
         "65",
         "66",
         "67"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-ccb78cc3caeccb2f"
     },
     {
       "meta_confidence": 0.98,
@@ -3251,7 +3289,9 @@
       ],
       "all_source_rows": [
         "167"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-1b17e439370efb95"
     },
     {
       "meta_confidence": 0.98,
@@ -3357,7 +3397,9 @@
       ],
       "all_source_rows": [
         "39"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-eb193caadc219431"
     },
     {
       "meta_confidence": 0.98,
@@ -3796,7 +3838,9 @@
         "69",
         "70",
         "71"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-33ac5bf6b1c521c1"
     },
     {
       "meta_confidence": 0.98,
@@ -3967,7 +4011,9 @@
       ],
       "all_source_rows": [
         "165"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-f057378221534c3f"
     },
     {
       "meta_confidence": 0.98,
@@ -4129,7 +4175,9 @@
       ],
       "all_source_rows": [
         "163"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-9232f45ca1279074"
     },
     {
       "meta_confidence": 0.98,
@@ -4311,7 +4359,9 @@
       ],
       "all_source_rows": [
         "76"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-302110673f4f465c"
     },
     {
       "meta_confidence": 0.98,
@@ -4482,7 +4532,9 @@
       ],
       "all_source_rows": [
         "169"
-      ]
+      ],
+      "vendor_guid": "v-004-randstad",
+      "invoice_guid": "inv-ocr-b9c598fd9f4bca5b"
     },
     {
       "meta_confidence": 0.98,
@@ -4768,7 +4820,9 @@
         "79",
         "80",
         "81"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-0722bdeebb601086"
     },
     {
       "meta_confidence": 0.98,
@@ -5099,7 +5153,9 @@
         "73",
         "74",
         "75"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-c5efc47dd9ce60ee"
     },
     {
       "meta_confidence": 0.98,
@@ -5273,7 +5329,9 @@
       ],
       "all_source_rows": [
         "82"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-d50921518f555809"
     },
     {
       "meta_confidence": 0.98,
@@ -5359,7 +5417,9 @@
       ],
       "all_source_rows": [
         "222"
-      ]
+      ],
+      "vendor_guid": "v-007-rj-young",
+      "invoice_guid": "inv-ocr-203538779a4d41cc"
     },
     {
       "meta_confidence": 0.98,
@@ -5708,7 +5768,9 @@
       "all_source_rows": [
         "85",
         "86"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-931b0d077e5b2c35"
     },
     {
       "meta_confidence": 0.98,
@@ -6024,7 +6086,9 @@
       "all_source_rows": [
         "88",
         "89"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-c88829a2dfbb50c8"
     },
     {
       "meta_confidence": 0.99,
@@ -6325,7 +6389,9 @@
       "all_source_rows": [
         "91",
         "92"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-cd9548820feaf289"
     },
     {
       "meta_confidence": 0.99,
@@ -6694,7 +6760,9 @@
         "102",
         "103",
         "104"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-a9b1553ebfd1dd38"
     },
     {
       "meta_confidence": 0.98,
@@ -6979,7 +7047,9 @@
       "all_source_rows": [
         "96",
         "97"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-fe210ffcba07763e"
     },
     {
       "meta_confidence": 0.98,
@@ -7103,7 +7173,9 @@
       ],
       "all_source_rows": [
         "178"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-f2ccea9c19d46d7f"
     },
     {
       "meta_confidence": 0.98,
@@ -7356,7 +7428,9 @@
         "99",
         "100",
         "101"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-008036dafac910f8"
     },
     {
       "meta_confidence": 0.98,
@@ -7639,7 +7713,9 @@
       "all_source_rows": [
         "94",
         "95"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-c471ed77ffce8a4a"
     },
     {
       "meta_confidence": 0.98,
@@ -7922,7 +7998,9 @@
       "all_source_rows": [
         "94",
         "95"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-c471ed77ffce8a4a"
     },
     {
       "meta_confidence": 0.98,
@@ -8205,7 +8283,9 @@
       "all_source_rows": [
         "94",
         "95"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-c471ed77ffce8a4a"
     },
     {
       "meta_confidence": 0.98,
@@ -8496,7 +8576,9 @@
       "all_source_rows": [
         "105",
         "106"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-51af092c0dcb6388"
     },
     {
       "meta_confidence": 0.98,
@@ -8581,7 +8663,9 @@
       ],
       "all_source_rows": [
         "220"
-      ]
+      ],
+      "vendor_guid": "v-007-rj-young",
+      "invoice_guid": "inv-ocr-dd773b60a833a492"
     },
     {
       "meta_confidence": 0.98,
@@ -8755,7 +8839,9 @@
       ],
       "all_source_rows": [
         "107"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-057aa1a23d150966"
     },
     {
       "meta_confidence": 0.98,
@@ -8858,7 +8944,9 @@
       ],
       "all_source_rows": [
         "194"
-      ]
+      ],
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ocr-6007ea49ea8156c8"
     },
     {
       "meta_confidence": 0.98,
@@ -9040,7 +9128,9 @@
       ],
       "all_source_rows": [
         "139"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-2e4fa37d6ac190a0"
     },
     {
       "meta_confidence": 0.98,
@@ -9162,7 +9252,9 @@
       ],
       "all_source_rows": [
         "176"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-b26dc73d6be3b761"
     },
     {
       "meta_confidence": 0.98,
@@ -9236,7 +9328,9 @@
       ],
       "all_source_rows": [
         "174"
-      ]
+      ],
+      "vendor_guid": "v-011-gordon-food",
+      "invoice_guid": "inv-ocr-67371ea56b75733a"
     },
     {
       "meta_confidence": 0.98,
@@ -9410,7 +9504,9 @@
       ],
       "all_source_rows": [
         "116"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-4f620b7a116916a8"
     },
     {
       "meta_confidence": 0.98,
@@ -9584,7 +9680,9 @@
       ],
       "all_source_rows": [
         "137"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-8e517b468d75b49a"
     },
     {
       "meta_confidence": 0.98,
@@ -9714,7 +9812,9 @@
       ],
       "all_source_rows": [
         "177"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-1f45436797a1965e"
     },
     {
       "meta_confidence": 0.98,
@@ -9847,7 +9947,9 @@
       ],
       "all_source_rows": [
         "179"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-ff96c268a397890f"
     },
     {
       "meta_confidence": 0.98,
@@ -9935,7 +10037,9 @@
       ],
       "all_source_rows": [
         "221"
-      ]
+      ],
+      "vendor_guid": "v-007-rj-young",
+      "invoice_guid": "inv-ocr-aaa0b49ac3af73ee"
     },
     {
       "meta_confidence": 0.98,
@@ -10059,7 +10163,9 @@
       ],
       "all_source_rows": [
         "180"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-cab89ddba5fc6ef1"
     },
     {
       "meta_confidence": 0.98,
@@ -10200,7 +10306,9 @@
       ],
       "all_source_rows": [
         "115"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-34cf83b4f0dfdf80"
     },
     {
       "meta_confidence": 0.99,
@@ -10494,7 +10602,9 @@
       ],
       "all_source_rows": [
         "109"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-8708f13b98857bc1"
     },
     {
       "meta_confidence": 0.98,
@@ -10668,7 +10778,9 @@
       ],
       "all_source_rows": [
         "113"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-bbac9a28ff67e72f"
     },
     {
       "meta_confidence": 0.98,
@@ -10842,7 +10954,9 @@
       ],
       "all_source_rows": [
         "111"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-f65ef12c5ce105b2"
     },
     {
       "meta_confidence": 0.98,
@@ -11012,7 +11126,9 @@
       ],
       "all_source_rows": [
         "224"
-      ]
+      ],
+      "vendor_guid": "v-011-gordon-food",
+      "invoice_guid": "inv-ocr-ef47104b2c61cc0e"
     },
     {
       "meta_confidence": 0.95,
@@ -11070,7 +11186,9 @@
       ],
       "all_source_rows": [
         "225"
-      ]
+      ],
+      "vendor_guid": "v-012-hamilton",
+      "invoice_guid": "inv-ocr-3ac480e979a9aabd"
     },
     {
       "meta_confidence": 0.98,
@@ -11264,7 +11382,9 @@
       ],
       "all_source_rows": [
         "233"
-      ]
+      ],
+      "vendor_guid": "v-009-97-wallace",
+      "invoice_guid": "inv-ocr-6722f83d1e377a03"
     },
     {
       "meta_confidence": 0.98,
@@ -11394,7 +11514,9 @@
       ],
       "all_source_rows": [
         "184"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-7f6472b62531fe0b"
     },
     {
       "meta_confidence": 0.98,
@@ -11452,7 +11574,9 @@
       ],
       "all_source_rows": [
         "36"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-ce452008ba425056"
     },
     {
       "meta_confidence": 0.98,
@@ -11510,7 +11634,9 @@
       ],
       "all_source_rows": [
         "37"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-5c188c5069e8471b"
     },
     {
       "meta_confidence": 0.98,
@@ -11568,7 +11694,9 @@
       ],
       "all_source_rows": [
         "38"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-030414dea4cadc73"
     },
     {
       "meta_confidence": 0.98,
@@ -11658,7 +11786,9 @@
       ],
       "all_source_rows": [
         "207"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-c4cc27f9417a5caf"
     },
     {
       "meta_confidence": 0.98,
@@ -11718,7 +11848,9 @@
       ],
       "all_source_rows": [
         "1"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-5f89318b9c8f8f1a"
     },
     {
       "meta_confidence": 0.98,
@@ -11776,7 +11908,9 @@
       ],
       "all_source_rows": [
         "2"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-38fcdacad55bfdcb"
     },
     {
       "meta_confidence": 0.98,
@@ -11836,7 +11970,9 @@
       ],
       "all_source_rows": [
         "15"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-f95dd6d384a7eee8"
     },
     {
       "meta_confidence": 0.98,
@@ -11926,7 +12062,9 @@
       ],
       "all_source_rows": [
         "208"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-a4176e8e9b799864"
     },
     {
       "meta_confidence": 0.98,
@@ -12016,7 +12154,9 @@
       ],
       "all_source_rows": [
         "195"
-      ]
+      ],
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ocr-48b6dad378b9dfb3"
     },
     {
       "meta_confidence": 0.98,
@@ -12074,7 +12214,9 @@
       ],
       "all_source_rows": [
         "7"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-bb55ea07336d790a"
     },
     {
       "meta_confidence": 0.98,
@@ -12134,7 +12276,9 @@
       ],
       "all_source_rows": [
         "8"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-e6bf18fcf6d8e07c"
     },
     {
       "meta_confidence": 0.98,
@@ -12194,7 +12338,9 @@
       ],
       "all_source_rows": [
         "9"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-f3ff67a49cacbe2b"
     },
     {
       "meta_confidence": 0.98,
@@ -12284,7 +12430,9 @@
       ],
       "all_source_rows": [
         "209"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-531dbb2a1cb7e002"
     },
     {
       "meta_confidence": 0.98,
@@ -12344,7 +12492,9 @@
       ],
       "all_source_rows": [
         "10"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-584d5af314d68c56"
     },
     {
       "meta_confidence": 0.98,
@@ -12402,7 +12552,9 @@
       ],
       "all_source_rows": [
         "11"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-efad8be2cc08fe0d"
     },
     {
       "meta_confidence": 0.98,
@@ -12479,7 +12631,9 @@
       ],
       "all_source_rows": [
         "223"
-      ]
+      ],
+      "vendor_guid": "v-007-rj-young",
+      "invoice_guid": "inv-ocr-f73dc7ac7e093954"
     },
     {
       "meta_confidence": 0.98,
@@ -12569,7 +12723,9 @@
       ],
       "all_source_rows": [
         "210"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-aec931b1862e0eb8"
     },
     {
       "meta_confidence": 0.98,
@@ -12680,7 +12836,9 @@
       ],
       "all_source_rows": [
         "197"
-      ]
+      ],
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ocr-a3ba989186a9f54c"
     },
     {
       "meta_confidence": 0.98,
@@ -12738,7 +12896,9 @@
       ],
       "all_source_rows": [
         "211"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-1d2046cd9c1ad8a8"
     },
     {
       "meta_confidence": 0.98,
@@ -12802,7 +12962,9 @@
       ],
       "all_source_rows": [
         "212"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-60ee3183c90b2352"
     },
     {
       "meta_confidence": 0.98,
@@ -12860,7 +13022,9 @@
       ],
       "all_source_rows": [
         "214"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-f9d109b87befed54"
     },
     {
       "meta_confidence": 0.98,
@@ -12918,7 +13082,9 @@
       ],
       "all_source_rows": [
         "215"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-7e2c4ba1f759a20c"
     },
     {
       "meta_confidence": 0.98,
@@ -12978,7 +13144,9 @@
       ],
       "all_source_rows": [
         "13"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-09292d26656ad301"
     },
     {
       "meta_confidence": 0.98,
@@ -13038,7 +13206,9 @@
       ],
       "all_source_rows": [
         "16"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-4ace803b535b47ec"
     },
     {
       "meta_confidence": 0.98,
@@ -13106,7 +13276,9 @@
       ],
       "all_source_rows": [
         "19"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-aaf964cd734da280"
     },
     {
       "meta_confidence": 0.98,
@@ -13208,7 +13380,9 @@
       ],
       "all_source_rows": [
         "199"
-      ]
+      ],
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ocr-07d8b9b31bfba895"
     },
     {
       "meta_confidence": 0.98,
@@ -13282,7 +13456,9 @@
       ],
       "all_source_rows": [
         "213"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-6db13e98c3741443"
     },
     {
       "meta_confidence": 0.99,
@@ -13384,7 +13560,9 @@
       ],
       "all_source_rows": [
         "198"
-      ]
+      ],
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ocr-829684155d22ac5e"
     },
     {
       "meta_confidence": 0.98,
@@ -13450,7 +13628,9 @@
       ],
       "all_source_rows": [
         "170"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-99f7eec0876d3faf"
     },
     {
       "meta_confidence": 0.98,
@@ -13516,7 +13696,9 @@
       ],
       "all_source_rows": [
         "3"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-4199c2f7e04b2dd7"
     },
     {
       "meta_confidence": 0.98,
@@ -13582,7 +13764,9 @@
       ],
       "all_source_rows": [
         "4"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-54404cf92635b306"
     },
     {
       "meta_confidence": 0.98,
@@ -13650,7 +13834,9 @@
       ],
       "all_source_rows": [
         "5"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-2856b2995088b456"
     },
     {
       "meta_confidence": 0.98,
@@ -13724,7 +13910,9 @@
       ],
       "all_source_rows": [
         "6"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-891714cbe5743d42"
     },
     {
       "meta_confidence": 0.98,
@@ -13782,7 +13970,9 @@
       ],
       "all_source_rows": [
         "12"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-0a3210aa1821c791"
     },
     {
       "meta_confidence": 0.98,
@@ -13842,7 +14032,9 @@
       ],
       "all_source_rows": [
         "14"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-27b2f6689bcbeb0b"
     },
     {
       "meta_confidence": 0.98,
@@ -13916,7 +14108,9 @@
       ],
       "all_source_rows": [
         "17"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-58e5afa7baa0f65d"
     },
     {
       "meta_confidence": 0.98,
@@ -13992,7 +14186,9 @@
       ],
       "all_source_rows": [
         "18"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-6227d406cbe2676a"
     },
     {
       "meta_confidence": 0.98,
@@ -14060,7 +14256,9 @@
       ],
       "all_source_rows": [
         "20"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-c5306c1d244071a6"
     },
     {
       "meta_confidence": 0.98,
@@ -14118,7 +14316,9 @@
       ],
       "all_source_rows": [
         "21"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-9daadd3bdf0dcfc3"
     },
     {
       "meta_confidence": 0.98,
@@ -14176,7 +14376,9 @@
       ],
       "all_source_rows": [
         "22"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-df1a82c14a672e60"
     },
     {
       "meta_confidence": 0.98,
@@ -14234,7 +14436,9 @@
       ],
       "all_source_rows": [
         "23"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-8aab71e019b09697"
     },
     {
       "meta_confidence": 0.98,
@@ -14292,7 +14496,9 @@
       ],
       "all_source_rows": [
         "24"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-f6550130fb6f085a"
     },
     {
       "meta_confidence": 0.98,
@@ -14350,7 +14556,9 @@
       ],
       "all_source_rows": [
         "25"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-b91704750b063ef8"
     },
     {
       "meta_confidence": 0.98,
@@ -14408,7 +14616,9 @@
       ],
       "all_source_rows": [
         "26"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-689e5204df31f9bd"
     },
     {
       "meta_confidence": 0.98,
@@ -14466,7 +14676,9 @@
       ],
       "all_source_rows": [
         "27"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-7861718805dcac44"
     },
     {
       "meta_confidence": 0.98,
@@ -14524,7 +14736,9 @@
       ],
       "all_source_rows": [
         "28"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-048832bd70856105"
     },
     {
       "meta_confidence": 0.98,
@@ -14582,7 +14796,9 @@
       ],
       "all_source_rows": [
         "29"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-6b3d74bacf0528ce"
     },
     {
       "meta_confidence": 0.98,
@@ -14640,7 +14856,9 @@
       ],
       "all_source_rows": [
         "30"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-ef1ed7b4b6068d9e"
     },
     {
       "meta_confidence": 0.98,
@@ -14698,7 +14916,9 @@
       ],
       "all_source_rows": [
         "31"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-6eb9899468a6f0a6"
     },
     {
       "meta_confidence": 0.98,
@@ -14756,7 +14976,9 @@
       ],
       "all_source_rows": [
         "32"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-66c9a3d482103a7c"
     },
     {
       "meta_confidence": 0.98,
@@ -14814,7 +15036,9 @@
       ],
       "all_source_rows": [
         "33"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-34b81274a13864bd"
     },
     {
       "meta_confidence": 0.98,
@@ -14872,7 +15096,9 @@
       ],
       "all_source_rows": [
         "34"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-f3479a700a2a75e5"
     },
     {
       "meta_confidence": 0.98,
@@ -14962,7 +15188,9 @@
       ],
       "all_source_rows": [
         "40"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-411b5d9fddcbac35"
     },
     {
       "meta_confidence": 0.98,
@@ -15311,7 +15539,9 @@
         "46",
         "47",
         "48"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-98db34ad015e5c39"
     },
     {
       "meta_confidence": 0.95,
@@ -15510,7 +15740,9 @@
       ],
       "all_source_rows": [
         "58"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-0358275ecc658b2e"
     },
     {
       "meta_confidence": 0.95,
@@ -16314,7 +16546,9 @@
         "59",
         "60",
         "61"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-99ff7aa6b833dc28"
     },
     {
       "meta_confidence": 0.98,
@@ -16663,7 +16897,9 @@
       ],
       "all_source_rows": [
         "62"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-6dacc69d3b2407ec"
     },
     {
       "meta_confidence": 0.98,
@@ -16772,7 +17008,9 @@
       ],
       "all_source_rows": [
         "63"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-dac1c7097cd073ec"
     },
     {
       "meta_confidence": 0.98,
@@ -16911,7 +17149,9 @@
       "all_source_rows": [
         "77",
         "78"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-39ff382bf7124c09"
     },
     {
       "meta_confidence": 0.98,
@@ -17127,7 +17367,9 @@
       ],
       "all_source_rows": [
         "83"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-1d7719fba76ad74b"
     },
     {
       "meta_confidence": 0.95,
@@ -17236,7 +17478,9 @@
       ],
       "all_source_rows": [
         "84"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-3615088daa310b4e"
     },
     {
       "meta_confidence": 0.95,
@@ -17338,7 +17582,9 @@
       ],
       "all_source_rows": [
         "87"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-4e26489672eb55fe"
     },
     {
       "meta_confidence": 0.95,
@@ -17486,7 +17732,9 @@
       ],
       "all_source_rows": [
         "90"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-e0ea3b221cabcb57"
     },
     {
       "meta_confidence": 0.95,
@@ -17602,7 +17850,9 @@
       ],
       "all_source_rows": [
         "93"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-33f40bd66d1a7866"
     },
     {
       "meta_confidence": 0.98,
@@ -17702,7 +17952,9 @@
       ],
       "all_source_rows": [
         "98"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-9e27620348e40c0b"
     },
     {
       "meta_confidence": 0.95,
@@ -17802,7 +18054,9 @@
       ],
       "all_source_rows": [
         "108"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-a1654ebcaa93c067"
     },
     {
       "meta_confidence": 0.95,
@@ -17902,7 +18156,9 @@
       ],
       "all_source_rows": [
         "110"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-57556533fc79cc00"
     },
     {
       "meta_confidence": 0.95,
@@ -17970,7 +18226,9 @@
       ],
       "all_source_rows": [
         "112"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-a804dbe16d13b923"
     },
     {
       "meta_confidence": 0.95,
@@ -18072,7 +18330,9 @@
       ],
       "all_source_rows": [
         "114"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-b208c12482852cec"
     },
     {
       "meta_confidence": 0.95,
@@ -18174,7 +18434,9 @@
       ],
       "all_source_rows": [
         "117"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-afff609c5ca0a85f"
     },
     {
       "meta_confidence": 0.98,
@@ -18342,7 +18604,9 @@
       "all_source_rows": [
         "118",
         "119"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-f32f4f703936e108"
     },
     {
       "meta_confidence": 0.98,
@@ -18566,7 +18830,9 @@
       "all_source_rows": [
         "120",
         "121"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-6e3dcf4a88a1c357"
     },
     {
       "meta_confidence": 0.98,
@@ -18693,7 +18959,9 @@
         "9700274867"
       ],
       "employee_names": [],
-      "reference_numbers": []
+      "reference_numbers": [],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-fb1c2f9e1460c891"
     },
     {
       "meta_confidence": 0.98,
@@ -18801,7 +19069,9 @@
       ],
       "all_source_rows": [
         "123"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-6c1eeb2a7c4c6723"
     },
     {
       "meta_confidence": 0.98,
@@ -18977,7 +19247,9 @@
       "all_source_rows": [
         "124",
         "125"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-e213aa0aa55113cd"
     },
     {
       "meta_confidence": 0.98,
@@ -19085,7 +19357,9 @@
       ],
       "all_source_rows": [
         "126"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-8dd2ec6e6c1e70b1"
     },
     {
       "meta_confidence": 0.98,
@@ -19193,7 +19467,9 @@
       ],
       "all_source_rows": [
         "127"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-46b9ab57ce6d2b26"
     },
     {
       "meta_confidence": 0.98,
@@ -19301,7 +19577,9 @@
       ],
       "all_source_rows": [
         "128"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-5481751d421853b2"
     },
     {
       "meta_confidence": 0.98,
@@ -19409,7 +19687,9 @@
       ],
       "all_source_rows": [
         "129"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-a5a727c3df266b7a"
     },
     {
       "meta_confidence": 0.98,
@@ -19517,7 +19797,9 @@
       ],
       "all_source_rows": [
         "130"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-39d93eac6df4efc2"
     },
     {
       "meta_confidence": 0.98,
@@ -19625,7 +19907,9 @@
       ],
       "all_source_rows": [
         "131"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-50cc0564f8d8096b"
     },
     {
       "meta_confidence": 0.98,
@@ -19733,7 +20017,9 @@
       ],
       "all_source_rows": [
         "132"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-c037eefe819a3c93"
     },
     {
       "meta_confidence": 0.98,
@@ -19841,7 +20127,9 @@
       ],
       "all_source_rows": [
         "133"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-ee0bc627d4c078cf"
     },
     {
       "meta_confidence": 0.98,
@@ -20009,7 +20297,9 @@
       "all_source_rows": [
         "134",
         "135"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-508314dc0ac065fb"
     },
     {
       "meta_confidence": 0.99,
@@ -20117,7 +20407,9 @@
       ],
       "all_source_rows": [
         "136"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-eac957720ca02b84"
     },
     {
       "meta_confidence": 0.95,
@@ -20233,7 +20525,9 @@
       ],
       "all_source_rows": [
         "138"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-f971d73d5cc10b99"
     },
     {
       "meta_confidence": 0.95,
@@ -20383,7 +20677,9 @@
       ],
       "all_source_rows": [
         "140"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-20123b850c0b1ceb"
     },
     {
       "meta_confidence": 0.98,
@@ -20535,7 +20831,9 @@
       "all_source_rows": [
         "141",
         "142"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-b3dfd957c353c03e"
     },
     {
       "meta_confidence": 0.98,
@@ -20703,7 +21001,9 @@
       "all_source_rows": [
         "143",
         "144"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-b7ee993bee7dc2f2"
     },
     {
       "meta_confidence": 0.98,
@@ -20871,7 +21171,9 @@
       "all_source_rows": [
         "145",
         "146"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-bac1cbd2e31bfccb"
     },
     {
       "meta_confidence": 0.98,
@@ -20979,7 +21281,9 @@
       ],
       "all_source_rows": [
         "147"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-67e96d486dc01e9c"
     },
     {
       "meta_confidence": 0.98,
@@ -21087,7 +21391,9 @@
       ],
       "all_source_rows": [
         "148"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-c580a335729204ba"
     },
     {
       "meta_confidence": 0.99,
@@ -21195,7 +21501,9 @@
       ],
       "all_source_rows": [
         "149"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-524b15974f9b7381"
     },
     {
       "meta_confidence": 0.98,
@@ -21303,7 +21611,9 @@
       ],
       "all_source_rows": [
         "150"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-e9720057600d16c7"
     },
     {
       "meta_confidence": 0.98,
@@ -21411,7 +21721,9 @@
       ],
       "all_source_rows": [
         "151"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-e2509945536cfb83"
     },
     {
       "meta_confidence": 0.98,
@@ -21519,7 +21831,9 @@
       ],
       "all_source_rows": [
         "152"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-2a6af1db1ee369d3"
     },
     {
       "meta_confidence": 0.98,
@@ -21627,7 +21941,9 @@
       ],
       "all_source_rows": [
         "153"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-3ff4580a09453bb9"
     },
     {
       "meta_confidence": 0.98,
@@ -21703,7 +22019,9 @@
       ],
       "all_source_rows": [
         "154"
-      ]
+      ],
+      "vendor_guid": "v-001-esa-management",
+      "invoice_guid": "inv-ocr-bc3c08135ade0507"
     },
     {
       "meta_confidence": 0.98,
@@ -21761,7 +22079,9 @@
       ],
       "all_source_rows": [
         "171"
-      ]
+      ],
+      "vendor_guid": "v-016-cssrt",
+      "invoice_guid": "inv-ocr-8f0fc77764453ed5"
     },
     {
       "meta_confidence": 0.98,
@@ -21819,7 +22139,9 @@
       ],
       "all_source_rows": [
         "172"
-      ]
+      ],
+      "vendor_guid": "v-016-cssrt",
+      "invoice_guid": "inv-ocr-39cacb36a7042433"
     },
     {
       "meta_confidence": 0.98,
@@ -21877,7 +22199,9 @@
       ],
       "all_source_rows": [
         "173"
-      ]
+      ],
+      "vendor_guid": "v-016-cssrt",
+      "invoice_guid": "inv-ocr-f2e8bc0500f5b8a1"
     },
     {
       "meta_confidence": 0.98,
@@ -21951,7 +22275,9 @@
       ],
       "all_source_rows": [
         "175"
-      ]
+      ],
+      "vendor_guid": "v-011-gordon-food",
+      "invoice_guid": "inv-ocr-7da5ca8837ae6c12"
     },
     {
       "meta_confidence": 0.98,
@@ -22083,7 +22409,9 @@
       ],
       "all_source_rows": [
         "181"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-47f046291154d3e7"
     },
     {
       "meta_confidence": 0.98,
@@ -22215,7 +22543,9 @@
       ],
       "all_source_rows": [
         "182"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-7e93012c97bfa192"
     },
     {
       "meta_confidence": 0.98,
@@ -22347,7 +22677,9 @@
       ],
       "all_source_rows": [
         "183"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-02fa06a7acd6b885"
     },
     {
       "meta_confidence": 0.98,
@@ -22485,7 +22817,9 @@
       ],
       "all_source_rows": [
         "185"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-f78e43d844459416"
     },
     {
       "meta_confidence": 0.99,
@@ -22577,7 +22911,9 @@
       ],
       "all_source_rows": [
         "186"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-156d9babd02feeb2"
     },
     {
       "meta_confidence": 0.98,
@@ -22637,7 +22973,9 @@
       ],
       "all_source_rows": [
         "187"
-      ]
+      ],
+      "vendor_guid": "v-005-depaul-usa",
+      "invoice_guid": "inv-ocr-786424a0c243c85a"
     },
     {
       "meta_confidence": 0.95,
@@ -22735,7 +23073,9 @@
       ],
       "all_source_rows": [
         "188"
-      ]
+      ],
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ocr-dd662496ca2af977"
     },
     {
       "meta_confidence": 0.92,
@@ -22833,7 +23173,9 @@
       "all_source_rows": [
         "189",
         "190"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-08fa862fe40999a4"
     },
     {
       "meta_confidence": 0.98,
@@ -22931,7 +23273,9 @@
       ],
       "all_source_rows": [
         "191"
-      ]
+      ],
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ocr-a4b369f9423233f5"
     },
     {
       "meta_confidence": 0.95,
@@ -22997,7 +23341,9 @@
       "all_source_rows": [
         "192",
         "193"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-f100e00064bb7e6c"
     },
     {
       "meta_confidence": 0.98,
@@ -23100,7 +23446,9 @@
       ],
       "all_source_rows": [
         "196"
-      ]
+      ],
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ocr-082b9e16babae3e2"
     },
     {
       "meta_confidence": 0.98,
@@ -23201,7 +23549,9 @@
       ],
       "all_source_rows": [
         "200"
-      ]
+      ],
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ocr-27408773696c33f4"
     },
     {
       "meta_confidence": 0.98,
@@ -23285,7 +23635,9 @@
       ],
       "all_source_rows": [
         "201"
-      ]
+      ],
+      "vendor_guid": "v-006-community-care",
+      "invoice_guid": "inv-ocr-28de168e48c9eb6b"
     },
     {
       "meta_confidence": 0.98,
@@ -23401,7 +23753,9 @@
       ],
       "all_source_rows": [
         "202"
-      ]
+      ],
+      "vendor_guid": "v-017-nashville-launchpad",
+      "invoice_guid": "inv-ocr-595acc763a5b3f01"
     },
     {
       "meta_confidence": 0.6,
@@ -23453,7 +23807,8 @@
       ],
       "all_source_rows": [
         "203"
-      ]
+      ],
+      "invoice_guid": "inv-ocr-cac50035e211ba80"
     },
     {
       "meta_confidence": 0.98,
@@ -23569,7 +23924,9 @@
       ],
       "all_source_rows": [
         "204"
-      ]
+      ],
+      "vendor_guid": "v-017-nashville-launchpad",
+      "invoice_guid": "inv-ocr-977420d5ed40f285"
     },
     {
       "meta_confidence": 0.98,
@@ -23643,7 +24000,9 @@
       ],
       "all_source_rows": [
         "216"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-1be337f4f92da46b"
     },
     {
       "meta_confidence": 0.98,
@@ -23717,7 +24076,9 @@
       ],
       "all_source_rows": [
         "217"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-8afaa9bfc69aa4ed"
     },
     {
       "meta_confidence": 0.98,
@@ -23823,7 +24184,9 @@
       ],
       "all_source_rows": [
         "218"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-42d62d7379b01e4e"
     },
     {
       "meta_confidence": 0.98,
@@ -23881,7 +24244,9 @@
       ],
       "all_source_rows": [
         "219"
-      ]
+      ],
+      "vendor_guid": "v-003-hillside-crossing",
+      "invoice_guid": "inv-ocr-6ca4ebede987f9bb"
     },
     {
       "meta_confidence": 0.98,
@@ -23941,7 +24306,9 @@
       ],
       "all_source_rows": [
         "226"
-      ]
+      ],
+      "vendor_guid": "v-021-nottingham",
+      "invoice_guid": "inv-ocr-93f4e97769a9b5f3"
     },
     {
       "meta_confidence": 0.98,
@@ -24011,7 +24378,9 @@
       ],
       "all_source_rows": [
         "227"
-      ]
+      ],
+      "vendor_guid": "v-010-thompson",
+      "invoice_guid": "inv-ocr-d68c7fe493e72986"
     },
     {
       "meta_confidence": 0.98,
@@ -24079,7 +24448,9 @@
       ],
       "all_source_rows": [
         "228"
-      ]
+      ],
+      "vendor_guid": "v-018-highland-east",
+      "invoice_guid": "inv-ocr-5b73d732ddf5fafa"
     },
     {
       "meta_confidence": 0.95,
@@ -24187,7 +24558,9 @@
       ],
       "all_source_rows": [
         "229"
-      ]
+      ],
+      "vendor_guid": "v-018-highland-east",
+      "invoice_guid": "inv-ocr-dff74637293a78f4"
     },
     {
       "meta_confidence": 0.98,
@@ -24255,7 +24628,9 @@
       ],
       "all_source_rows": [
         "230"
-      ]
+      ],
+      "vendor_guid": "v-002-the-ave",
+      "invoice_guid": "inv-ocr-a388261fe84f7b26"
     },
     {
       "meta_confidence": 0.98,
@@ -24313,7 +24688,9 @@
       ],
       "all_source_rows": [
         "231"
-      ]
+      ],
+      "vendor_guid": "v-019-antonia-whitfield",
+      "invoice_guid": "inv-ocr-1adf3f13be47fe53"
     },
     {
       "meta_confidence": 0.98,
@@ -24381,7 +24758,9 @@
       ],
       "all_source_rows": [
         "232"
-      ]
+      ],
+      "vendor_guid": "v-022-premiere-building",
+      "invoice_guid": "inv-ocr-ede724a6ef2fd5af"
     },
     {
       "meta_confidence": 0.98,
@@ -24535,7 +24914,9 @@
       ],
       "all_source_rows": [
         "234"
-      ]
+      ],
+      "vendor_guid": "v-014-greenview",
+      "invoice_guid": "inv-ocr-0884b19127dfe956"
     },
     {
       "meta_confidence": 0.98,
@@ -24665,7 +25046,9 @@
       ],
       "all_source_rows": [
         "235"
-      ]
+      ],
+      "vendor_guid": "v-009-97-wallace",
+      "invoice_guid": "inv-ocr-7339cf29649feff7"
     },
     {
       "meta_confidence": 0.98,
@@ -24819,7 +25202,9 @@
       ],
       "all_source_rows": [
         "236"
-      ]
+      ],
+      "vendor_guid": "v-014-greenview",
+      "invoice_guid": "inv-ocr-01cbac6202f0f875"
     },
     {
       "meta_confidence": 0.98,
@@ -24973,7 +25358,9 @@
       ],
       "all_source_rows": [
         "237"
-      ]
+      ],
+      "vendor_guid": "v-014-greenview",
+      "invoice_guid": "inv-ocr-45040dbd0a87ec0c"
     },
     {
       "meta_confidence": 0.98,
@@ -25159,7 +25546,9 @@
       ],
       "all_source_rows": [
         "238"
-      ]
+      ],
+      "vendor_guid": "v-009-97-wallace",
+      "invoice_guid": "inv-ocr-1ac625d0a9207b6d"
     },
     {
       "meta_confidence": 0.98,
@@ -25217,7 +25606,9 @@
       ],
       "all_source_rows": [
         "239"
-      ]
+      ],
+      "vendor_guid": "v-009-97-wallace",
+      "invoice_guid": "inv-ocr-ed54ee575136ceab"
     },
     {
       "meta_confidence": 0.98,
@@ -25275,7 +25666,9 @@
       ],
       "all_source_rows": [
         "240"
-      ]
+      ],
+      "vendor_guid": "v-009-97-wallace",
+      "invoice_guid": "inv-ocr-27a72f36b53d451d"
     },
     {
       "meta_confidence": 0.98,
@@ -25344,7 +25737,9 @@
       "all_source_rows": [
         "241",
         "242"
-      ]
+      ],
+      "vendor_guid": "v-009-97-wallace",
+      "invoice_guid": "inv-ocr-1263add602b94289"
     },
     {
       "meta_confidence": 0.98,
@@ -25498,7 +25893,9 @@
       ],
       "all_source_rows": [
         "243"
-      ]
+      ],
+      "vendor_guid": "v-014-greenview",
+      "invoice_guid": "inv-ocr-a46bc50f24efc269"
     },
     {
       "meta_confidence": 0.98,
@@ -25660,7 +26057,9 @@
       ],
       "all_source_rows": [
         "244"
-      ]
+      ],
+      "vendor_guid": "v-014-greenview",
+      "invoice_guid": "inv-ocr-58460c3695eba9cc"
     },
     {
       "meta_confidence": 0.98,
@@ -25814,7 +26213,9 @@
       ],
       "all_source_rows": [
         "245"
-      ]
+      ],
+      "vendor_guid": "v-014-greenview",
+      "invoice_guid": "inv-ocr-1fce2766bf5b5279"
     },
     {
       "meta_confidence": 0.98,
@@ -25872,7 +26273,9 @@
       ],
       "all_source_rows": [
         "246"
-      ]
+      ],
+      "vendor_guid": "v-009-97-wallace",
+      "invoice_guid": "inv-ocr-08a97d9dfb61e5c4"
     },
     {
       "meta_confidence": 0.98,
@@ -25946,7 +26349,9 @@
       ],
       "all_source_rows": [
         "247"
-      ]
+      ],
+      "vendor_guid": "v-023-traffic-control",
+      "invoice_guid": "inv-ocr-587692d96081cb7c"
     },
     {
       "meta_confidence": 0.98,
@@ -26012,7 +26417,9 @@
       ],
       "all_source_rows": [
         "248"
-      ]
+      ],
+      "vendor_guid": "v-015-randy-baker",
+      "invoice_guid": "inv-ocr-6bd1baf0f5ba97fb"
     },
     {
       "meta_confidence": 0.98,
@@ -26078,7 +26485,9 @@
       ],
       "all_source_rows": [
         "249"
-      ]
+      ],
+      "vendor_guid": "v-015-randy-baker",
+      "invoice_guid": "inv-ocr-32e204ee5bf81f42"
     },
     {
       "meta_confidence": 0.98,
@@ -26136,7 +26545,9 @@
       ],
       "all_source_rows": [
         "250"
-      ]
+      ],
+      "vendor_guid": "v-015-randy-baker",
+      "invoice_guid": "inv-ocr-d895107e419ada2e"
     },
     {
       "meta_confidence": 0.95,
@@ -26194,7 +26605,8 @@
       ],
       "all_source_rows": [
         "251"
-      ]
+      ],
+      "invoice_guid": "inv-ocr-fcc3be10a63a73ac"
     },
     {
       "meta_confidence": 0.98,
@@ -26257,7 +26669,9 @@
       ],
       "all_source_rows": [
         "252"
-      ]
+      ],
+      "vendor_guid": "v-010-thompson",
+      "invoice_guid": "inv-ocr-73280fa3f25f6cb1"
     },
     {
       "meta_confidence": 0.98,
@@ -26518,7 +26932,9 @@
       "all_source_rows": [
         "253",
         "254"
-      ]
+      ],
+      "vendor_guid": "v-020-grand-tents",
+      "invoice_guid": "inv-ocr-4cd8023441c1639a"
     },
     {
       "meta_confidence": 0.98,
@@ -26576,7 +26992,9 @@
       ],
       "all_source_rows": [
         "255"
-      ]
+      ],
+      "vendor_guid": "v-015-randy-baker",
+      "invoice_guid": "inv-ocr-505ca54d624a57ce"
     },
     {
       "meta_confidence": 0.95,
@@ -26634,7 +27052,9 @@
       ],
       "all_source_rows": [
         "256"
-      ]
+      ],
+      "vendor_guid": "v-015-randy-baker",
+      "invoice_guid": "inv-ocr-83bb86af151a9d32"
     }
   ]
 }
