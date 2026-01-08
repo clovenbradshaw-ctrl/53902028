@@ -2229,6 +2229,17 @@
       return normalized;
     }
 
+    // Get display name for vendor (consolidates variations like ESA)
+    function getDisplayVendorName(name) {
+      if (!name) return '';
+      const normalized = name.toLowerCase().trim();
+      // Consolidate all ESA variations to single display name
+      if (normalized.includes('extended stay') || normalized.includes('esa management') || normalized.includes('esa suites') || normalized === 'esa') {
+        return 'Extended Stay America';
+      }
+      return name; // Return original name for non-ESA vendors
+    }
+
     // Check if two invoices might be from the same vendor
     function isSameVendor(vendor1, vendor2) {
       return normalizeVendorName(vendor1) === normalizeVendorName(vendor2);
@@ -2539,14 +2550,16 @@
 
     // ==================== FILTERING ====================
     function filterByVendor(vendorName) {
+      // Normalize vendor name to match consolidated filter options (e.g., ESA variations)
+      const normalizedVendor = getDisplayVendorName(vendorName);
       // Clear any existing vendor filter and set the clicked vendor
-      activeFilters.vendor = [vendorName];
+      activeFilters.vendor = [normalizedVendor];
 
       // Update the filter UI to reflect the selection
       const vendorFilterContainer = document.getElementById('filter-options-vendor');
       if (vendorFilterContainer) {
         vendorFilterContainer.querySelectorAll('.filter-option').forEach(opt => {
-          if (opt.dataset.value === vendorName) {
+          if (opt.dataset.value === normalizedVendor) {
             opt.classList.add('active');
           } else {
             opt.classList.remove('active');
@@ -2578,9 +2591,10 @@
           if (!activeFilters.invoice_type.includes(inv.meta_invoice_type)) return false;
         }
         
-        // Vendor
+        // Vendor (use normalized display name to match consolidated variations like ESA)
         if (activeFilters.vendor.length > 0) {
-          if (!activeFilters.vendor.includes(inv.vendor_name)) return false;
+          const displayVendor = getDisplayVendorName(inv.vendor_name);
+          if (!activeFilters.vendor.includes(displayVendor)) return false;
         }
         
         // Processor
@@ -2913,7 +2927,9 @@
           filters.invoice_type[inv.meta_invoice_type] = (filters.invoice_type[inv.meta_invoice_type] || 0) + 1;
         }
         if (inv.vendor_name) {
-          filters.vendor[inv.vendor_name] = (filters.vendor[inv.vendor_name] || 0) + 1;
+          // Use normalized display name to consolidate vendor variations (e.g., ESA)
+          const displayVendor = getDisplayVendorName(inv.vendor_name);
+          filters.vendor[displayVendor] = (filters.vendor[displayVendor] || 0) + 1;
         }
         if (inv.processor_name) {
           filters.processor[inv.processor_name] = (filters.processor[inv.processor_name] || 0) + 1;
