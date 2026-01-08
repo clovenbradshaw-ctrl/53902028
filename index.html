@@ -1754,6 +1754,47 @@
         display: none;
       }
     }
+
+    /* Draft Warning Banner */
+    .draft-warning-banner {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-left: 4px solid var(--warning);
+      padding: 0.75rem 1.25rem;
+      margin: 0;
+    }
+
+    .draft-warning-banner svg {
+      width: 20px;
+      height: 20px;
+      color: var(--warning);
+      flex-shrink: 0;
+    }
+
+    .draft-warning-banner .draft-warning-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .draft-warning-banner strong {
+      color: var(--warning);
+    }
+
+    .draft-warning-banner a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .draft-warning-banner a:hover {
+      color: var(--primary-hover);
+    }
   </style>
 </head>
 <body>
@@ -1813,6 +1854,19 @@
       </div>
     </div>
   </header>
+
+  <!-- Draft Warning Banner -->
+  <div class="draft-warning-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+      <line x1="12" y1="9" x2="12" y2="13"/>
+      <line x1="12" y1="17" x2="12.01" y2="17"/>
+    </svg>
+    <div class="draft-warning-content">
+      <strong>Draft Calculations</strong>
+      <span>All calculations shown are in draft form. For official reporting or analysis, please <a href="https://drive.google.com/file/d/119LFmkZT2-y5tSGcxJvrjjqHeEsDlWRz/view?usp=sharing" target="_blank" rel="noopener">download the original documentation from Google Drive</a>.</span>
+    </div>
+  </div>
 
   <div class="main-container">
     <!-- Money Flow Sidebar -->
