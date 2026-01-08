@@ -3596,9 +3596,32 @@
         return str;
       };
 
+      // Calculate totals
+      const totalAmount = filteredInvoices.reduce((sum, inv) => {
+        const amount = parseFloat(inv.total_amount) || 0;
+        return sum + amount;
+      }, 0);
+
+      const totalSubtotal = filteredInvoices.reduce((sum, inv) => {
+        const amount = parseFloat(inv.subtotal) || 0;
+        return sum + amount;
+      }, 0);
+
+      // Create summary row with totals
+      const emptyRow = new Array(headers.length).fill('');
+      const summaryRow = new Array(headers.length).fill('');
+      summaryRow[0] = 'TOTAL';
+      summaryRow[headers.indexOf('Total Amount')] = totalAmount.toFixed(2);
+      if (totalSubtotal > 0) {
+        summaryRow[headers.indexOf('Subtotal')] = totalSubtotal.toFixed(2);
+      }
+      summaryRow[headers.indexOf('Vendor Name')] = `${filteredInvoices.length} invoices`;
+
       const csvContent = [
         headers.map(escapeCSVField).join(','),
-        ...rows.map(row => row.map(escapeCSVField).join(','))
+        ...rows.map(row => row.map(escapeCSVField).join(',')),
+        emptyRow.join(','),
+        summaryRow.map(escapeCSVField).join(',')
       ].join('\n');
 
       downloadFile(csvContent, getExportFilename('.csv'), 'text/csv');
