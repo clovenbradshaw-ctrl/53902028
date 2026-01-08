@@ -57458,7 +57458,9 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_189.png,Finan
   ""meta_has_grand_total"": true,
   ""meta_source_page"": 189,
   ""meta_source_file"": ""Finance_BU_53902028_Invoices.pdf"",
-  ""meta_notes"": [],
+  ""meta_notes"": [
+    ""No header or totals visible. Continuation page.""
+  ],
   ""invoice_number"": ""L-6426 / RS2025-974"",
   ""invoice_date"": ""2025-09-03"",
   ""due_date"": null,
@@ -57531,18 +57533,21 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_189.png,Finan
     ""RS2025-974""
   ],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
-      189
+      189,
+      190
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 189, Pages 189, 190""
   },
   ""all_source_file_ids"": [
-    ""1snXmc938OEbb1Hj-CzxNTK_wZezYun2o""
+    ""1snXmc938OEbb1Hj-CzxNTK_wZezYun2o"",
+    ""1UsyS_iX5O0eKIYhXypTIaJ6iet-_tiCZ""
   ],
   ""all_source_rows"": [
-    ""189""
+    ""189"",
+    ""190""
   ]
 }"
 Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_190.png,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_190.png,https://drive.google.com/open?id=1UsyS_iX5O0eKIYhXypTIaJ6iet-_tiCZ,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_190.png thumbnail.png (https://v5.airtableusercontent.com/v3/u/49/49/1767852000000/FqemFwGkiwHzXiV8iBjgcg/yYOdS5TqFoM9OLTLdkWlHUhybPxPx-B9gIhcev2VSS9WE3yFXM59TIP9A5JNRW1FGgPSXWL2kHA465sW26_sO-KTzb-mquXb84NO1wV19-NVCT73yv6bQQ1FAoMR6uN1/c0-qc9tRlNJSThB9V_IFQEQj4F84WdbrW7KnxJ7MT8g),1/7/2026 4:04pm,1/7/2026 4:04pm,1/7/2026 9:58pm,Mike Lacy,png,50443,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_images,https://drive.google.com/file/d/1UsyS_iX5O0eKIYhXypTIaJ6iet-_tiCZ/view?usp=drivesdk,1UsyS_iX5O0eKIYhXypTIaJ6iet-_tiCZ,"Image 190 of 256
@@ -57593,56 +57598,102 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_190.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": []
 }",190,"{
-  ""meta_confidence"": 0.2,
+  ""meta_confidence"": 0.92,
   ""meta_invoice_type"": ""INTERNAL"",
-  ""meta_is_full_invoice"": false,
-  ""meta_is_continuation_page"": true,
-  ""meta_has_grand_total"": false,
-  ""meta_source_page"": 190,
+  ""meta_is_full_invoice"": true,
+  ""meta_is_continuation_page"": false,
+  ""meta_has_grand_total"": true,
+  ""meta_source_page"": 189,
   ""meta_source_file"": ""Finance_BU_53902028_Invoices.pdf"",
   ""meta_notes"": [
     ""No header or totals visible. Continuation page.""
   ],
-  ""invoice_number"": null,
-  ""invoice_date"": null,
+  ""invoice_number"": ""L-6426 / RS2025-974"",
+  ""invoice_date"": ""2025-09-03"",
   ""due_date"": null,
-  ""vendor_name"": null,
+  ""vendor_name"": ""Ryan LaSuer"",
   ""vendor_id"": null,
   ""vendor_address"": null,
-  ""vendor_phone"": null,
-  ""vendor_email"": null,
-  ""payer_name"": null,
+  ""vendor_phone"": ""615-400-6300"",
+  ""vendor_email"": ""rlasuer@gmail.com"",
+  ""payer_name"": ""DAVIDSON COUNTY - OFFICE OF HOMELESS SERVICES"",
   ""payer_address"": null,
   ""bu_code"": null,
   ""processor_name"": null,
   ""processor_date"": null,
-  ""invoice_total"": 0,
+  ""invoice_total"": 121750,
   ""amount_paid"": 0,
-  ""amount_due"": 0,
+  ""amount_due"": 121750,
   ""taxes"": 0,
-  ""service_start"": null,
-  ""service_end"": null,
-  ""service_description"": null,
+  ""service_start"": ""2025-08-01"",
+  ""service_end"": ""2026-07-28"",
+  ""service_description"": ""8/1/2025 - 7/28/2026"",
   ""property_name"": null,
   ""property_address"": null,
   ""unit_count"": 0,
-  ""line_items"": [],
+  ""line_items"": [
+    {
+      ""date"": null,
+      ""description"": ""Service charges"",
+      ""quantity"": 1,
+      ""unit_price"": 86921.95,
+      ""amount"": 86921.95,
+      ""category"": ""service""
+    },
+    {
+      ""date"": null,
+      ""description"": ""Service charges"",
+      ""quantity"": 1,
+      ""unit_price"": 432.28,
+      ""amount"": 432.28,
+      ""category"": ""service""
+    },
+    {
+      ""date"": null,
+      ""description"": ""Service charges"",
+      ""quantity"": 1,
+      ""unit_price"": 7662.53,
+      ""amount"": 7662.53,
+      ""category"": ""service""
+    },
+    {
+      ""date"": null,
+      ""description"": ""Service charges"",
+      ""quantity"": 1,
+      ""unit_price"": 22135.71,
+      ""amount"": 22135.71,
+      ""category"": ""service""
+    },
+    {
+      ""date"": null,
+      ""description"": ""Service charges"",
+      ""quantity"": 1,
+      ""unit_price"": 4597.53,
+      ""amount"": 4597.53,
+      ""category"": ""service""
+    }
+  ],
   ""cost_allocations"": [],
   ""confirmation_numbers"": [],
   ""employee_names"": [],
-  ""reference_numbers"": [],
+  ""reference_numbers"": [
+    ""RS2025-974""
+  ],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
+      189,
       190
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 189, Pages 189, 190""
   },
   ""all_source_file_ids"": [
+    ""1snXmc938OEbb1Hj-CzxNTK_wZezYun2o"",
     ""1UsyS_iX5O0eKIYhXypTIaJ6iet-_tiCZ""
   ],
   ""all_source_rows"": [
+    ""189"",
     ""190""
   ]
 }"
@@ -57907,7 +57958,9 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_192.png,Finan
   ""meta_has_grand_total"": true,
   ""meta_source_page"": 192,
   ""meta_source_file"": ""Finance_BU_53902028_Invoices.pdf"",
-  ""meta_notes"": [],
+  ""meta_notes"": [
+    ""Page contains only a blank Metro internal form layout with no financial data.""
+  ],
   ""invoice_number"": ""L-6426 / RS2025-974"",
   ""invoice_date"": ""2025-10-05"",
   ""due_date"": null,
@@ -57948,18 +58001,21 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_192.png,Finan
     ""RS2025-974""
   ],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
-      192
+      192,
+      193
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 192, Pages 192, 193""
   },
   ""all_source_file_ids"": [
-    ""16yHJYGAPkZE0t3AaH6d_-pakhcI4Tcrb""
+    ""16yHJYGAPkZE0t3AaH6d_-pakhcI4Tcrb"",
+    ""1mgfkd-NN4h2MAFwaxphn9zjMLBPKXiCH""
   ],
   ""all_source_rows"": [
-    ""192""
+    ""192"",
+    ""193""
   ]
 }"
 Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_193.png,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_193.png,https://drive.google.com/open?id=1mgfkd-NN4h2MAFwaxphn9zjMLBPKXiCH,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_193.png thumbnail.png (https://v5.airtableusercontent.com/v3/u/49/49/1767852000000/_PNJGknXbJjiGsK2-1YDiA/s0tHRSzonT7pcMiHGonp2LqYf40Ms9hTPDAGm-pZYU-95--lnr06cCa-A_YhXsRvzoKR7QcwhxmtNdBwC91-G1Utteb_a0vV3sQW2Hk0Q7BsB-dy-n-OcGgw7GAdbuON/D8SvqtLSwm5tsv4SOSQaEdV4gVID3TOxVFXkfCszfD8),1/7/2026 4:04pm,1/7/2026 4:04pm,1/7/2026 9:58pm,Mike Lacy,png,50572,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_images,https://drive.google.com/file/d/1mgfkd-NN4h2MAFwaxphn9zjMLBPKXiCH/view?usp=drivesdk,1mgfkd-NN4h2MAFwaxphn9zjMLBPKXiCH,"Image 193 of 256
@@ -58011,56 +58067,70 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_193.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": []
 }",193,"{
-  ""meta_confidence"": 0.2,
+  ""meta_confidence"": 0.95,
   ""meta_invoice_type"": ""INTERNAL"",
-  ""meta_is_full_invoice"": false,
-  ""meta_is_continuation_page"": true,
-  ""meta_has_grand_total"": false,
-  ""meta_source_page"": 193,
+  ""meta_is_full_invoice"": true,
+  ""meta_is_continuation_page"": false,
+  ""meta_has_grand_total"": true,
+  ""meta_source_page"": 192,
   ""meta_source_file"": ""Finance_BU_53902028_Invoices.pdf"",
   ""meta_notes"": [
     ""Page contains only a blank Metro internal form layout with no financial data.""
   ],
-  ""invoice_number"": null,
-  ""invoice_date"": null,
+  ""invoice_number"": ""L-6426 / RS2025-974"",
+  ""invoice_date"": ""2025-10-05"",
   ""due_date"": null,
-  ""vendor_name"": null,
+  ""vendor_name"": ""Davidson County - Office of Homeless Services"",
   ""vendor_id"": null,
   ""vendor_address"": null,
-  ""vendor_phone"": null,
-  ""vendor_email"": null,
+  ""vendor_phone"": ""615-400-6300"",
+  ""vendor_email"": ""rclasuer@gmail.com"",
   ""payer_name"": null,
   ""payer_address"": null,
   ""bu_code"": null,
-  ""processor_name"": null,
+  ""processor_name"": ""Ryan LaSuer"",
   ""processor_date"": null,
-  ""invoice_total"": 0,
-  ""amount_paid"": 0,
+  ""invoice_total"": 22818.9,
+  ""amount_paid"": 22818.9,
   ""amount_due"": 0,
   ""taxes"": 0,
-  ""service_start"": null,
-  ""service_end"": null,
-  ""service_description"": null,
+  ""service_start"": ""2025-09-01"",
+  ""service_end"": ""2025-09-30"",
+  ""service_description"": ""9/1/2025 - 9/30/2025"",
   ""property_name"": null,
   ""property_address"": null,
   ""unit_count"": 0,
-  ""line_items"": [],
+  ""line_items"": [
+    {
+      ""date"": null,
+      ""description"": ""Services for period 9/1/2025 - 9/30/2025"",
+      ""quantity"": 1,
+      ""unit_price"": 22818.9,
+      ""amount"": 22818.9,
+      ""category"": ""service""
+    }
+  ],
   ""cost_allocations"": [],
   ""confirmation_numbers"": [],
   ""employee_names"": [],
-  ""reference_numbers"": [],
+  ""reference_numbers"": [
+    ""RS2025-974""
+  ],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
+      192,
       193
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Contains continuation pages, Grand total on page 192, Pages 192, 193""
   },
   ""all_source_file_ids"": [
+    ""16yHJYGAPkZE0t3AaH6d_-pakhcI4Tcrb"",
     ""1mgfkd-NN4h2MAFwaxphn9zjMLBPKXiCH""
   ],
   ""all_source_rows"": [
+    ""192"",
     ""193""
   ]
 }"
@@ -69124,7 +69194,7 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_253.png,Finan
   ""meta_notes"": [],
   ""invoice_number"": ""59EE76EB"",
   ""invoice_date"": ""2025-08-21"",
-  ""due_date"": null,
+  ""due_date"": ""2025-08-14"",
   ""vendor_name"": ""Grand Tents & Events"",
   ""vendor_id"": null,
   ""vendor_address"": ""812 Madison Industrial Rd, Madison, TN 37115"",
@@ -69135,9 +69205,9 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_253.png,Finan
   ""bu_code"": null,
   ""processor_name"": null,
   ""processor_date"": null,
-  ""invoice_total"": 6304,
+  ""invoice_total"": 7595.6,
   ""amount_paid"": 0,
-  ""amount_due"": 6304,
+  ""amount_due"": 7595.6,
   ""taxes"": 0,
   ""service_start"": ""2025-08-21"",
   ""service_end"": ""2025-08-21"",
@@ -69297,6 +69367,62 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_253.png,Finan
       ""unit_price"": 39,
       ""amount"": 78,
       ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""Rental Item Total"",
+      ""quantity"": 1,
+      ""unit_price"": 4273,
+      ""amount"": 4273,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""Purchase Total"",
+      ""quantity"": 1,
+      ""unit_price"": 1144,
+      ""amount"": 1144,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""Bundle Total"",
+      ""quantity"": 1,
+      ""unit_price"": 655,
+      ""amount"": 655,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""Delivery Total"",
+      ""quantity"": 1,
+      ""unit_price"": 100,
+      ""amount"": 100,
+      ""category"": ""fee""
+    },
+    {
+      ""date"": null,
+      ""description"": ""Damage Waiver Fee Total"",
+      ""quantity"": 1,
+      ""unit_price"": 492.8,
+      ""amount"": 492.8,
+      ""category"": ""fee""
+    },
+    {
+      ""date"": null,
+      ""description"": ""LABOR FEE"",
+      ""quantity"": 1,
+      ""unit_price"": 910.8,
+      ""amount"": 910.8,
+      ""category"": ""labor""
+    },
+    {
+      ""date"": null,
+      ""description"": ""FUEL SURCHARGE"",
+      ""quantity"": 1,
+      ""unit_price"": 20,
+      ""amount"": 20,
+      ""category"": ""fee""
     }
   ],
   ""cost_allocations"": [],
@@ -69304,18 +69430,21 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_253.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": [],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
-      253
+      253,
+      254
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Grand total on page 253, Pages 253, 254""
   },
   ""all_source_file_ids"": [
-    ""1aLNztQjrReeLC38PEIjbX2x3vxj62ISr""
+    ""1aLNztQjrReeLC38PEIjbX2x3vxj62ISr"",
+    ""1fQ8nR2Y8noaC-n-SrQBeYdNwXFID3Uyh""
   ],
   ""all_source_rows"": [
-    ""253""
+    ""253"",
+    ""254""
   ]
 }"
 Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_254.png,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_254.png,https://drive.google.com/open?id=1fQ8nR2Y8noaC-n-SrQBeYdNwXFID3Uyh,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_254.png thumbnail.png (https://v5.airtableusercontent.com/v3/u/49/49/1767852000000/IMFXPF1_yAlTjtjparwNnA/6JaHT43bGgZQE0a-5atd7Db2YYm3W7PPmPsVJhhwyBfRYqPhQ897GQCOBBLZJslZkWOQKihlze5AeModGju7C-HHsk3eLi6SZsqgTVIUz0o2iXCgSGlKpdr5svCUVtWv/wERowevgowguBJlJiUmcKhzui2FYC6VKXzG8i9Y9K_o),1/7/2026 4:04pm,1/7/2026 4:04pm,1/7/2026 9:58pm,Mike Lacy,png,124264,Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_images,https://drive.google.com/file/d/1fQ8nR2Y8noaC-n-SrQBeYdNwXFID3Uyh/view?usp=drivesdk,1fQ8nR2Y8noaC-n-SrQBeYdNwXFID3Uyh,"Image 254 of 256
@@ -69423,24 +69552,24 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_254.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": []
 }",254,"{
-  ""meta_confidence"": 0.95,
+  ""meta_confidence"": 0.98,
   ""meta_invoice_type"": ""EQUIPMENT"",
   ""meta_is_full_invoice"": true,
   ""meta_is_continuation_page"": false,
   ""meta_has_grand_total"": true,
-  ""meta_source_page"": 254,
+  ""meta_source_page"": 253,
   ""meta_source_file"": ""Finance_BU_53902028_Invoices.pdf"",
   ""meta_notes"": [],
-  ""invoice_number"": ""unknown"",
-  ""invoice_date"": null,
+  ""invoice_number"": ""59EE76EB"",
+  ""invoice_date"": ""2025-08-21"",
   ""due_date"": ""2025-08-14"",
-  ""vendor_name"": ""unknown"",
+  ""vendor_name"": ""Grand Tents & Events"",
   ""vendor_id"": null,
-  ""vendor_address"": null,
-  ""vendor_phone"": null,
+  ""vendor_address"": ""812 Madison Industrial Rd, Madison, TN 37115"",
+  ""vendor_phone"": ""615-868-3747"",
   ""vendor_email"": null,
-  ""payer_name"": null,
-  ""payer_address"": null,
+  ""payer_name"": ""METRO NASHVILLE DAVIDSON COUNTY"",
+  ""payer_address"": ""ONE PUBLIC SQUARE, NASHVILLE, TN 37201"",
   ""bu_code"": null,
   ""processor_name"": null,
   ""processor_date"": null,
@@ -69448,13 +69577,165 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_254.png,Finan
   ""amount_paid"": 0,
   ""amount_due"": 7595.6,
   ""taxes"": 0,
-  ""service_start"": null,
-  ""service_end"": null,
-  ""service_description"": null,
+  ""service_start"": ""2025-08-21"",
+  ""service_end"": ""2025-08-21"",
+  ""service_description"": ""Tent setup and event equipment rental for 110 Jo Johnston Ave"",
   ""property_name"": null,
-  ""property_address"": null,
+  ""property_address"": ""110 Jo Johnston Ave, Nashville, TN 37201"",
   ""unit_count"": 0,
   ""line_items"": [
+    {
+      ""date"": null,
+      ""description"": ""20’ x 30’ WHITE KEDER FRAME (GABLE)"",
+      ""quantity"": 1,
+      ""unit_price"": 570,
+      ""amount"": 570,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""20’ x 15’ WHITE KEDER FRAME MID (GABLE)"",
+      ""quantity"": 5,
+      ""unit_price"": 285,
+      ""amount"": 1425,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""WEIGHT, 350LB CONCRETE"",
+      ""quantity"": 15,
+      ""unit_price"": 45,
+      ""amount"": 675,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""SOUND SYSTEMS PODIUM WITH MICROPHONE"",
+      ""quantity"": 1,
+      ""unit_price"": 175,
+      ""amount"": 175,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""WHITE RESIN GARDEN CHAIR"",
+      ""quantity"": 120,
+      ""unit_price"": 4.15,
+      ""amount"": 498,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""8’ BANQUET TABLE 8L X 30W X 30”"",
+      ""quantity"": 2,
+      ""unit_price"": 12,
+      ""amount"": 24,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""FIRE EXTINGUISHER 10 LB"",
+      ""quantity"": 2,
+      ""unit_price"": 40,
+      ""amount"": 80,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""LIGHTING: EXIT SIGN WITH EMERGENCY LIGHTS"",
+      ""quantity"": 2,
+      ""unit_price"": 40,
+      ""amount"": 80,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""ELECTRICAL: 50’ 10/3 OUTDOOR EXTENSION CORD-GROUNDED WHITE"",
+      ""quantity"": 2,
+      ""unit_price"": 16.5,
+      ""amount"": 33,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""KWIK BLOCK COVER"",
+      ""quantity"": 15,
+      ""unit_price"": 0,
+      ""amount"": 0,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""CHAIR SETUP AND BREAKDOWN"",
+      ""quantity"": 120,
+      ""unit_price"": 1,
+      ""amount"": 120,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""TABLE SETUP AND BREAKDOWN"",
+      ""quantity"": 12,
+      ""unit_price"": 2,
+      ""amount"": 24,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""FIRE PERMIT"",
+      ""quantity"": 1,
+      ""unit_price"": 200,
+      ""amount"": 200,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""30” ROUND TALL PEDESTAL TABLE 42” H"",
+      ""quantity"": 10,
+      ""unit_price"": 13,
+      ""amount"": 130,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""TENT FAN"",
+      ""quantity"": 10,
+      ""unit_price"": 52.5,
+      ""amount"": 525,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""EVENT DAY TENT DELIVERY"",
+      ""quantity"": 1,
+      ""unit_price"": 400,
+      ""amount"": 400,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""LATE NIGHT DELIVERY OR PICK UP"",
+      ""quantity"": 1,
+      ""unit_price"": 400,
+      ""amount"": 400,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""FRAME TENT LEG EXTENSION"",
+      ""quantity"": 15,
+      ""unit_price"": 25,
+      ""amount"": 375,
+      ""category"": ""equipment""
+    },
+    {
+      ""date"": null,
+      ""description"": ""BLACK SPANDEX 8FT LINEN"",
+      ""quantity"": 2,
+      ""unit_price"": 39,
+      ""amount"": 78,
+      ""category"": ""equipment""
+    },
     {
       ""date"": null,
       ""description"": ""Rental Item Total"",
@@ -69517,17 +69798,20 @@ Finance_BU 53902028 Invoices - Combined and Redacted_Redacted_page_254.png,Finan
   ""employee_names"": [],
   ""reference_numbers"": [],
   ""merge_info"": {
-    ""page_count"": 1,
+    ""page_count"": 2,
     ""source_pages"": [
+      253,
       254
     ],
-    ""was_merged"": false,
-    ""merge_reasoning"": ""Single-page invoice""
+    ""was_merged"": true,
+    ""merge_reasoning"": ""Grand total on page 253, Pages 253, 254""
   },
   ""all_source_file_ids"": [
+    ""1aLNztQjrReeLC38PEIjbX2x3vxj62ISr"",
     ""1fQ8nR2Y8noaC-n-SrQBeYdNwXFID3Uyh""
   ],
   ""all_source_rows"": [
+    ""253"",
     ""254""
   ]
 }"
