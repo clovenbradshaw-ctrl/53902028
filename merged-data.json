@@ -1,6 +1,6 @@
 {
   "_metadata": {
-    "generated_at": "2026-01-08T17:38:30.479Z",
+    "generated_at": "2026-01-08T22:39:29.679Z",
     "ledger_source": "ledger.csv",
     "ocr_source": "data.csv",
     "description": "Merged financial data from Metro Nashville ledger (source of truth) and OCR-extracted invoice scans",
@@ -8,7 +8,7 @@
       "LEDGER": "Authoritative data from Metro Nashville financial system - use for amounts, dates, vendor IDs",
       "OCR": "Supplementary data from scanned invoice PDFs - provides line items, confirmation numbers, service details"
     },
-    "last_corrected": "2026-01-08T21:36:20.586Z",
+    "last_corrected": "2026-01-08T22:39:29.833Z",
     "corrections_applied": [
       "Split duplicate invoice numbers (9700274853, 9700283386)",
       "Replaced placeholder invoice numbers",
@@ -22546,9 +22546,7 @@
         "meta_invoice_type": "HOTEL",
         "meta_source_page": 207,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [
-          "Type corrected: RENTAL → HOTEL (lodging vendor)"
-        ],
+        "meta_notes": [],
         "invoice_number": "INV-000003",
         "invoice_date": "2025-01-02",
         "due_date": "2025-01-02",
@@ -22725,6 +22723,7 @@
         "meta_source_page": 1,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [
+          "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
         "invoice_number": "THE-20250101-M65",
@@ -22953,6 +22952,7 @@
         "meta_source_page": 15,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [
+          "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
         "invoice_number": "THE-20250101-M67",
@@ -23066,9 +23066,7 @@
         "meta_invoice_type": "HOTEL",
         "meta_source_page": 208,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [
-          "Type corrected: RENTAL → HOTEL (lodging vendor)"
-        ],
+        "meta_notes": [],
         "invoice_number": "INV-000044",
         "invoice_date": "2025-02-03",
         "due_date": "2025-02-03",
@@ -23535,6 +23533,7 @@
         "meta_source_page": 8,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [
+          "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
         "invoice_number": "THE-20250301-M71",
@@ -23649,6 +23648,7 @@
         "meta_source_page": 9,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [
+          "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
         "invoice_number": "THE-20250301-M72",
@@ -23941,6 +23941,7 @@
         "meta_source_page": 10,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [
+          "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
         "invoice_number": "THE-20250401-M74",
@@ -24818,9 +24819,7 @@
         "meta_invoice_type": "HOTEL",
         "meta_source_page": 212,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [
-          "Type corrected: RENTAL → HOTEL (lodging vendor)"
-        ],
+        "meta_notes": [],
         "invoice_number": "INV-000089",
         "invoice_date": "2025-04-28",
         "due_date": "2025-04-28",
@@ -24938,9 +24937,7 @@
         "meta_invoice_type": "HOTEL",
         "meta_source_page": 214,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [
-          "Type corrected: RENTAL → HOTEL (lodging vendor)"
-        ],
+        "meta_notes": [],
         "invoice_number": "INV-000092",
         "invoice_date": "2025-04-28",
         "due_date": "2025-04-28",
@@ -25167,6 +25164,7 @@
         "meta_source_page": 13,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [
+          "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
         "invoice_number": "THE-20250501-M83",
@@ -25281,6 +25279,7 @@
         "meta_source_page": 16,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [
+          "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
         "invoice_number": "THE-20250501-M84",
@@ -25395,6 +25394,7 @@
         "meta_source_page": 19,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [
+          "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
         "invoice_number": "THE-20250411-M85",
@@ -25718,9 +25718,7 @@
         "meta_invoice_type": "HOTEL",
         "meta_source_page": 213,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [
-          "Type corrected: RENTAL → HOTEL (lodging vendor)"
-        ],
+        "meta_notes": [],
         "invoice_number": "INV-000107",
         "invoice_date": "2025-06-02",
         "due_date": "2025-06-02",
@@ -38143,7 +38141,7 @@
           "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
-        "invoice_number": "THE-20250101-D92",
+        "invoice_number": "THE-20250101-D490",
         "invoice_date": "2025-01-23",
         "due_date": "2025-02-06",
         "vendor_name": "The Ave (Castello Equity Partners)",
@@ -38465,7 +38463,7 @@
           "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
-        "invoice_number": "THE-20250901-D95",
+        "invoice_number": "THE-20250901-D496",
         "invoice_date": "2025-09-03",
         "due_date": null,
         "vendor_name": "The Ave (Castello Equity Partners)",
@@ -38680,7 +38678,7 @@
           "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
-        "invoice_number": "THE-20250601-D97",
+        "invoice_number": "THE-20250601-D500",
         "invoice_date": "2025-07-01",
         "due_date": null,
         "vendor_name": "The Ave (Castello Equity Partners)",
@@ -38804,7 +38802,7 @@
           "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
-        "invoice_number": "THE-20250601-D98",
+        "invoice_number": "THE-20250601-D502",
         "invoice_date": "2025-06-06",
         "due_date": null,
         "vendor_name": "The Ave (Castello Equity Partners)",
@@ -41004,8 +41002,8 @@
         "invoice_date": "2024-10-05",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -41375,8 +41373,8 @@
         "invoice_date": "2024-10-05",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -42950,8 +42948,8 @@
         "invoice_date": "2024-10-05",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -43621,8 +43619,8 @@
         "invoice_date": "2024-10-05",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -43814,8 +43812,8 @@
         "invoice_date": "2024-11-02",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -44060,8 +44058,8 @@
         "invoice_date": "2024-11-23",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -44461,8 +44459,8 @@
         "invoice_date": "2024-11-22",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -44654,8 +44652,8 @@
         "invoice_date": "2024-11-30",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -44829,8 +44827,8 @@
         "invoice_date": "2024-12-02",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45096,8 +45094,8 @@
         "invoice_date": "2024-12-21",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45299,8 +45297,8 @@
         "invoice_date": "2025-01-04",
         "due_date": "2025-01-22",
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45468,8 +45466,8 @@
         "invoice_date": "2025-02-01",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990, Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45643,8 +45641,8 @@
         "invoice_date": "2025-03-08",
         "due_date": "2025-03-26",
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45814,8 +45812,8 @@
         "invoice_date": "2025-03-10",
         "due_date": "2025-05-13",
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -45921,8 +45919,8 @@
         "invoice_date": "2025-03-01",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -46096,8 +46094,8 @@
         "invoice_date": "2025-02-15",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -46972,247 +46970,6 @@
         ],
         "employee_names": [],
         "service_period": "2025-05-04 to 2025-05-11"
-      }
-    },
-    {
-      "_data_sources": {
-        "ledger": false,
-        "ocr": true,
-        "match_type": "ocr_only",
-        "match_confidence": 0.5,
-        "match_notes": "Not found in ledger - may be internal form or processing document"
-      },
-      "ledger": null,
-      "ocr": {
-        "meta_confidence": 0.98,
-        "meta_invoice_type": "HOTEL",
-        "meta_source_page": 122,
-        "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [],
-        "invoice_number": "1555056163",
-        "invoice_date": "2025-05-18",
-        "due_date": "2025-05-18",
-        "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
-        "vendor_phone": null,
-        "vendor_email": "accountsreceivable@extendedstay.com",
-        "payer_name": "The Family Center",
-        "payer_address": "139 Thompson Ln., Nashville, TN 37211",
-        "bu_code": "53902028.502363",
-        "processor_name": "Joseph Marsh",
-        "processor_date": "2025-07-10",
-        "invoice_total": 542.87,
-        "amount_paid": 329.76,
-        "amount_due": 542.87,
-        "taxes": 69.44,
-        "service_start": "2025-05-11",
-        "service_end": "2025-05-17",
-        "service_description": "Hotel stays for two guest accounts",
-        "property_name": "ESA Suites Nashville Airport Music City",
-        "property_address": null,
-        "unit_count": 2,
-        "line_items": [
-          {
-            "date": "2025-05-11",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-12",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-13",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-14",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-15",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-16",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-17",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-11",
-            "description": "Room night for guest 9700274867",
-            "quantity": 1,
-            "unit_price": 68.99,
-            "amount": 82.7,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-12",
-            "description": "Room night for guest 9700274867",
-            "quantity": 1,
-            "unit_price": 68.99,
-            "amount": 82.7,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-13",
-            "description": "Room night for guest 9700274867",
-            "quantity": 1,
-            "unit_price": 68.99,
-            "amount": 82.7,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-14",
-            "description": "Room night for guest 9700274867",
-            "quantity": 1,
-            "unit_price": 176,
-            "amount": 204.6,
-            "category": "room"
-          }
-        ],
-        "cost_allocations": [],
-        "confirmation_numbers": [
-          "9700274547",
-          "9700274867"
-        ],
-        "employee_names": [],
-        "reference_numbers": []
-      },
-      "unified": {
-        "vendor_name": "Extended Stay America",
-        "invoice_number": "1555056163",
-        "invoice_date": "2025-05-18",
-        "amount": 542.87,
-        "payment_date": "",
-        "category": "HOTEL",
-        "line_items": [
-          {
-            "date": "2025-05-11",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-12",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-13",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-14",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-15",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-16",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-17",
-            "description": "Room night for guest 9700274547",
-            "quantity": 1,
-            "unit_price": 59.99,
-            "amount": 59.99,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-11",
-            "description": "Room night for guest 9700274867",
-            "quantity": 1,
-            "unit_price": 68.99,
-            "amount": 82.7,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-12",
-            "description": "Room night for guest 9700274867",
-            "quantity": 1,
-            "unit_price": 68.99,
-            "amount": 82.7,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-13",
-            "description": "Room night for guest 9700274867",
-            "quantity": 1,
-            "unit_price": 68.99,
-            "amount": 82.7,
-            "category": "room"
-          },
-          {
-            "date": "2025-05-14",
-            "description": "Room night for guest 9700274867",
-            "quantity": 1,
-            "unit_price": 176,
-            "amount": 204.6,
-            "category": "room"
-          }
-        ],
-        "confirmation_numbers": [
-          "9700274547",
-          "9700274867"
-        ],
-        "employee_names": [],
-        "service_period": "2025-05-11 to 2025-05-17"
       }
     },
     {
@@ -49754,8 +49511,8 @@
         "invoice_date": "2025-02-22",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -49957,8 +49714,8 @@
         "invoice_date": "2025-02-03",
         "due_date": null,
         "vendor_name": "Extended Stay America",
-        "vendor_id": "1020857",
-        "vendor_address": "13024 Ballantyne Corporate Place, Suite 1000, Charlotte, NC 28277",
+        "vendor_id": null,
+        "vendor_address": "P.O. Box 841990 Dallas, TX 75284-1990",
         "vendor_phone": null,
         "vendor_email": null,
         "payer_name": null,
@@ -54309,18 +54066,17 @@
       "ledger": null,
       "ocr": {
         "meta_confidence": 0.92,
-        "meta_invoice_type": "CONTRACT",
+        "meta_invoice_type": "INTERNAL",
         "meta_source_page": 189,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [
-          "No header or totals visible. Continuation page.",
-          "Contract reference - not an invoice"
+          "No header or totals visible. Continuation page."
         ],
-        "invoice_number": "RS2025-974-20250801",
+        "invoice_number": "L-6426 / RS2025-974",
         "invoice_date": "2025-09-03",
         "due_date": null,
-        "vendor_name": "Hillside Crossing Hotel",
-        "vendor_id": "1021245",
+        "vendor_name": "Ryan LaSuer",
+        "vendor_id": null,
         "vendor_address": null,
         "vendor_phone": "615-400-6300",
         "vendor_email": "rlasuer@gmail.com",
@@ -54406,8 +54162,8 @@
         ]
       },
       "unified": {
-        "vendor_name": "Hillside Crossing Hotel",
-        "invoice_number": "RS2025-974-20250903",
+        "vendor_name": "Ryan LaSuer",
+        "invoice_number": "L-6426 / RS2025-974",
         "invoice_date": "2025-09-03",
         "amount": 121750,
         "payment_date": "",
@@ -54639,18 +54395,17 @@
       "ledger": null,
       "ocr": {
         "meta_confidence": 0.95,
-        "meta_invoice_type": "CONTRACT",
+        "meta_invoice_type": "INTERNAL",
         "meta_source_page": 192,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
         "meta_notes": [
-          "Page contains only a blank Metro internal form layout with no financial data.",
-          "Contract reference - not an invoice"
+          "Page contains only a blank Metro internal form layout with no financial data."
         ],
-        "invoice_number": "RS2025-974-20250901",
+        "invoice_number": "L-6426 / RS2025-974",
         "invoice_date": "2025-10-05",
         "due_date": null,
-        "vendor_name": "Hillside Crossing Hotel",
-        "vendor_id": "1021245",
+        "vendor_name": "Davidson County - Office of Homeless Services",
+        "vendor_id": null,
         "vendor_address": null,
         "vendor_phone": "615-400-6300",
         "vendor_email": "rclasuer@gmail.com",
@@ -54704,8 +54459,8 @@
         ]
       },
       "unified": {
-        "vendor_name": "Hillside Crossing Hotel",
-        "invoice_number": "RS2025-974-20251005",
+        "vendor_name": "Davidson County - Office of Homeless Services",
+        "invoice_number": "L-6426 / RS2025-974",
         "invoice_date": "2025-10-05",
         "amount": 22818.9,
         "payment_date": "",
@@ -55429,7 +55184,7 @@
           "Page contains only a comments section with no financial, vendor, or line item data.",
           "Generated invoice number - original was missing"
         ],
-        "invoice_number": "UNKN-MISSING-20240101-D177",
+        "invoice_number": "UNKN-MISSING-20240101-D658",
         "invoice_date": null,
         "due_date": null,
         "vendor_name": null,
@@ -55902,9 +55657,7 @@
         "meta_invoice_type": "HOTEL",
         "meta_source_page": 217,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [
-          "Type corrected: RENTAL → HOTEL (lodging vendor)"
-        ],
+        "meta_notes": [],
         "invoice_number": "INV-000146",
         "invoice_date": "2025-10-22",
         "due_date": "2025-10-22",
@@ -56212,9 +55965,7 @@
         "meta_invoice_type": "HOTEL",
         "meta_source_page": 219,
         "meta_source_file": "Finance_BU_53902028_Invoices.pdf",
-        "meta_notes": [
-          "Type corrected: RENTAL → HOTEL (lodging vendor)"
-        ],
+        "meta_notes": [],
         "invoice_number": "INV-000145",
         "invoice_date": "2025-10-20",
         "due_date": "2025-10-20",
@@ -56306,7 +56057,7 @@
         "meta_notes": [
           "Generated invoice number - original was missing"
         ],
-        "invoice_number": "NOTT-MISSING-20250627-D184",
+        "invoice_number": "NOTT-MISSING-20250627-D672",
         "invoice_date": "2025-06-27",
         "due_date": null,
         "vendor_name": "Nottingham Partners LLC",
@@ -56398,7 +56149,7 @@
         "invoice_number": "WO3001533847",
         "invoice_date": "2025-04-02",
         "due_date": null,
-        "vendor_name": "Thompson Machinery",
+        "vendor_name": "Thompson Machinery Commerce Corp.",
         "vendor_id": null,
         "vendor_address": "1245 Bridgestone Boulevard, LaVergne, Tennessee 37086",
         "vendor_phone": "(615) 256-2424",
@@ -56460,7 +56211,7 @@
         ]
       },
       "unified": {
-        "vendor_name": "Thompson Machinery",
+        "vendor_name": "Thompson Machinery Commerce Corp.",
         "invoice_number": "WO3001533847",
         "invoice_date": "2025-04-02",
         "amount": 2700,
@@ -56507,7 +56258,7 @@
           "Generated invoice number - original was missing",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
-        "invoice_number": "HIGH-MISSING-20250617-D186",
+        "invoice_number": "HIGH-MISSING-20250617-D676",
         "invoice_date": "2025-06-17",
         "due_date": null,
         "vendor_name": "Highland East Apartments",
@@ -56614,7 +56365,7 @@
         "meta_notes": [
           "Generated invoice number - original was missing"
         ],
-        "invoice_number": "HIGH-MISSING-20250616-D187",
+        "invoice_number": "HIGH-MISSING-20250616-D678",
         "invoice_date": "2025-06-16",
         "due_date": null,
         "vendor_name": "Highland East Apartments",
@@ -56802,7 +56553,7 @@
           "Generated invoice number - original was placeholder \"INV\"",
           "Type corrected: RENTAL → HOTEL (lodging vendor)"
         ],
-        "invoice_number": "THE-20250801-D188",
+        "invoice_number": "THE-20250801-D680",
         "invoice_date": "2025-08-11",
         "due_date": "2025-08-06",
         "vendor_name": "The Ave (Castello Equity Partners)",
@@ -56864,7 +56615,7 @@
       },
       "unified": {
         "vendor_name": "The Ave (Castello Equity Partners)",
-        "invoice_number": "THE-20250811-X683",
+        "invoice_number": "THE-20250811-X681",
         "invoice_date": "2025-08-11",
         "amount": 1450,
         "payment_date": "",

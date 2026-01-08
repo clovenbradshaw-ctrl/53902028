@@ -10,7 +10,8 @@
  * 5. Normalize variant vendor/property names
  * 6. Fill missing invoice numbers
  * 7. Correct invoice types for lodging vendors (RENTAL → HOTEL)
- * 7. Remove zero-amount records with null/empty vendor
+ * 8. Remove zero-amount records with null/empty vendor
+ * 9. Deduplicate invoices (remove exact duplicates based on invoice_number + vendor + date + amount)
  */
 
 const fs = require('fs');
@@ -96,8 +97,12 @@ let changeLog = {
   missingInvoicesFilled: 0,
   zeroRecordsRemoved: 0,
   contractsUnlinked: 0,
-  invoiceTypeCorrections: 0
+  invoiceTypeCorrections: 0,
+  duplicatesRemoved: 0
 };
+
+// Track removed duplicates for reporting
+let removedDuplicates = [];
 
 // Vendor IDs that are lodging/hotel vendors (should use HOTEL type, not RENTAL)
 const LODGING_VENDOR_IDS = [
@@ -108,6 +113,80 @@ const LODGING_VENDOR_IDS = [
   '1024315',  // Greenview Studios
   '1023472'   // Highland East Apartments
 ];
+
+/**
+ * Create a fingerprint for an invoice to identify duplicates
+ * Uses invoice_number + vendor_name + invoice_date + invoice_total
+ */
+function createInvoiceFingerprint(inv) {
+  const invoiceNum = (inv.invoice_number || '').toString().trim().toUpperCase();
+  const vendor = (inv.vendor_name || '').toString().trim().toUpperCase();
+  const date = (inv.invoice_date || '').toString().trim();
+  const amount = Math.round((inv.invoice_total || 0) * 100); // cents to avoid float issues
+  return `${invoiceNum}|${vendor}|${date}|${amount}`;
+}
+
+/**
+ * Deduplicate invoices - keeps the record with highest confidence or first occurrence
+ * Returns array of unique invoices
+ */
+function deduplicateInvoices(invoices) {
+  const seen = new Map(); // fingerprint -> { index, invoice }
+  const duplicateIndices = new Set();
+
+  invoices.forEach((inv, idx) => {
+    // Skip records that will be processed/split later (known duplicates with different service periods)
+    if (inv.invoice_number === '9700274853' || inv.invoice_number === '9700283386') {
+      return;
+    }
+
+    const fingerprint = createInvoiceFingerprint(inv);
+
+    // Skip empty fingerprints (will be handled by other corrections)
+    if (fingerprint === '|||0') return;
+
+    if (seen.has(fingerprint)) {
+      const existing = seen.get(fingerprint);
+      const existingConfidence = existing.invoice.meta_confidence || 0;
+      const currentConfidence = inv.meta_confidence || 0;
+
+      // Keep the one with higher confidence, or the first one if equal
+      if (currentConfidence > existingConfidence) {
+        // Replace existing with current, mark existing as duplicate
+        duplicateIndices.add(existing.index);
+        seen.set(fingerprint, { index: idx, invoice: inv });
+
+        removedDuplicates.push({
+          invoice_number: existing.invoice.invoice_number,
+          vendor_name: existing.invoice.vendor_name,
+          invoice_date: existing.invoice.invoice_date,
+          invoice_total: existing.invoice.invoice_total,
+          meta_source_page: existing.invoice.meta_source_page,
+          reason: `Duplicate - lower confidence (${existingConfidence} vs ${currentConfidence})`
+        });
+      } else {
+        // Mark current as duplicate
+        duplicateIndices.add(idx);
+
+        removedDuplicates.push({
+          invoice_number: inv.invoice_number,
+          vendor_name: inv.vendor_name,
+          invoice_date: inv.invoice_date,
+          invoice_total: inv.invoice_total,
+          meta_source_page: inv.meta_source_page,
+          reason: `Duplicate of invoice at page ${existing.invoice.meta_source_page || 'unknown'}`
+        });
+      }
+
+      changeLog.duplicatesRemoved++;
+    } else {
+      seen.set(fingerprint, { index: idx, invoice: inv });
+    }
+  });
+
+  // Return invoices without duplicates
+  return invoices.filter((_, idx) => !duplicateIndices.has(idx));
+}
 
 /**
  * Process OCR invoices
@@ -242,6 +321,11 @@ function processOcrInvoices(data) {
     changeLog.zeroRecordsRemoved++;
   });
 
+  // Deduplicate invoices (remove exact duplicates based on invoice_number + vendor + date + amount)
+  console.log(`  Before deduplication: ${data.invoices.length} invoices`);
+  data.invoices = deduplicateInvoices(data.invoices);
+  console.log(`  After deduplication: ${data.invoices.length} invoices`);
+
   // Update metadata
   data._metadata.total_invoices = data.invoices.length;
   data._metadata.last_corrected = new Date().toISOString();
@@ -253,7 +337,8 @@ function processOcrInvoices(data) {
     'Normalized vendor and property names',
     'Filled missing invoice numbers',
     'Removed zero-amount records',
-    'Corrected invoice types for lodging vendors (RENTAL → HOTEL)'
+    'Corrected invoice types for lodging vendors (RENTAL → HOTEL)',
+    'Deduplicated invoices (removed exact duplicates)'
   ];
 
   return data;
@@ -575,6 +660,39 @@ function main() {
   saveJSON('ledger-invoices.json', ledgerData);
   saveJSON('merged-data.json', mergedData);
 
+  // Update merge-summary.json with corrected counts
+  try {
+    const summaryPath = path.join(BASE_DIR, 'merge-summary.json');
+    if (fs.existsSync(summaryPath)) {
+      const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf-8'));
+
+      // Recalculate OCR stats from deduplicated data
+      const uniqueVendors = [...new Set(ocrData.invoices.map(inv => inv.vendor_name).filter(Boolean))];
+      const totalOcrAmount = ocrData.invoices.reduce((sum, inv) => sum + (inv.invoice_total || 0), 0);
+
+      summary.ocr_stats.unique_invoices = ocrData.invoices.length;
+      summary.ocr_stats.unique_vendors = uniqueVendors;
+      summary.ocr_stats.total_ocr_amount = totalOcrAmount.toFixed(2);
+
+      // Update match stats
+      const matchedCount = mergedData.matched_invoices?.length || 0;
+      const unmatchedOcrCount = mergedData.ocr_only?.length || 0;
+      summary.match_stats.unmatched_ocr_invoices = unmatchedOcrCount;
+      summary.match_stats.match_rate_ocr = ((matchedCount / ocrData.invoices.length) * 100).toFixed(1) + '%';
+
+      // Add deduplication note
+      summary.deduplication_applied = {
+        duplicates_removed: changeLog.duplicatesRemoved,
+        corrected_at: new Date().toISOString()
+      };
+
+      fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2));
+      console.log('Saved: merge-summary.json (updated with corrected counts)');
+    }
+  } catch (err) {
+    console.error('Warning: Could not update merge-summary.json:', err.message);
+  }
+
   // Print summary
   console.log('\n' + '='.repeat(60));
   console.log('CORRECTION SUMMARY');
@@ -587,7 +705,23 @@ function main() {
   console.log(`Zero records removed:      ${changeLog.zeroRecordsRemoved}`);
   console.log(`Contracts removed:         ${changeLog.contractsUnlinked}`);
   console.log(`Invoice type corrections:  ${changeLog.invoiceTypeCorrections}`);
+  console.log(`Duplicates removed:        ${changeLog.duplicatesRemoved}`);
   console.log('='.repeat(60));
+
+  // Print details of removed duplicates
+  if (removedDuplicates.length > 0) {
+    console.log('\nDUPLICATES REMOVED:');
+    console.log('-'.repeat(60));
+    removedDuplicates.forEach((dup, idx) => {
+      console.log(`${idx + 1}. Invoice #${dup.invoice_number}`);
+      console.log(`   Vendor: ${dup.vendor_name}`);
+      console.log(`   Date: ${dup.invoice_date}, Amount: $${dup.invoice_total?.toFixed(2) || '0.00'}`);
+      console.log(`   Source page: ${dup.meta_source_page || 'N/A'}`);
+      console.log(`   Reason: ${dup.reason}`);
+    });
+    console.log('-'.repeat(60));
+  }
+
   console.log('\nData corrections complete!');
 }
 
