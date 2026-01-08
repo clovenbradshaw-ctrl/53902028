@@ -2726,6 +2726,11 @@
       applyFilters();
     }
 
+    function openVendorProfile(vendorName) {
+      // Navigate to vendor profile page
+      window.location.href = `vendor-profile.html?vendor=${encodeURIComponent(vendorName)}`;
+    }
+
     function applyFilters() {
       filteredInvoices = invoices.filter(inv => {
         // Search
@@ -2909,11 +2914,11 @@
         card.addEventListener('click', () => openModal(parseInt(card.dataset.index)));
       });
 
-      // Add vendor click handlers
+      // Add vendor click handlers - navigate to vendor profile
       container.querySelectorAll('.invoice-vendor.clickable').forEach(vendor => {
         vendor.addEventListener('click', (e) => {
           e.stopPropagation();
-          filterByVendor(vendor.dataset.vendor);
+          openVendorProfile(vendor.dataset.vendor);
         });
       });
     }
@@ -2960,11 +2965,11 @@
         row.addEventListener('click', () => openModal(parseInt(row.dataset.index)));
       });
 
-      // Add vendor click handlers
+      // Add vendor click handlers - navigate to vendor profile
       container.querySelectorAll('.invoice-row-vendor.clickable').forEach(vendor => {
         vendor.addEventListener('click', (e) => {
           e.stopPropagation();
-          filterByVendor(vendor.dataset.vendor);
+          openVendorProfile(vendor.dataset.vendor);
         });
       });
     }
@@ -3063,11 +3068,11 @@
         card.addEventListener('click', () => openModal(parseInt(card.dataset.index)));
       });
 
-      // Add vendor click handlers
+      // Add vendor click handlers - navigate to vendor profile
       container.querySelectorAll('.invoice-vendor.clickable').forEach(vendor => {
         vendor.addEventListener('click', (e) => {
           e.stopPropagation();
-          filterByVendor(vendor.dataset.vendor);
+          openVendorProfile(vendor.dataset.vendor);
         });
       });
     }
