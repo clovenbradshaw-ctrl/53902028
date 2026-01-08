@@ -2214,6 +2214,14 @@
     // Merge multiple pages into a single invoice
     function mergePages(pages) {
       if (pages.length === 0) return null;
+
+      // Sort pages by source page number so lower numbers come first
+      pages = [...pages].sort((a, b) => {
+        const pageA = a.rawOCR?.meta_source_page || 0;
+        const pageB = b.rawOCR?.meta_source_page || 0;
+        return pageA - pageB;
+      });
+
       if (pages.length === 1) {
         const page = pages[0];
         return {
