@@ -500,6 +500,92 @@
       color: var(--text-secondary);
     }
 
+    /* Export Dropdown */
+    .export-dropdown {
+      position: relative;
+    }
+
+    .export-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      color: var(--bg-primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .export-btn:hover {
+      background: var(--accent-dim);
+    }
+
+    .export-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .export-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-width: 200px;
+      z-index: 50;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .export-dropdown.open .export-menu {
+      display: block;
+    }
+
+    .export-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      color: var(--text-primary);
+      font-size: 0.85rem;
+    }
+
+    .export-menu-item:first-child {
+      border-radius: 8px 8px 0 0;
+    }
+
+    .export-menu-item:last-child {
+      border-radius: 0 0 8px 8px;
+    }
+
+    .export-menu-item:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .export-menu-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--text-secondary);
+    }
+
+    .export-menu-item span.export-desc {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    .export-menu-divider {
+      border-top: 1px solid var(--border);
+      margin: 0.25rem 0;
+    }
+
     /* Grid View */
     .invoice-grid {
       display: grid;
@@ -1223,6 +1309,62 @@
               </svg>
               List
             </button>
+          </div>
+          <div class="export-dropdown" id="export-dropdown">
+            <button class="export-btn" id="export-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" x2="12" y1="15" y2="3"/>
+              </svg>
+              Export
+            </button>
+            <div class="export-menu">
+              <div class="export-menu-item" data-export="csv">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                  <polyline points="14,2 14,8 20,8"/>
+                </svg>
+                Export as CSV
+                <span class="export-desc">Full data</span>
+              </div>
+              <div class="export-menu-item" data-export="json">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                Export as JSON
+                <span class="export-desc">Structured</span>
+              </div>
+              <div class="export-menu-divider"></div>
+              <div class="export-menu-item" data-export="summary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 3v18h18"/>
+                  <path d="M18 17V9"/>
+                  <path d="M13 17V5"/>
+                  <path d="M8 17v-3"/>
+                </svg>
+                Export Summary
+                <span class="export-desc">Aggregated</span>
+              </div>
+              <div class="export-menu-item" data-export="vendor-summary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9,22 9,12 15,12 15,22"/>
+                </svg>
+                By Vendor
+                <span class="export-desc">Grouped</span>
+              </div>
+              <div class="export-menu-item" data-export="monthly-summary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                By Month
+                <span class="export-desc">Timeline</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1979,6 +2121,234 @@
       };
     }
 
+    // ==================== EXPORT FUNCTIONS ====================
+    function downloadFile(content, filename, type) {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function getExportFilename(suffix) {
+      const date = new Date().toISOString().split('T')[0];
+      const filterInfo = filteredInvoices.length !== invoices.length ? '_filtered' : '';
+      return `invoices_${date}${filterInfo}${suffix}`;
+    }
+
+    function exportToCSV() {
+      const headers = [
+        'Invoice Number', 'Invoice Date', 'Due Date', 'PO Number',
+        'Vendor Name', 'Vendor ID', 'Vendor Address', 'Vendor Phone', 'Vendor Email',
+        'Invoice Type', 'Total Amount', 'Subtotal',
+        'BU Code', 'Processor', 'Processor Date', 'Payer Entity',
+        'Confidence', 'File Name', 'Drive URL'
+      ];
+
+      const rows = filteredInvoices.map(inv => [
+        inv.invoice_number,
+        inv.invoice_date || '',
+        inv.due_date || '',
+        inv.po_number || '',
+        inv.vendor_name,
+        inv.vendor_id || '',
+        inv.vendor_address || '',
+        inv.vendor_phone || '',
+        inv.vendor_email || '',
+        inv.invoice_type,
+        inv.total_amount || '',
+        inv.subtotal || '',
+        inv.bu_code || '',
+        inv.processor_name || '',
+        inv.processor_date || '',
+        inv.payer_entity || '',
+        inv.confidence || '',
+        inv.name,
+        inv.driveUrl || ''
+      ]);
+
+      const csvContent = [
+        headers.join(','),
+        ...rows.map(row => row.map(cell => {
+          const str = String(cell);
+          if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+            return `"${str.replace(/"/g, '""')}"`;
+          }
+          return str;
+        }).join(','))
+      ].join('\n');
+
+      downloadFile(csvContent, getExportFilename('.csv'), 'text/csv');
+    }
+
+    function exportToJSON() {
+      const data = filteredInvoices.map(inv => ({
+        invoice_number: inv.invoice_number,
+        invoice_date: inv.invoice_date,
+        due_date: inv.due_date,
+        po_number: inv.po_number,
+        vendor: {
+          name: inv.vendor_name,
+          id: inv.vendor_id,
+          address: inv.vendor_address,
+          phone: inv.vendor_phone,
+          email: inv.vendor_email
+        },
+        invoice_type: inv.invoice_type,
+        amounts: {
+          total: inv.total_amount,
+          subtotal: inv.subtotal
+        },
+        accounting: {
+          bu_code: inv.bu_code,
+          processor_name: inv.processor_name,
+          processor_date: inv.processor_date,
+          payer_entity: inv.payer_entity
+        },
+        metadata: {
+          confidence: inv.confidence,
+          file_name: inv.name,
+          drive_url: inv.driveUrl
+        }
+      }));
+
+      const jsonContent = JSON.stringify(data, null, 2);
+      downloadFile(jsonContent, getExportFilename('.json'), 'application/json');
+    }
+
+    function exportSummary() {
+      const totalAmount = filteredInvoices.reduce((sum, inv) => sum + (inv.total_amount || 0), 0);
+      const vendors = new Set(filteredInvoices.map(inv => inv.vendor_name));
+      const types = {};
+      const processors = {};
+
+      filteredInvoices.forEach(inv => {
+        types[inv.invoice_type] = (types[inv.invoice_type] || 0) + 1;
+        if (inv.processor_name) {
+          processors[inv.processor_name] = (processors[inv.processor_name] || 0) + 1;
+        }
+      });
+
+      const dates = filteredInvoices.map(inv => inv.invoice_date).filter(Boolean).sort();
+
+      const summary = {
+        export_date: new Date().toISOString(),
+        filter_applied: filteredInvoices.length !== invoices.length,
+        totals: {
+          invoice_count: filteredInvoices.length,
+          total_amount: totalAmount,
+          unique_vendors: vendors.size,
+          date_range: {
+            earliest: dates[0] || null,
+            latest: dates[dates.length - 1] || null
+          }
+        },
+        by_invoice_type: Object.entries(types).map(([type, count]) => ({
+          type,
+          count,
+          total: filteredInvoices.filter(inv => inv.invoice_type === type)
+            .reduce((sum, inv) => sum + (inv.total_amount || 0), 0)
+        })).sort((a, b) => b.total - a.total),
+        by_processor: Object.entries(processors).map(([name, count]) => ({
+          processor: name,
+          count,
+          total: filteredInvoices.filter(inv => inv.processor_name === name)
+            .reduce((sum, inv) => sum + (inv.total_amount || 0), 0)
+        })).sort((a, b) => b.total - a.total)
+      };
+
+      const jsonContent = JSON.stringify(summary, null, 2);
+      downloadFile(jsonContent, getExportFilename('_summary.json'), 'application/json');
+    }
+
+    function exportVendorSummary() {
+      const vendorData = {};
+
+      filteredInvoices.forEach(inv => {
+        if (!vendorData[inv.vendor_name]) {
+          vendorData[inv.vendor_name] = {
+            vendor_name: inv.vendor_name,
+            vendor_id: inv.vendor_id,
+            invoice_count: 0,
+            total_amount: 0,
+            invoices: []
+          };
+        }
+        vendorData[inv.vendor_name].invoice_count++;
+        vendorData[inv.vendor_name].total_amount += (inv.total_amount || 0);
+        vendorData[inv.vendor_name].invoices.push({
+          invoice_number: inv.invoice_number,
+          date: inv.invoice_date,
+          amount: inv.total_amount,
+          type: inv.invoice_type
+        });
+      });
+
+      const sortedVendors = Object.values(vendorData)
+        .sort((a, b) => b.total_amount - a.total_amount);
+
+      const jsonContent = JSON.stringify(sortedVendors, null, 2);
+      downloadFile(jsonContent, getExportFilename('_by_vendor.json'), 'application/json');
+    }
+
+    function exportMonthlySummary() {
+      const monthlyData = {};
+
+      filteredInvoices.forEach(inv => {
+        const month = inv.invoice_date ? inv.invoice_date.substring(0, 7) : 'Unknown';
+        if (!monthlyData[month]) {
+          monthlyData[month] = {
+            month,
+            invoice_count: 0,
+            total_amount: 0,
+            vendors: new Set(),
+            by_type: {}
+          };
+        }
+        monthlyData[month].invoice_count++;
+        monthlyData[month].total_amount += (inv.total_amount || 0);
+        monthlyData[month].vendors.add(inv.vendor_name);
+        monthlyData[month].by_type[inv.invoice_type] = (monthlyData[month].by_type[inv.invoice_type] || 0) + 1;
+      });
+
+      const sortedMonths = Object.values(monthlyData)
+        .map(m => ({
+          ...m,
+          unique_vendors: m.vendors.size,
+          vendors: undefined
+        }))
+        .sort((a, b) => a.month.localeCompare(b.month));
+
+      const jsonContent = JSON.stringify(sortedMonths, null, 2);
+      downloadFile(jsonContent, getExportFilename('_by_month.json'), 'application/json');
+    }
+
+    function handleExport(type) {
+      switch (type) {
+        case 'csv':
+          exportToCSV();
+          break;
+        case 'json':
+          exportToJSON();
+          break;
+        case 'summary':
+          exportSummary();
+          break;
+        case 'vendor-summary':
+          exportVendorSummary();
+          break;
+        case 'monthly-summary':
+          exportMonthlySummary();
+          break;
+      }
+      // Close dropdown after export
+      document.getElementById('export-dropdown').classList.remove('open');
+    }
+
     // ==================== FILE LOADING ====================
     function loadCSV(text) {
       const rows = parseCSV(text);
@@ -2131,7 +2501,27 @@
           if (e.key === 'ArrowRight') navigateModal(1);
         }
       });
-      
+
+      // Export dropdown
+      document.getElementById('export-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.getElementById('export-dropdown').classList.toggle('open');
+      });
+
+      document.querySelectorAll('.export-menu-item').forEach(item => {
+        item.addEventListener('click', () => {
+          handleExport(item.dataset.export);
+        });
+      });
+
+      // Close export dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        const dropdown = document.getElementById('export-dropdown');
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      });
+
       // Try to auto-load CSV from same directory (for GitHub Pages)
       loadFromUrl('./data.csv').catch(() => {
         // CSV not found, show upload zone
