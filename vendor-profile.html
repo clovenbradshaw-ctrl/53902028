@@ -888,6 +888,7 @@
       'w.w. grainger, inc.': '"W.W. Grainger, Inc. dba Grainger"',
       'w.w. grainger, inc. dba grainger': '"W.W. Grainger, Inc. dba Grainger"',
       '97 wallace studios, llc': '97 WALLACE STUDIOS',
+      '97 wallace studios llc': '97 WALLACE STUDIOS',
       '97 wallace studios': '97 WALLACE STUDIOS',
       'thompson machinery': 'Thompson Machinery Commerce Corp.',
       'thompson machinery commerce corp.': 'Thompson Machinery Commerce Corp.',
@@ -903,6 +904,10 @@
       'greenview studios': 'Greenview Studios LLC',
       'greenview studios, llc': 'Greenview Studios LLC',
       'greenview studios llc': 'Greenview Studios LLC',
+      'highland east apartments': 'HIGHLAND EAST APARTMENTS',
+      'highland east': 'HIGHLAND EAST APARTMENTS',
+      'castello equity partners': 'THE AVE NASHVILLE LLC',
+      'the ave (castello equity partners)': 'THE AVE NASHVILLE LLC',
     };
 
     // Reverse mapping for display names
@@ -914,6 +919,9 @@
       '"W.W. Grainger, Inc. dba Grainger"': 'Grainger',
       '"Gordon Food Service, Inc."': 'Gordon Food Service',
       '"Hamilton, Justen T"': 'Justen Hamilton',
+      '97 WALLACE STUDIOS': '97 Wallace Studios',
+      'HIGHLAND EAST APARTMENTS': 'Highland East Apartments',
+      'Greenview Studios LLC': 'Greenview Studios',
     };
 
     function normalizeVendor(vendorName) {
@@ -975,7 +983,7 @@
         const vendorParam = urlParams.get('vendor');
 
         if (vendorParam) {
-          selectVendor(decodeURIComponent(vendorParam));
+          selectVendor(vendorParam);
         } else {
           showVendorSelector();
         }
@@ -1087,12 +1095,11 @@
 
     // ==================== VENDOR PROFILE ====================
     function selectVendor(vendorName) {
-      const decoded = decodeURIComponent(vendorName);
-      currentVendor = decoded;
+      currentVendor = vendorName;
 
       // Update URL
       const url = new URL(window.location);
-      url.searchParams.set('vendor', decoded);
+      url.searchParams.set('vendor', vendorName);
       window.history.pushState({}, '', url);
 
       document.getElementById('vendor-selector').style.display = 'none';
@@ -1340,7 +1347,7 @@
       const urlParams = new URLSearchParams(window.location.search);
       const vendorParam = urlParams.get('vendor');
       if (vendorParam) {
-        selectVendor(decodeURIComponent(vendorParam));
+        selectVendor(vendorParam);
       } else {
         currentVendor = null;
         showVendorSelector();
