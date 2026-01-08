@@ -3540,54 +3540,31 @@
 
     function exportToCSV() {
       const headers = [
-        'Invoice Number', 'Invoice Date', 'Due Date', 'PO Number',
-        'Vendor Name', 'Vendor ID', 'Vendor Address', 'Vendor Phone', 'Vendor Email',
-        'Invoice Type', 'Total Amount', 'Subtotal',
-        'BU Code', 'Processor', 'Processor Date', 'Payer Entity',
-        'Confidence', 'File Name', 'Drive URL',
-        'Line Items', 'Cost Allocations', 'Confirmation Numbers', 'Employee Names', 'Reference Numbers'
+        'Invoice Number', 'Invoice Date', 'Vendor Name', 'Total Amount',
+        'BU Code', 'Processor', 'Processor Date', 'File Name', 'Drive URL'
       ];
 
-      // Helper to serialize nested data as JSON string
-      const serializeField = (value) => {
-        if (value === null || value === undefined) return '';
-        if (Array.isArray(value)) {
-          return value.length > 0 ? JSON.stringify(value) : '';
+      // Calculate total from line items if total_amount is missing
+      const getTotal = (inv) => {
+        if (inv.total_amount) return parseFloat(inv.total_amount) || 0;
+        if (Array.isArray(inv.line_items) && inv.line_items.length > 0) {
+          return inv.line_items.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0);
         }
-        if (typeof value === 'object') {
-          return JSON.stringify(value);
-        }
-        return String(value);
+        return 0;
       };
 
       const rows = filteredInvoices.map(inv => [
         inv.invoice_number,
         inv.invoice_date || '',
-        inv.due_date || '',
-        inv.po_number || '',
         inv.vendor_name,
-        inv.vendor_id || '',
-        inv.vendor_address || '',
-        inv.vendor_phone || '',
-        inv.vendor_email || '',
-        inv.invoice_type,
-        inv.total_amount || '',
-        inv.subtotal || '',
+        getTotal(inv) || '',
         inv.bu_code || '',
         inv.processor_name || '',
         inv.processor_date || '',
-        inv.payer_entity || '',
-        inv.confidence || '',
         inv.name,
-        inv.driveUrl || '',
-        serializeField(inv.line_items),
-        serializeField(inv.cost_allocations),
-        serializeField(inv.confirmation_numbers),
-        serializeField(inv.employee_names),
-        serializeField(inv.reference_numbers)
+        inv.driveUrl || ''
       ]);
 
-      // Escape CSV field - handles commas, quotes, newlines within cells
       const escapeCSVField = (cell) => {
         const str = String(cell);
         if (str.includes(',') || str.includes('"') || str.includes('\n') || str.includes('\r')) {
@@ -3596,9 +3573,20 @@
         return str;
       };
 
+      // Calculate total spending
+      const totalSpending = filteredInvoices.reduce((sum, inv) => sum + getTotal(inv), 0);
+
+      // Summary row
+      const summaryRow = [
+        'TOTAL', '', `${filteredInvoices.length} invoices`, totalSpending.toFixed(2),
+        '', '', '', '', ''
+      ];
+
       const csvContent = [
         headers.map(escapeCSVField).join(','),
-        ...rows.map(row => row.map(escapeCSVField).join(','))
+        ...rows.map(row => row.map(escapeCSVField).join(',')),
+        '',
+        summaryRow.map(escapeCSVField).join(',')
       ].join('\n');
 
       downloadFile(csvContent, getExportFilename('.csv'), 'text/csv');
