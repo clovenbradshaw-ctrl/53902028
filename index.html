@@ -774,12 +774,34 @@
     .invoice-row-vendor.clickable {
       cursor: pointer;
       transition: color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .invoice-vendor.clickable::after,
+    .invoice-row-vendor.clickable::after {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87m-3-12a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+      transition: opacity 0.15s ease;
+      flex-shrink: 0;
     }
 
     .invoice-vendor.clickable:hover,
     .invoice-row-vendor.clickable:hover {
       color: var(--accent);
-      text-decoration: underline;
+    }
+
+    .invoice-vendor.clickable:hover::after,
+    .invoice-row-vendor.clickable:hover::after {
+      opacity: 1;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87m-3-12a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
     }
 
     .invoice-meta {
@@ -1091,6 +1113,14 @@
       display: flex;
       align-items: center;
       gap: 0.25rem;
+    }
+
+    .vendor-link:hover {
+      text-decoration: underline;
+    }
+
+    .vendor-link:hover svg {
+      opacity: 1 !important;
     }
 
     .detail-link:hover {
@@ -2735,6 +2765,11 @@
       applyFilters();
     }
 
+    function openVendorProfile(vendorName) {
+      // Navigate to vendor profile page
+      window.location.href = `vendor-profile.html?vendor=${encodeURIComponent(vendorName)}`;
+    }
+
     function applyFilters() {
       filteredInvoices = invoices.filter(inv => {
         // Search
@@ -2918,11 +2953,11 @@
         card.addEventListener('click', () => openModal(parseInt(card.dataset.index)));
       });
 
-      // Add vendor click handlers
+      // Add vendor click handlers - navigate to vendor profile
       container.querySelectorAll('.invoice-vendor.clickable').forEach(vendor => {
         vendor.addEventListener('click', (e) => {
           e.stopPropagation();
-          filterByVendor(vendor.dataset.vendor);
+          openVendorProfile(vendor.dataset.vendor);
         });
       });
     }
@@ -2969,11 +3004,11 @@
         row.addEventListener('click', () => openModal(parseInt(row.dataset.index)));
       });
 
-      // Add vendor click handlers
+      // Add vendor click handlers - navigate to vendor profile
       container.querySelectorAll('.invoice-row-vendor.clickable').forEach(vendor => {
         vendor.addEventListener('click', (e) => {
           e.stopPropagation();
-          filterByVendor(vendor.dataset.vendor);
+          openVendorProfile(vendor.dataset.vendor);
         });
       });
     }
@@ -3072,11 +3107,11 @@
         card.addEventListener('click', () => openModal(parseInt(card.dataset.index)));
       });
 
-      // Add vendor click handlers
+      // Add vendor click handlers - navigate to vendor profile
       container.querySelectorAll('.invoice-vendor.clickable').forEach(vendor => {
         vendor.addEventListener('click', (e) => {
           e.stopPropagation();
-          filterByVendor(vendor.dataset.vendor);
+          openVendorProfile(vendor.dataset.vendor);
         });
       });
     }
@@ -3431,7 +3466,10 @@
           <div class="detail-section-title">Vendor</div>
           <div class="detail-row">
             <span class="detail-label">Name</span>
-            <span class="detail-value">${inv.vendor_name}</span>
+            <a href="vendor-profile.html?vendor=${encodeURIComponent(inv.vendor_name)}" class="detail-value vendor-link" style="color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 500;">
+              ${inv.vendor_name}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.7;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </a>
           </div>
           <div class="detail-row">
             <span class="detail-label">ID</span>
@@ -3455,12 +3493,6 @@
             <span class="detail-value">${inv.vendor_email}</span>
           </div>
           ` : ''}
-          <div class="detail-row" style="margin-top: 0.75rem;">
-            <a href="vendor-profile.html?vendor=${encodeURIComponent(inv.vendor_name)}" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 0.25rem;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              View Vendor Profile
-            </a>
-          </div>
         </div>
 
         ${inv.payer_name ? `
