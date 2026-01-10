@@ -101,16 +101,49 @@ function parseOCR(ocrField) {
   }
 }
 
+// Helper to check if a value is considered "empty"
+function isEmpty(value) {
+  if (value === null || value === undefined) return true;
+  if (value === '') return true;
+  if (Array.isArray(value) && value.length === 0) return true;
+  if (typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) return true;
+  return false;
+}
+
+// Recursively remove empty values from an object
+function removeEmptyValues(obj) {
+  if (obj === null || obj === undefined) return null;
+  if (typeof obj !== 'object') return obj;
+  if (Array.isArray(obj)) {
+    const filtered = obj.map(removeEmptyValues).filter(v => !isEmpty(v));
+    return filtered.length > 0 ? filtered : null;
+  }
+  const result = {};
+  for (const [key, value] of Object.entries(obj)) {
+    const cleaned = removeEmptyValues(value);
+    if (!isEmpty(cleaned)) {
+      result[key] = cleaned;
+    }
+  }
+  return Object.keys(result).length > 0 ? result : null;
+}
+
 function serializeOCR(ocr, pageNumber) {
   // postProcessOCR is just JSON, no prefix
-  return JSON.stringify(ocr, null, 2);
+  // Skip empty data - don't include null, undefined, empty strings, or empty arrays
+  const cleaned = removeEmptyValues(ocr);
+  if (!cleaned) return '';
+  return JSON.stringify(cleaned, null, 2);
 }
 
 function serializeRawOCR(ocr, originalField) {
   // Preserve "Image X of Y" prefix if present
   const prefixMatch = originalField?.match(/^(Image \d+ of \d+\s*\n?)/i);
   const prefix = prefixMatch ? prefixMatch[1] : '';
-  return prefix + JSON.stringify(ocr, null, 2);
+  // Skip empty data - don't include null, undefined, empty strings, or empty arrays
+  const cleaned = removeEmptyValues(ocr);
+  if (!cleaned) return '';
+  return prefix + JSON.stringify(cleaned, null, 2);
 }
 
 function getPageNumber(row) {
