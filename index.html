@@ -3420,7 +3420,10 @@
 
     function renderGridView(container) {
       container.innerHTML = `<div class="invoice-grid">${filteredInvoices.map((inv, idx) => {
-        const thumbnails = inv.all_thumbnails || [inv.thumbnailUrl].filter(Boolean);
+        // Filter out null/undefined thumbnails and use all_thumbnails first, then fall back to thumbnailUrl
+        const thumbnails = (inv.all_thumbnails || []).filter(Boolean).length > 0
+          ? inv.all_thumbnails.filter(Boolean)
+          : [inv.thumbnailUrl].filter(Boolean);
         const isMultiPage = thumbnails.length > 1;
         const isRS974 = isRS2025974Vendor(inv.vendor_name);
 
@@ -3434,8 +3437,8 @@
                   ${thumbnails.length > 1 ? `<img class="thumb-behind thumb-behind-1" src="${thumbnails[1]}" alt="" loading="lazy">` : ''}
                   <img class="thumb-main" src="${thumbnails[0]}" alt="${inv.vendor_name}" loading="lazy">
                 </div>`
-              : (inv.thumbnailUrl
-                ? `<img src="${inv.thumbnailUrl}" alt="${inv.vendor_name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'invoice-thumb-placeholder\\'><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'2\\'><path d=\\'M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z\\'/><polyline points=\\'14,2 14,8 20,8\\'/></svg><span>No preview</span></div>'">`
+              : (thumbnails[0]
+                ? `<img src="${thumbnails[0]}" alt="${inv.vendor_name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'invoice-thumb-placeholder\\'><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'2\\'><path d=\\'M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z\\'/><polyline points=\\'14,2 14,8 20,8\\'/></svg><span>No preview</span></div>'">`
                 : `<div class="invoice-thumb-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
@@ -3494,7 +3497,10 @@
     function renderListView(container) {
       container.innerHTML = `<div class="invoice-list">
         ${filteredInvoices.map((inv, idx) => {
-          const thumbnails = inv.all_thumbnails || [inv.thumbnailUrl].filter(Boolean);
+          // Filter out null/undefined thumbnails and use all_thumbnails first, then fall back to thumbnailUrl
+          const thumbnails = (inv.all_thumbnails || []).filter(Boolean).length > 0
+            ? inv.all_thumbnails.filter(Boolean)
+            : [inv.thumbnailUrl].filter(Boolean);
           const isMultiPage = thumbnails.length > 1;
           const maxThumbs = 3; // Show max 3 thumbnails in list view
 
@@ -3508,7 +3514,7 @@
                   ${thumbnails.length > maxThumbs ? `<div class="more-pages">+${thumbnails.length - maxThumbs}</div>` : ''}
                 </div>`
               : `<div class="invoice-row-thumb" style="position: relative;">
-                  ${inv.thumbnailUrl ? `<img src="${inv.thumbnailUrl}" alt="" loading="lazy">` : ''}
+                  ${thumbnails[0] ? `<img src="${thumbnails[0]}" alt="" loading="lazy">` : ''}
                 </div>`
             }
             <div>
@@ -3606,11 +3612,16 @@
               </div>
             </div>
             <div class="invoice-grid">
-              ${items.map(inv => `
+              ${items.map(inv => {
+                // Filter out null/undefined thumbnails and use all_thumbnails first, then fall back to thumbnailUrl
+                const thumbnails = (inv.all_thumbnails || []).filter(Boolean).length > 0
+                  ? inv.all_thumbnails.filter(Boolean)
+                  : [inv.thumbnailUrl].filter(Boolean);
+                return `
                 <div class="invoice-card${isRS2025974Vendor(inv.vendor_name) ? ' rs2025-974' : ''}" data-index="${inv.originalIndex}">
                   <div class="invoice-thumb">
-                    ${inv.thumbnailUrl
-                      ? `<img src="${inv.thumbnailUrl}" alt="${inv.vendor_name}" loading="lazy">`
+                    ${thumbnails[0]
+                      ? `<img src="${thumbnails[0]}" alt="${inv.vendor_name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'invoice-thumb-placeholder\\'><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'2\\'><path d=\\'M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z\\'/></svg></div>'">`
                       : `<div class="invoice-thumb-placeholder">
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
@@ -3626,7 +3637,7 @@
                     </div>
                   </div>
                 </div>
-              `).join('')}
+              `}).join('')}
             </div>
           </div>
         `;
@@ -3902,9 +3913,9 @@
 
       document.getElementById('modal-title').textContent = inv.vendor_name;
 
-      // Get image URLs
-      const imageUrls = inv.all_thumbnails && inv.all_thumbnails.length > 0
-        ? inv.all_thumbnails
+      // Get image URLs - filter out null/undefined thumbnails
+      const imageUrls = (inv.all_thumbnails || []).filter(Boolean).length > 0
+        ? inv.all_thumbnails.filter(Boolean)
         : [inv.thumbnailUrl].filter(Boolean);
 
       updateModalImage(inv, imageUrls, 0);
